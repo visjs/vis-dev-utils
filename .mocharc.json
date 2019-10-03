@@ -1,0 +1,6 @@
+{
+  "extension": ["js", "ts"],
+  "require": ["./babel.require.js"],
+  "spec": ["./test/**/*.test.*"],
+  "watch-files": ["./src/**/*", "./test/**/*"]
+}
