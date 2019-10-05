@@ -26,11 +26,11 @@ export default ["generate-examples-index"].map(name => {
     external,
     plugins: [
       nodeResolve({
-        extensions: [".ts", ".js", ".json", ".css", ".html"],
+        extensions: [".css", ".html", ".js", ".json", ".ts", ".txt"],
         preferBuiltins: true
       }),
       string({
-        include: ["**/*.{css,html}"]
+        include: ["**/*.{css,html,txt}"]
       }),
       typescript({
         objectHashIgnoreUnknownHack: true,
