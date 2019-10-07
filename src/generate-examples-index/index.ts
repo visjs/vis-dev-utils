@@ -1,6 +1,7 @@
-import Pageres from "pageres";
 import $ from "cheerio";
+import Pageres from "pageres";
 import childProcess from "child_process";
+import commonScreenshotScript from "./screenshot-script.js.txt";
 import crypto from "crypto";
 import fs from "fs";
 import globby from "globby";
@@ -530,6 +531,9 @@ class ContentBuilder {
     );
     const screenshotPage = $.load(example.html);
     screenshotPage("head").prepend(
+      $("<script>")
+        .attr("type", "text/javascript")
+        .text(commonScreenshotScript),
       $("<script>")
         .attr("type", "text/javascript")
         .text(this._screenshotScript)
