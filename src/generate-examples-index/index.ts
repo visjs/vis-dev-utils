@@ -1,4 +1,5 @@
 import $ from "cheerio";
+import Jimp from "jimp";
 import Pageres from "pageres";
 import childProcess from "child_process";
 import commonScreenshotScript from "./screenshot-script.js.txt";
@@ -79,6 +80,13 @@ yargs
       "Generate full page (<html>…</html>), if false generates only a list of examples (<div>…</div>) that can be inserted into different page with custom CSS.",
     type: "boolean"
   })
+  .option("verify", {
+    alias: "v",
+    default: 100,
+    describe:
+      "Attempt to verify that the examples were generated correctly. The value is a percentage of checks that have to pass for the run to be considered success.",
+    type: "number"
+  })
   .option("parallel", {
     alias: "p",
     default: 6,
@@ -118,6 +126,14 @@ type Example = {
   selector: string;
   titles: string[];
 };
+interface Checks {
+  fail: number;
+  failPaths: string[];
+  okay: number;
+  okayPaths: string[];
+  percentage: number;
+  total: number;
+}
 
 function isExample(value: any): value is Example {
   return (
@@ -161,6 +177,9 @@ class ContentBuilder {
   private readonly _root: Cheerio;
   private readonly _screenshotTodo: Example[] = [];
 
+  private readonly _fail: string[] = [];
+  private readonly _okay: string[] = [];
+
   private readonly _examples: ExamplesRoot;
   private readonly _fullPage: boolean;
   private readonly _indexPath: string;
@@ -201,6 +220,7 @@ class ContentBuilder {
     generateIndex,
     renderScreenshots
   }: { generateIndex?: boolean; renderScreenshots?: boolean } = {}): {
+    checks: Promise<Checks>;
     index: Promise<void>;
     screenshots: Promise<void>;
   } {
@@ -256,7 +276,22 @@ class ContentBuilder {
         })()
       : Promise.resolve();
 
-    return { index, screenshots };
+    const checks = (async (): Promise<Checks> => {
+      await screenshots;
+      await index;
+
+      const total = this._okay.length + this._fail.length;
+      return {
+        fail: this._fail.length,
+        failPaths: this._fail,
+        okay: this._okay.length,
+        okayPaths: this._okay,
+        percentage: total === 0 ? 100 : (100 * this._okay.length) / total,
+        total
+      };
+    })();
+
+    return { checks, index, screenshots };
   }
 
   private async _processGroup(
@@ -541,7 +576,7 @@ class ContentBuilder {
     await writeFile(tmpPath, formatHTML(screenshotPage.html()));
 
     // Render the page and take the screenshot.
-    await new Pageres({
+    const screenshots = await new Pageres({
       delay: example.delay,
       selector: example.selector,
       css: [
@@ -571,6 +606,20 @@ class ContentBuilder {
 
     // Remove the temporary file.
     await unlink(tmpPath);
+
+    (await Promise.all(
+      screenshots.map(
+        (screenshot): Promise<boolean> => {
+          return this._isScreenshotValid(screenshot);
+        }
+      )
+    )).forEach((valid): void => {
+      if (valid) {
+        this._okay.push(example.path);
+      } else {
+        this._fail.push(example.path);
+      }
+    });
   }
   private _pageToScreenshotPath(
     pagePath: string,
@@ -584,6 +633,30 @@ class ContentBuilder {
         .update(pagePath)
         .digest("hex")}.png`
     );
+  }
+
+  /**
+   * Check if the screenshot is valid. At the moment this simply considers
+   * everything except for solid color images as valid. This works pretty well
+   * though may yield some false positives.
+   *
+   * @param screenshot - The binary data of the screenshot.
+   *
+   * @returns True for valid and false for invalid.
+   */
+  private async _isScreenshotValid(screenshot: Buffer): Promise<boolean> {
+    const image = await Jimp.read(screenshot);
+    const firstPixel = image.getPixelColor(0, 0);
+
+    for (let x = 0; x < image.getWidth(); ++x) {
+      for (let y = 0; y < image.getHeight(); ++y) {
+        if (firstPixel !== image.getPixelColor(x, y)) {
+          return true;
+        }
+      }
+    }
+
+    return false;
   }
 }
 
@@ -630,6 +703,8 @@ const exampleLinter = {
 };
 
 (async (): Promise<void> => {
+  let code = 0;
+
   if (!yargs.argv.index && !yargs.argv.screenshots && !yargs.argv.lint) {
     yargs.parse("--help");
     return;
@@ -770,5 +845,39 @@ const exampleLinter = {
       await builtData.screenshots;
       console.info("All screenshot files were written.");
     }
+
+    // Verify the result.
+    const checks = await builtData.checks;
+    process.stdout.write("\n");
+    if (checks.fail === 0) {
+      console.info(
+        `Verification: ${checks.okay} passed (${Math.round(
+          checks.percentage
+        )} %) passed.`
+      );
+    } else {
+      if (checks.percentage >= (yargs.argv.verify as number)) {
+        console.info(
+          `Verification: ${checks.okay} passed (${Math.round(
+            checks.percentage
+          )} %), ${checks.fail} failed.\n` +
+            "This is within the threshold set by --verify."
+        );
+      } else {
+        console.error(
+          `Verification: Only ${checks.okay} passed (${Math.round(
+            checks.percentage
+          )} %), ${checks.fail} failed.\n` +
+            "This is not within the threshold set by --verify. Exiting with an error."
+        );
+        code = 3;
+      }
+
+      checks.failPaths.forEach((path): void => {
+        console.error(path);
+      });
+    }
   }
+
+  process.exit(code);
 })();
