@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "declaration": false,
+    "baseUrl": "src/module",
+    "declaration": true,
+    "declarationDir": "declarations",
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
     "esModuleInterop": true,
     "module": "es2015",
     "moduleResolution": "node",
@@ -10,9 +13,9 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
-    "target": "esnext",
+    "target": "es2015",
     "typeRoots": ["@types", "node_modules/@types/"]
   },
   "exclude": ["node_modules", "**/__tests__/*"],
-  "include": ["."]
+  "include": ["src/module"]
 }

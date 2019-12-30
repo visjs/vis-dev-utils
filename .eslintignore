@@ -1,3 +1,5 @@
 !/.eslintrc
 /bin
+/declarations
 /dist
+/lib

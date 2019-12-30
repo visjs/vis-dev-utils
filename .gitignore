@@ -20,5 +20,7 @@
 
 # built files
 /bin
+/declarations
 /dist
-/vis-dev-util-0.0.0-no-version.tgz
+/lib
+/vis-dev-utils-0.0.0-no-version.tgz
