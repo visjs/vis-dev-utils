@@ -1,27 +1,27 @@
 exports['generate-examples-index snapshots broken html directory structure 1'] = [
-  "generated/assets/screenshot.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.png",
-  "generated/assets/screenshot.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.png",
-  "generated/assets/screenshot.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.png",
-  "generated/assets/screenshot.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.png",
-  "generated/assets/screenshot.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.png",
-  "generated/assets/screenshot.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.png",
-  "generated/assets/screenshot.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.png",
+  "generated/assets/screenshot.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.png",
+  "generated/assets/screenshot.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.png",
+  "generated/assets/screenshot.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.png",
+  "generated/assets/screenshot.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.png",
+  "generated/assets/screenshot.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.png",
+  "generated/assets/screenshot.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.png",
+  "generated/assets/screenshot.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.png",
   "generated/index/examples.css",
   "generated/index/index.html",
-  "generated/pages/codepen.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.html",
-  "generated/pages/codepen.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.html",
-  "generated/pages/codepen.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.html",
-  "generated/pages/codepen.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.html",
-  "generated/pages/codepen.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.html",
-  "generated/pages/codepen.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.html",
-  "generated/pages/codepen.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.html",
-  "generated/pages/jsfiddle.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.html",
-  "generated/pages/jsfiddle.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.html",
-  "generated/pages/jsfiddle.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.html",
-  "generated/pages/jsfiddle.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.html",
-  "generated/pages/jsfiddle.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.html",
-  "generated/pages/jsfiddle.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.html",
-  "generated/pages/jsfiddle.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.html"
+  "generated/pages/codepen.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.html",
+  "generated/pages/codepen.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.html",
+  "generated/pages/codepen.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.html",
+  "generated/pages/codepen.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.html",
+  "generated/pages/codepen.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.html",
+  "generated/pages/codepen.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.html",
+  "generated/pages/codepen.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.html",
+  "generated/pages/jsfiddle.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.html",
+  "generated/pages/jsfiddle.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.html",
+  "generated/pages/jsfiddle.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.html",
+  "generated/pages/jsfiddle.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.html",
+  "generated/pages/jsfiddle.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.html",
+  "generated/pages/jsfiddle.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.html",
+  "generated/pages/jsfiddle.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.html"
 ]
 
 exports['generate-examples-index snapshots broken html file contents generated/index/examples.css'] = `
@@ -116,12 +116,12 @@ exports['generate-examples-index snapshots broken html file contents generated/i
             ><div class="example-header">
               <a
                 class="icon jsfiddle"
-                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.html"
                 title="JSFiddle"
               ></a
               ><a
                 class="icon codepen"
-                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.html"
                 title="CodePen"
               ></a
               ><a
@@ -133,18 +133,18 @@ exports['generate-examples-index snapshots broken html file contents generated/i
               class="example-image"
               href="https://visjs.github.io/vis-test/examples/examples/example-alert.html"
               ><img
-                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.png"
+                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.png"
                 alt="Alert"/></a></span
           ><span class="example-link"
             ><div class="example-header">
               <a
                 class="icon jsfiddle"
-                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.html"
                 title="JSFiddle"
               ></a
               ><a
                 class="icon codepen"
-                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.html"
                 title="CodePen"
               ></a
               ><a
@@ -156,18 +156,18 @@ exports['generate-examples-index snapshots broken html file contents generated/i
               class="example-image"
               href="https://visjs.github.io/vis-test/examples/example-broken.html"
               ><img
-                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.png"
+                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.png"
                 alt="Broken"/></a></span
           ><span class="example-link"
             ><div class="example-header">
               <a
                 class="icon jsfiddle"
-                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.html"
                 title="JSFiddle"
               ></a
               ><a
                 class="icon codepen"
-                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.html"
                 title="CodePen"
               ></a
               ><a
@@ -179,18 +179,18 @@ exports['generate-examples-index snapshots broken html file contents generated/i
               class="example-image"
               href="https://visjs.github.io/vis-test/examples/examples/example-confirm.html"
               ><img
-                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.png"
+                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.png"
                 alt="Confirm"/></a></span
           ><span class="example-link"
             ><div class="example-header">
               <a
                 class="icon jsfiddle"
-                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.html"
                 title="JSFiddle"
               ></a
               ><a
                 class="icon codepen"
-                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.html"
                 title="CodePen"
               ></a
               ><a
@@ -202,18 +202,18 @@ exports['generate-examples-index snapshots broken html file contents generated/i
               class="example-image"
               href="https://visjs.github.io/vis-test/examples/examples/example-1.html"
               ><img
-                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.png"
+                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.png"
                 alt="Number 1"/></a></span
           ><span class="example-link"
             ><div class="example-header">
               <a
                 class="icon jsfiddle"
-                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.html"
                 title="JSFiddle"
               ></a
               ><a
                 class="icon codepen"
-                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.html"
                 title="CodePen"
               ></a
               ><a
@@ -225,7 +225,7 @@ exports['generate-examples-index snapshots broken html file contents generated/i
               class="example-image"
               href="https://visjs.github.io/vis-test/examples/examples/example-2.html"
               ><img
-                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.png"
+                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.png"
                 alt="Number 2"/></a
           ></span>
         </div>
@@ -236,12 +236,12 @@ exports['generate-examples-index snapshots broken html file contents generated/i
               ><div class="example-header">
                 <a
                   class="icon jsfiddle"
-                  href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.html"
+                  href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.html"
                   title="JSFiddle"
                 ></a
                 ><a
                   class="icon codepen"
-                  href="https://visjs.github.io/vis-test/public/examples/pages/codepen.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.html"
+                  href="https://visjs.github.io/vis-test/public/examples/pages/codepen.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.html"
                   title="CodePen"
                 ></a
                 ><a
@@ -253,18 +253,18 @@ exports['generate-examples-index snapshots broken html file contents generated/i
                 class="example-image"
                 href="https://visjs.github.io/vis-test/examples/examples/subdir/example-3.html"
                 ><img
-                  src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.png"
+                  src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.png"
                   alt="Number 3"/></a></span
             ><span class="example-link"
               ><div class="example-header">
                 <a
                   class="icon jsfiddle"
-                  href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.html"
+                  href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.html"
                   title="JSFiddle"
                 ></a
                 ><a
                   class="icon codepen"
-                  href="https://visjs.github.io/vis-test/public/examples/pages/codepen.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.html"
+                  href="https://visjs.github.io/vis-test/public/examples/pages/codepen.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.html"
                   title="CodePen"
                 ></a
                 ><a
@@ -276,7 +276,7 @@ exports['generate-examples-index snapshots broken html file contents generated/i
                 class="example-image"
                 href="https://visjs.github.io/vis-test/examples/examples/subdir/example-4.html"
                 ><img
-                  src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.png"
+                  src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.png"
                   alt="Number 4"/></a
             ></span>
           </div>
@@ -288,131 +288,7 @@ exports['generate-examples-index snapshots broken html file contents generated/i
 
 `
 
-exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Subdir | Number 3</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
-      <input
-        type="hidden"
-        name="data"
-        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 3&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js","title":"Test | Subdir | Number 3"}'
-      />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Subdir | Number 4</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
-      <input
-        type="hidden"
-        name="data"
-        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 4&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js","title":"Test | Subdir | Number 4"}'
-      />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Broken</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
-      <input
-        type="hidden"
-        name="data"
-        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;&lt;/div&gt;\\n","js":"\\n","js_external":"","title":"Test | Broken"}'
-      />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Alert</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
-      <input
-        type="hidden"
-        name="data"
-        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Alert&lt;/div&gt;\\n","js":"alert(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Alert"}'
-      />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.html'] = `
+exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -443,7 +319,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
 
 `
 
-exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.html'] = `
+exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -474,7 +350,38 @@ exports['generate-examples-index snapshots broken html file contents generated/p
 
 `
 
-exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.html'] = `
+exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Subdir | Number 4</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 4&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js","title":"Test | Subdir | Number 4"}'
+      />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open CodePen
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -505,7 +412,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
 
 `
 
-exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.html'] = `
+exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -514,32 +421,17 @@ exports['generate-examples-index snapshots broken html file contents generated/p
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://codepen.io/pen/define"
       method="post"
       target="_self"
     >
-      <input type="hidden" name="css" value />
       <input
         type="hidden"
-        name="html"
-        value='&lt;div id="test-element"&gt;Number 3&lt;/div&gt;
-'
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 3&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js","title":"Test | Subdir | Number 3"}'
       />
-      <input
-        type="hidden"
-        name="js"
-        value='console.log("This is just a test.");
-'
-      />
-      <input
-        type="hidden"
-        name="resources"
-        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js"
-      />
-      <input type="hidden" name="title" value="Test | Subdir | Number 3" />
-      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
+        Open CodePen
       </button>
     </form>
 
@@ -551,95 +443,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
 
 `
 
-exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Subdir | Number 4</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
-      method="post"
-      target="_self"
-    >
-      <input type="hidden" name="css" value />
-      <input
-        type="hidden"
-        name="html"
-        value='&lt;div id="test-element"&gt;Number 4&lt;/div&gt;
-'
-      />
-      <input
-        type="hidden"
-        name="js"
-        value='console.log("This is just a test.");
-'
-      />
-      <input
-        type="hidden"
-        name="resources"
-        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js"
-      />
-      <input type="hidden" name="title" value="Test | Subdir | Number 4" />
-      <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Broken</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
-      method="post"
-      target="_self"
-    >
-      <input type="hidden" name="css" value />
-      <input
-        type="hidden"
-        name="html"
-        value='&lt;div id="test-element"&gt;&lt;/div&gt;
-'
-      />
-      <input
-        type="hidden"
-        name="js"
-        value="
-"
-      />
-      <input type="hidden" name="resources" value />
-      <input type="hidden" name="title" value="Test | Broken" />
-      <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.html'] = `
+exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -648,32 +452,17 @@ exports['generate-examples-index snapshots broken html file contents generated/p
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://codepen.io/pen/define"
       method="post"
       target="_self"
     >
-      <input type="hidden" name="css" value />
       <input
         type="hidden"
-        name="html"
-        value='&lt;div id="test-element"&gt;Alert&lt;/div&gt;
-'
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Alert&lt;/div&gt;\\n","js":"alert(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Alert"}'
       />
-      <input
-        type="hidden"
-        name="js"
-        value='alert("This is just a test.");
-'
-      />
-      <input
-        type="hidden"
-        name="resources"
-        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"
-      />
-      <input type="hidden" name="title" value="Test | Alert" />
-      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
+        Open CodePen
       </button>
     </form>
 
@@ -685,7 +474,38 @@ exports['generate-examples-index snapshots broken html file contents generated/p
 
 `
 
-exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.html'] = `
+exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Broken</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;&lt;/div&gt;\\n","js":"\\n","js_external":"","title":"Test | Broken"}'
+      />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open CodePen
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -731,7 +551,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
 
 `
 
-exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.html'] = `
+exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -777,7 +597,53 @@ exports['generate-examples-index snapshots broken html file contents generated/p
 
 `
 
-exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.html'] = `
+exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Subdir | Number 4</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 4&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Subdir | Number 4" />
+      <input type="hidden" name="wrap" value="b" />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open JSFiddle
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -809,6 +675,140 @@ exports['generate-examples-index snapshots broken html file contents generated/p
         value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"
       />
       <input type="hidden" name="title" value="Test | Confirm" />
+      <input type="hidden" name="wrap" value="b" />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open JSFiddle
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Subdir | Number 3</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 3&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Subdir | Number 3" />
+      <input type="hidden" name="wrap" value="b" />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open JSFiddle
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Alert</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Alert&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='alert("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Alert" />
+      <input type="hidden" name="wrap" value="b" />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open JSFiddle
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Broken</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value="
+"
+      />
+      <input type="hidden" name="resources" value />
+      <input type="hidden" name="title" value="Test | Broken" />
       <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
@@ -824,30 +824,30 @@ exports['generate-examples-index snapshots broken html file contents generated/p
 `
 
 exports['generate-examples-index snapshots broken md directory structure 1'] = [
-  "generated/assets/screenshot.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.png",
-  "generated/assets/screenshot.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.png",
-  "generated/assets/screenshot.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.png",
-  "generated/assets/screenshot.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.png",
-  "generated/assets/screenshot.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.png",
-  "generated/assets/screenshot.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.png",
-  "generated/assets/screenshot.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.png",
+  "generated/assets/screenshot.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.png",
+  "generated/assets/screenshot.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.png",
+  "generated/assets/screenshot.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.png",
+  "generated/assets/screenshot.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.png",
+  "generated/assets/screenshot.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.png",
+  "generated/assets/screenshot.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.png",
+  "generated/assets/screenshot.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.png",
   "generated/index/README.md",
   "generated/index/test.md",
   "generated/index/test.subdir.md",
-  "generated/pages/codepen.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.html",
-  "generated/pages/codepen.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.html",
-  "generated/pages/codepen.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.html",
-  "generated/pages/codepen.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.html",
-  "generated/pages/codepen.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.html",
-  "generated/pages/codepen.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.html",
-  "generated/pages/codepen.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.html",
-  "generated/pages/jsfiddle.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.html",
-  "generated/pages/jsfiddle.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.html",
-  "generated/pages/jsfiddle.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.html",
-  "generated/pages/jsfiddle.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.html",
-  "generated/pages/jsfiddle.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.html",
-  "generated/pages/jsfiddle.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.html",
-  "generated/pages/jsfiddle.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.html"
+  "generated/pages/codepen.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.html",
+  "generated/pages/codepen.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.html",
+  "generated/pages/codepen.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.html",
+  "generated/pages/codepen.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.html",
+  "generated/pages/codepen.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.html",
+  "generated/pages/codepen.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.html",
+  "generated/pages/codepen.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.html",
+  "generated/pages/jsfiddle.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.html",
+  "generated/pages/jsfiddle.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.html",
+  "generated/pages/jsfiddle.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.html",
+  "generated/pages/jsfiddle.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.html",
+  "generated/pages/jsfiddle.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.html",
+  "generated/pages/jsfiddle.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.html",
+  "generated/pages/jsfiddle.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.html"
 ]
 
 exports['generate-examples-index snapshots broken md file contents generated/index/README.md'] = `
@@ -863,33 +863,33 @@ exports['generate-examples-index snapshots broken md file contents generated/ind
 
 ## Alert
 
-[![Alert](./../assets/screenshot.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.png)](https://visjs.github.io/vis-test/examples/examples/example-alert.html)
+[![Alert](./../assets/screenshot.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.png)](https://visjs.github.io/vis-test/examples/examples/example-alert.html)
 
-[Open](https://visjs.github.io/vis-test/examples/examples/example-alert.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.html)
+[Open](https://visjs.github.io/vis-test/examples/examples/example-alert.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.html)
 
 ## Broken
 
-[![Broken](./../assets/screenshot.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.png)](https://visjs.github.io/vis-test/examples/example-broken.html)
+[![Broken](./../assets/screenshot.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.png)](https://visjs.github.io/vis-test/examples/example-broken.html)
 
-[Open](https://visjs.github.io/vis-test/examples/example-broken.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.html)
+[Open](https://visjs.github.io/vis-test/examples/example-broken.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.html)
 
 ## Confirm
 
-[![Confirm](./../assets/screenshot.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.png)](https://visjs.github.io/vis-test/examples/examples/example-confirm.html)
+[![Confirm](./../assets/screenshot.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.png)](https://visjs.github.io/vis-test/examples/examples/example-confirm.html)
 
-[Open](https://visjs.github.io/vis-test/examples/examples/example-confirm.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.html)
+[Open](https://visjs.github.io/vis-test/examples/examples/example-confirm.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.html)
 
 ## Number 1
 
-[![Number 1](./../assets/screenshot.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.png)](https://visjs.github.io/vis-test/examples/examples/example-1.html)
+[![Number 1](./../assets/screenshot.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.png)](https://visjs.github.io/vis-test/examples/examples/example-1.html)
 
-[Open](https://visjs.github.io/vis-test/examples/examples/example-1.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.html)
+[Open](https://visjs.github.io/vis-test/examples/examples/example-1.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.html)
 
 ## Number 2
 
-[![Number 2](./../assets/screenshot.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.png)](https://visjs.github.io/vis-test/examples/examples/example-2.html)
+[![Number 2](./../assets/screenshot.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.png)](https://visjs.github.io/vis-test/examples/examples/example-2.html)
 
-[Open](https://visjs.github.io/vis-test/examples/examples/example-2.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.html)
+[Open](https://visjs.github.io/vis-test/examples/examples/example-2.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.html)
 
 `
 
@@ -898,143 +898,19 @@ exports['generate-examples-index snapshots broken md file contents generated/ind
 
 ## Number 3
 
-[![Number 3](./../assets/screenshot.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.png)](https://visjs.github.io/vis-test/examples/examples/subdir/example-3.html)
+[![Number 3](./../assets/screenshot.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.png)](https://visjs.github.io/vis-test/examples/examples/subdir/example-3.html)
 
-[Open](https://visjs.github.io/vis-test/examples/examples/subdir/example-3.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.html)
+[Open](https://visjs.github.io/vis-test/examples/examples/subdir/example-3.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.html)
 
 ## Number 4
 
-[![Number 4](./../assets/screenshot.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.png)](https://visjs.github.io/vis-test/examples/examples/subdir/example-4.html)
+[![Number 4](./../assets/screenshot.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.png)](https://visjs.github.io/vis-test/examples/examples/subdir/example-4.html)
 
-[Open](https://visjs.github.io/vis-test/examples/examples/subdir/example-4.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.html)
-
-`
-
-exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Subdir | Number 3</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
-      <input
-        type="hidden"
-        name="data"
-        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 3&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js","title":"Test | Subdir | Number 3"}'
-      />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
+[Open](https://visjs.github.io/vis-test/examples/examples/subdir/example-4.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.html)
 
 `
 
-exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Subdir | Number 4</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
-      <input
-        type="hidden"
-        name="data"
-        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 4&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js","title":"Test | Subdir | Number 4"}'
-      />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Broken</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
-      <input
-        type="hidden"
-        name="data"
-        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;&lt;/div&gt;\\n","js":"\\n","js_external":"","title":"Test | Broken"}'
-      />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Alert</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
-      <input
-        type="hidden"
-        name="data"
-        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Alert&lt;/div&gt;\\n","js":"alert(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Alert"}'
-      />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.html'] = `
+exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -1065,7 +941,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
 
 `
 
-exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.html'] = `
+exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -1096,7 +972,38 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
 
 `
 
-exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.html'] = `
+exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Subdir | Number 4</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 4&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js","title":"Test | Subdir | Number 4"}'
+      />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open CodePen
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -1127,7 +1034,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
 
 `
 
-exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.html'] = `
+exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -1136,32 +1043,17 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://codepen.io/pen/define"
       method="post"
       target="_self"
     >
-      <input type="hidden" name="css" value />
       <input
         type="hidden"
-        name="html"
-        value='&lt;div id="test-element"&gt;Number 3&lt;/div&gt;
-'
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 3&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js","title":"Test | Subdir | Number 3"}'
       />
-      <input
-        type="hidden"
-        name="js"
-        value='console.log("This is just a test.");
-'
-      />
-      <input
-        type="hidden"
-        name="resources"
-        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js"
-      />
-      <input type="hidden" name="title" value="Test | Subdir | Number 3" />
-      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
+        Open CodePen
       </button>
     </form>
 
@@ -1173,95 +1065,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
 
 `
 
-exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Subdir | Number 4</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
-      method="post"
-      target="_self"
-    >
-      <input type="hidden" name="css" value />
-      <input
-        type="hidden"
-        name="html"
-        value='&lt;div id="test-element"&gt;Number 4&lt;/div&gt;
-'
-      />
-      <input
-        type="hidden"
-        name="js"
-        value='console.log("This is just a test.");
-'
-      />
-      <input
-        type="hidden"
-        name="resources"
-        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js"
-      />
-      <input type="hidden" name="title" value="Test | Subdir | Number 4" />
-      <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Broken</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
-      method="post"
-      target="_self"
-    >
-      <input type="hidden" name="css" value />
-      <input
-        type="hidden"
-        name="html"
-        value='&lt;div id="test-element"&gt;&lt;/div&gt;
-'
-      />
-      <input
-        type="hidden"
-        name="js"
-        value="
-"
-      />
-      <input type="hidden" name="resources" value />
-      <input type="hidden" name="title" value="Test | Broken" />
-      <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.html'] = `
+exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -1270,32 +1074,17 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://codepen.io/pen/define"
       method="post"
       target="_self"
     >
-      <input type="hidden" name="css" value />
       <input
         type="hidden"
-        name="html"
-        value='&lt;div id="test-element"&gt;Alert&lt;/div&gt;
-'
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Alert&lt;/div&gt;\\n","js":"alert(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Alert"}'
       />
-      <input
-        type="hidden"
-        name="js"
-        value='alert("This is just a test.");
-'
-      />
-      <input
-        type="hidden"
-        name="resources"
-        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"
-      />
-      <input type="hidden" name="title" value="Test | Alert" />
-      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
+        Open CodePen
       </button>
     </form>
 
@@ -1307,7 +1096,38 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
 
 `
 
-exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.html'] = `
+exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Broken</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;&lt;/div&gt;\\n","js":"\\n","js_external":"","title":"Test | Broken"}'
+      />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open CodePen
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -1353,7 +1173,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
 
 `
 
-exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.html'] = `
+exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -1399,7 +1219,53 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
 
 `
 
-exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.html'] = `
+exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Subdir | Number 4</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 4&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Subdir | Number 4" />
+      <input type="hidden" name="wrap" value="b" />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open JSFiddle
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -1445,27 +1311,161 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
 
 `
 
+exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Subdir | Number 3</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 3&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Subdir | Number 3" />
+      <input type="hidden" name="wrap" value="b" />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open JSFiddle
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Alert</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Alert&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='alert("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Alert" />
+      <input type="hidden" name="wrap" value="b" />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open JSFiddle
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Broken</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value="
+"
+      />
+      <input type="hidden" name="resources" value />
+      <input type="hidden" name="title" value="Test | Broken" />
+      <input type="hidden" name="wrap" value="b" />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open JSFiddle
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
 exports['generate-examples-index snapshots okay html directory structure 1'] = [
-  "generated/assets/screenshot.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.png",
-  "generated/assets/screenshot.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.png",
-  "generated/assets/screenshot.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.png",
-  "generated/assets/screenshot.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.png",
-  "generated/assets/screenshot.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.png",
-  "generated/assets/screenshot.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.png",
+  "generated/assets/screenshot.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.png",
+  "generated/assets/screenshot.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.png",
+  "generated/assets/screenshot.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.png",
+  "generated/assets/screenshot.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.png",
+  "generated/assets/screenshot.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.png",
+  "generated/assets/screenshot.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.png",
   "generated/index/examples.css",
   "generated/index/index.html",
-  "generated/pages/codepen.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.html",
-  "generated/pages/codepen.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.html",
-  "generated/pages/codepen.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.html",
-  "generated/pages/codepen.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.html",
-  "generated/pages/codepen.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.html",
-  "generated/pages/codepen.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.html",
-  "generated/pages/jsfiddle.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.html",
-  "generated/pages/jsfiddle.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.html",
-  "generated/pages/jsfiddle.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.html",
-  "generated/pages/jsfiddle.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.html",
-  "generated/pages/jsfiddle.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.html",
-  "generated/pages/jsfiddle.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.html"
+  "generated/pages/codepen.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.html",
+  "generated/pages/codepen.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.html",
+  "generated/pages/codepen.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.html",
+  "generated/pages/codepen.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.html",
+  "generated/pages/codepen.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.html",
+  "generated/pages/codepen.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.html",
+  "generated/pages/jsfiddle.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.html",
+  "generated/pages/jsfiddle.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.html",
+  "generated/pages/jsfiddle.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.html",
+  "generated/pages/jsfiddle.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.html",
+  "generated/pages/jsfiddle.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.html",
+  "generated/pages/jsfiddle.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.html"
 ]
 
 exports['generate-examples-index snapshots okay html file contents generated/index/examples.css'] = `
@@ -1560,12 +1560,12 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
             ><div class="example-header">
               <a
                 class="icon jsfiddle"
-                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.html"
                 title="JSFiddle"
               ></a
               ><a
                 class="icon codepen"
-                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.html"
                 title="CodePen"
               ></a
               ><a
@@ -1577,18 +1577,18 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
               class="example-image"
               href="https://visjs.github.io/vis-test/examples/example-alert.html"
               ><img
-                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.png"
+                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.png"
                 alt="Alert"/></a></span
           ><span class="example-link"
             ><div class="example-header">
               <a
                 class="icon jsfiddle"
-                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.html"
                 title="JSFiddle"
               ></a
               ><a
                 class="icon codepen"
-                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.html"
                 title="CodePen"
               ></a
               ><a
@@ -1600,18 +1600,18 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
               class="example-image"
               href="https://visjs.github.io/vis-test/examples/example-confirm.html"
               ><img
-                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.png"
+                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.png"
                 alt="Confirm"/></a></span
           ><span class="example-link"
             ><div class="example-header">
               <a
                 class="icon jsfiddle"
-                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.html"
                 title="JSFiddle"
               ></a
               ><a
                 class="icon codepen"
-                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.html"
                 title="CodePen"
               ></a
               ><a
@@ -1623,18 +1623,18 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
               class="example-image"
               href="https://visjs.github.io/vis-test/examples/example-1.html"
               ><img
-                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.png"
+                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.png"
                 alt="Number 1"/></a></span
           ><span class="example-link"
             ><div class="example-header">
               <a
                 class="icon jsfiddle"
-                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.html"
                 title="JSFiddle"
               ></a
               ><a
                 class="icon codepen"
-                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.html"
+                href="https://visjs.github.io/vis-test/public/examples/pages/codepen.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.html"
                 title="CodePen"
               ></a
               ><a
@@ -1646,7 +1646,7 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
               class="example-image"
               href="https://visjs.github.io/vis-test/examples/example-2.html"
               ><img
-                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.png"
+                src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.png"
                 alt="Number 2"/></a
           ></span>
         </div>
@@ -1657,12 +1657,12 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
               ><div class="example-header">
                 <a
                   class="icon jsfiddle"
-                  href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.html"
+                  href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.html"
                   title="JSFiddle"
                 ></a
                 ><a
                   class="icon codepen"
-                  href="https://visjs.github.io/vis-test/public/examples/pages/codepen.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.html"
+                  href="https://visjs.github.io/vis-test/public/examples/pages/codepen.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.html"
                   title="CodePen"
                 ></a
                 ><a
@@ -1674,18 +1674,18 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
                 class="example-image"
                 href="https://visjs.github.io/vis-test/examples/subdir/example-3.html"
                 ><img
-                  src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.png"
+                  src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.png"
                   alt="Number 3"/></a></span
             ><span class="example-link"
               ><div class="example-header">
                 <a
                   class="icon jsfiddle"
-                  href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.html"
+                  href="https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.html"
                   title="JSFiddle"
                 ></a
                 ><a
                   class="icon codepen"
-                  href="https://visjs.github.io/vis-test/public/examples/pages/codepen.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.html"
+                  href="https://visjs.github.io/vis-test/public/examples/pages/codepen.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.html"
                   title="CodePen"
                 ></a
                 ><a
@@ -1697,7 +1697,7 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
                 class="example-image"
                 href="https://visjs.github.io/vis-test/examples/subdir/example-4.html"
                 ><img
-                  src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.png"
+                  src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.png"
                   alt="Number 4"/></a
             ></span>
           </div>
@@ -1709,100 +1709,7 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
 
 `
 
-exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Subdir | Number 3</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
-      <input
-        type="hidden"
-        name="data"
-        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 3&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js","title":"Test | Subdir | Number 3"}'
-      />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Alert</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
-      <input
-        type="hidden"
-        name="data"
-        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Alert&lt;/div&gt;\\n","js":"alert(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Alert"}'
-      />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Confirm</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
-      <input
-        type="hidden"
-        name="data"
-        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Confirm&lt;/div&gt;\\n","js":"Confirm(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Confirm"}'
-      />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.html'] = `
+exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -1833,7 +1740,38 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
 
 `
 
-exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.html'] = `
+exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Alert</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Alert&lt;/div&gt;\\n","js":"alert(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Alert"}'
+      />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open CodePen
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -1864,7 +1802,69 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
 
 `
 
-exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.html'] = `
+exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Confirm</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Confirm&lt;/div&gt;\\n","js":"Confirm(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Confirm"}'
+      />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open CodePen
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Subdir | Number 3</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 3&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js","title":"Test | Subdir | Number 3"}'
+      />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open CodePen
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -1895,145 +1895,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
 
 `
 
-exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Subdir | Number 3</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
-      method="post"
-      target="_self"
-    >
-      <input type="hidden" name="css" value />
-      <input
-        type="hidden"
-        name="html"
-        value='&lt;div id="test-element"&gt;Number 3&lt;/div&gt;
-'
-      />
-      <input
-        type="hidden"
-        name="js"
-        value='console.log("This is just a test.");
-'
-      />
-      <input
-        type="hidden"
-        name="resources"
-        value="https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js"
-      />
-      <input type="hidden" name="title" value="Test | Subdir | Number 3" />
-      <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Alert</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
-      method="post"
-      target="_self"
-    >
-      <input type="hidden" name="css" value />
-      <input
-        type="hidden"
-        name="html"
-        value='&lt;div id="test-element"&gt;Alert&lt;/div&gt;
-'
-      />
-      <input
-        type="hidden"
-        name="js"
-        value='alert("This is just a test.");
-'
-      />
-      <input
-        type="hidden"
-        name="resources"
-        value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"
-      />
-      <input type="hidden" name="title" value="Test | Alert" />
-      <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Confirm</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
-      method="post"
-      target="_self"
-    >
-      <input type="hidden" name="css" value />
-      <input
-        type="hidden"
-        name="html"
-        value='&lt;div id="test-element"&gt;Confirm&lt;/div&gt;
-'
-      />
-      <input
-        type="hidden"
-        name="js"
-        value='Confirm("This is just a test.");
-'
-      />
-      <input
-        type="hidden"
-        name="resources"
-        value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"
-      />
-      <input type="hidden" name="title" value="Test | Confirm" />
-      <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.html'] = `
+exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -2079,7 +1941,53 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
 
 `
 
-exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.html'] = `
+exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Alert</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Alert&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='alert("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Alert" />
+      <input type="hidden" name="wrap" value="b" />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open JSFiddle
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -2125,7 +2033,99 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
 
 `
 
-exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.html'] = `
+exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Confirm</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Confirm&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='Confirm("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Confirm" />
+      <input type="hidden" name="wrap" value="b" />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open JSFiddle
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Subdir | Number 3</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 3&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Subdir | Number 3" />
+      <input type="hidden" name="wrap" value="b" />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open JSFiddle
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -2172,27 +2172,27 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
 `
 
 exports['generate-examples-index snapshots okay md directory structure 1'] = [
-  "generated/assets/screenshot.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.png",
-  "generated/assets/screenshot.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.png",
-  "generated/assets/screenshot.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.png",
-  "generated/assets/screenshot.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.png",
-  "generated/assets/screenshot.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.png",
-  "generated/assets/screenshot.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.png",
+  "generated/assets/screenshot.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.png",
+  "generated/assets/screenshot.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.png",
+  "generated/assets/screenshot.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.png",
+  "generated/assets/screenshot.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.png",
+  "generated/assets/screenshot.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.png",
+  "generated/assets/screenshot.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.png",
   "generated/index/README.md",
   "generated/index/test.md",
   "generated/index/test.subdir.md",
-  "generated/pages/codepen.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.html",
-  "generated/pages/codepen.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.html",
-  "generated/pages/codepen.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.html",
-  "generated/pages/codepen.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.html",
-  "generated/pages/codepen.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.html",
-  "generated/pages/codepen.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.html",
-  "generated/pages/jsfiddle.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.html",
-  "generated/pages/jsfiddle.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.html",
-  "generated/pages/jsfiddle.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.html",
-  "generated/pages/jsfiddle.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.html",
-  "generated/pages/jsfiddle.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.html",
-  "generated/pages/jsfiddle.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.html"
+  "generated/pages/codepen.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.html",
+  "generated/pages/codepen.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.html",
+  "generated/pages/codepen.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.html",
+  "generated/pages/codepen.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.html",
+  "generated/pages/codepen.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.html",
+  "generated/pages/codepen.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.html",
+  "generated/pages/jsfiddle.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.html",
+  "generated/pages/jsfiddle.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.html",
+  "generated/pages/jsfiddle.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.html",
+  "generated/pages/jsfiddle.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.html",
+  "generated/pages/jsfiddle.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.html",
+  "generated/pages/jsfiddle.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.html"
 ]
 
 exports['generate-examples-index snapshots okay md file contents generated/index/README.md'] = `
@@ -2208,27 +2208,27 @@ exports['generate-examples-index snapshots okay md file contents generated/index
 
 ## Alert
 
-[![Alert](./../assets/screenshot.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.png)](https://visjs.github.io/vis-test/examples/example-alert.html)
+[![Alert](./../assets/screenshot.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.png)](https://visjs.github.io/vis-test/examples/example-alert.html)
 
-[Open](https://visjs.github.io/vis-test/examples/example-alert.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.html)
+[Open](https://visjs.github.io/vis-test/examples/example-alert.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.html)
 
 ## Confirm
 
-[![Confirm](./../assets/screenshot.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.png)](https://visjs.github.io/vis-test/examples/example-confirm.html)
+[![Confirm](./../assets/screenshot.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.png)](https://visjs.github.io/vis-test/examples/example-confirm.html)
 
-[Open](https://visjs.github.io/vis-test/examples/example-confirm.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.html)
+[Open](https://visjs.github.io/vis-test/examples/example-confirm.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.html)
 
 ## Number 1
 
-[![Number 1](./../assets/screenshot.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.png)](https://visjs.github.io/vis-test/examples/example-1.html)
+[![Number 1](./../assets/screenshot.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.png)](https://visjs.github.io/vis-test/examples/example-1.html)
 
-[Open](https://visjs.github.io/vis-test/examples/example-1.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.html)
+[Open](https://visjs.github.io/vis-test/examples/example-1.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.html)
 
 ## Number 2
 
-[![Number 2](./../assets/screenshot.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.png)](https://visjs.github.io/vis-test/examples/example-2.html)
+[![Number 2](./../assets/screenshot.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.png)](https://visjs.github.io/vis-test/examples/example-2.html)
 
-[Open](https://visjs.github.io/vis-test/examples/example-2.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.html)
+[Open](https://visjs.github.io/vis-test/examples/example-2.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.html)
 
 `
 
@@ -2237,112 +2237,19 @@ exports['generate-examples-index snapshots okay md file contents generated/index
 
 ## Number 3
 
-[![Number 3](./../assets/screenshot.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.png)](https://visjs.github.io/vis-test/examples/subdir/example-3.html)
+[![Number 3](./../assets/screenshot.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.png)](https://visjs.github.io/vis-test/examples/subdir/example-3.html)
 
-[Open](https://visjs.github.io/vis-test/examples/subdir/example-3.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.html)
+[Open](https://visjs.github.io/vis-test/examples/subdir/example-3.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.html)
 
 ## Number 4
 
-[![Number 4](./../assets/screenshot.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.png)](https://visjs.github.io/vis-test/examples/subdir/example-4.html)
+[![Number 4](./../assets/screenshot.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.png)](https://visjs.github.io/vis-test/examples/subdir/example-4.html)
 
-[Open](https://visjs.github.io/vis-test/examples/subdir/example-4.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.html)
-
-`
-
-exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Subdir | Number 3</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
-      <input
-        type="hidden"
-        name="data"
-        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 3&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js","title":"Test | Subdir | Number 3"}'
-      />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
+[Open](https://visjs.github.io/vis-test/examples/subdir/example-4.html) | [JSFiddle](https://visjs.github.io/vis-test/public/examples/pages/jsfiddle.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.html) | [CodePen](https://visjs.github.io/vis-test/public/examples/pages/codepen.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.html)
 
 `
 
-exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Alert</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
-      <input
-        type="hidden"
-        name="data"
-        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Alert&lt;/div&gt;\\n","js":"alert(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Alert"}'
-      />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Confirm</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
-      <input
-        type="hidden"
-        name="data"
-        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Confirm&lt;/div&gt;\\n","js":"Confirm(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Confirm"}'
-      />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.html'] = `
+exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -2373,7 +2280,38 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
 
 `
 
-exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.html'] = `
+exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Alert</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Alert&lt;/div&gt;\\n","js":"alert(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Alert"}'
+      />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open CodePen
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -2404,7 +2342,69 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
 
 `
 
-exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.html'] = `
+exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Confirm</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Confirm&lt;/div&gt;\\n","js":"Confirm(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Confirm"}'
+      />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open CodePen
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Subdir | Number 3</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 3&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js","title":"Test | Subdir | Number 3"}'
+      />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open CodePen
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -2435,145 +2435,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
 
 `
 
-exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Subdir | Number 3</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
-      method="post"
-      target="_self"
-    >
-      <input type="hidden" name="css" value />
-      <input
-        type="hidden"
-        name="html"
-        value='&lt;div id="test-element"&gt;Number 3&lt;/div&gt;
-'
-      />
-      <input
-        type="hidden"
-        name="js"
-        value='console.log("This is just a test.");
-'
-      />
-      <input
-        type="hidden"
-        name="resources"
-        value="https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js"
-      />
-      <input type="hidden" name="title" value="Test | Subdir | Number 3" />
-      <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Alert</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
-      method="post"
-      target="_self"
-    >
-      <input type="hidden" name="css" value />
-      <input
-        type="hidden"
-        name="html"
-        value='&lt;div id="test-element"&gt;Alert&lt;/div&gt;
-'
-      />
-      <input
-        type="hidden"
-        name="js"
-        value='alert("This is just a test.");
-'
-      />
-      <input
-        type="hidden"
-        name="resources"
-        value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"
-      />
-      <input type="hidden" name="title" value="Test | Alert" />
-      <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.html'] = `
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Test | Confirm</title>
-  </head>
-  <body>
-    <form
-      id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
-      method="post"
-      target="_self"
-    >
-      <input type="hidden" name="css" value />
-      <input
-        type="hidden"
-        name="html"
-        value='&lt;div id="test-element"&gt;Confirm&lt;/div&gt;
-'
-      />
-      <input
-        type="hidden"
-        name="js"
-        value='Confirm("This is just a test.");
-'
-      />
-      <input
-        type="hidden"
-        name="resources"
-        value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"
-      />
-      <input type="hidden" name="title" value="Test | Confirm" />
-      <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
-    </form>
-
-    <script type="text/javascript">
-      document.getElementById("open").click();
-    </script>
-  </body>
-</html>
-
-`
-
-exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.html'] = `
+exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -2619,7 +2481,53 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
 
 `
 
-exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.html'] = `
+exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Alert</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Alert&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='alert("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Alert" />
+      <input type="hidden" name="wrap" value="b" />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open JSFiddle
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />
@@ -2665,7 +2573,99 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
 
 `
 
-exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.html'] = `
+exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Confirm</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Confirm&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='Confirm("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Confirm" />
+      <input type="hidden" name="wrap" value="b" />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open JSFiddle
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.html'] = `
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Test | Subdir | Number 3</title>
+  </head>
+  <body>
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 3&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Subdir | Number 3" />
+      <input type="hidden" name="wrap" value="b" />
+      <button id="open" alt="JSFiddle" title="JSFiddle">
+        Open JSFiddle
+      </button>
+    </form>
+
+    <script type="text/javascript">
+      document.getElementById("open").click();
+    </script>
+  </body>
+</html>
+
+`
+
+exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.html'] = `
 <html>
   <head>
     <meta charset="utf-8" />

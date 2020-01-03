@@ -21,34 +21,39 @@ export function fixAbsoluteInputURL(baseURL: string, url: string): string {
 
 export function generatePaths(
   config: ExamplePaths,
-  exampleRawPath: Example["path"]
+  exampleAbsolutePath: Example["path"]
 ): ExamplePaths {
+  const exampleRelativePath = relative(config.page.local, exampleAbsolutePath);
+
+  // It's important that the hash is created from the relative path so that it
+  // is the same on all computers.
+  const hash = createHash("sha256")
+    .update(exampleRelativePath)
+    .digest("hex");
+
   return {
     codepen: generateLocalWebPair(
       config.codepen.local,
       config.codepen.web,
-      exampleRawPath,
+      hash,
       "codepen",
       "html"
     ),
     jsfiddle: generateLocalWebPair(
       config.jsfiddle.local,
       config.jsfiddle.web,
-      exampleRawPath,
+      hash,
       "jsfiddle",
       "html"
     ),
     page: {
-      local: exampleRawPath,
-      web: joinURLs(
-        config.page.web,
-        relative(config.page.local, exampleRawPath)
-      )
+      local: exampleAbsolutePath,
+      web: joinURLs(config.page.web, exampleRelativePath)
     },
     screenshot: generateLocalWebPair(
       config.screenshot.local,
       config.screenshot.web,
-      exampleRawPath,
+      hash,
       "screenshot",
       "png"
     )
@@ -58,13 +63,10 @@ export function generatePaths(
 function generateLocalWebPair(
   localRoot: string,
   webRoot: string,
-  exampleRawPath: string,
+  hash: string,
   prefix: string,
   extension: string
 ): ExamplePath {
-  const hash = createHash("sha256")
-    .update(exampleRawPath)
-    .digest("hex");
   const filename = `${prefix}.${hash}.${extension}`;
 
   return {
