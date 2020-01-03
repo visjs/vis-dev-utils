@@ -37,6 +37,16 @@ const readFile = util.promisify(fs.readFile);
 
 function getMeta(page: CheerioStatic, name: string, fallback: number): number;
 function getMeta(page: CheerioStatic, name: string, fallback: string): string;
+/**
+ * Extract and coerce a value from meta tag.
+ *
+ * @param page - The page to be queried.
+ * @param name - The name of the meta tag.
+ * @param fallback - The value to be used if the meta tag is not present.
+ *
+ * @returns The value with the same type as the fallback or the fallback if
+ * conversion isn't possible or the value is not present in the page.
+ */
 function getMeta(
   page: CheerioStatic,
   name: string,
@@ -44,57 +54,65 @@ function getMeta(
 ): number | string {
   const content = page(`meta[name="${name}"]`).attr("content");
 
-  if (content == null) {
-    return fallback;
-  } else if (typeof fallback === "number") {
-    const nmContent = Number.parseFloat(content);
-    return !Number.isNaN(nmContent) ? nmContent : fallback;
+  if (typeof fallback === "number" && !Number.isNaN(+content)) {
+    // Both are numbers.
+    return +content;
+  } else if (typeof fallback === "string" && typeof content === "string") {
+    // Both are strings.
+    return content;
   } else {
-    return content != null ? content : fallback;
+    // Something doesn't match, use the fallback.
+    return fallback;
   }
 }
 
-const exampleLinter = {
-  lint(path: string, page: CheerioStatic): boolean {
-    let valid = true;
-    const msgs = [`${path}:`];
+/**
+ * Test if the example conforms to the conventions.
+ *
+ * @param path - The path to the example (used for identification in logs).
+ * @param page - The HTML to be linted.
+ *
+ * @returns True if everything's okay, false otherwise.
+ */
+function lintExample(path: string, page: CheerioStatic): boolean {
+  let valid = true;
+  const msgs = [`${path}:`];
 
-    if (page("#title").length !== 1) {
-      msgs.push("Missing #title element in the body.");
-      valid = false;
-    }
-
-    if (page("#title > *").length < 2) {
-      msgs.push(
-        "There have to be at least two headings (group and example name)."
-      );
-      valid = false;
-    }
-
-    const headTitle = page("head > title")
-      .text()
-      .trim();
-    const bodyTitle = page("#title > *")
-      .map((_i, elem): string => $(elem).text())
-      .get()
-      .join(" | ")
-      .trim();
-    if (headTitle !== bodyTitle) {
-      msgs.push(
-        "The title in the head doesn't match the title in the body.",
-        `  head: ${headTitle}`,
-        `  body: ${bodyTitle}`
-      );
-      valid = false;
-    }
-
-    if (msgs.length > 1) {
-      console.warn("\n" + msgs.join("\n  "));
-    }
-
-    return valid;
+  if (page("#title").length !== 1) {
+    msgs.push("Missing #title element in the body.");
+    valid = false;
   }
-};
+
+  if (page("#title > *").length < 2) {
+    msgs.push(
+      "There have to be at least two headings (group and example name)."
+    );
+    valid = false;
+  }
+
+  const headTitle = page("head > title")
+    .text()
+    .trim();
+  const bodyTitle = page("#title > *")
+    .map((_i, elem): string => $(elem).text())
+    .get()
+    .join(" | ")
+    .trim();
+  if (headTitle !== bodyTitle) {
+    msgs.push(
+      "The title in the head doesn't match the title in the body.",
+      `  head: ${headTitle}`,
+      `  body: ${bodyTitle}`
+    );
+    valid = false;
+  }
+
+  if (msgs.length > 1) {
+    console.warn("\n" + msgs.join("\n  "));
+  }
+
+  return valid;
+}
 
 (async (): Promise<void> => {
   let code = 0;
@@ -166,8 +184,9 @@ const exampleLinter = {
           return;
         }
 
+        // Lint if requested.
         if (argv.lint) {
-          exampleLinter.lint(pagePath, $page);
+          lintExample(pagePath, $page);
         }
 
         // Body titles.
@@ -198,17 +217,18 @@ const exampleLinter = {
           return;
         }
 
+        // Put this example into the structure while creating any missing groups in the process.
         titles.reduce(
           (acc, title, i, arr): any => {
             while (acc[title] != null && acc[title].path != null) {
-              console.error("The following category already exists: ", titles);
+              console.error("The following group already exists: ", titles);
               title += "!";
             }
 
             if (i === arr.length - 1) {
               if (acc[title] != null) {
                 console.error(
-                  "The following example has the same name as an already existing category: ",
+                  "The following example has the same name as an already existing group: ",
                   titles
                 );
                 return null;

@@ -11,21 +11,16 @@ export function generateCodePenPage(example: Example): string {
   page("title").text(title);
   const form = page("#form");
 
-  form.append(
-    $("<input>")
-      .attr("type", "hidden")
-      .attr("name", "data")
-      .attr(
-        "value",
-        JSON.stringify({
-          css: data.code.css,
-          css_external: data.resources.css.join(";"),
-          html: data.code.html,
-          js: data.code.js,
-          js_external: data.resources.js.join(";"),
-          title: example.titles.join(" | ")
-        })
-      )
+  form.find('input[name="data"]').attr(
+    "value",
+    JSON.stringify({
+      css: data.code.css,
+      css_external: data.resources.css.join(";"),
+      html: data.code.html,
+      js: data.code.js,
+      js_external: data.resources.js.join(";"),
+      title: example.titles.join(" | ")
+    })
   );
 
   return page.html();

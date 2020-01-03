@@ -6,58 +6,21 @@ import { Example } from "../../types";
 export function generateJSFiddlePage(example: Example): string {
   const data = example.playground;
   const title = example.titles.join(" | ");
+  const resources = [...data.resources.css, ...data.resources.js].join(",");
 
   const page = $.load(template);
   page("title").text(title);
   const form = page("#form");
 
-  // JavaScript
-  form.append(
-    $("<input>")
-      .attr("type", "hidden")
-      .attr("name", "js")
-      .attr("value", data.code.js)
-  );
-
-  // Cascading Style Sheets
-  form.append(
-    $("<input>")
-      .attr("type", "hidden")
-      .attr("name", "css")
-      .attr("value", data.code.css)
-  );
-
-  // Hypertext Markup Language
-  form.append(
-    $("<input>")
-      .attr("type", "hidden")
-      .attr("name", "html")
-      .attr("value", data.code.html)
-  );
-
-  // Resources
-  form.append(
-    $("<input>")
-      .attr("type", "hidden")
-      .attr("name", "resources")
-      .attr("value", [...data.resources.css, ...data.resources.js].join(","))
-  );
+  // Playground data.
+  form.find('input[name="css"]').attr("value", data.code.css);
+  form.find('input[name="html"]').attr("value", data.code.html);
+  form.find('input[name="js"]').attr("value", data.code.js);
+  form.find('input[name="resources"]').attr("value", resources);
+  form.find('input[name="title"]').attr("value", title);
 
   // Don't run JS before the DOM is ready.
-  form.append(
-    $("<input>")
-      .attr("type", "hidden")
-      .attr("name", "wrap")
-      .attr("value", "b")
-  );
-
-  // Title
-  form.append(
-    $("<input>")
-      .attr("type", "hidden")
-      .attr("name", "title")
-      .attr("value", title)
-  );
+  form.find('input[name="wrap"]').attr("value", "b");
 
   return page.html();
 }

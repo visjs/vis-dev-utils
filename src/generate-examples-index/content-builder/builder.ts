@@ -3,9 +3,10 @@ import { join } from "path";
 import { promisify } from "util";
 
 import { Example, Examples, ExamplesRoot } from "../types";
+import { Renderer, isExample } from "./common";
+import { formatHTML } from "./format";
 import { generateJSFiddlePage, generateCodePenPage } from "./playground";
 import { generateScreenshot } from "./screenshots";
-import { Renderer, isExample } from "./common";
 
 const collator = new Intl.Collator("US");
 const writeFile = promisify(fs.writeFile);
@@ -19,6 +20,21 @@ export interface Checks {
   total: number;
 }
 
+export interface ContentBuilderConfig {
+  /** The tree structure with examples in it's leaves. */
+  examples: ExamplesRoot;
+  /** The directory where built files will be saved. */
+  output: string;
+  /** How many screenshots to generate at the same time. */
+  parallel: number;
+  /** The renderer used to generate index files. */
+  renderer: Renderer;
+  /** A script that will be executed on each page as first. */
+  screenshotScript: string;
+  /** A title that will be passed to the renderer. */
+  title: string;
+}
+
 export class ContentBuilder {
   private _screenshotTodo: Example[] = [];
   private _playgroundTodo: Example[] = [];
@@ -26,17 +42,15 @@ export class ContentBuilder {
   private readonly _fail: string[] = [];
   private readonly _okay: string[] = [];
 
-  public constructor(
-    private readonly _config: {
-      examples: ExamplesRoot;
-      output: string;
-      parallel: number;
-      renderer: Renderer;
-      screenshotScript: string;
-      title: string;
-    }
-  ) {}
+  public constructor(private readonly _config: ContentBuilderConfig) {}
 
+  /**
+   * Build the files and write them to the disk.
+   *
+   * @param emit - Which types of files to emit.
+   *
+   * @returns A report with check results and the number of written files.
+   */
   public build(
     emit: {
       index?: boolean;
@@ -60,7 +74,7 @@ export class ContentBuilder {
         .flat()
         .join(", ")} for ${allExamples.length} examples.`
     );
-    console.info();
+    process.stdout.write("\n");
 
     this._playgroundTodo = allExamples.slice();
     this._screenshotTodo = allExamples.slice();
@@ -106,7 +120,8 @@ export class ContentBuilder {
                 ];
               })
               .map(
-                async ({ html, path }): Promise<void> => writeFile(path, html)
+                async ({ html, path }): Promise<void> =>
+                  writeFile(path, formatHTML(html))
               )
           )).length)()
       : // Skip playground pages.

@@ -36,17 +36,30 @@ async function isScreenshotValid(screenshot: Buffer): Promise<boolean> {
   return false;
 }
 
-export async function generateScreenshot({
-  example,
-  height,
-  screenshotScript,
-  width
-}: {
+export interface GenerateScreenshotConfig {
+  /** The example for which the screenshot will be generated. */
   example: Example;
+  /** Height of the captured screenshot. */
   height: number;
+  /** A script to be executed as the first thing on the page. */
   screenshotScript: string;
+  /** Width of the captured screenshot. */
   width: number;
-}): Promise<boolean> {
+}
+
+/**
+ * Capture an element on the example's page and save the screenshot to the
+ * disk as a PNG file.
+ *
+ * @param config - See the type's docs for detail.
+ *
+ * @returns Whether or not the screenshot passed validation check.
+ */
+export async function generateScreenshot(
+  config: GenerateScreenshotConfig
+): Promise<boolean> {
+  const { example, height, screenshotScript, width } = config;
+
   // Prepare the page. It has to be written to the disk so that files with
   // relative URLs can be loaded. Pageres' script can't be used here because
   // it runs after the existing scripts on the page and therefore doesn't
@@ -66,44 +79,46 @@ export async function generateScreenshot({
   );
   await writeFile(tmpPath, formatHTML(screenshotPage.html()));
 
-  // Render the page and take the screenshot.
-  const screenshots = await new Pageres({
-    delay: example.delay,
-    selector: example.selector,
-    css: [
-      `${example.selector} {`,
-      "  border: none !important;",
+  try {
+    // Render the page and take the screenshot.
+    const screenshots = await new Pageres({
+      delay: example.delay,
+      selector: example.selector,
+      css: [
+        `${example.selector} {`,
+        "  border: none !important;",
 
-      "  position: relative !important;",
-      "  top: unset !important;",
-      "  left: unset !important;",
-      "  bottom: unset !important;",
-      "  right: unset !important;",
+        "  position: relative !important;",
+        "  top: unset !important;",
+        "  left: unset !important;",
+        "  bottom: unset !important;",
+        "  right: unset !important;",
 
-      `  height: ${height}px !important;`,
-      `  max-height: ${height}px !important;`,
-      `  max-width: ${width}px !important;`,
-      `  min-height: ${height}px !important;`,
-      `  min-width: ${width}px !important;`,
-      `  width: ${width}px !important;`,
-      "}"
-    ].join("\n"),
-    filename: basename(example.paths.screenshot.local).replace(/\.png$/, ""),
-    format: "png"
-  })
-    .src(tmpPath, ["1280x720"])
-    .dest(dirname(example.paths.screenshot.local))
-    .run();
+        `  height: ${height}px !important;`,
+        `  max-height: ${height}px !important;`,
+        `  max-width: ${width}px !important;`,
+        `  min-height: ${height}px !important;`,
+        `  min-width: ${width}px !important;`,
+        `  width: ${width}px !important;`,
+        "}"
+      ].join("\n"),
+      filename: basename(example.paths.screenshot.local).replace(/\.png$/, ""),
+      format: "png"
+    })
+      .src(tmpPath, ["1280x720"])
+      .dest(dirname(example.paths.screenshot.local))
+      .run();
 
-  // Remove the temporary file.
-  await unlink(tmpPath);
-
-  // Test the generated screenshots.
-  return (await Promise.all(
-    screenshots.map(
-      (screenshot): Promise<boolean> => {
-        return isScreenshotValid(screenshot);
-      }
-    )
-  )).every((valid): boolean => valid);
+    // Test the generated screenshots.
+    return (await Promise.all(
+      screenshots.map(
+        (screenshot): Promise<boolean> => {
+          return isScreenshotValid(screenshot);
+        }
+      )
+    )).every((valid): boolean => valid);
+  } finally {
+    // Remove the temporary file.
+    await unlink(tmpPath);
+  }
 }

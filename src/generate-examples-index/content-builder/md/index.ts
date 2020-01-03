@@ -1,5 +1,5 @@
 import { ContentPart, Renderer, isExample } from "../common";
-import { Example, Examples, ExamplesRoot } from "../../types";
+import { Examples, ExamplesRoot } from "../../types";
 import { formatMD } from "../format";
 import { relative } from "path";
 
@@ -21,14 +21,6 @@ function header(level: number, text: string): string {
   return `${"#".repeat(level)} ${text}`;
 }
 
-function generateJSFiddle(example: Example): string {
-  return link(example.paths.jsfiddle.web, "JSFiddle");
-}
-
-function generateCodePen(example: Example): string {
-  return link(example.paths.codepen.web, "CodePen");
-}
-
 function processGroup(
   examples: Examples,
   output: string,
@@ -43,6 +35,7 @@ function processGroup(
     const example = examples[key];
 
     if (isExample(example)) {
+      // An example in this group.
       items.push(
         header(2, key),
         "",
@@ -54,12 +47,13 @@ function processGroup(
         "",
         [
           link(example.paths.page.web, "Open"),
-          generateJSFiddle(example),
-          generateCodePen(example)
+          link(example.paths.jsfiddle.web, "JSFiddle"),
+          link(example.paths.codepen.web, "CodePen")
         ].join(" | "),
         ""
       );
     } else {
+      // A subgroup of examples.
       sections.push(
         ...processGroup(example, output, key, collator).map(
           (contentPart): ContentPart => ({

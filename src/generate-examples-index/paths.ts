@@ -4,7 +4,10 @@ import { relative, resolve } from "path";
 
 export function joinURLs(...urls: string[]): string {
   return urls
-    .map((url): string => url.replace(/^\/?(.*?)\/?$/, "$1"))
+    .map((url): string =>
+      // Strip the parts of leading and trailing slashes if they have them.
+      url.replace(/^\/?(.*?)\/?$/, "$1")
+    )
     .join("/");
 }
 
@@ -18,51 +21,54 @@ export function fixAbsoluteInputURL(baseURL: string, url: string): string {
 
 export function generatePaths(
   config: ExamplePaths,
-  examplePath: Example["path"]
+  exampleRawPath: Example["path"]
 ): ExamplePaths {
   return {
-    codepen: generatePath(
+    codepen: generateLocalWebPair(
       config.codepen.local,
       config.codepen.web,
-      examplePath,
+      exampleRawPath,
       "codepen",
       "html"
     ),
-    jsfiddle: generatePath(
+    jsfiddle: generateLocalWebPair(
       config.jsfiddle.local,
       config.jsfiddle.web,
-      examplePath,
+      exampleRawPath,
       "jsfiddle",
       "html"
     ),
     page: {
-      local: examplePath,
-      web: joinURLs(config.page.web, relative(config.page.local, examplePath))
+      local: exampleRawPath,
+      web: joinURLs(
+        config.page.web,
+        relative(config.page.local, exampleRawPath)
+      )
     },
-    screenshot: generatePath(
+    screenshot: generateLocalWebPair(
       config.screenshot.local,
       config.screenshot.web,
-      examplePath,
+      exampleRawPath,
       "screenshot",
       "png"
     )
   };
 }
 
-export function generatePath(
-  fileRoot: string,
+function generateLocalWebPair(
+  localRoot: string,
   webRoot: string,
-  pageFilePath: string,
+  exampleRawPath: string,
   prefix: string,
   extension: string
 ): ExamplePath {
   const hash = createHash("sha256")
-    .update(pageFilePath)
+    .update(exampleRawPath)
     .digest("hex");
   const filename = `${prefix}.${hash}.${extension}`;
 
   return {
-    local: resolve(fileRoot, filename),
+    local: resolve(localRoot, filename),
     web: joinURLs(webRoot, filename)
   };
 }

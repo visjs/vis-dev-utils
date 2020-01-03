@@ -289,297 +289,538 @@ exports['generate-examples-index snapshots broken html file contents generated/i
 `
 
 exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Subdir | Number 3</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 3&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js","title":"Test | Subdir | Number 3"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Number 3&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;console.log(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Subdir | Number 3&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Subdir | Number 4</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 4&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js","title":"Test | Subdir | Number 4"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Number 4&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;console.log(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Subdir | Number 4&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Broken</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;&lt;/div&gt;\\n","js":"\\n","js_external":"","title":"Test | Broken"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;\\n&quot;,&quot;js_external&quot;:&quot;&quot;,&quot;title&quot;:&quot;Test | Broken&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Alert</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Alert&lt;/div&gt;\\n","js":"alert(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Alert"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Alert&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;alert(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Alert&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Number 2</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element-number-2\\"&gt;Number 2&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Number 2"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Number 2&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;console.log(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Number 2&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Number 1</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 1&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Number 1"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Number 1&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;console.log(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Number 1&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken html file contents generated/pages/codepen.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Confirm</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Confirm&lt;/div&gt;\\n","js":"Confirm(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Confirm"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Confirm&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;Confirm(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Confirm&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Subdir | Number 3</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 3&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Subdir | Number 3" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="console.log(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Number 3&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Subdir | Number 3"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Subdir | Number 4</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 4&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Subdir | Number 4" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="console.log(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Number 4&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Subdir | Number 4"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Broken</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value="
+"
+      />
+      <input type="hidden" name="resources" value />
+      <input type="hidden" name="title" value="Test | Broken" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;&lt;/div&gt;
-"><input type="hidden" name="resources" value><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Broken"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Alert</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Alert&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='alert("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Alert" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="alert(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Alert&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Alert"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Number 2</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element-number-2"&gt;Number 2&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Number 2" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="console.log(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Number 2&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Number 2"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Number 1</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 1&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Number 1" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="console.log(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Number 1&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Number 1"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken html file contents generated/pages/jsfiddle.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Confirm</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Confirm&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='Confirm("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Confirm" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="Confirm(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Confirm&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Confirm"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken md directory structure 1'] = [
@@ -670,297 +911,538 @@ exports['generate-examples-index snapshots broken md file contents generated/ind
 `
 
 exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Subdir | Number 3</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 3&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js","title":"Test | Subdir | Number 3"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Number 3&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;console.log(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Subdir | Number 3&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Subdir | Number 4</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 4&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js","title":"Test | Subdir | Number 4"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Number 4&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;console.log(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Subdir | Number 4&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Broken</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;&lt;/div&gt;\\n","js":"\\n","js_external":"","title":"Test | Broken"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;\\n&quot;,&quot;js_external&quot;:&quot;&quot;,&quot;title&quot;:&quot;Test | Broken&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Alert</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Alert&lt;/div&gt;\\n","js":"alert(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Alert"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Alert&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;alert(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Alert&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Number 2</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element-number-2\\"&gt;Number 2&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Number 2"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Number 2&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;console.log(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Number 2&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Number 1</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 1&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Number 1"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Number 1&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;console.log(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Number 1&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken md file contents generated/pages/codepen.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Confirm</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Confirm&lt;/div&gt;\\n","js":"Confirm(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Confirm"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Confirm&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;Confirm(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Confirm&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.3e7b94deaa4f2f8e422a2ce9ec254cf4625e6539c4dfe0e668ae0196fea17aac.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Subdir | Number 3</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 3&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Subdir | Number 3" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="console.log(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Number 3&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Subdir | Number 3"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.a074ee18e757e26d1f43b10d7163792770e5570fd73946151c0ffdd8be06b672.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Subdir | Number 4</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 4&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Subdir | Number 4" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="console.log(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Number 4&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Subdir | Number 4"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.a108cb76357e3ab8de5c94b9f9f1d93af829422bfdfabef395e3040b6b5f14c4.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Broken</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value="
+"
+      />
+      <input type="hidden" name="resources" value />
+      <input type="hidden" name="title" value="Test | Broken" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;&lt;/div&gt;
-"><input type="hidden" name="resources" value><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Broken"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.c7ef6d845efd009c21eb7b980bbe7202d9b3e0644582f13114226e01f1850d58.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Alert</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Alert&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='alert("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Alert" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="alert(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Alert&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Alert"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.de84e98a1dbcb3b598de32505c0f2c086fd20e8b5b8dd0f9594a6657ec078ba0.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Number 2</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element-number-2"&gt;Number 2&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Number 2" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="console.log(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Number 2&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Number 2"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.fa8d6f3d7111f6f85b9df5b0f039e6f14420bb299e3e389d8f1fa29eaa4ecc8b.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Number 1</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 1&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Number 1" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="console.log(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Number 1&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Number 1"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots broken md file contents generated/pages/jsfiddle.ff87f07f504b4f356be9f45d6e04b8355ffc8f2aff46852b8ddbe7f0e9f3b8ef.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Confirm</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Confirm&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='Confirm("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Confirm" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="Confirm(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Confirm&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Confirm"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay html directory structure 1'] = [
@@ -1228,255 +1710,465 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
 `
 
 exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Subdir | Number 3</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 3&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js","title":"Test | Subdir | Number 3"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Number 3&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;console.log(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Subdir | Number 3&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Alert</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Alert&lt;/div&gt;\\n","js":"alert(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Alert"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Alert&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;alert(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Alert&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Confirm</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Confirm&lt;/div&gt;\\n","js":"Confirm(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Confirm"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Confirm&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;Confirm(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Confirm&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Number 2</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element-number-2\\"&gt;Number 2&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Number 2"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Number 2&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;console.log(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Number 2&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Subdir | Number 4</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 4&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js","title":"Test | Subdir | Number 4"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Number 4&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;console.log(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Subdir | Number 4&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay html file contents generated/pages/codepen.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Number 1</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 1&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Number 1"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Number 1&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;console.log(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Number 1&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Subdir | Number 3</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 3&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Subdir | Number 3" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="console.log(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Number 3&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Subdir | Number 3"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Alert</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Alert&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='alert("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Alert" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="alert(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Alert&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Alert"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Confirm</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Confirm&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='Confirm("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Confirm" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="Confirm(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Confirm&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Confirm"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Number 2</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element-number-2"&gt;Number 2&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Number 2" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="console.log(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Number 2&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Number 2"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Subdir | Number 4</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 4&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Subdir | Number 4" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="console.log(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Number 4&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Subdir | Number 4"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay html file contents generated/pages/jsfiddle.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Number 1</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 1&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Number 1" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="console.log(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Number 1&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Number 1"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay md directory structure 1'] = [
@@ -1558,253 +2250,463 @@ exports['generate-examples-index snapshots okay md file contents generated/index
 `
 
 exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Subdir | Number 3</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 3&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js","title":"Test | Subdir | Number 3"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Number 3&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;console.log(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Subdir | Number 3&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Alert</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Alert&lt;/div&gt;\\n","js":"alert(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Alert"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Alert&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;alert(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Alert&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Confirm</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Confirm&lt;/div&gt;\\n","js":"Confirm(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Confirm"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Confirm&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;Confirm(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Confirm&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Number 2</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element-number-2\\"&gt;Number 2&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Number 2"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Number 2&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;console.log(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Number 2&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Subdir | Number 4</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 4&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js","title":"Test | Subdir | Number 4"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Number 4&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;console.log(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Subdir | Number 4&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay md file contents generated/pages/codepen.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Number 1</title>
   </head>
   <body>
-    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
+    <form
+      id="form"
+      action="https://codepen.io/pen/define"
+      method="post"
+      target="_self"
+    >
+      <input
+        type="hidden"
+        name="data"
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 1&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Number 1"}'
+      />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
       </button>
-    <input type="hidden" name="data" value="{&quot;css&quot;:&quot;&quot;,&quot;css_external&quot;:&quot;&quot;,&quot;html&quot;:&quot;&lt;div id=\\&quot;test-element\\&quot;&gt;Number 1&lt;/div&gt;\\n&quot;,&quot;js&quot;:&quot;console.log(\\&quot;This is just a test.\\&quot;);\\n&quot;,&quot;js_external&quot;:&quot;https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js&quot;,&quot;title&quot;:&quot;Test | Number 1&quot;}"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.1dbc99a43864cc4a8db6bf0fa9026ccf16506d2a52a10cb11b19117d61094a7a.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Subdir | Number 3</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 3&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Subdir | Number 3" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="console.log(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Number 3&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Subdir | Number 3"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.2a65e099315d1ef757d3d20051e36c238fdf37c5c8ebd7ee2c17c96a990aa3f5.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Alert</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Alert&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='alert("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Alert" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="alert(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Alert&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Alert"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.91c0c35e6b68c520f948951fc98d01b78f1dad911c228fcd9c0e12f5a71f13d8.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Confirm</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Confirm&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='Confirm("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Confirm" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="Confirm(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Confirm&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Confirm"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.c5a4768b7b3e3f352ed19771d7a888b2235459e0928aa9be6dc90806c2734aca.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Number 2</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element-number-2"&gt;Number 2&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Number 2" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="console.log(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Number 2&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Number 2"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.d95699c10f3cb7a45ba323ed72a3eae1fdae9f7724de07a3f2b1f9661328bf36.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Subdir | Number 4</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 4&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Subdir | Number 4" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="console.log(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Number 4&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Subdir | Number 4"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
 
 exports['generate-examples-index snapshots okay md file contents generated/pages/jsfiddle.e71058a9f32542214dcc3d14f481584711471a6636b67a3dd233d2ed12974266.html'] = `
-<html><head>
-    <meta charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8" />
     <title>Test | Number 1</title>
   </head>
   <body>
-    <form id="form" action="http://jsfiddle.net/api/post/library/pure/" method="post" target="_self">
+    <form
+      id="form"
+      action="http://jsfiddle.net/api/post/library/pure/"
+      method="post"
+      target="_self"
+    >
+      <input type="hidden" name="css" value />
+      <input
+        type="hidden"
+        name="html"
+        value='&lt;div id="test-element"&gt;Number 1&lt;/div&gt;
+'
+      />
+      <input
+        type="hidden"
+        name="js"
+        value='console.log("This is just a test.");
+'
+      />
+      <input
+        type="hidden"
+        name="resources"
+        value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"
+      />
+      <input type="hidden" name="title" value="Test | Number 1" />
+      <input type="hidden" name="wrap" value="b" />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open JSFiddle
       </button>
-    <input type="hidden" name="js" value="console.log(&quot;This is just a test.&quot;);
-"><input type="hidden" name="css" value><input type="hidden" name="html" value="&lt;div id=&quot;test-element&quot;&gt;Number 1&lt;/div&gt;
-"><input type="hidden" name="resources" value="https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js"><input type="hidden" name="wrap" value="b"><input type="hidden" name="title" value="Test | Number 1"></form>
+    </form>
 
     <script type="text/javascript">
       document.getElementById("open").click();
     </script>
-  
+  </body>
+</html>
 
-</body></html>
 `
