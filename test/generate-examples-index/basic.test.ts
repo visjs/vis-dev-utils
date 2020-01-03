@@ -1,6 +1,7 @@
 import $ from "cheerio";
-import fs from "fs";
+import snapshot from "snap-shot-it";
 import tmp from "tmp-promise";
+import { existsSync, readFileSync } from "fs";
 import { expect } from "chai";
 import { join, resolve } from "path";
 import { spawnSync } from "child_process";
@@ -33,51 +34,50 @@ function prepareWorkplace(): OutputDirs {
   return { assets, dir, index, pages };
 }
 
-function generate(
-  output: OutputDirs,
-  type: "okay" | "broken",
-  threshold: number = 100
-): ReturnType<typeof spawnSync> {
+function generate(options: {
+  format?: "html" | "md";
+  output: OutputDirs;
+  threshold?: number;
+  type: "okay" | "broken";
+}): ReturnType<typeof spawnSync> {
+  const { output, type, threshold = 100, format = "html" } = options;
+
+  const examplesDir = resolve(
+    __dirname,
+    type === "broken" ? "broken-examples" : "examples"
+  );
   const verify = "" + threshold;
 
   return spawnSync(
     "node",
     [
       executable,
-      "--assets-local-directory",
-      output.assets,
-      "--assets-web-directory",
-      "/public/examples/assets",
-      "--base-url",
-      baseURL,
-      "--container-id",
-      "test-element",
-      "--examples-local-directory",
-      resolve(__dirname, type === "broken" ? "broken-examples" : "examples"),
-      "--examples-web-directory",
-      "/examples",
-      "--index",
-      "--output-directory",
-      output.index,
-      "--pages-local-directory",
-      output.pages,
-      "--pages-web-directory",
-      "/public/examples/pages",
-      "--playgrounds",
-      "--screenshots",
-      "--title",
-      title,
-      "--verify",
-      verify
+      ...[
+        ["--assets-local-directory", output.assets],
+        ["--assets-web-directory", "/public/examples/assets"],
+        ["--base-url", baseURL],
+        ["--container-id", "test-element"],
+        ["--examples-local-directory", examplesDir],
+        ["--examples-web-directory", "/examples"],
+        ["--format", format],
+        ["--index"],
+        ["--output-directory", output.index],
+        ["--pages-local-directory", output.pages],
+        ["--pages-web-directory", "/public/examples/pages"],
+        ["--playgrounds"],
+        ["--screenshots"],
+        ["--title", title],
+        ["--verify", verify]
+      ].flat()
     ],
-    { stdio: "inherit" }
+    { stdio: "ignore" }
   );
 }
 
 describe("generate-examples-index", function(): void {
   it("is executable built", function(): void {
     expect(
-      fs.existsSync(executable),
+      existsSync(executable),
       "The built executable has to be present for any of the following tests to pass."
     ).to.be.true;
   });
@@ -89,13 +89,13 @@ describe("generate-examples-index", function(): void {
     it("generate index", function(): void {
       this.timeout(30 * 60 * 1000);
 
-      generate(output, "okay");
+      generate({ output, type: "okay" });
     });
 
     describe("verify index", function(): void {
       it("valid HTML", function(): void {
         $index = $.load(
-          fs.readFileSync(join(output.index, "index.html"), "utf-8")
+          readFileSync(join(output.index, "index.html"), "utf-8")
         );
       });
 
@@ -182,7 +182,7 @@ describe("generate-examples-index", function(): void {
         function(): void {
           this.timeout(90 * 60 * 1000);
 
-          const ret = generate(output, "broken", threshold);
+          const ret = generate({ output, type: "broken", threshold });
 
           expect(
             ret,
@@ -195,5 +195,41 @@ describe("generate-examples-index", function(): void {
         }
       );
     });
+  });
+
+  describe("snapshots", function(): void {
+    for (const format of ["html", "md"] as const) {
+      for (const type of ["okay", "broken"] as const) {
+        describe(`${type} ${format}`, function(): void {
+          const output = prepareWorkplace();
+
+          it("generate", function(): void {
+            this.timeout(30 * 60 * 1000);
+
+            generate({ output, format, type });
+          });
+
+          it("directory structure", function(): void {
+            snapshot(globby("**/*", { cwd: output.dir }).sort());
+          });
+
+          it("file contents", function(): void {
+            for (const relativePath of globby(
+              [
+                "**/*",
+                // Exclude images, test only text files.
+                "!**/*.png"
+              ],
+              { cwd: output.dir }
+            )) {
+              snapshot(
+                `${this.test!.fullTitle()} ${relativePath}`,
+                readFileSync(join(output.dir, relativePath), "utf-8")
+              );
+            }
+          });
+        });
+      }
+    }
   });
 });

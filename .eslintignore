@@ -1,4 +1,5 @@
 !/.eslintrc
+/__snapshots__
 /bin
 /declarations
 /dist

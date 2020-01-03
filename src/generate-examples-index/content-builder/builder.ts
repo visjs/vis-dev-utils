@@ -7,10 +7,6 @@ import { generateJSFiddlePage, generateCodePenPage } from "./playground";
 import { generateScreenshot } from "./screenshots";
 import { Renderer, isExample } from "./common";
 
-async function voidPromise(p: Promise<unknown>): Promise<void> {
-  await p;
-}
-
 const collator = new Intl.Collator("US");
 const writeFile = promisify(fs.writeFile);
 
