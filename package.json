@@ -35,6 +35,12 @@
       "pre-push": "npm test"
     }
   },
+  "config": {
+    "snap-shot-it": {
+      "sortSnapshots": true,
+      "useRelativePath": true
+    }
+  },
   "main": "dist/vis-dev-utils.cjs.js",
   "module": "dist/vis-dev-utils.esm.js",
   "types": "declarations",
@@ -107,6 +113,7 @@
     "rollup-plugin-string": "^3.0.0",
     "rollup-plugin-typescript2": "^0.24.3",
     "sinon": "^7.5.0",
+    "snap-shot-it": "^7.9.1",
     "tmp-promise": "^2.0.2",
     "typescript": "^3.6.3"
   },
