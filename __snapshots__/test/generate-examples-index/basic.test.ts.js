@@ -514,7 +514,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -560,7 +560,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -606,7 +606,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -652,7 +652,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -698,7 +698,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -744,7 +744,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -790,7 +790,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -1136,7 +1136,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -1182,7 +1182,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -1228,7 +1228,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -1274,7 +1274,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -1320,7 +1320,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -1366,7 +1366,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -1412,7 +1412,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -1904,7 +1904,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -1950,7 +1950,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -1996,7 +1996,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -2042,7 +2042,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -2088,7 +2088,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -2134,7 +2134,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -2444,7 +2444,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -2490,7 +2490,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -2536,7 +2536,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -2582,7 +2582,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -2628,7 +2628,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
@@ -2674,7 +2674,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
   <body>
     <form
       id="form"
-      action="http://jsfiddle.net/api/post/library/pure/"
+      action="https://jsfiddle.net/api/post/library/pure/"
       method="post"
       target="_self"
     >
