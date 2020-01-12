@@ -150,12 +150,12 @@ export class ContentBuilder {
                   }
 
                   ++finished;
-                  console.info(
-                    `${("" + Math.floor((finished / total) * 100)).padStart(
-                      3,
-                      " "
-                    )}% - ${example.path}`
-                  );
+
+                  const percentage = (
+                    Math.floor((finished / total) * 100) + "%"
+                  ).padStart(3, " ");
+                  const validText = valid ? "okay" : "fail";
+                  console.info(`${percentage} ${validText} - ${example.path}`);
                 }
               }
             )
