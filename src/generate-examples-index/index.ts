@@ -54,7 +54,10 @@ function getMeta(
 ): number | string {
   const content = page(`meta[name="${name}"]`).attr("content");
 
-  if (typeof fallback === "number" && !Number.isNaN(+content)) {
+  if (content == null) {
+    // No meta of this name exists in the page, use the fallback.
+    return fallback;
+  } else if (typeof fallback === "number" && !Number.isNaN(+content)) {
     // Both are numbers.
     return +content;
   } else if (typeof fallback === "string" && typeof content === "string") {
