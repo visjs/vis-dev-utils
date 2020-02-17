@@ -153,7 +153,7 @@ export class ContentBuilder {
 
                   const percentage = (
                     Math.floor((finished / total) * 100) + "%"
-                  ).padStart(3, " ");
+                  ).padStart(4, " ");
                   const validText = valid ? "okay" : "fail";
                   console.info(`${percentage} ${validText} - ${example.path}`);
                 }

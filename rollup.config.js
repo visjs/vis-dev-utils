@@ -1,10 +1,12 @@
 import babel from "rollup-plugin-babel";
 import builtins from "builtin-modules";
-import commonjs from "rollup-plugin-commonjs";
-import { generateHeader } from "./lib/header";
-import nodeResolve from "rollup-plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import copy from "rollup-plugin-copy";
+import json from "@rollup/plugin-json";
+import nodeResolve from "@rollup/plugin-node-resolve";
 import packageJSON from "./package.json";
 import typescript from "rollup-plugin-typescript2";
+import { generateHeader } from "./lib/header";
 import { string } from "rollup-plugin-string";
 
 const bannerModule = generateHeader();
@@ -22,6 +24,14 @@ const external = [
 ];
 
 const getPlugins = () => [
+  copy({
+    targets: [
+      {
+        src: "public/*",
+        dest: "dist"
+      }
+    ]
+  }),
   nodeResolve({
     extensions: [".css", ".html", ".js", ".json", ".ts", ".txt"],
     preferBuiltins: true
@@ -29,12 +39,14 @@ const getPlugins = () => [
   string({
     include: ["**/*.{css,html,txt}"]
   }),
+  json(),
   typescript({
     objectHashIgnoreUnknownHack: true,
     tsconfig: "tsconfig.json"
   }),
   commonjs(),
   babel({
+    babelrc: false,
     extensions: [".js", ".ts"],
     runtimeHelpers: true
   })
@@ -61,6 +73,20 @@ export default [
     external,
     plugins: getPlugins()
   },
+  // File exports.
+  ...["babel-register"].map(name => {
+    return {
+      input: `src/${name}`,
+      output: {
+        banner: bannerCommand,
+        file: `${name}/index.js`,
+        format: "cjs",
+        sourcemap: true
+      },
+      external,
+      plugins: getPlugins()
+    };
+  }),
   // Node commands.
   ...["generate-examples-index"].map(name => {
     return {

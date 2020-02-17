@@ -1,21 +1,14 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "baseUrl": "src/module",
     "declaration": true,
     "declarationDir": "declarations",
     "declarationMap": true,
     "emitDeclarationOnly": true,
-    "esModuleInterop": true,
-    "module": "es2015",
-    "moduleResolution": "node",
     "outDir": "js/src",
-    "paths": {},
-    "resolveJsonModule": true,
-    "sourceMap": true,
-    "strict": true,
-    "target": "es2015",
-    "typeRoots": ["@types", "node_modules/@types/"]
+    "target": "es2015"
   },
   "exclude": ["node_modules", "**/__tests__/*"],
-  "include": ["src/module"]
+  "include": ["@types", "src/module"]
 }
