@@ -235,6 +235,7 @@ const generateRollupPluginArray = (
       ]
     }),
     nodeResolvePlugin({
+      browser: true,
       extensions: [".js", ".json", ".ts"],
       mainFields: ["jsnext", "module", "main"]
     }),
