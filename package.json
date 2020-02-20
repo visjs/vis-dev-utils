@@ -117,7 +117,7 @@
     "babel-plugin-css-modules-transform": "1.6.2",
     "babel-plugin-istanbul": "6.0.0",
     "builtin-modules": "3.1.0",
-    "core-js": "3.2.1",
+    "core-js": "3.6.4",
     "eslint": "6.5.1",
     "eslint-config-prettier": "6.3.0",
     "eslint-plugin-prettier": "3.1.1",
