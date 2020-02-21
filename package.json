@@ -126,7 +126,7 @@
     "mocha": "6.2.1",
     "opencollective": "1.0.3",
     "prettier": "1.18.2",
-    "rimraf": "3.0.0",
+    "rimraf": "3.0.2",
     "rollup": "1.23.0",
     "rollup-plugin-analyzer": "3.2.2",
     "rollup-plugin-babel": "4.3.3",
