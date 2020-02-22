@@ -122,7 +122,7 @@
     "eslint-config-prettier": "6.10.0",
     "eslint-plugin-prettier": "3.1.2",
     "husky": "4.2.3",
-    "lint-staged": "9.5.0",
+    "lint-staged": "10.0.7",
     "mocha": "7.0.1",
     "opencollective": "1.0.3",
     "prettier": "1.18.2",
