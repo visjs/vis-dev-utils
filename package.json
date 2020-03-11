@@ -135,7 +135,7 @@
     "rollup-plugin-string": "3.0.0",
     "rollup-plugin-terser": "5.2.0",
     "rollup-plugin-typescript2": "0.26.0",
-    "sinon": "9.0.0",
+    "sinon": "9.0.1",
     "snap-shot-it": "7.9.2",
     "tmp-promise": "2.0.2",
     "typescript": "3.8.3"
