@@ -61,13 +61,13 @@ export default [
         banner: bannerModule,
         file: `dist/vis-dev-utils.cjs.js`,
         format: "cjs",
-        sourcemap: true
+        sourcemap: false
       },
       {
         banner: bannerModule,
         file: `dist/vis-dev-utils.esm.js`,
         format: "esm",
-        sourcemap: true
+        sourcemap: false
       }
     ],
     external,
@@ -81,7 +81,7 @@ export default [
         banner: bannerCommand,
         file: `${name}/index.js`,
         format: "cjs",
-        sourcemap: true
+        sourcemap: false
       },
       external,
       plugins: getPlugins()
@@ -95,7 +95,7 @@ export default [
         banner: bannerCommand,
         file: `bin/${name}.js`,
         format: "cjs",
-        sourcemap: true
+        sourcemap: false
       },
       external,
       plugins: getPlugins()
