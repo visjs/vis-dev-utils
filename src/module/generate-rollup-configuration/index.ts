@@ -10,8 +10,8 @@ import postcssPlugin from "rollup-plugin-postcss";
 import stripPlugin from "@rollup/plugin-strip";
 import typescriptPlugin from "rollup-plugin-typescript2";
 import { generateHeader } from "../header";
-import { join, resolve } from "path";
-import { sync as globby } from "globby";
+import { join, resolve, sep } from "path";
+import { sync as rawGlobby } from "globby";
 import { terser as terserPlugin } from "rollup-plugin-terser";
 import {
   config as chaiConfig,
@@ -28,6 +28,17 @@ chaiUse(chaiFs);
 const VIS_DEBUG = ["1", "true", "y", "yes"].includes(
   process.env["VIS_DEBUG"] || "false"
 );
+
+/**
+ * Simple glob with workaround for non-posix paths.
+ *
+ * @param pattern - Single glob pattern.
+ *
+ * @returns Globbed paths.
+ */
+function glob(pattern: string): ReturnType<typeof rawGlobby> {
+  return rawGlobby(sep === "\\" ? pattern.replace(/\\/g, "/") : pattern);
+}
 
 export interface GRCOptions {
   /**
@@ -400,7 +411,7 @@ export function generateRollupConfiguration(
     "standalone"
   ].map((name): string => {
     const filenameGlob = `entry-${name.toLowerCase()}.{js,ts}`;
-    const files = globby(resolve(entryPoint, filenameGlob));
+    const files = glob(resolve(entryPoint, filenameGlob));
 
     validate((expect): void => {
       expect(
