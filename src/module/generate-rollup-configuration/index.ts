@@ -180,12 +180,6 @@ const getPaths = (variant: "esnext" | "peer"): Record<string, string> => ({
   "vis-uuid/esnext": `vis-uuid/${variant}`
 });
 
-const bundleDirs = ["esnext", "peer", "standalone"];
-const bundleVariants = ["esm", "umd"];
-const bundleVariantDirs = bundleDirs.flatMap((dir): string[] =>
-  bundleVariants.map((variant): string => join(dir, variant))
-);
-
 const injectCSS = true;
 const minimize = true;
 const transpile = true;
@@ -204,6 +198,11 @@ const generateRollupPluginArray = (
 ): unknown[] => {
   const fullLibraryFilename = `${libraryFilename}${minimize ? ".min" : ""}`;
 
+  const bundleDir = bundleType;
+  const bundleVariantDirs = ["esm", "umd"].map((variant): string =>
+    join(bundleDir, variant)
+  );
+
   return [
     analyzer(VIS_DEBUG ? undefined : { limit: 10, summaryOnly: true }),
     copyPlugin({
@@ -212,7 +211,7 @@ const generateRollupPluginArray = (
         // JavaScript
         {
           src: resolve(__dirname, "assets/bundle-root.js"),
-          dest: bundleDirs,
+          dest: bundleDir,
           rename: "index.js"
         },
         {
@@ -226,7 +225,7 @@ const generateRollupPluginArray = (
         // TypeScript
         {
           src: resolve(__dirname, "assets/bundle-root.d.ts"),
-          dest: bundleDirs,
+          dest: bundleDir,
           rename: "index.d.ts"
         },
         {
