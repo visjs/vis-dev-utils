@@ -252,7 +252,6 @@ const generateRollupPluginArray = (
     ...(typescript
       ? [
           typescriptPlugin({
-            objectHashIgnoreUnknownHack: true,
             tsconfig
           })
         ]

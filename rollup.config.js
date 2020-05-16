@@ -41,7 +41,6 @@ const getPlugins = () => [
   }),
   json(),
   typescript({
-    objectHashIgnoreUnknownHack: true,
     tsconfig: "tsconfig.json"
   }),
   commonjs(),
