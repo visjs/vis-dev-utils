@@ -529,12 +529,14 @@ export function generateRollupConfiguration(
 
   const commonOutputESM = {
     banner,
+    dir: ".",
     format: "esm",
     globals: processGlobals(globals),
     sourcemap: true
   };
   const commonOutputUMD = {
     banner,
+    dir: ".",
     exports: "named",
     extend: true,
     format: "umd",
@@ -555,8 +557,14 @@ export function generateRollupConfiguration(
       external: external.standalone,
       input: standaloneEntry,
       output: [
-        { ...commonOutputESM, file: `standalone/esm/${libraryFilename}.js` },
-        { ...commonOutputUMD, file: `standalone/umd/${libraryFilename}.js` }
+        {
+          ...commonOutputESM,
+          entryFileNames: `standalone/esm/${libraryFilename}.js`
+        },
+        {
+          ...commonOutputUMD,
+          entryFileNames: `standalone/umd/${libraryFilename}.js`
+        }
       ],
       plugins: getPlugins("standalone", {
         injectCSS,
@@ -570,9 +578,12 @@ export function generateRollupConfiguration(
       output: [
         {
           ...commonOutputESM,
-          file: `standalone/esm/${libraryFilename}.min.js`
+          entryFileNames: `standalone/esm/${libraryFilename}.min.js`
         },
-        { ...commonOutputUMD, file: `standalone/umd/${libraryFilename}.min.js` }
+        {
+          ...commonOutputUMD,
+          entryFileNames: `standalone/umd/${libraryFilename}.min.js`
+        }
       ],
       plugins: getPlugins("standalone", {
         injectCSS,
@@ -588,12 +599,12 @@ export function generateRollupConfiguration(
       output: [
         {
           ...commonOutputESM,
-          file: `peer/esm/${libraryFilename}.js`,
+          entryFileNames: `peer/esm/${libraryFilename}.js`,
           paths: getPaths("peer")
         },
         {
           ...commonOutputUMD,
-          file: `peer/umd/${libraryFilename}.js`,
+          entryFileNames: `peer/umd/${libraryFilename}.js`,
           paths: getPaths("peer")
         }
       ],
@@ -608,12 +619,12 @@ export function generateRollupConfiguration(
       output: [
         {
           ...commonOutputESM,
-          file: `peer/esm/${libraryFilename}.min.js`,
+          entryFileNames: `peer/esm/${libraryFilename}.min.js`,
           paths: getPaths("peer")
         },
         {
           ...commonOutputUMD,
-          file: `peer/umd/${libraryFilename}.min.js`,
+          entryFileNames: `peer/umd/${libraryFilename}.min.js`,
           paths: getPaths("peer")
         }
       ],
@@ -630,12 +641,12 @@ export function generateRollupConfiguration(
       output: [
         {
           ...commonOutputESM,
-          file: `esnext/esm/${libraryFilename}.js`,
+          entryFileNames: `esnext/esm/${libraryFilename}.js`,
           paths: getPaths("esnext")
         },
         {
           ...commonOutputUMD,
-          file: `esnext/umd/${libraryFilename}.js`,
+          entryFileNames: `esnext/umd/${libraryFilename}.js`,
           paths: getPaths("esnext")
         }
       ],
@@ -649,12 +660,12 @@ export function generateRollupConfiguration(
       output: [
         {
           ...commonOutputESM,
-          file: `esnext/esm/${libraryFilename}.min.js`,
+          entryFileNames: `esnext/esm/${libraryFilename}.min.js`,
           paths: getPaths("esnext")
         },
         {
           ...commonOutputUMD,
-          file: `esnext/umd/${libraryFilename}.min.js`,
+          entryFileNames: `esnext/umd/${libraryFilename}.min.js`,
           paths: getPaths("esnext")
         }
       ],
