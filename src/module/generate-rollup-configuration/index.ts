@@ -541,7 +541,8 @@ export function generateRollupConfiguration(
     format: "umd",
     globals: processGlobals(globals),
     name: "vis",
-    sourcemap: true
+    sourcemap: true,
+    strict: false // Regenerator runtime causes issues with CSP in strict mode.
   };
 
   const getPlugins = generateRollupPluginArray.bind(
