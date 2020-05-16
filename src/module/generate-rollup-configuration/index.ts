@@ -265,7 +265,8 @@ const generateRollupPluginArray = (
       extract: !injectCSS && `styles/${fullLibraryFilename}.css`,
       inject: injectCSS,
       minimize,
-      sourceMap: true,
+      // Prevent the sourcemaps from being injected into JS files.
+      sourceMap: !injectCSS,
       plugins: [
         postcssAssetsPlugin({
           loadPaths: [assets]
