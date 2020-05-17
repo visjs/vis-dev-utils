@@ -165,20 +165,41 @@ const validate: (
 /**
  * Transform ESNext import paths to match the build version being constructed.
  *
- * @param variant - ESNext or peer build. This is not available for standalone
- * as only peer and ESNext have imports.
+ * @param buildVariant - ESNext or peer build. This is not available for
+ * standalone as only peer and ESNext have imports.
+ * @param moduleFormat - What kind of module system to use.
  *
  * @returns Path overrides for Rollup.
  */
-const getPaths = (variant: "esnext" | "peer"): Record<string, string> => ({
-  "vis-charts/esnext": `vis-charts/${variant}`,
-  "vis-data/esnext": `vis-data/${variant}`,
-  "vis-graph3d/esnext": `vis-graph3d/${variant}`,
-  "vis-network/esnext": `vis-network/${variant}`,
-  "vis-timeline/esnext": `vis-timeline/${variant}`,
-  "vis-util/esnext": `vis-util/${variant}`,
-  "vis-uuid/esnext": `vis-uuid/${variant}`
-});
+function getPaths(
+  buildVariant: "esnext" | "peer",
+  moduleFormat: "esm" | "umd"
+): Record<string, string> {
+  function getPath(
+    lib:
+      | "charts"
+      | "data"
+      | "graph3d"
+      | "network"
+      | "timeline"
+      | "util"
+      | "uuid"
+  ): Record<string, string> {
+    return {
+      [`vis-${lib}/esnext`]: `vis-${lib}/${buildVariant}/${moduleFormat}/vis-${lib}.js`
+    };
+  }
+
+  return {
+    ...getPath("charts"),
+    ...getPath("data"),
+    ...getPath("graph3d"),
+    ...getPath("network"),
+    ...getPath("timeline"),
+    ...getPath("util"),
+    ...getPath("uuid")
+  };
+}
 
 const injectCSS = true;
 const minimize = true;
@@ -601,12 +622,12 @@ export function generateRollupConfiguration(
         {
           ...commonOutputESM,
           entryFileNames: `peer/esm/${libraryFilename}.js`,
-          paths: getPaths("peer")
+          paths: getPaths("peer", "esm")
         },
         {
           ...commonOutputUMD,
           entryFileNames: `peer/umd/${libraryFilename}.js`,
-          paths: getPaths("peer")
+          paths: getPaths("peer", "umd")
         }
       ],
       plugins: getPlugins("peer", {
@@ -621,12 +642,12 @@ export function generateRollupConfiguration(
         {
           ...commonOutputESM,
           entryFileNames: `peer/esm/${libraryFilename}.min.js`,
-          paths: getPaths("peer")
+          paths: getPaths("peer", "esm")
         },
         {
           ...commonOutputUMD,
           entryFileNames: `peer/umd/${libraryFilename}.min.js`,
-          paths: getPaths("peer")
+          paths: getPaths("peer", "umd")
         }
       ],
       plugins: getPlugins("peer", {
@@ -643,12 +664,12 @@ export function generateRollupConfiguration(
         {
           ...commonOutputESM,
           entryFileNames: `esnext/esm/${libraryFilename}.js`,
-          paths: getPaths("esnext")
+          paths: getPaths("esnext", "esm")
         },
         {
           ...commonOutputUMD,
           entryFileNames: `esnext/umd/${libraryFilename}.js`,
-          paths: getPaths("esnext")
+          paths: getPaths("esnext", "umd")
         }
       ],
       plugins: getPlugins("esnext", {
@@ -662,12 +683,12 @@ export function generateRollupConfiguration(
         {
           ...commonOutputESM,
           entryFileNames: `esnext/esm/${libraryFilename}.min.js`,
-          paths: getPaths("esnext")
+          paths: getPaths("esnext", "esm")
         },
         {
           ...commonOutputUMD,
           entryFileNames: `esnext/umd/${libraryFilename}.min.js`,
-          paths: getPaths("esnext")
+          paths: getPaths("esnext", "umd")
         }
       ],
       plugins: getPlugins("esnext", {
