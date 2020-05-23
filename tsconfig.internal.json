@@ -9,5 +9,9 @@
     "target": "es2015"
   },
   "exclude": ["node_modules", "**/__tests__/*"],
-  "include": ["@types ", "src/module/header.ts"]
+  "include": [
+    "@types",
+    "src/module/header.ts",
+    "src/module/inspect-npm-pack.ts"
+  ]
 }
