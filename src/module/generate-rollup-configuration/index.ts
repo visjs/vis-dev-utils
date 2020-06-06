@@ -277,11 +277,7 @@ const generateRollupPluginArray = (
           })
         ]
       : []),
-    commonjsPlugin({
-      namedExports: {
-        timsort: ["sort"]
-      }
-    }),
+    commonjsPlugin(),
     postcssPlugin({
       extract: !injectCSS && `styles/${fullLibraryFilename}.css`,
       inject: injectCSS,
