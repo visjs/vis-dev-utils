@@ -13,6 +13,18 @@
     "strict": true,
     "target": "esnext"
   },
-  "exclude": ["node_modules", "**/__tests__/*"],
-  "include": ["."]
+  "exclude": ["node_modules"],
+  "include": [
+    "*.js",
+    "*.json",
+    "*.ts",
+    ".*.js",
+    ".*.json",
+    ".*.ts",
+    "@types",
+    "babel-preset",
+    "public",
+    "src",
+    "test"
+  ]
 }
