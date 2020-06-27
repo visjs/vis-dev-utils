@@ -1,7 +1,7 @@
 import { spawnSync } from "child_process";
 
 function runNpmPack(): string[] {
-  const result = spawnSync("npm", ["pack", "--dry-run-a"], {
+  const result = spawnSync("npm", ["pack", "--dry-run"], {
     env: { ...process.env, LC_ALL: "C" },
     stdio: "pipe",
     encoding: "utf-8"
