@@ -26,7 +26,10 @@ module.exports = {
     "no-unreachable": "error",
     "no-useless-escape": "off",
 
-    "no-console": ["error", { allow: ["info", "warn", "error"] }],
+    "no-console": [
+      "error",
+      { allow: ["error", "group", "groupEnd", "info", "warn"] }
+    ],
 
     "valid-jsdoc": [
       "error",
