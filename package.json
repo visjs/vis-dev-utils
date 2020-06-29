@@ -63,7 +63,7 @@
     "cheerio": "^1.0.0-rc.3",
     "find-up": "^4.1.0",
     "globby": "^11.0.0",
-    "jimp": "^0.13.0",
+    "jimp": "^0.14.0",
     "pageres": "^5.2.0",
     "postcss-assets": "^5.0.0",
     "yargs": "^15.0.0"
