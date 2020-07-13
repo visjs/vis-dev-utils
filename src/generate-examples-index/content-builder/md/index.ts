@@ -48,7 +48,7 @@ function processGroup(
         [
           link(example.paths.page.web, "Open"),
           link(example.paths.jsfiddle.web, "JSFiddle"),
-          link(example.paths.codepen.web, "CodePen")
+          link(example.paths.codepen.web, "CodePen"),
         ].join(" | "),
         ""
       );
@@ -58,7 +58,7 @@ function processGroup(
         ...processGroup(example, output, key, collator).map(
           (contentPart): ContentPart => ({
             ...contentPart,
-            filename: filenamePart + "." + contentPart.filename
+            filename: filenamePart + "." + contentPart.filename,
           })
         )
       );
@@ -69,9 +69,9 @@ function processGroup(
     {
       content: linesToContent([header(1, title), "", ...items]),
       filename: filenamePart + ".md",
-      title
+      title,
     },
-    ...sections
+    ...sections,
   ];
 }
 
@@ -95,16 +95,16 @@ export const mdRenderer: Renderer = {
           "",
           ...sections.map(
             ({ filename, title }): string => "- " + link("./" + filename, title)
-          )
+          ),
         ]),
         filename: "README.md",
-        title: "Examples"
+        title: "Examples",
       },
-      ...sections
+      ...sections,
     ];
   },
   screenshot: {
     width: 740,
-    height: 250
-  }
+    height: 250,
+  },
 };

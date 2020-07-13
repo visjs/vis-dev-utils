@@ -10,7 +10,7 @@ import {
   ContentBuilder,
   generatePlaygroundData,
   htmlRenderer,
-  mdRenderer
+  mdRenderer,
 } from "./content-builder";
 import { Example, ExamplesRoot, ExamplePaths } from "./types";
 import { parseArguments } from "./cli";
@@ -93,9 +93,7 @@ function lintExample(path: string, page: CheerioStatic): boolean {
     valid = false;
   }
 
-  const headTitle = page("head > title")
-    .text()
-    .trim();
+  const headTitle = page("head > title").text().trim();
   const bodyTitle = page("#title > *")
     .map((_i, elem): string => $(elem).text())
     .get()
@@ -131,7 +129,7 @@ function lintExample(path: string, page: CheerioStatic): boolean {
       argv["assets-local-directory"],
       argv["examples-local-directory"],
       argv["output-directory"],
-      argv["pages-local-directory"]
+      argv["pages-local-directory"],
     ].map(
       (path): Promise<void> => {
         return mkdir(path, { recursive: true });
@@ -148,20 +146,20 @@ function lintExample(path: string, page: CheerioStatic): boolean {
   const pathsConfig: ExamplePaths = {
     codepen: {
       local: argv["pages-local-directory"],
-      web: fixAbsoluteInputURL(baseURL, argv["pages-web-directory"])
+      web: fixAbsoluteInputURL(baseURL, argv["pages-web-directory"]),
     },
     jsfiddle: {
       local: argv["pages-local-directory"],
-      web: fixAbsoluteInputURL(baseURL, argv["pages-web-directory"])
+      web: fixAbsoluteInputURL(baseURL, argv["pages-web-directory"]),
     },
     page: {
       local: argv["examples-local-directory"],
-      web: fixAbsoluteInputURL(baseURL, argv["examples-web-directory"])
+      web: fixAbsoluteInputURL(baseURL, argv["examples-web-directory"]),
     },
     screenshot: {
       local: argv["assets-local-directory"],
-      web: fixAbsoluteInputURL(baseURL, argv["assets-web-directory"])
-    }
+      web: fixAbsoluteInputURL(baseURL, argv["assets-web-directory"]),
+    },
   };
 
   const examples: ExamplesRoot = {};
@@ -195,11 +193,7 @@ function lintExample(path: string, page: CheerioStatic): boolean {
         // Body titles.
         let titles = $page("#title > *")
           .get()
-          .map((elem): string =>
-            $page(elem)
-              .text()
-              .trim()
-          );
+          .map((elem): string => $page(elem).text().trim());
 
         // Head title fallback.
         if (titles.length < 2) {
@@ -221,42 +215,39 @@ function lintExample(path: string, page: CheerioStatic): boolean {
         }
 
         // Put this example into the structure while creating any missing groups in the process.
-        titles.reduce(
-          (acc, title, i, arr): any => {
-            while (acc[title] != null && acc[title].path != null) {
-              console.error("The following group already exists: ", titles);
-              title += "!";
-            }
+        titles.reduce((acc, title, i, arr): any => {
+          while (acc[title] != null && acc[title].path != null) {
+            console.error("The following group already exists: ", titles);
+            title += "!";
+          }
 
-            if (i === arr.length - 1) {
-              if (acc[title] != null) {
-                console.error(
-                  "The following example has the same name as an already existing group: ",
-                  titles
-                );
-                return null;
-              } else {
-                const example: Example = {
-                  $: $page,
-                  delay: pageDelay,
-                  html: html,
-                  path: pagePath,
-                  paths: generatePaths(pathsConfig, pagePath),
-                  playground: generatePlaygroundData(baseURL, $page, pagePath),
-                  selector: pageSelector,
-                  titles: titles
-                };
-
-                acc[title] = example;
-
-                ++stats.examples;
-              }
+          if (i === arr.length - 1) {
+            if (acc[title] != null) {
+              console.error(
+                "The following example has the same name as an already existing group: ",
+                titles
+              );
+              return null;
             } else {
-              return (acc[title] = acc[title] || {});
+              const example: Example = {
+                $: $page,
+                delay: pageDelay,
+                html: html,
+                path: pagePath,
+                paths: generatePaths(pathsConfig, pagePath),
+                playground: generatePlaygroundData(baseURL, $page, pagePath),
+                selector: pageSelector,
+                titles: titles,
+              };
+
+              acc[title] = example;
+
+              ++stats.examples;
             }
-          },
-          examples as any
-        );
+          } else {
+            return (acc[title] = acc[title] || {});
+          }
+        }, examples as any);
       }
     )
   );
@@ -266,7 +257,7 @@ function lintExample(path: string, page: CheerioStatic): boolean {
     console.info(
       [
         "The following files don't look like examples (there is nothing to take a screenshot of):",
-        ...skipped.sort()
+        ...skipped.sort(),
       ].join("\n  ")
     );
   }
@@ -287,11 +278,11 @@ function lintExample(path: string, page: CheerioStatic): boolean {
       parallel: argv.parallel,
       renderer: argv.format === "md" ? mdRenderer : htmlRenderer,
       screenshotScript,
-      title: argv.title
+      title: argv.title,
     }).build({
       index: argv.index,
       playgrounds: argv.playgrounds,
-      screenshots: argv.screenshots
+      screenshots: argv.screenshots,
     });
 
     // Create and write the page.

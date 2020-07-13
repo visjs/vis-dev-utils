@@ -19,8 +19,8 @@ const external = [
   ...new Set([
     ...Object.keys(packageJSON.dependencies),
     ...Object.keys(packageJSON.peerDependencies),
-    ...builtins
-  ])
+    ...builtins,
+  ]),
 ];
 
 const getPlugins = () => [
@@ -28,27 +28,27 @@ const getPlugins = () => [
     targets: [
       {
         src: "public/*",
-        dest: "dist"
-      }
-    ]
+        dest: "dist",
+      },
+    ],
   }),
   nodeResolve({
     extensions: [".css", ".html", ".js", ".json", ".ts", ".txt"],
-    preferBuiltins: true
+    preferBuiltins: true,
   }),
   string({
-    include: ["**/*.{css,html,txt}"]
+    include: ["**/*.{css,html,txt}"],
   }),
   json(),
   typescript({
-    tsconfig: "tsconfig.json"
+    tsconfig: "tsconfig.json",
   }),
   commonjs(),
   babel({
     babelrc: false,
     extensions: [".js", ".ts"],
-    runtimeHelpers: true
-  })
+    runtimeHelpers: true,
+  }),
 ];
 
 export default [
@@ -60,44 +60,44 @@ export default [
         banner: bannerModule,
         file: `dist/vis-dev-utils.cjs.js`,
         format: "cjs",
-        sourcemap: true
+        sourcemap: true,
       },
       {
         banner: bannerModule,
         file: `dist/vis-dev-utils.esm.js`,
         format: "esm",
-        sourcemap: true
-      }
+        sourcemap: true,
+      },
     ],
     external,
-    plugins: getPlugins()
+    plugins: getPlugins(),
   },
   // File exports.
-  ...["babel-register"].map(name => {
+  ...["babel-register"].map((name) => {
     return {
       input: `src/${name}`,
       output: {
         banner: bannerCommand,
         file: `${name}/index.js`,
         format: "cjs",
-        sourcemap: true
+        sourcemap: true,
       },
       external,
-      plugins: getPlugins()
+      plugins: getPlugins(),
     };
   }),
   // Node commands.
-  ...["generate-examples-index"].map(name => {
+  ...["generate-examples-index"].map((name) => {
     return {
       input: `src/${name}`,
       output: {
         banner: bannerCommand,
         file: `bin/${name}.js`,
         format: "cjs",
-        sourcemap: true
+        sourcemap: true,
       },
       external,
-      plugins: getPlugins()
+      plugins: getPlugins(),
     };
-  })
+  }),
 ];

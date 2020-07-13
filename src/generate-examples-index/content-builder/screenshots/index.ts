@@ -70,12 +70,8 @@ export async function generateScreenshot(
   );
   const screenshotPage = $.load(example.html);
   screenshotPage("head").prepend(
-    $("<script>")
-      .attr("type", "text/javascript")
-      .text(commonScreenshotScript),
-    $("<script>")
-      .attr("type", "text/javascript")
-      .text(screenshotScript)
+    $("<script>").attr("type", "text/javascript").text(commonScreenshotScript),
+    $("<script>").attr("type", "text/javascript").text(screenshotScript)
   );
   await writeFile(tmpPath, formatHTML(screenshotPage.html()));
 
@@ -100,23 +96,25 @@ export async function generateScreenshot(
         `  min-height: ${height}px !important;`,
         `  min-width: ${width}px !important;`,
         `  width: ${width}px !important;`,
-        "}"
+        "}",
       ].join("\n"),
       filename: basename(example.paths.screenshot.local).replace(/\.png$/, ""),
-      format: "png"
+      format: "png",
     })
       .src(tmpPath, ["1280x720"])
       .dest(dirname(example.paths.screenshot.local))
       .run();
 
     // Test the generated screenshots.
-    return (await Promise.all(
-      screenshots.map(
-        (screenshot): Promise<boolean> => {
-          return isScreenshotValid(screenshot);
-        }
+    return (
+      await Promise.all(
+        screenshots.map(
+          (screenshot): Promise<boolean> => {
+            return isScreenshotValid(screenshot);
+          }
+        )
       )
-    )).every((valid): boolean => valid);
+    ).every((valid): boolean => valid);
   } finally {
     // Remove the temporary file.
     await unlink(tmpPath);

@@ -19,7 +19,7 @@ export function generateCodePenPage(example: Example): string {
       html: data.code.html,
       js: data.code.js,
       js_external: data.resources.js.join(";"),
-      title: example.titles.join(" | ")
+      title: example.titles.join(" | "),
     })
   );
 
