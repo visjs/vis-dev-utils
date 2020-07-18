@@ -1,4 +1,10 @@
-import { spawnSync } from "child_process";
+import { execSync } from "child_process";
+import { readFileSync } from "fs";
+import { fileSync, setGracefulCleanup } from "tmp-promise";
+
+setGracefulCleanup();
+
+const PACK_CMD = ["npm", "pack", "--dry-run"];
 
 function logStderr(
   textOrLines: string | readonly string[],
@@ -14,20 +20,19 @@ function logStderr(
 }
 
 function runNpmPack(): string[] {
-  const result = spawnSync("npm", ["pack", "--dry-run"], {
-    env: { ...process.env, LC_ALL: "C" },
-    stdio: "pipe",
+  const tmpFile = fileSync().name;
+
+  // There are issues with incomplete output when the stderr is read directly
+  // into Node. Saving it into tmp file using shell redirection and reading it
+  // from there doesn't exhibit those issues.
+  execSync(`${PACK_CMD.join(" ")} 2> ${tmpFile}`, {
     encoding: "utf-8",
+    env: { ...process.env, LC_ALL: "C" },
   });
 
-  if (result.status !== 0) {
-    logStderr(
-      result.stderr,
-      'Command "npm pack" exited with ${result.status}.'
-    );
-  }
+  const lines = readFileSync(tmpFile, "utf-8").split(/[\r\n]+/);
 
-  return result.stderr.split(/[\r\n]+/);
+  return lines;
 }
 
 function extractFiles(lines: string[]): string[] {
