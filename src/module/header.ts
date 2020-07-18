@@ -28,9 +28,9 @@ export function textToComment(string: string): string {
       // Process each line on it's own from now on.
       .split("\n")
       // Prefix each line with an asterisk.
-      .map(line => " * " + line)
+      .map((line) => " * " + line)
       // Remove trailing white space.
-      .map(line => line.replace(/[^\S\r\n]*$/, ""))
+      .map((line) => line.replace(/[^\S\r\n]*$/, ""))
       // Join back into a string.
       .join("\n") +
     "\n */\n"
@@ -45,7 +45,7 @@ const buildHeader = ({
   description,
   homepage,
   name,
-  version
+  version,
 }: HeaderOptions): string =>
   textToComment(`
 ${name}
@@ -118,7 +118,7 @@ export function generateHeader(options?: Partial<HeaderOptions>): string {
     description = defaultDescription,
     homepage = defaultHomepage,
     name = defaultName,
-    version = defaultVersion
+    version = defaultVersion,
   } = options || {};
 
   return buildHeader({
@@ -127,6 +127,6 @@ export function generateHeader(options?: Partial<HeaderOptions>): string {
     description,
     homepage,
     name,
-    version
+    version,
   });
 }

@@ -65,15 +65,15 @@ export function generatePlaygroundData(
       .map((_i, elem): undefined | string => $(elem).attr("href"))
       .get()
       .filter((href): href is string => typeof href === "string")
-      .map(fixPath)
+      .map(fixPath),
   };
 
   return {
     code: {
       css,
       html,
-      js
+      js,
     },
-    resources
+    resources,
   };
 }

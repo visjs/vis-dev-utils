@@ -134,7 +134,7 @@ exports['generate-examples-index snapshots broken html file contents generated/i
               href="https://visjs.github.io/vis-test/examples/examples/example-alert.html"
               ><img
                 src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.png"
-                alt="Alert"/></a></span
+                alt="Alert" /></a></span
           ><span class="example-link"
             ><div class="example-header">
               <a
@@ -157,7 +157,7 @@ exports['generate-examples-index snapshots broken html file contents generated/i
               href="https://visjs.github.io/vis-test/examples/example-broken.html"
               ><img
                 src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.png"
-                alt="Broken"/></a></span
+                alt="Broken" /></a></span
           ><span class="example-link"
             ><div class="example-header">
               <a
@@ -180,7 +180,7 @@ exports['generate-examples-index snapshots broken html file contents generated/i
               href="https://visjs.github.io/vis-test/examples/examples/example-confirm.html"
               ><img
                 src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.png"
-                alt="Confirm"/></a></span
+                alt="Confirm" /></a></span
           ><span class="example-link"
             ><div class="example-header">
               <a
@@ -203,7 +203,7 @@ exports['generate-examples-index snapshots broken html file contents generated/i
               href="https://visjs.github.io/vis-test/examples/examples/example-1.html"
               ><img
                 src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.png"
-                alt="Number 1"/></a></span
+                alt="Number 1" /></a></span
           ><span class="example-link"
             ><div class="example-header">
               <a
@@ -226,7 +226,7 @@ exports['generate-examples-index snapshots broken html file contents generated/i
               href="https://visjs.github.io/vis-test/examples/examples/example-2.html"
               ><img
                 src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.png"
-                alt="Number 2"/></a
+                alt="Number 2" /></a
           ></span>
         </div>
         <div>
@@ -254,7 +254,7 @@ exports['generate-examples-index snapshots broken html file contents generated/i
                 href="https://visjs.github.io/vis-test/examples/examples/subdir/example-3.html"
                 ><img
                   src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.png"
-                  alt="Number 3"/></a></span
+                  alt="Number 3" /></a></span
             ><span class="example-link"
               ><div class="example-header">
                 <a
@@ -277,7 +277,7 @@ exports['generate-examples-index snapshots broken html file contents generated/i
                 href="https://visjs.github.io/vis-test/examples/examples/subdir/example-4.html"
                 ><img
                   src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.png"
-                  alt="Number 4"/></a
+                  alt="Number 4" /></a
             ></span>
           </div>
         </div>
@@ -490,7 +490,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
       <input
         type="hidden"
         name="data"
-        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;&lt;/div&gt;\\n","js":"\\n","js_external":"","title":"Test | Broken"}'
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;&lt;/div&gt;\\n","js":"","js_external":"","title":"Test | Broken"}'
       />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
@@ -801,12 +801,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
         value='&lt;div id="test-element"&gt;&lt;/div&gt;
 '
       />
-      <input
-        type="hidden"
-        name="js"
-        value="
-"
-      />
+      <input type="hidden" name="js" value />
       <input type="hidden" name="resources" value />
       <input type="hidden" name="title" value="Test | Broken" />
       <input type="hidden" name="wrap" value="b" />
@@ -1112,7 +1107,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
       <input
         type="hidden"
         name="data"
-        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;&lt;/div&gt;\\n","js":"\\n","js_external":"","title":"Test | Broken"}'
+        value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;&lt;/div&gt;\\n","js":"","js_external":"","title":"Test | Broken"}'
       />
       <button id="open" alt="JSFiddle" title="JSFiddle">
         Open CodePen
@@ -1423,12 +1418,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
         value='&lt;div id="test-element"&gt;&lt;/div&gt;
 '
       />
-      <input
-        type="hidden"
-        name="js"
-        value="
-"
-      />
+      <input type="hidden" name="js" value />
       <input type="hidden" name="resources" value />
       <input type="hidden" name="title" value="Test | Broken" />
       <input type="hidden" name="wrap" value="b" />
@@ -1578,7 +1568,7 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
               href="https://visjs.github.io/vis-test/examples/example-alert.html"
               ><img
                 src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.png"
-                alt="Alert"/></a></span
+                alt="Alert" /></a></span
           ><span class="example-link"
             ><div class="example-header">
               <a
@@ -1601,7 +1591,7 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
               href="https://visjs.github.io/vis-test/examples/example-confirm.html"
               ><img
                 src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.png"
-                alt="Confirm"/></a></span
+                alt="Confirm" /></a></span
           ><span class="example-link"
             ><div class="example-header">
               <a
@@ -1624,7 +1614,7 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
               href="https://visjs.github.io/vis-test/examples/example-1.html"
               ><img
                 src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.png"
-                alt="Number 1"/></a></span
+                alt="Number 1" /></a></span
           ><span class="example-link"
             ><div class="example-header">
               <a
@@ -1647,7 +1637,7 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
               href="https://visjs.github.io/vis-test/examples/example-2.html"
               ><img
                 src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.png"
-                alt="Number 2"/></a
+                alt="Number 2" /></a
           ></span>
         </div>
         <div>
@@ -1675,7 +1665,7 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
                 href="https://visjs.github.io/vis-test/examples/subdir/example-3.html"
                 ><img
                   src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.png"
-                  alt="Number 3"/></a></span
+                  alt="Number 3" /></a></span
             ><span class="example-link"
               ><div class="example-header">
                 <a
@@ -1698,7 +1688,7 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
                 href="https://visjs.github.io/vis-test/examples/subdir/example-4.html"
                 ><img
                   src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.png"
-                  alt="Number 4"/></a
+                  alt="Number 4" /></a
             ></span>
           </div>
         </div>

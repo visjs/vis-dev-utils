@@ -8,9 +8,7 @@ import { spawnSync } from "child_process";
 import { sync as globby } from "globby";
 
 const executable = resolve(
-  spawnSync("npm", ["root"])
-    .stdout.toString()
-    .slice(0, -1),
+  spawnSync("npm", ["root"]).stdout.toString().slice(0, -1),
   "../bin/generate-examples-index.js"
 );
 
@@ -67,65 +65,65 @@ function generate(options: {
         ["--playgrounds"],
         ["--screenshots"],
         ["--title", title],
-        ["--verify", verify]
-      ].flat()
+        ["--verify", verify],
+      ].flat(),
     ],
     { stdio: "ignore" }
   );
 }
 
-describe("generate-examples-index", function(): void {
-  it("is executable built", function(): void {
+describe("generate-examples-index", function (): void {
+  it("is executable built", function (): void {
     expect(
       existsSync(executable),
       "The built executable has to be present for any of the following tests to pass."
     ).to.be.true;
   });
 
-  describe("working examples", function(): void {
+  describe("working examples", function (): void {
     const output = prepareWorkplace();
     let $index: CheerioStatic;
 
-    it("generate index", function(): void {
+    it("generate index", function (): void {
       this.timeout(30 * 60 * 1000);
 
       generate({ output, type: "okay" });
     });
 
-    describe("verify index", function(): void {
-      it("valid HTML", function(): void {
+    describe("verify index", function (): void {
+      it("valid HTML", function (): void {
         $index = $.load(
           readFileSync(join(output.index, "index.html"), "utf-8")
         );
       });
 
-      it("title", function(): void {
+      it("title", function (): void {
         expect($index("title").text()).to.equal(title);
       });
 
-      it("links", function(): void {
+      it("links", function (): void {
         expect(
           $index(".example-link").length,
           `There should be ${nmExamples} links to examples.`
         ).to.equal(nmExamples);
       });
 
-      describe("files", function(): void {
-        it("JSFiddles", function(): void {
+      describe("files", function (): void {
+        it("JSFiddles", function (): void {
           expect(
             globby(join(output.pages, "jsfiddle.*.html")),
             `There should be ${nmExamples} JSFiddle opener files.`
           ).have.lengthOf(nmExamples);
         });
 
-        it("CodePens", function(): void {
+        it("CodePens", function (): void {
           expect(
             globby(join(output.pages, "codepen.*.html")),
             `There should be ${nmExamples} CodePen opener files.`
           ).have.lengthOf(nmExamples);
         });
 
-        it("screenshots", function(): void {
+        it("screenshots", function (): void {
           expect(
             globby(join(output.assets, "*.png")),
             `There should be ${nmExamples} screenshots.`
@@ -136,26 +134,26 @@ describe("generate-examples-index", function(): void {
       for (const i of new Array(nmExamples)
         .fill(null)
         .map((_value, i): number => i)) {
-        describe(`example ${i + 1}`, function(): void {
+        describe(`example ${i + 1}`, function (): void {
           function getNthExample(n: number): Cheerio {
             return $index(".example-link").eq(n);
           }
 
-          it("thumbnail", function(): void {
+          it("thumbnail", function (): void {
             expect(
               getNthExample(i).find(".example-image img").length,
               "There should be a screenshot of this example."
             ).to.equal(1);
           });
 
-          it("JSFiddle", function(): void {
+          it("JSFiddle", function (): void {
             expect(
               getNthExample(i).find(".icon.jsfiddle").length,
               "There should be exactly 1 JSFiddle icon."
             ).to.equal(1);
           });
 
-          it("CodePen", function(): void {
+          it("CodePen", function (): void {
             expect(
               getNthExample(i).find(".icon.codepen").length,
               "There should be exactly 1 CodePen icon."
@@ -166,7 +164,7 @@ describe("generate-examples-index", function(): void {
     });
   });
 
-  describe("broken examples", function(): void {
+  describe("broken examples", function (): void {
     const output = prepareWorkplace();
 
     [
@@ -174,12 +172,12 @@ describe("generate-examples-index", function(): void {
       { threshold: 100, code: 3 },
       { threshold: 90, code: 3 },
       { threshold: 80, code: 0 },
-      { threshold: 0, code: 0 }
+      { threshold: 0, code: 0 },
     ].forEach(({ threshold, code }): void => {
       it(
         (threshold == null ? "default" : threshold + " %") +
           " threshold, 1 broken, 6 okay",
-        function(): void {
+        function (): void {
           this.timeout(90 * 60 * 1000);
 
           const ret = generate({ output, type: "broken", threshold });
@@ -197,28 +195,28 @@ describe("generate-examples-index", function(): void {
     });
   });
 
-  describe("snapshots", function(): void {
+  describe("snapshots", function (): void {
     for (const format of ["html", "md"] as const) {
       for (const type of ["okay", "broken"] as const) {
-        describe(`${type} ${format}`, function(): void {
+        describe(`${type} ${format}`, function (): void {
           const output = prepareWorkplace();
 
-          it("generate", function(): void {
+          it("generate", function (): void {
             this.timeout(30 * 60 * 1000);
 
             generate({ output, format, type });
           });
 
-          it("directory structure", function(): void {
+          it("directory structure", function (): void {
             snapshot(globby("**/*", { cwd: output.dir }).sort());
           });
 
-          it("file contents", function(): void {
+          it("file contents", function (): void {
             for (const relativePath of globby(
               [
                 "**/*",
                 // Exclude images, test only text files.
-                "!**/*.png"
+                "!**/*.png",
               ],
               { cwd: output.dir }
             )) {

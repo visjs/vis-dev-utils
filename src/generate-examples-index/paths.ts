@@ -27,9 +27,7 @@ export function generatePaths(
 
   // It's important that the hash is created from the relative path so that it
   // is the same on all computers.
-  const hash = createHash("sha256")
-    .update(exampleRelativePath)
-    .digest("hex");
+  const hash = createHash("sha256").update(exampleRelativePath).digest("hex");
 
   return {
     codepen: generateLocalWebPair(
@@ -48,7 +46,7 @@ export function generatePaths(
     ),
     page: {
       local: exampleAbsolutePath,
-      web: joinURLs(config.page.web, exampleRelativePath)
+      web: joinURLs(config.page.web, exampleRelativePath),
     },
     screenshot: generateLocalWebPair(
       config.screenshot.local,
@@ -56,7 +54,7 @@ export function generatePaths(
       hash,
       "screenshot",
       "png"
-    )
+    ),
   };
 }
 
@@ -71,6 +69,6 @@ function generateLocalWebPair(
 
   return {
     local: resolve(localRoot, filename),
-    web: joinURLs(webRoot, filename)
+    web: joinURLs(webRoot, filename),
   };
 }

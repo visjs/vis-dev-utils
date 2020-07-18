@@ -31,8 +31,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm test"
+      "pre-commit": "lint-staged"
     }
   },
   "config": {
@@ -66,6 +65,7 @@
     "jimp": "^0.14.0",
     "pageres": "^5.2.0",
     "postcss-assets": "^5.0.0",
+    "prettier": "^2.0.0",
     "yargs": "^15.0.0"
   },
   "peerDependencies": {
@@ -83,7 +83,6 @@
     "babel-plugin-css-modules-transform": "^1.6.0",
     "babel-plugin-istanbul": "^6.0.0",
     "core-js": "^3.2.0",
-    "prettier": "^1.18.0",
     "rollup-plugin-analyzer": "^3.2.0",
     "rollup-plugin-babel": "^4.3.0",
     "rollup-plugin-copy": "^3.3.0",
@@ -109,7 +108,7 @@
     "@types/jimp": "0.2.28",
     "@types/mocha": "8.0.0",
     "@types/npm": "2.0.31",
-    "@types/prettier": "1.18.3",
+    "@types/prettier": "2.0.2",
     "@types/sinon": "9.0.4",
     "@types/tmp": "0.2.0",
     "@types/yargs": "15.0.5",
@@ -126,9 +125,9 @@
     "lint-staged": "10.2.11",
     "mocha": "8.0.1",
     "opencollective": "1.0.3",
-    "prettier": "1.18.2",
+    "prettier": "2.0.5",
     "rimraf": "3.0.2",
-    "rollup": "2.21.0",
+    "rollup": "2.22.0",
     "rollup-plugin-analyzer": "3.3.0",
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-copy": "3.3.0",

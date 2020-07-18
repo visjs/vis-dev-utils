@@ -38,30 +38,22 @@ function processGroup(
     const example = examples[key];
 
     if (isExample(example)) {
-      const header = $("<div>")
-        .addClass("example-header")
-        .append(
-          // Playgrounds
-          generateJSFiddle(example),
-          generateCodePen(example),
-          // Title
-          $("<a>")
-            .attr("href", example.paths.page.web)
-            .text(key)
-        );
+      const header = $("<div>").addClass("example-header").append(
+        // Playgrounds
+        generateJSFiddle(example),
+        generateCodePen(example),
+        // Title
+        $("<a>").attr("href", example.paths.page.web).text(key)
+      );
 
       const image = $("<a>")
         .addClass("example-image")
         .attr("href", example.paths.page.web)
         .append(
-          $("<img>")
-            .attr("src", example.paths.screenshot.web)
-            .attr("alt", key)
+          $("<img>").attr("src", example.paths.screenshot.web).attr("alt", key)
         );
 
-      const item = $("<span>")
-        .addClass("example-link")
-        .append(header, image);
+      const item = $("<span>").addClass("example-link").append(header, image);
 
       list.append(item);
     } else {
@@ -98,12 +90,12 @@ export const htmlRenderer: Renderer = {
       {
         content: styleTemplate,
         filename: "examples.css",
-        title: "examples.css"
-      }
+        title: "examples.css",
+      },
     ];
   },
   screenshot: {
     width: 400,
-    height: 400
-  }
+    height: 400,
+  },
 };
