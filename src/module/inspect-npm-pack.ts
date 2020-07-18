@@ -17,7 +17,7 @@ function runNpmPack(): string[] {
   const result = spawnSync("npm", ["pack", "--dry-run"], {
     env: { ...process.env, LC_ALL: "C" },
     stdio: "pipe",
-    encoding: "utf-8"
+    encoding: "utf-8",
   });
 
   if (result.status !== 0) {
@@ -55,7 +55,7 @@ function extractFiles(lines: string[]): string[] {
       )
     )
     .sort()
-    .map(line => line.replace(/^(.*)(.{7})$/, "$2 $1"));
+    .map((line) => line.replace(/^(.*)(.{7})$/, "$2 $1"));
 
   if (files.length === 0) {
     logStderr(lines, 'No files found in "npm pack" output.');
@@ -86,6 +86,6 @@ export function inspectNpmPack(): { name: string; files: string[] } {
 
   return {
     name,
-    files
+    files,
   };
 }

@@ -16,7 +16,7 @@ import { terser as terserPlugin } from "rollup-plugin-terser";
 import {
   config as chaiConfig,
   expect as validateExpect,
-  use as chaiUse
+  use as chaiUse,
 } from "chai";
 
 import { OptionalOptions } from "../util";
@@ -97,7 +97,7 @@ const dependenciesWithVisExportStructure = [
   "vis-network",
   "vis-timeline",
   "vis-util",
-  "vis-uuid"
+  "vis-uuid",
 ];
 
 /**
@@ -186,7 +186,7 @@ function getPaths(
       | "uuid"
   ): Record<string, string> {
     return {
-      [`vis-${lib}/esnext`]: `vis-${lib}/${buildVariant}/${moduleFormat}/vis-${lib}.js`
+      [`vis-${lib}/esnext`]: `vis-${lib}/${buildVariant}/${moduleFormat}/vis-${lib}.js`,
     };
   }
 
@@ -197,7 +197,7 @@ function getPaths(
     ...getPath("network"),
     ...getPath("timeline"),
     ...getPath("util"),
-    ...getPath("uuid")
+    ...getPath("uuid"),
   };
 }
 
@@ -214,7 +214,7 @@ const generateRollupPluginArray = (
     minimize = false,
     strip = !VIS_DEBUG,
     transpile = false,
-    typescript = false
+    typescript = false,
   } = {}
 ): unknown[] => {
   const fullLibraryFilename = `${libraryFilename}${minimize ? ".min" : ""}`;
@@ -233,48 +233,48 @@ const generateRollupPluginArray = (
         {
           src: resolve(__dirname, "assets/bundle-root.js"),
           dest: bundleDir,
-          rename: "index.js"
+          rename: "index.js",
         },
         {
           src: resolve(__dirname, "assets/bundle-index.js"),
           dest: bundleVariantDirs,
           rename: "index.js",
           transform: (content: Buffer): string =>
-            content.toString().replace("{{filename}}", libraryFilename)
+            content.toString().replace("{{filename}}", libraryFilename),
         },
 
         // TypeScript
         {
           src: resolve(__dirname, "assets/bundle-root.d.ts"),
           dest: bundleDir,
-          rename: "index.d.ts"
+          rename: "index.d.ts",
         },
         {
           src: resolve(__dirname, "assets/bundle-index.d.ts"),
           dest: bundleVariantDirs,
           rename: "index.d.ts",
           transform: (content: Buffer): string =>
-            content.toString().replace("{{filename}}", libraryFilename)
+            content.toString().replace("{{filename}}", libraryFilename),
         },
         {
           src: resolve(__dirname, "assets/bundle-file.d.ts"),
           dest: bundleVariantDirs,
           rename: `${fullLibraryFilename}.d.ts`,
           transform: (content: Buffer): string =>
-            content.toString().replace("{{bundle-type}}", bundleType)
-        }
-      ]
+            content.toString().replace("{{bundle-type}}", bundleType),
+        },
+      ],
     }),
     nodeResolvePlugin({
       browser: true,
       extensions: [".js", ".json", ".ts"],
-      mainFields: ["jsnext", "module", "main"]
+      mainFields: ["jsnext", "module", "main"],
     }),
     ...(typescript
       ? [
           typescriptPlugin({
-            tsconfig
-          })
+            tsconfig,
+          }),
         ]
       : []),
     commonjsPlugin(),
@@ -286,9 +286,9 @@ const generateRollupPluginArray = (
       sourceMap: !injectCSS,
       plugins: [
         postcssAssetsPlugin({
-          loadPaths: [assets]
-        })
-      ]
+          loadPaths: [assets],
+        }),
+      ],
     }),
     jsonPlugin(),
     ...(strip
@@ -301,27 +301,27 @@ const generateRollupPluginArray = (
             // and once with empty labels.
             functions: [],
             include: ["**/*.js", "**/*.ts"],
-            labels: ["stripInProduction"]
-          })
+            labels: ["stripInProduction"],
+          }),
         ]
       : []),
     ...(transpile
       ? [
           babelPlugin({
             extensions: [".js", ".ts"],
-            runtimeHelpers: true
-          })
+            runtimeHelpers: true,
+          }),
         ]
       : []),
     ...(minimize
       ? [
           terserPlugin({
             output: {
-              comments: "some"
-            }
-          })
+              comments: "some",
+            },
+          }),
         ]
-      : [])
+      : []),
   ];
 };
 
@@ -372,7 +372,7 @@ export function generateRollupConfiguration(
       ...packageJSONRest
     } = {} as GRCOptions["packageJSON"],
     entryPoints: entryPoint = "./src",
-    tsconfig = "tsconfig.json"
+    tsconfig = "tsconfig.json",
   }: GRCOptions = (options || {}) as GRCOptions;
 
   validate((expect): void => {
@@ -424,7 +424,7 @@ export function generateRollupConfiguration(
   const [esnextEntry, peerEntry, standaloneEntry] = [
     "ESNext",
     "peer",
-    "standalone"
+    "standalone",
   ].map((name): string => {
     const filenameGlob = `entry-${name.toLowerCase()}.{js,ts}`;
     const files = glob(resolve(entryPoint, filenameGlob));
@@ -461,7 +461,7 @@ export function generateRollupConfiguration(
         "declarations",
         "esnext",
         "peer",
-        "standalone"
+        "standalone",
       ]);
   });
 
@@ -536,12 +536,12 @@ export function generateRollupConfiguration(
       // it is that if someone accidentaly imports a dev dependency they
       // won't accidentaly add it to globals and Rollup will warn them
       // about their error.
-      ...Object.keys(devDependencies)
+      ...Object.keys(devDependencies),
     ]),
     // Only dependencies that cause compatibility issues are not bundled.
     peer: processDependencies(externalForPeerBuild),
     // No runtime dependencies, everything's bundled.
-    standalone: []
+    standalone: [],
   };
 
   const commonOutputESM = {
@@ -549,7 +549,7 @@ export function generateRollupConfiguration(
     dir: ".",
     format: "esm",
     globals: processGlobals(globals),
-    sourcemap: true
+    sourcemap: true,
   };
   const commonOutputUMD = {
     banner,
@@ -560,7 +560,7 @@ export function generateRollupConfiguration(
     globals: processGlobals(globals),
     name: "vis",
     sourcemap: true,
-    strict: false // Regenerator runtime causes issues with CSP in strict mode.
+    strict: false, // Regenerator runtime causes issues with CSP in strict mode.
   };
 
   const getPlugins = generateRollupPluginArray.bind(
@@ -577,18 +577,18 @@ export function generateRollupConfiguration(
       output: [
         {
           ...commonOutputESM,
-          entryFileNames: `standalone/esm/${libraryFilename}.js`
+          entryFileNames: `standalone/esm/${libraryFilename}.js`,
         },
         {
           ...commonOutputUMD,
-          entryFileNames: `standalone/umd/${libraryFilename}.js`
-        }
+          entryFileNames: `standalone/umd/${libraryFilename}.js`,
+        },
       ],
       plugins: getPlugins("standalone", {
         injectCSS,
         transpile,
-        typescript: isTS(standaloneEntry)
-      })
+        typescript: isTS(standaloneEntry),
+      }),
     },
     {
       external: external.standalone,
@@ -596,19 +596,19 @@ export function generateRollupConfiguration(
       output: [
         {
           ...commonOutputESM,
-          entryFileNames: `standalone/esm/${libraryFilename}.min.js`
+          entryFileNames: `standalone/esm/${libraryFilename}.min.js`,
         },
         {
           ...commonOutputUMD,
-          entryFileNames: `standalone/umd/${libraryFilename}.min.js`
-        }
+          entryFileNames: `standalone/umd/${libraryFilename}.min.js`,
+        },
       ],
       plugins: getPlugins("standalone", {
         injectCSS,
         minimize,
         transpile,
-        typescript: isTS(standaloneEntry)
-      })
+        typescript: isTS(standaloneEntry),
+      }),
     },
 
     {
@@ -618,18 +618,18 @@ export function generateRollupConfiguration(
         {
           ...commonOutputESM,
           entryFileNames: `peer/esm/${libraryFilename}.js`,
-          paths: getPaths("peer", "esm")
+          paths: getPaths("peer", "esm"),
         },
         {
           ...commonOutputUMD,
           entryFileNames: `peer/umd/${libraryFilename}.js`,
-          paths: getPaths("peer", "umd")
-        }
+          paths: getPaths("peer", "umd"),
+        },
       ],
       plugins: getPlugins("peer", {
         transpile,
-        typescript: isTS(peerEntry)
-      })
+        typescript: isTS(peerEntry),
+      }),
     },
     {
       external: external.peer,
@@ -638,19 +638,19 @@ export function generateRollupConfiguration(
         {
           ...commonOutputESM,
           entryFileNames: `peer/esm/${libraryFilename}.min.js`,
-          paths: getPaths("peer", "esm")
+          paths: getPaths("peer", "esm"),
         },
         {
           ...commonOutputUMD,
           entryFileNames: `peer/umd/${libraryFilename}.min.js`,
-          paths: getPaths("peer", "umd")
-        }
+          paths: getPaths("peer", "umd"),
+        },
       ],
       plugins: getPlugins("peer", {
         minimize,
         transpile,
-        typescript: isTS(peerEntry)
-      })
+        typescript: isTS(peerEntry),
+      }),
     },
 
     {
@@ -660,17 +660,17 @@ export function generateRollupConfiguration(
         {
           ...commonOutputESM,
           entryFileNames: `esnext/esm/${libraryFilename}.js`,
-          paths: getPaths("esnext", "esm")
+          paths: getPaths("esnext", "esm"),
         },
         {
           ...commonOutputUMD,
           entryFileNames: `esnext/umd/${libraryFilename}.js`,
-          paths: getPaths("esnext", "umd")
-        }
+          paths: getPaths("esnext", "umd"),
+        },
       ],
       plugins: getPlugins("esnext", {
-        typescript: isTS(esnextEntry)
-      })
+        typescript: isTS(esnextEntry),
+      }),
     },
     {
       external: external.esnext,
@@ -679,18 +679,18 @@ export function generateRollupConfiguration(
         {
           ...commonOutputESM,
           entryFileNames: `esnext/esm/${libraryFilename}.min.js`,
-          paths: getPaths("esnext", "esm")
+          paths: getPaths("esnext", "esm"),
         },
         {
           ...commonOutputUMD,
           entryFileNames: `esnext/umd/${libraryFilename}.min.js`,
-          paths: getPaths("esnext", "umd")
-        }
+          paths: getPaths("esnext", "umd"),
+        },
       ],
       plugins: getPlugins("esnext", {
         minimize,
-        typescript: isTS(esnextEntry)
-      })
-    }
+        typescript: isTS(esnextEntry),
+      }),
+    },
   ];
 }

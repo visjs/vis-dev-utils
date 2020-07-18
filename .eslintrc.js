@@ -3,14 +3,14 @@ module.exports = {
     browser: false,
     es6: true,
     node: true,
-    mocha: true
+    mocha: true,
   },
 
   parser: "@typescript-eslint/parser",
   parserOptions: {
     sourceType: "module",
     ecmaVersion: 2019,
-    project: "tsconfig.json"
+    project: "tsconfig.json",
   },
 
   plugins: ["prettier", "@typescript-eslint"],
@@ -28,7 +28,7 @@ module.exports = {
 
     "no-console": [
       "error",
-      { allow: ["error", "group", "groupEnd", "info", "warn"] }
+      { allow: ["error", "group", "groupEnd", "info", "warn"] },
     ],
 
     "valid-jsdoc": [
@@ -37,10 +37,10 @@ module.exports = {
         requireReturnDescription: false,
         requireReturn: false,
         requireParamDescription: false,
-        requireReturnType: true
-      }
+        requireReturnType: true,
+      },
     ],
-    "guard-for-in": 1
+    "guard-for-in": 1,
   },
   overrides: [
     // TypeScript
@@ -55,14 +55,14 @@ module.exports = {
             prefer: {
               arg: "param",
               argument: "param",
-              return: "returns"
+              return: "returns",
             },
             requireParamDescription: true,
             requireParamType: false,
             requireReturn: false, // Requires return for void functions.
             requireReturnDescription: true,
-            requireReturnType: false
-          }
+            requireReturnType: false,
+          },
         ],
 
         // Class related.
@@ -72,14 +72,14 @@ module.exports = {
             selector: "memberLike",
             modifiers: ["private", "protected"],
             format: null,
-            leadingUnderscore: "require"
+            leadingUnderscore: "require",
           },
           {
             selector: "memberLike",
             modifiers: ["public"],
             format: null,
-            leadingUnderscore: "forbid"
-          }
+            leadingUnderscore: "forbid",
+          },
         ],
         "@typescript-eslint/no-parameter-properties": "off",
         "@typescript-eslint/no-useless-constructor": "error",
@@ -95,7 +95,7 @@ module.exports = {
         // These are hoisted, I have no idea why it reports them by default.
         "@typescript-eslint/no-use-before-define": [
           "error",
-          { functions: false, classes: false, typedefs: false }
+          { functions: false, classes: false, typedefs: false },
         ],
         // False positives for overloading, also tsc compiles with errors anyway.
         "no-dupe-class-members": "off",
@@ -104,8 +104,8 @@ module.exports = {
         // Reports used types.
         "no-unused-vars": "off",
         // Reports typeof bigint as an error, tsc validates this anyway so no problem turning this off.
-        "valid-typeof": "off"
-      }
-    }
-  ]
+        "valid-typeof": "off",
+      },
+    },
+  ],
 };

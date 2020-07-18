@@ -1,4 +1,4 @@
-module.exports = function(_context, { css = false, ts = false } = {}) {
+module.exports = function (_context, { css = false, ts = false } = {}) {
   const base = {
     presets: [
       [
@@ -14,13 +14,13 @@ module.exports = function(_context, { css = false, ts = false } = {}) {
             // our users use bundlers to bundle ESM builds into IE 11
             // compatible UMD builds. Therefore even ESM builds need IE 11
             // polyfills.
-            esmodules: false
+            esmodules: false,
           },
           // This would pollute global scope. Babel's Transform Runtime plugin
           // is used instead.
-          useBuiltIns: false
-        }
-      ]
+          useBuiltIns: false,
+        },
+      ],
     ],
     plugins: [
       require("@babel/plugin-proposal-class-properties"),
@@ -30,9 +30,9 @@ module.exports = function(_context, { css = false, ts = false } = {}) {
         {
           // Force corejs 3. The default corejs 2 is deprecated and doesn't
           // contain some polyfills.
-          corejs: 3
-        }
-      ]
+          corejs: 3,
+        },
+      ],
     ],
     env: {
       test: {
@@ -42,10 +42,10 @@ module.exports = function(_context, { css = false, ts = false } = {}) {
             {
               // Tests run in Node so there's no need to include any other
               // polyfills (we're testing our code, not the polyfills).
-              targets: "maintained node versions"
-            }
-          ]
-        ]
+              targets: "maintained node versions",
+            },
+          ],
+        ],
       },
       "test-cov": {
         presets: [
@@ -53,15 +53,15 @@ module.exports = function(_context, { css = false, ts = false } = {}) {
             require("@babel/preset-env"),
             {
               // dtto
-              targets: "maintained node versions"
-            }
-          ]
+              targets: "maintained node versions",
+            },
+          ],
         ],
         // This instruments the code to record coverage. It's more reliable if
         // done through Babel plugin.
-        plugins: ["istanbul"]
-      }
-    }
+        plugins: ["istanbul"],
+      },
+    },
   };
 
   if (css) {

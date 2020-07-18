@@ -69,7 +69,7 @@ export class ContentBuilder {
       `Going to generate ${[
         emit.index ? ["index files"] : [],
         emit.playgrounds ? ["playground openers"] : [],
-        emit.screenshots ? ["screenshots"] : []
+        emit.screenshots ? ["screenshots"] : [],
       ]
         .flat()
         .join(", ")} for ${allExamples.length} examples.`
@@ -82,48 +82,52 @@ export class ContentBuilder {
     const indexes = emit.index
       ? // Generate indexes.
         (async (): Promise<number> =>
-          (await Promise.all(
-            this._config.renderer
-              .render(
-                this._config.examples,
-                this._config.output,
-                this._config.title,
-                collator
-              )
-              .map(
-                async ({ content, filename }): Promise<void> =>
-                  writeFile(join(this._config.output, filename), content)
-              )
-          )).length)()
+          (
+            await Promise.all(
+              this._config.renderer
+                .render(
+                  this._config.examples,
+                  this._config.output,
+                  this._config.title,
+                  collator
+                )
+                .map(
+                  async ({ content, filename }): Promise<void> =>
+                    writeFile(join(this._config.output, filename), content)
+                )
+            )
+          ).length)()
       : // Skip indexes.
         Promise.resolve(0);
 
     const playgrounds = emit.playgrounds
       ? // Generate playground pages.
         (async (): Promise<number> =>
-          (await Promise.all(
-            this._playgroundTodo
-              .splice(0)
-              .flatMap((example): {
-                html: string;
-                path: string;
-              }[] => {
-                return [
-                  {
-                    html: generateJSFiddlePage(example),
-                    path: example.paths.jsfiddle.local
-                  },
-                  {
-                    html: generateCodePenPage(example),
-                    path: example.paths.codepen.local
-                  }
-                ];
-              })
-              .map(
-                async ({ html, path }): Promise<void> =>
-                  writeFile(path, formatHTML(html))
-              )
-          )).length)()
+          (
+            await Promise.all(
+              this._playgroundTodo
+                .splice(0)
+                .flatMap((example): {
+                  html: string;
+                  path: string;
+                }[] => {
+                  return [
+                    {
+                      html: generateJSFiddlePage(example),
+                      path: example.paths.jsfiddle.local,
+                    },
+                    {
+                      html: generateCodePenPage(example),
+                      path: example.paths.codepen.local,
+                    },
+                  ];
+                })
+                .map(
+                  async ({ html, path }): Promise<void> =>
+                    writeFile(path, formatHTML(html))
+                )
+            )
+          ).length)()
       : // Skip playground pages.
         Promise.resolve(0);
 
@@ -178,7 +182,7 @@ export class ContentBuilder {
         okay: this._okay.length,
         okayPaths: this._okay,
         percentage: total === 0 ? 100 : (100 * this._okay.length) / total,
-        total
+        total,
       };
     })();
 
@@ -204,7 +208,7 @@ export class ContentBuilder {
       example,
       height: this._config.renderer.screenshot.height,
       screenshotScript: this._config.screenshotScript,
-      width: this._config.renderer.screenshot.width
+      width: this._config.renderer.screenshot.width,
     });
   }
 }
