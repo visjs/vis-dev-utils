@@ -102,7 +102,7 @@
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "8.4.0",
     "@rollup/plugin-strip": "2.0.0",
-    "@types/chai": "4.2.11",
+    "@types/chai": "4.2.12",
     "@types/chai-fs": "2.0.2",
     "@types/cheerio": "0.22.21",
     "@types/jimp": "0.2.28",
