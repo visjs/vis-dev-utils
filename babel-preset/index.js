@@ -6,8 +6,8 @@ module.exports = function (_context, { css = false, ts = false } = {}) {
         {
           targets: {
             // A browser is polyfilled if it is supported by it's maintainers
-            // or if it is used by at least one in every thousand of users.
-            browsers: "> 0.1% or not dead",
+            // and if it is used by at least one in every thousand of users.
+            browsers: "> 0.1% and not dead",
             // This forces Babel to polyfill ESM as if it was UMD. The reason
             // behind this is that that Babel doesn't include IE 11 polyfills
             // in ESM builds since IE 11 can't even load them. However many of
