@@ -342,7 +342,8 @@ function lintExample(path: string, page: CheerioStatic): boolean {
     }
   }
 
-  process.exit(code);
+  process.exitCode = code;
 })().catch((error): void => {
+  process.exitCode = 1;
   console.error(error);
 });

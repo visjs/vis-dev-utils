@@ -68,7 +68,7 @@ function generate(options: {
         ["--verify", verify],
       ].flat(),
     ],
-    { stdio: "ignore" }
+    { stdio: "pipe" }
   );
 }
 
@@ -82,15 +82,17 @@ describe("generate-examples-index", function (): void {
 
   describe("working examples", function (): void {
     const output = prepareWorkplace();
-    let $index: CheerioStatic;
 
     it("generate index", function (): void {
       this.timeout(30 * 60 * 1000);
 
-      generate({ output, type: "okay" });
+      const ret = generate({ output, type: "okay" });
+      expect(ret).to.haveOwnProperty("status").that.equals(0);
     });
 
     describe("verify index", function (): void {
+      let $index: CheerioStatic;
+
       it("valid HTML", function (): void {
         $index = $.load(
           readFileSync(join(output.index, "index.html"), "utf-8")
