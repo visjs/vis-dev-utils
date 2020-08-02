@@ -1,0 +1,21 @@
+{
+  "package-script": [
+    "clean! build! test!",
+    "vis-charts generate-examples-index!",
+    "vis-data lint!",
+    "vis-dev-utils lint!",
+    "vis-graph3d lint! generate-examples-index!",
+    "vis-network lint! generate-examples-index!",
+    "vis-timeline generate-examples-index!",
+    "vis-util lint!"
+  ],
+  "remote-project": [
+    "vis-charts https://github.com/visjs/vis-charts.git",
+    "vis-data https://github.com/visjs/vis-data.git",
+    "vis-dev-utils https://github.com/visjs/vis-dev-utils.git",
+    "vis-graph3d https://github.com/visjs/vis-graph3d.git",
+    "vis-network https://github.com/visjs/vis-network.git",
+    "vis-timeline https://github.com/visjs/vis-timeline.git",
+    "vis-util https://github.com/visjs/vis-util.git"
+  ]
+}
