@@ -21,12 +21,15 @@
     "build:declarations": "npx tsc --project tsconfig.declarations.json",
     "build:internal": "tsc --project tsconfig.internal.json",
     "build:production": "rollup --config ./rollup.config.js",
-    "clean": "rimraf \"./{.nyc_output,.rpt2_cache,bin,coverage,gen,lib,bin,dist,declarations}\"",
+    "clean": "rimraf \"./{.nyc_output,.rpt2_cache}\" \"./{bin,coverage,declarations,dist,e2e,gen,lib}/*\"",
     "lint": "eslint --ext .js,.ts . && prettier --check \"**/*.{css,html,js,json,ts}\"",
     "lint-fix": "eslint --fix --ext .js,.ts . && prettier --write \"**/*.{css,html,js,json,ts}\"",
     "postinstall": "opencollective postinstall || exit 0",
     "prepublishOnly": "npm run build",
-    "test": "npm run build && mocha --exit",
+    "test": "npm run test:unit && npm run test:interop",
+    "test:interop": "node ./bin/test-e2e-interop.js --config ./public/interop/base-config.json --local-project \"vis-dev-utils .\"",
+    "test:interop:debug": "npm run test:interop -- --fail-command \"$SHELL\"",
+    "test:unit": "mocha --exit",
     "watch": "rollup --watch --config rollup.config.js"
   },
   "husky": {
@@ -44,7 +47,8 @@
   "module": "dist/vis-dev-utils.esm.js",
   "types": "declarations",
   "bin": {
-    "generate-examples-index": "./bin/generate-examples-index.js"
+    "generate-examples-index": "./bin/generate-examples-index.js",
+    "test-e2e-interop": "./bin/test-e2e-interop.js"
   },
   "files": [
     "LICENSE*",
@@ -121,6 +125,7 @@
     "eslint": "7.6.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.4",
+    "fs-extra": "9.0.1",
     "husky": "4.2.5",
     "lint-staged": "10.2.11",
     "mocha": "8.1.0",

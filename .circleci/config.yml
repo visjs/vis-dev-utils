@@ -58,7 +58,12 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
+            - "babel-preset"
+            - "babel-register"
             - "bin"
+            - "declarations"
+            - "dist"
+            - "lib"
 
   lint:
     executor: node
@@ -69,7 +74,7 @@ jobs:
 
       - run: npm run lint
 
-  test:
+  test_unit:
     executor: node
 
     steps:
@@ -78,7 +83,23 @@ jobs:
 
       - install-deps-for-screenshot-taking
 
-      - run: npm run test
+      - run: npm run test:unit
+
+  test_interop:
+    executor: node
+
+    steps:
+      - attach_workspace:
+          at: .
+
+      - install-deps-for-screenshot-taking
+
+      - run:
+          command: npm run test:interop
+          # One of the examples in Vis Network sports really massive network
+          # that takes long to render and would regularly exceed the default
+          # timeout of 10 minues.
+          no_output_timeout: 20m
 
   release:
     executor: node
@@ -112,16 +133,19 @@ workflows:
           requires:
             - prepare
 
-      - test:
+      - test_unit:
           requires:
-            - prepare
+            - build
+
+      - test_interop:
+          requires:
+            - build
 
       - release:
           requires:
-            - prepare
-            - build
             - lint
-            - test
+            - test_unit
+            - test_interop
           filters:
             branches:
               only:
