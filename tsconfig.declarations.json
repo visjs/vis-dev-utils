@@ -7,7 +7,7 @@
     "declarationMap": true,
     "emitDeclarationOnly": true,
     "outDir": "js/src",
-    "target": "es2015"
+    "target": "es2020"
   },
   "exclude": ["node_modules", "**/__tests__/*"],
   "include": ["@types", "src/module"]

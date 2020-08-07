@@ -6,7 +6,7 @@
     "declarationDir": "lib",
     "declarationMap": true,
     "outDir": "lib",
-    "target": "es2015"
+    "target": "es2020"
   },
   "exclude": ["node_modules", "**/__tests__/*"],
   "include": [
