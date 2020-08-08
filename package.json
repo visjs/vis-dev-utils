@@ -27,7 +27,7 @@
     "postinstall": "opencollective postinstall || exit 0",
     "prepublishOnly": "npm run build",
     "test": "npm run test:unit && npm run test:interop",
-    "test:interop": "node ./bin/test-e2e-interop.js --config ./public/interop/base-config.json --local-project \"vis-dev-utils .\"",
+    "test:interop": "node interop.js",
     "test:interop:debug": "npm run test:interop -- --fail-command \"$SHELL\"",
     "test:unit": "mocha --exit",
     "watch": "rollup --watch --config rollup.config.js"

@@ -4,8 +4,7 @@ import { ProjectPaths, PackageScript, test } from "./test";
 
 const argv = parseArguments();
 
-const rawProjectPathArg = [...argv["remote-project"], ...argv["local-project"]];
-const projectPaths: ProjectPaths = rawProjectPathArg
+const projectPaths: ProjectPaths = argv["project"]
   .map((raw): [string, string] => {
     const [name, path] = raw.split(" ", 2);
 
@@ -57,4 +56,11 @@ const tmpPath = argv["tmp-dir"] ? resolve(argv["tmp-dir"]) : undefined;
 
 const failCommand = argv["fail-command"];
 
-test({ failCommand, packageScripts, projectPaths, tmpPath });
+test({ failCommand, packageScripts, projectPaths, tmpPath }).catch(
+  (reason): void => {
+    console.error(reason);
+    if (process.exitCode === 0) {
+      process.exitCode = 1;
+    }
+  }
+);
