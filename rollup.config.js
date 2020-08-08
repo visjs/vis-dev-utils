@@ -87,7 +87,7 @@ export default [
     };
   }),
   // Node commands.
-  ...["generate-examples-index", "test-e2e-interop"].map((name) => {
+  ...["generate-examples-index", "test-e2e-interop", "ci-utils"].map((name) => {
     return {
       input: `src/${name}`,
       output: {

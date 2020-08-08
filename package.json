@@ -47,6 +47,7 @@
   "module": "dist/vis-dev-utils.esm.js",
   "types": "declarations",
   "bin": {
+    "ci-utils": "./bin/ci-utils.js",
     "generate-examples-index": "./bin/generate-examples-index.js",
     "test-e2e-interop": "./bin/test-e2e-interop.js"
   },

@@ -7,6 +7,8 @@ exports['package exported files 1'] = {
     "        babel-preset/index.js",
     "        babel-register/index.js",
     "        babel-register/index.js.map",
+    "        bin/ci-utils.js",
+    "        bin/ci-utils.js.map",
     "        bin/generate-examples-index.js",
     "        bin/generate-examples-index.js.map",
     "        bin/test-e2e-interop.js",
