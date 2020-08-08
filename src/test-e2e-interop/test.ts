@@ -1,26 +1,37 @@
 import { DirResult, dirSync, setGracefulCleanup } from "tmp";
-import { resolve } from "path";
-import { sync as findUp } from "find-up";
+import { resolve as resolvePath } from "path";
+import findUp from "find-up";
 import {
-  copyFileSync,
-  copySync,
-  existsSync,
-  mkdirSync,
-  readFileSync,
-  readdirSync,
+  Stats,
+  copy,
+  copyFile,
+  lstat,
+  mkdir,
+  mkdirp,
+  readFile,
+  readdir,
 } from "fs-extra";
 
-import { spawnThrow, logError, logInfo } from "./util";
+import {
+  ProjectState,
+  Spawn,
+  createSpawner,
+  execFail,
+  logError,
+  logInfo,
+} from "./util";
 
 // Remove all temporary files on process exit.
 setGracefulCleanup();
 
 interface TestData {
   failCommand?: string;
-  projectPaths: ProjectPaths;
   packageScripts: readonly PackageScript[];
+  projectPaths: ProjectPaths;
   tmpDir: DirResult;
-  tmpRelativeResolve(...paths: string[]): string;
+  tmpLogsResolve(...paths: string[]): string;
+  tmpReposResolve(...paths: string[]): string;
+  tmpRootResolve(...paths: string[]): string;
   visDevUtilsPath: string;
 }
 
@@ -32,15 +43,9 @@ export interface PackageScript {
 
 export type ProjectPaths = Record<string, string>;
 
-function prepareTmpDir(tmpPath?: string): DirResult {
+async function prepareTmpDir(tmpPath?: string): Promise<DirResult> {
   if (tmpPath) {
-    try {
-      mkdirSync(tmpPath);
-    } catch (error) {
-      if (error.code != "EEXIST") {
-        throw error;
-      }
-    }
+    await mkdirp(tmpPath);
 
     return {
       name: tmpPath,
@@ -56,22 +61,25 @@ function getTarballName(projectName: string): string {
 }
 
 function getTarballPath(
-  { tmpRelativeResolve }: TestData,
+  { tmpRootResolve }: TestData,
   projectName: string
 ): string {
-  return tmpRelativeResolve(`${projectName}-0.0.0-no-version.tgz`);
+  return tmpRootResolve(`${projectName}.tgz`);
 }
 
-function copyTarball(data: TestData, projectName: string): void {
-  copyFileSync(getTarballName(projectName), getTarballPath(data, projectName));
+async function copyTarball(data: TestData, projectName: string): Promise<void> {
+  await copyFile(
+    data.tmpReposResolve(projectName, getTarballName(projectName)),
+    getTarballPath(data, projectName)
+  );
 }
 
-function getCurrentPackageDeps(): string[] {
-  const packageJSONPath = findUp("package.json");
+async function getPackageDeps(cwd: string): Promise<string[]> {
+  const packageJSONPath = await findUp("package.json", { cwd });
   if (packageJSONPath == null) {
     throw new Error("Project's package.json file not found.");
   }
-  const packageJSON = JSON.parse(readFileSync(packageJSONPath, "utf8"));
+  const packageJSON = JSON.parse(await readFile(packageJSONPath, "utf8"));
 
   return [
     ...new Set([
@@ -82,115 +90,106 @@ function getCurrentPackageDeps(): string[] {
   ];
 }
 
-function tmpCd<T>(path: string, callback: () => T): T {
-  const prevPath = process.cwd();
-  try {
-    process.chdir(path);
-    return callback();
-  } finally {
-    process.chdir(prevPath);
-  }
-}
-
-function clone(data: TestData, projectName: string): void {
-  const { failCommand, projectPaths, tmpRelativeResolve } = data;
-
-  const projectPath = projectPaths[projectName];
-
-  tmpCd(tmpRelativeResolve(), (): void => {
-    if (/\.git$/.test(projectPath)) {
-      const projectRepo = `https://github.com/visjs/${projectName}.git`;
-
-      spawnThrow({
-        cmd: [
-          "git",
-          "clone",
-          projectRepo,
-          "--single-branch",
-          "--branch",
-          "master",
-          "--depth",
-          "1",
-        ],
-        failCommand,
-      });
-    } else {
-      copySync(projectPath, projectName, {
-        filter(_src, dest): boolean {
-          return (
-            !/[\\\/].git[\\\/]/.test(dest) &&
-            !/[\\\/]node_modules[\\\/]/.test(dest)
-          );
-        },
-      });
-    }
-  });
-}
-
-function getPackageLocalDeps(data: TestData, projectName: string): string[] {
-  const { projectPaths, tmpRelativeResolve } = data;
-  return tmpCd(tmpRelativeResolve(projectName), (): string[] =>
-    getCurrentPackageDeps().filter(
-      (depName): boolean => projectPaths[depName] != null
-    )
+async function getPackageLocalDeps(
+  data: TestData,
+  projectName: string
+): Promise<string[]> {
+  const { projectPaths, tmpReposResolve } = data;
+  const cwd = tmpReposResolve(projectName);
+  return (await getPackageDeps(cwd)).filter(
+    (depName): boolean => projectPaths[depName] != null
   );
 }
 
-function getPackageUnbuiltLocalDeps(
+async function clone(
+  spawn: Spawn,
   data: TestData,
   projectName: string
-): string[] {
-  return getPackageLocalDeps(data, projectName).filter((depName): boolean => {
-    return !existsSync(getTarballPath(data, depName));
-  });
-}
+): Promise<void> {
+  const { failCommand, projectPaths, tmpReposResolve } = data;
 
-function checkPackageLocalDeps(data: TestData, projectName: string): boolean {
-  return getPackageUnbuiltLocalDeps(data, projectName).length === 0;
-}
+  const cwd = tmpReposResolve();
+  const projectPath = projectPaths[projectName];
 
-function buildTestPack(data: TestData, projectName: string): void {
-  const { failCommand, packageScripts, tmpRelativeResolve } = data;
-
-  tmpCd(tmpRelativeResolve(projectName), (): void => {
-    spawnThrow({
-      cmd: ["npm", "ci"],
-      failCommand,
-    });
-
-    spawnThrow({
+  if (/\.git$/.test(projectPath)) {
+    await spawn({
       cmd: [
-        "npm",
-        "install",
-        ...getPackageLocalDeps(data, projectName).map(
-          getTarballPath.bind(null, data)
-        ),
+        "git",
+        "clone",
+        projectPath,
+        "--single-branch",
+        "--branch",
+        "master",
+        "--depth",
+        "1",
       ],
+      cwd,
       failCommand,
     });
-
-    for (const { packageName, scriptName, skipIfMissing } of packageScripts) {
-      if (packageName != null && packageName !== projectName) {
-        continue;
-      } else if (skipIfMissing) {
-        spawnThrow({
-          cmd: ["npm", "run", scriptName, "--if-present"],
-          failCommand,
-        });
-      } else {
-        spawnThrow({ cmd: ["npm", "run", scriptName], failCommand });
-      }
-    }
-
-    spawnThrow({ cmd: ["npm", "pack"], failCommand });
-
-    copyTarball(data, projectName);
-  });
+  } else {
+    await copy(projectPath, tmpReposResolve(projectName), {
+      filter(_src, dest): boolean {
+        return (
+          !/[\\\/].git[\\\/]/.test(dest) &&
+          !/[\\\/]node_modules[\\\/]/.test(dest)
+        );
+      },
+    });
+  }
 }
 
-function checkTmpPath(data: TestData): void {
-  const tmpDir = data.tmpRelativeResolve(".");
-  if (readdirSync(tmpDir).length !== 0) {
+async function buildTestPack(
+  spawn: Spawn,
+  data: TestData,
+  projectName: string
+): Promise<void> {
+  const { failCommand, packageScripts, tmpReposResolve } = data;
+  const cwd = tmpReposResolve(projectName);
+
+  await spawn({
+    cmd: ["npm", "ci"],
+    cwd,
+    failCommand,
+  });
+
+  await spawn({
+    cmd: [
+      "npm",
+      "install",
+      ...(await getPackageLocalDeps(data, projectName)).map(
+        getTarballPath.bind(null, data)
+      ),
+    ],
+    cwd,
+    failCommand,
+  });
+
+  for (const { packageName, scriptName, skipIfMissing } of packageScripts) {
+    if (packageName != null && packageName !== projectName) {
+      continue;
+    } else if (skipIfMissing) {
+      await spawn({
+        cmd: ["npm", "run", scriptName, "--if-present"],
+        cwd,
+        failCommand,
+      });
+    } else {
+      await spawn({
+        cmd: ["npm", "run", scriptName],
+        cwd,
+        failCommand,
+      });
+    }
+  }
+
+  await spawn({ cmd: ["npm", "pack"], cwd, failCommand });
+
+  await copyTarball(data, projectName);
+}
+
+async function checkTmpPath(data: TestData): Promise<void> {
+  const tmpDir = data.tmpRootResolve();
+  if ((await readdir(tmpDir)).length !== 0) {
     throw new Error(`The tmp dir ("${tmpDir}") is not empty.`);
   }
 }
@@ -201,12 +200,12 @@ export interface TestArgs {
   packageScripts: readonly PackageScript[];
   tmpPath?: string;
 }
-export function test({
+export async function test({
   failCommand,
   packageScripts,
   projectPaths,
   tmpPath,
-}: TestArgs): void {
+}: TestArgs): Promise<void> {
   if (process.env.VIS_INTEROP === "1") {
     // This would result in infinite loop otherwise.
     logInfo("Skipping interop test.");
@@ -217,50 +216,141 @@ export function test({
     failCommand,
     packageScripts,
     projectPaths,
-    tmpDir: prepareTmpDir(tmpPath),
-    tmpRelativeResolve: (...paths: string[]): string =>
-      resolve(data.tmpDir.name, ...paths),
+    tmpDir: await prepareTmpDir(
+      tmpPath ? resolvePath(tmpPath, "repos") : undefined
+    ),
+    tmpLogsResolve: (...paths: string[]): string =>
+      resolvePath(data.tmpDir.name, "logs", ...paths),
+    tmpReposResolve: (...paths: string[]): string =>
+      resolvePath(data.tmpDir.name, "repos", ...paths),
+    tmpRootResolve: (...paths: string[]): string =>
+      resolvePath(data.tmpDir.name, ...paths),
     visDevUtilsPath: process.cwd(),
   });
 
-  checkTmpPath(data);
-
-  for (const projectName of Object.keys(data.projectPaths)) {
-    try {
-      clone(data, projectName);
-    } catch (error) {
-      logError(`Cloning ${projectName} failed.`);
-      throw error;
-    }
+  const projectStatuses = new Map<string, ProjectState>(
+    Object.keys(data.projectPaths).map((project): [string, ProjectState] => [
+      project,
+      new ProjectState(),
+    ])
+  );
+  function getStages(): string[] {
+    return [...projectStatuses].map(
+      ([key, { stage }]): string => `  ${key}: ${stage}`
+    );
   }
 
-  const remainingProjects = new Set<string>(Object.keys(data.projectPaths));
-  while (remainingProjects.size) {
-    const projectName = [
-      ...remainingProjects.values(),
-    ].find((projectName): boolean => checkPackageLocalDeps(data, projectName));
-    if (projectName != null) {
+  try {
+    const spawn = createSpawner(data.tmpLogsResolve(), getStages);
+
+    await checkTmpPath(data);
+
+    // Prepare subdirectories under the root tmp directory.
+    await Promise.all(
+      ["repos", "logs"].map(
+        (dir): Promise<void> => mkdir(resolvePath(data.tmpDir.name, dir))
+      )
+    );
+
+    logInfo("Begin", getStages().join("\n"));
+    await Promise.allSettled(
+      [...projectStatuses].map(
+        async ([projectName, state]): Promise<void> => {
+          try {
+            state.stage = "preparing";
+            const projectPath = data.projectPaths[projectName];
+            const stats = await (async (): Promise<Stats | null> => {
+              try {
+                return await lstat(projectPath);
+              } catch {
+                return null;
+              }
+            })();
+            if (stats?.isFile()) {
+              // The path points to a ready to install tarball.
+              state.stage = "copying tarball";
+              await copyFile(projectPath, getTarballPath(data, projectName));
+              state.stage = "tarball copied";
+            } else {
+              // The path points to a repo (maybe remote) that has to be built,
+              // tested and packed first.
+              state.stage = "cloning";
+              await clone(spawn, data, projectName);
+
+              state.stage = "gathering dependencies";
+              const failedDeps: string[] = [];
+              const localDeps = await getPackageLocalDeps(data, projectName);
+              state.stage = `waiting for dependencies (${localDeps.join(
+                ", "
+              )})`;
+              for (const localDep of localDeps) {
+                const depStatus = projectStatuses.get(localDep);
+                if (depStatus == null) {
+                  throw new Error(`Dependency ${localDep} not found.`);
+                }
+
+                try {
+                  await depStatus.promise;
+                } catch {
+                  failedDeps.push(localDep);
+                }
+              }
+              if (failedDeps.length > 0) {
+                state.stage = `dependencies failed: ${failedDeps.join(", ")}`;
+                throw new Error(state.stage);
+              }
+
+              state.stage = "running CI tasks";
+              await buildTestPack(spawn, data, projectName);
+              state.stage = "cloned, built, tested and packed";
+            }
+
+            logInfo(`Okay ${projectName}`, getStages().join("\n"));
+            state.resolve();
+          } catch (error) {
+            logError(
+              `Fail ${projectName} (${state.stage})`,
+              getStages().join("\n")
+            );
+            state.reject(error);
+          }
+        }
+      )
+    );
+  } finally {
+    // Wait for all the projects to finish.
+    await Promise.allSettled(
+      [...projectStatuses.values()].map(
+        (state): Promise<unknown> => state.promise
+      )
+    );
+
+    // Log the state summary and any errors encountered.
+    logInfo("End", getStages().join("\n"));
+    for (const [projectName, { promise }] of projectStatuses) {
       try {
-        logInfo(`Building ${projectName}…`);
-        remainingProjects.delete(projectName);
-        buildTestPack(data, projectName);
+        await promise;
       } catch (error) {
-        logError(`Building ${projectName} failed.`);
-        throw error;
+        logError(`${projectName} failed with`, error);
       }
-    } else if (remainingProjects.size) {
-      throw new Error(
-        [
-          "Can't start building the following projects due to unbuilt dependencies:",
-          ...[...remainingProjects].map(
-            (rp): string =>
-              "  - " +
-              rp +
-              ": " +
-              getPackageUnbuiltLocalDeps(data, rp).join(", ")
-          ),
-        ].join("\n")
-      );
     }
+
+    // Allow the state to be inspected in debug mode before the data is lost.
+    execFail(data.tmpDir.name, failCommand);
+
+    // Print the detailed logs for inspection (especially in CI).
+    logInfo("Outputs");
+    process.stdout.write(
+      [
+        "",
+        ...(await Promise.all(
+          (await readdir(data.tmpLogsResolve())).map(
+            (filename): Promise<string> =>
+              readFile(data.tmpLogsResolve(filename), "UTF-8")
+          )
+        )),
+        "",
+      ].join("\n\n" + ("-".repeat(80) + "\n").repeat(2) + "\n")
+    );
   }
 }
