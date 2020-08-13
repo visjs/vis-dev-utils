@@ -16,11 +16,7 @@ const bannerCommand = "#!/usr/bin/env node\n\n" + bannerModule;
 // Dependencies will be installed by npm.
 // Builtins are always available in Node.
 const external = [
-  ...new Set([
-    ...Object.keys(packageJSON.dependencies),
-    ...Object.keys(packageJSON.peerDependencies),
-    ...builtins,
-  ]),
+  ...new Set([...Object.keys(packageJSON.dependencies), ...builtins]),
 ];
 
 const getPlugins = () => [
