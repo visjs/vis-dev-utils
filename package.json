@@ -81,7 +81,7 @@
     "core-js": "3.6.5",
     "find-up": "5.0.0",
     "globby": "11.0.1",
-    "jimp": "0.16.0",
+    "jimp": "0.16.1",
     "pageres": "5.2.1",
     "postcss-assets": "5.0.0",
     "prettier": "2.0.5",
