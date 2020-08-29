@@ -1,15 +1,27 @@
 import fs from "fs";
 import { join } from "path";
 import { promisify } from "util";
+import puppeteer from "puppeteer";
 
 import { Example, Examples, ExamplesRoot } from "../types";
-import { Renderer, isExample } from "./common";
+import {
+  Renderer,
+  Report,
+  formatStartStopMs,
+  isExample,
+  measureStartStopMs,
+} from "./common";
 import { formatHTML } from "./format";
 import { generateJSFiddlePage, generateCodePenPage } from "./playground";
 import { generateScreenshot } from "./screenshots";
 
 const collator = new Intl.Collator("US");
 const writeFile = promisify(fs.writeFile);
+
+export interface IndexReport extends Report {}
+export interface ExampleReport extends Report {
+  example: Example;
+}
 
 export interface Checks {
   fail: number;
@@ -35,13 +47,14 @@ export interface ContentBuilderConfig {
   title: string;
 }
 
+export interface ContentBuilderRet {
+  checks: Promise<Checks>;
+  index: Promise<IndexReport[]>;
+  playgrounds: Promise<ExampleReport[]>;
+  screenshots: Promise<ExampleReport[]>;
+}
+
 export class ContentBuilder {
-  private _screenshotTodo: Example[] = [];
-  private _playgroundTodo: Example[] = [];
-
-  private readonly _fail: string[] = [];
-  private readonly _okay: string[] = [];
-
   public constructor(private readonly _config: ContentBuilderConfig) {}
 
   /**
@@ -57,13 +70,11 @@ export class ContentBuilder {
       playgrounds?: boolean;
       screenshots?: boolean;
     } = {}
-  ): {
-    checks: Promise<Checks>;
-    index: Promise<number>;
-    playgrounds: Promise<number>;
-    screenshots: Promise<number>;
-  } {
+  ): ContentBuilderRet {
     const allExamples = this._processGroup(this._config.examples);
+
+    const okay: string[] = [];
+    const fail: string[] = [];
 
     console.info(
       `Going to generate ${[
@@ -76,42 +87,50 @@ export class ContentBuilder {
     );
     process.stdout.write("\n");
 
-    this._playgroundTodo = allExamples.slice();
-    this._screenshotTodo = allExamples.slice();
-
-    const indexes = emit.index
+    const index: ContentBuilderRet["index"] = emit.index
       ? // Generate indexes.
-        (async (): Promise<number> =>
-          (
-            await Promise.all(
-              this._config.renderer
-                .render(
-                  this._config.examples,
-                  this._config.output,
-                  this._config.title,
-                  collator
-                )
-                .map(
-                  async ({ content, filename }): Promise<void> =>
-                    writeFile(join(this._config.output, filename), content)
-                )
-            )
-          ).length)()
-      : // Skip indexes.
-        Promise.resolve(0);
+        (async (): ContentBuilderRet["index"] => {
+          const getStartStopMs = measureStartStopMs();
 
-    const playgrounds = emit.playgrounds
+          const results = await Promise.allSettled(
+            this._config.renderer
+              .render(
+                this._config.examples,
+                this._config.output,
+                this._config.title,
+                collator
+              )
+              .map(
+                async ({ content, filename }): Promise<void> =>
+                  writeFile(join(this._config.output, filename), content)
+              )
+          );
+
+          return [
+            {
+              ...getStartStopMs(),
+              count: results.length,
+              result: results.every(
+                ({ status }): boolean => status === "fulfilled"
+              )
+                ? "fulfilled"
+                : "rejected",
+            },
+          ];
+        })()
+      : // Skip indexes.
+        Promise.resolve([]);
+
+    const playgrounds: ContentBuilderRet["playgrounds"] = emit.playgrounds
       ? // Generate playground pages.
-        (async (): Promise<number> =>
-          (
-            await Promise.all(
-              this._playgroundTodo
-                .splice(0)
-                .flatMap((example): {
-                  html: string;
-                  path: string;
-                }[] => {
-                  return [
+        (async (): ContentBuilderRet["playgrounds"] =>
+          await Promise.all(
+            allExamples.map(
+              async (example): Promise<ExampleReport> => {
+                const getStartStopMs = measureStartStopMs();
+
+                const results = await Promise.allSettled(
+                  [
                     {
                       html: generateJSFiddlePage(example),
                       path: example.paths.jsfiddle.local,
@@ -120,73 +139,124 @@ export class ContentBuilder {
                       html: generateCodePenPage(example),
                       path: example.paths.codepen.local,
                     },
-                  ];
-                })
-                .map(
-                  async ({ html, path }): Promise<void> =>
-                    writeFile(path, formatHTML(html))
-                )
-            )
-          ).length)()
-      : // Skip playground pages.
-        Promise.resolve(0);
+                  ].map(
+                    ({ html, path }): Promise<void> =>
+                      writeFile(path, formatHTML(html))
+                  )
+                );
 
-    const screenshots = emit.screenshots
-      ? // Generate screenshots.
-        (async (): Promise<number> => {
-          // Generate screenshots.
-          // There is quite long delay to ensure the chart is rendered properly
-          // so it's much faster to run a lot of them at the same time.
-          const todo = this._screenshotTodo.splice(0);
-          const total = todo.length;
-          let finished = 0;
-          await Promise.all(
-            new Array(this._config.parallel).fill(null).map(
-              async (): Promise<void> => {
-                let example;
-                while ((example = todo.pop())) {
-                  const valid = await this._generateScreenshot(example);
-
-                  if (valid) {
-                    this._okay.push(example.path);
-                  } else {
-                    this._fail.push(example.path);
-                  }
-
-                  ++finished;
-
-                  const percentage = (
-                    Math.floor((finished / total) * 100) + "%"
-                  ).padStart(4, " ");
-                  const validText = valid ? "okay" : "fail";
-                  console.info(`${percentage} ${validText} - ${example.path}`);
-                }
+                return {
+                  ...getStartStopMs(),
+                  count: results.length,
+                  example: example,
+                  result: results.every(
+                    ({ status }): boolean => status === "fulfilled"
+                  )
+                    ? "fulfilled"
+                    : "rejected",
+                };
               }
             )
-          );
+          ))()
+      : // Skip playground pages.
+        Promise.resolve([]);
 
-          return finished;
+    const screenshots: ContentBuilderRet["screenshots"] = emit.screenshots
+      ? // Generate screenshots.
+        (async (): ContentBuilderRet["screenshots"] => {
+          const cleanup: (() => void | Promise<void>)[] = [];
+
+          try {
+            const debug = /^1|y|yes|true$/i.test(process.env.DEBUG ?? "");
+            const browser = await puppeteer.launch({
+              headless: !debug,
+              slowMo: debug ? 100 : undefined,
+            });
+            if (debug) {
+              cleanup.push(async (): Promise<void> => browser.disconnect());
+            } else {
+              cleanup.push((): Promise<void> => browser.close());
+            }
+
+            // Generate screenshots.
+            // There is quite long delay to ensure the chart is rendered properly
+            // so it's much faster to run a lot of them at the same time.
+            const todo = allExamples.slice();
+            const total = todo.length;
+            const reports: ExampleReport[] = [];
+            await Promise.allSettled(
+              new Array(this._config.parallel).fill(null).map(
+                async (): Promise<void> => {
+                  let example: Example | undefined;
+                  while ((example = todo.pop())) {
+                    const getStartStopMs = measureStartStopMs();
+
+                    const valid = await generateScreenshot(browser, {
+                      debug,
+                      example,
+                      height: this._config.renderer.screenshot.height,
+                      screenshotScript: this._config.screenshotScript,
+                      width: this._config.renderer.screenshot.width,
+                    });
+
+                    const report: ExampleReport = {
+                      ...getStartStopMs(),
+                      count: 1,
+                      example,
+                      result: valid ? "fulfilled" : "rejected",
+                    };
+                    reports.push(report);
+
+                    if (valid) {
+                      okay.push(example.path);
+                    } else {
+                      fail.push(example.path);
+                    }
+
+                    const percentage = (
+                      Math.floor((reports.length / total) * 100) + "%"
+                    ).padStart(4, " ");
+                    const validText = valid ? "okay" : "fail";
+                    const msText = formatStartStopMs(report);
+                    console.info(
+                      `${percentage} ${validText} ${msText} - ${example.path}`
+                    );
+                  }
+                }
+              )
+            );
+
+            return reports;
+          } finally {
+            for (const callback of cleanup.splice(0).reverse()) {
+              try {
+                await callback();
+              } catch (error) {
+                console.error(error);
+              }
+            }
+          }
         })()
       : // Skip screenshots.
-        Promise.resolve(0);
+        Promise.resolve([]);
 
     const checks = (async (): Promise<Checks> => {
-      await indexes;
+      await index;
       await playgrounds;
       await screenshots;
 
-      const total = this._okay.length + this._fail.length;
+      const total = okay.length + fail.length;
       return {
-        fail: this._fail.length,
-        failPaths: this._fail,
-        okay: this._okay.length,
-        okayPaths: this._okay,
-        percentage: total === 0 ? 100 : (100 * this._okay.length) / total,
+        fail: fail.length,
+        failPaths: fail,
+        okay: okay.length,
+        okayPaths: okay,
+        percentage: total === 0 ? 100 : (100 * okay.length) / total,
         total,
       };
     })();
 
-    return { checks, index: indexes, playgrounds, screenshots };
+    return { checks, index, playgrounds, screenshots };
   }
 
   private _processGroup(examples: Examples): Example[] {
@@ -201,14 +271,5 @@ export class ContentBuilder {
           return this._processGroup(example);
         }
       });
-  }
-
-  private async _generateScreenshot(example: Example): Promise<boolean> {
-    return generateScreenshot({
-      example,
-      height: this._config.renderer.screenshot.height,
-      screenshotScript: this._config.screenshotScript,
-      width: this._config.renderer.screenshot.width,
-    });
   }
 }

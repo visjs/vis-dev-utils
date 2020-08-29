@@ -1,9 +1,9 @@
 import $ from "cheerio";
 import Jimp from "jimp";
-import Pageres from "pageres";
+import { Browser } from "puppeteer";
 import commonScreenshotScript from "./screenshot-script.js.txt";
 import fs from "fs";
-import { basename, dirname, join } from "path";
+import { basename, dirname, posix, resolve, sep } from "path";
 import { promisify } from "util";
 
 import { Example } from "../../types";
@@ -37,6 +37,11 @@ async function isScreenshotValid(screenshot: Buffer): Promise<boolean> {
 }
 
 export interface GenerateScreenshotConfig {
+  /**
+   * Leave the contexts and tabs open for inspection, also don't delete the
+   * temporary pages.
+   */
+  debug: boolean;
   /** The example for which the screenshot will be generated. */
   example: Example;
   /** Height of the captured screenshot. */
@@ -51,72 +56,112 @@ export interface GenerateScreenshotConfig {
  * Capture an element on the example's page and save the screenshot to the
  * disk as a PNG file.
  *
+ * @param browser - Puppeteer's browser instance.
  * @param config - See the type's docs for detail.
  *
  * @returns Whether or not the screenshot passed validation check.
  */
 export async function generateScreenshot(
+  browser: Browser,
   config: GenerateScreenshotConfig
 ): Promise<boolean> {
-  const { example, height, screenshotScript, width } = config;
+  const { debug, example, height, screenshotScript, width } = config;
 
-  // Prepare the page. It has to be written to the disk so that files with
-  // relative URLs can be loaded. Pageres' script can't be used here because
-  // it runs after the existing scripts on the page and therefore doesn't
-  // allow to modify things prior to their invocation.
-  const tmpPath = join(
-    dirname(example.paths.page.local),
-    ".tmp.example.screenshot." + basename(example.paths.page.local)
-  );
-  const screenshotPage = $.load(example.html);
-  screenshotPage("head").prepend(
-    $("<script>").attr("type", "text/javascript").text(commonScreenshotScript),
-    $("<script>").attr("type", "text/javascript").text(screenshotScript)
-  );
-  await writeFile(tmpPath, formatHTML(screenshotPage.html()));
+  const cleanup: (() => void | Promise<void>)[] = [];
 
   try {
-    // Render the page and take the screenshot.
-    const screenshots = await new Pageres({
-      delay: example.delay,
-      selector: example.selector,
-      css: [
-        `${example.selector} {`,
-        "  border: none !important;",
-
-        "  position: relative !important;",
-        "  top: unset !important;",
-        "  left: unset !important;",
-        "  bottom: unset !important;",
-        "  right: unset !important;",
-
-        `  height: ${height}px !important;`,
-        `  max-height: ${height}px !important;`,
-        `  max-width: ${width}px !important;`,
-        `  min-height: ${height}px !important;`,
-        `  min-width: ${width}px !important;`,
-        `  width: ${width}px !important;`,
-        "}",
-      ].join("\n"),
-      filename: basename(example.paths.screenshot.local).replace(/\.png$/, ""),
-      format: "png",
-    })
-      .src(tmpPath, ["1280x720"])
-      .dest(dirname(example.paths.screenshot.local))
-      .run();
-
-    // Test the generated screenshots.
-    return (
-      await Promise.all(
-        screenshots.map(
-          (screenshot): Promise<boolean> => {
-            return isScreenshotValid(screenshot);
-          }
+    // Prepare the page. It has to be written to the disk so that files with
+    // relative URLs can be loaded.
+    const tmpPath = resolve(
+      dirname(example.paths.page.local),
+      ".tmp.example.screenshot." + basename(example.paths.page.local)
+    );
+    const screenshotPage = $.load(example.html);
+    screenshotPage("head").prepend(
+      $("<script>")
+        .attr("type", "text/javascript")
+        .text(`window.DEBUG = ${true};`),
+      $("<script>")
+        .attr("type", "text/javascript")
+        .text(commonScreenshotScript),
+      $("<script>").attr("type", "text/javascript").text(screenshotScript),
+      $("<style>")
+        .attr("type", "text/css")
+        .text(
+          [
+            `${example.selector} {`,
+            "  border: none !important;",
+            "",
+            `  min-width: ${width}px !important;`,
+            `  min-height: ${height}px !important;`,
+            `  width: ${width}px !important;`,
+            `  height: ${height}px !important;`,
+            `  max-width: ${width}px !important;`,
+            `  max-height: ${height}px !important;`,
+            "}",
+          ].join("\n")
         )
-      )
-    ).every((valid): boolean => valid);
+    );
+    await writeFile(tmpPath, formatHTML(screenshotPage.html()));
+    if (!debug) {
+      cleanup.push((): Promise<void> => unlink(tmpPath));
+    }
+
+    const context = await browser.createIncognitoBrowserContext();
+    if (!debug) {
+      cleanup.push((): Promise<void> => context.close());
+    }
+
+    const page = await context.newPage();
+    if (!debug) {
+      cleanup.push((): Promise<void> => page.close());
+    }
+
+    await page.setViewport({ width: width + 50, height: height + 50 });
+    await page.goto("file://" + tmpPath.split(sep).join(posix.sep));
+
+    await page.waitForSelector(example.selector, {
+      visible: true,
+      timeout: example.timeout * 1000,
+    });
+
+    if (example.delay === "call") {
+      await page.evaluate(
+        "function fn() { return window.readyToTakeAScreenshot; }"
+      );
+    } else {
+      await page.waitFor(example.delay * 1000);
+    }
+
+    const $element = await page.$(example.selector);
+    if ($element == null) {
+      throw new Error(
+        `Element "${example.selector}" not found in ${example.path}.`
+      );
+    }
+
+    await $element.evaluate((element: Element): void => {
+      element.scrollIntoView();
+    });
+
+    const screenshot = await $element.screenshot({
+      encoding: "binary",
+    });
+
+    await writeFile(example.paths.screenshot.local, screenshot);
+
+    // Return the validity of the generated screenshot.
+    return isScreenshotValid(screenshot);
+  } catch (error) {
+    console.error(error);
+    return false;
   } finally {
-    // Remove the temporary file.
-    await unlink(tmpPath);
+    for (const callback of cleanup.splice(0).reverse()) {
+      try {
+        await callback();
+      } catch (error) {
+        console.error(error);
+      }
+    }
   }
 }

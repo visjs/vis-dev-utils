@@ -4,9 +4,15 @@
  * Simulates confirmation usind window.confirm and window.alert otherwise the
  * screenshot generator would just hang forever.
  */
-(function() {
-  window.alert = function() {};
-  window.confirm = function() {
-    return true;
-  };
-})();
+window.realAlert = window.alert;
+window.alert = function () {};
+window.confirm = function () {
+  return true;
+};
+
+/**
+ * Wait for the page to report it's ready to take a screenshot.
+ */
+window.readyToTakeAScreenshot = new Promise(function (resolve) {
+  window.takeScreenshot = resolve;
+});
