@@ -306,9 +306,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element-number-2\\"&gt;Number 2&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Number 2"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -337,9 +335,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 1&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Number 1"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -368,9 +364,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 4&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js","title":"Test | Subdir | Number 4"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -399,9 +393,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Confirm&lt;/div&gt;\\n","js":"Confirm(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Confirm"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -430,9 +422,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 3&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js","title":"Test | Subdir | Number 3"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -461,9 +451,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Alert&lt;/div&gt;\\n","js":"alert(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Alert"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -492,9 +480,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;&lt;/div&gt;\\n","js":"","js_external":"","title":"Test | Broken"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -538,9 +524,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
       />
       <input type="hidden" name="title" value="Test | Number 2" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -584,9 +568,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
       />
       <input type="hidden" name="title" value="Test | Number 1" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -630,9 +612,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
       />
       <input type="hidden" name="title" value="Test | Subdir | Number 4" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -676,9 +656,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
       />
       <input type="hidden" name="title" value="Test | Confirm" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -722,9 +700,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
       />
       <input type="hidden" name="title" value="Test | Subdir | Number 3" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -768,9 +744,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
       />
       <input type="hidden" name="title" value="Test | Alert" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -805,9 +779,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
       <input type="hidden" name="resources" value />
       <input type="hidden" name="title" value="Test | Broken" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -923,9 +895,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element-number-2\\"&gt;Number 2&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Number 2"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -954,9 +924,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 1&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Number 1"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -985,9 +953,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 4&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js","title":"Test | Subdir | Number 4"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -1016,9 +982,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Confirm&lt;/div&gt;\\n","js":"Confirm(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Confirm"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -1047,9 +1011,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 3&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/examples/dist/test.min.js","title":"Test | Subdir | Number 3"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -1078,9 +1040,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Alert&lt;/div&gt;\\n","js":"alert(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/broken-examples/dist/test.min.js","title":"Test | Alert"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -1109,9 +1069,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;&lt;/div&gt;\\n","js":"","js_external":"","title":"Test | Broken"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -1155,9 +1113,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
       />
       <input type="hidden" name="title" value="Test | Number 2" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -1201,9 +1157,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
       />
       <input type="hidden" name="title" value="Test | Number 1" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -1247,9 +1201,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
       />
       <input type="hidden" name="title" value="Test | Subdir | Number 4" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -1293,9 +1245,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
       />
       <input type="hidden" name="title" value="Test | Confirm" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -1339,9 +1289,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
       />
       <input type="hidden" name="title" value="Test | Subdir | Number 3" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -1385,9 +1333,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
       />
       <input type="hidden" name="title" value="Test | Alert" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -1422,9 +1368,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
       <input type="hidden" name="resources" value />
       <input type="hidden" name="title" value="Test | Broken" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -1717,9 +1661,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element-number-2\\"&gt;Number 2&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Number 2"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -1748,9 +1690,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Alert&lt;/div&gt;\\n","js":"alert(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Alert"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -1779,9 +1719,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 4&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js","title":"Test | Subdir | Number 4"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -1810,9 +1748,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Confirm&lt;/div&gt;\\n","js":"Confirm(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Confirm"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -1841,9 +1777,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 3&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js","title":"Test | Subdir | Number 3"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -1872,9 +1806,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 1&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Number 1"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -1918,9 +1850,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
       />
       <input type="hidden" name="title" value="Test | Number 2" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -1964,9 +1894,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
       />
       <input type="hidden" name="title" value="Test | Alert" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -2010,9 +1938,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
       />
       <input type="hidden" name="title" value="Test | Subdir | Number 4" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -2056,9 +1982,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
       />
       <input type="hidden" name="title" value="Test | Confirm" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -2102,9 +2026,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
       />
       <input type="hidden" name="title" value="Test | Subdir | Number 3" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -2148,9 +2070,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
       />
       <input type="hidden" name="title" value="Test | Number 1" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -2257,9 +2177,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element-number-2\\"&gt;Number 2&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Number 2"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -2288,9 +2206,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Alert&lt;/div&gt;\\n","js":"alert(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Alert"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -2319,9 +2235,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 4&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js","title":"Test | Subdir | Number 4"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -2350,9 +2264,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Confirm&lt;/div&gt;\\n","js":"Confirm(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Confirm"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -2381,9 +2293,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 3&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/examples/dist/test.min.js","title":"Test | Subdir | Number 3"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -2412,9 +2322,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
         name="data"
         value='{"css":"","css_external":"","html":"&lt;div id=\\"test-element\\"&gt;Number 1&lt;/div&gt;\\n","js":"console.log(\\"This is just a test.\\");\\n","js_external":"https://visjs.github.io/vis-test/test/generate-examples-index/dist/test.min.js","title":"Test | Number 1"}'
       />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open CodePen
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open CodePen</button>
     </form>
 
     <script type="text/javascript">
@@ -2458,9 +2366,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
       />
       <input type="hidden" name="title" value="Test | Number 2" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -2504,9 +2410,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
       />
       <input type="hidden" name="title" value="Test | Alert" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -2550,9 +2454,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
       />
       <input type="hidden" name="title" value="Test | Subdir | Number 4" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -2596,9 +2498,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
       />
       <input type="hidden" name="title" value="Test | Confirm" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -2642,9 +2542,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
       />
       <input type="hidden" name="title" value="Test | Subdir | Number 3" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
@@ -2688,9 +2586,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
       />
       <input type="hidden" name="title" value="Test | Number 1" />
       <input type="hidden" name="wrap" value="b" />
-      <button id="open" alt="JSFiddle" title="JSFiddle">
-        Open JSFiddle
-      </button>
+      <button id="open" alt="JSFiddle" title="JSFiddle">Open JSFiddle</button>
     </form>
 
     <script type="text/javascript">
