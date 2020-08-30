@@ -316,7 +316,7 @@ const generateRollupPluginArray = (
     ...(minimize
       ? [
           terserPlugin({
-            output: {
+            format: {
               comments: "some",
             },
           }),
