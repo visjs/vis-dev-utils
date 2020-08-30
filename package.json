@@ -100,7 +100,7 @@
     "@types/jimp": "0.2.28",
     "@types/mocha": "8.0.3",
     "@types/npm": "2.0.31",
-    "@types/prettier": "2.0.2",
+    "@types/prettier": "2.1.0",
     "@types/sinon": "9.0.5",
     "@types/tmp": "0.2.0",
     "@types/yargs": "15.0.5",
