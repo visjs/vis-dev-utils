@@ -11,6 +11,8 @@ import {
   generatePlaygroundData,
   htmlRenderer,
   mdRenderer,
+  reduceReports,
+  formatStartStopMs,
 } from "./content-builder";
 import { Example, ExamplesRoot, ExamplePaths } from "./types";
 import { parseArguments } from "./cli";
@@ -35,8 +37,7 @@ const screenshotScriptPath =
 const mkdir = util.promisify(fs.mkdir);
 const readFile = util.promisify(fs.readFile);
 
-function getMeta(page: CheerioStatic, name: string, fallback: number): number;
-function getMeta(page: CheerioStatic, name: string, fallback: string): string;
+function getMeta<T>(page: CheerioStatic, name: string, fallback: T): T;
 /**
  * Extract and coerce a value from meta tag.
  *
@@ -44,8 +45,8 @@ function getMeta(page: CheerioStatic, name: string, fallback: string): string;
  * @param name - The name of the meta tag.
  * @param fallback - The value to be used if the meta tag is not present.
  *
- * @returns The value with the same type as the fallback or the fallback if
- * conversion isn't possible or the value is not present in the page.
+ * @returns The value “smartly” coerced or the fallback if conversion isn't
+ * possible or the value is not present in the page.
  */
 function getMeta(
   page: CheerioStatic,
@@ -57,11 +58,11 @@ function getMeta(
   if (content == null) {
     // No meta of this name exists in the page, use the fallback.
     return fallback;
-  } else if (typeof fallback === "number" && !Number.isNaN(+content)) {
-    // Both are numbers.
+  } else if (!Number.isNaN(+content)) {
+    // Number.
     return +content;
-  } else if (typeof fallback === "string" && typeof content === "string") {
-    // Both are strings.
+  } else if (typeof content === "string") {
+    // String.
     return content;
   } else {
     // Something doesn't match, use the fallback.
@@ -172,8 +173,17 @@ function lintExample(path: string, page: CheerioStatic): boolean {
       async (pagePath): Promise<any> => {
         const html = await readFile(pagePath, "utf-8");
         const $page = $.load(html);
-        const pageDelay = getMeta($page, "example-screenshot-delay", 5);
-        const pageSelector = getMeta(
+        const pageDelay = getMeta<number | "call">(
+          $page,
+          "example-screenshot-delay",
+          6
+        );
+        const pageTimeout = getMeta<number>(
+          $page,
+          "example-screenshot-timeout",
+          60
+        );
+        const pageSelector = getMeta<string>(
           $page,
           "example-screenshot-selector",
           selector
@@ -237,6 +247,7 @@ function lintExample(path: string, page: CheerioStatic): boolean {
                 paths: generatePaths(pathsConfig, pagePath),
                 playground: generatePlaygroundData(baseURL, $page, pagePath),
                 selector: pageSelector,
+                timeout: pageTimeout,
                 titles: titles,
               };
 
@@ -287,25 +298,31 @@ function lintExample(path: string, page: CheerioStatic): boolean {
 
     // Create and write the page.
     if (argv.index) {
-      const count = await builtData.index;
+      const cummulativeReport = reduceReports(await builtData.index);
       console.info(
-        `Index with ${stats.examples} examples written (${count} files).`
+        `Index with ${stats.examples} examples written (${
+          cummulativeReport.count
+        } files in ${formatStartStopMs(cummulativeReport)}).`
       );
     }
 
     // Create and write the playgrounds.
     if (argv.index) {
-      const count = await builtData.playgrounds;
+      const cummulativeReport = reduceReports(await builtData.playgrounds);
       console.info(
-        `Playground opener files for ${stats.examples} examples written (${count} files).`
+        `Playground opener files for ${stats.examples} examples written (${
+          cummulativeReport.count
+        } files in ${formatStartStopMs(cummulativeReport)}).`
       );
     }
 
     // Create and write the screenshots.
     if (argv.screenshots) {
-      const count = await builtData.screenshots;
+      const cummulativeReport = reduceReports(await builtData.screenshots);
       console.info(
-        `Screenshot files for ${stats.examples} written (${count} files).`
+        `Screenshot files for ${stats.examples} written (${
+          cummulativeReport.count
+        } files in ${formatStartStopMs(cummulativeReport)}).`
       );
     }
 

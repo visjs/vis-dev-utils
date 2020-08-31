@@ -32,8 +32,12 @@ export type Examples = {
 export type Example = {
   /** The page HTML parsed by Cheerio. */
   $: CheerioStatic;
-  /** How long to wait between loading the page and taking a screenshot. */
-  delay: number;
+  /**
+   * How long to wait before taking the screenshot after loading the page. The
+   * value can be in seconds or `"call"` to wait for `window.takeScreenshot` to
+   * be called before taking a screenshot.
+   */
+  delay: number | "call";
   /** The raw HTML as a string. */
   html: string;
   /**
@@ -47,6 +51,8 @@ export type Example = {
   playground: PlaygroundData;
   /** Locates the element that should be captured on a screenshot. */
   selector: string;
+  /** How long to wait before giving up. */
+  timeout: number;
   /**
    * A list of titles. The last is the title of the example, others are the
    * titles of the groups it belongs to.
