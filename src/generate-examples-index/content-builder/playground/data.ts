@@ -1,5 +1,5 @@
 import $ from "cheerio";
-import { dirname, join, relative, resolve } from "path";
+import { dirname, relative, resolve } from "path";
 
 import { Example, PlaygroundData } from "../../types";
 import { formatCSS, formatHTML, formatJS } from "../format";

@@ -157,8 +157,7 @@ async function clone(
     await copy(projectPath, tmpReposResolve(projectName), {
       filter(_src, dest): boolean {
         return (
-          !/[\\\/].git[\\\/]/.test(dest) &&
-          !/[\\\/]node_modules[\\\/]/.test(dest)
+          !/[\\/].git[\\/]/.test(dest) && !/[\\/]node_modules[\\/]/.test(dest)
         );
       },
     });

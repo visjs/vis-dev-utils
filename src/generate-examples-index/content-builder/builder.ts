@@ -18,7 +18,7 @@ import { generateScreenshot } from "./screenshots";
 const collator = new Intl.Collator("US");
 const writeFile = promisify(fs.writeFile);
 
-export type IndexReport = Report
+export type IndexReport = Report;
 export interface ExampleReport extends Report {
   example: Example;
 }
