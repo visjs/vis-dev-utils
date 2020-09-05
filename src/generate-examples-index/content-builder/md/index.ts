@@ -3,24 +3,46 @@ import { Examples, ExamplesRoot } from "../../types";
 import { formatMD } from "../format";
 import { relative } from "path";
 
+/**
+ * @param lines
+ */
 function linesToContent(lines: string[]): string {
   return formatMD(lines.join("\n"));
 }
 
+/**
+ * @param title
+ * @param src
+ * @param href
+ */
 function image(title: string, src: string, href?: string): string {
   return href == null
     ? `![${title}](${src})`
     : link(href, `![${title}](${src})`);
 }
 
+/**
+ * @param href
+ * @param text
+ */
 function link(href: string, text: string = href): string {
   return `[${text}](${href})`;
 }
 
+/**
+ * @param level
+ * @param text
+ */
 function header(level: number, text: string): string {
   return `${"#".repeat(level)} ${text}`;
 }
 
+/**
+ * @param examples
+ * @param output
+ * @param title
+ * @param collator
+ */
 function processGroup(
   examples: Examples,
   output: string,

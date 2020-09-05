@@ -6,6 +6,9 @@ import { ContentPart, Renderer, isExample } from "../common";
 import { Example, Examples, ExamplesRoot } from "../../types";
 import { formatHTML } from "../format";
 
+/**
+ * @param example
+ */
 function generateJSFiddle(example: Example): Cheerio {
   return $("<a>")
     .addClass("icon jsfiddle")
@@ -13,6 +16,9 @@ function generateJSFiddle(example: Example): Cheerio {
     .attr("title", "JSFiddle");
 }
 
+/**
+ * @param example
+ */
 function generateCodePen(example: Example): Cheerio {
   return $("<a>")
     .addClass("icon codepen")
@@ -20,6 +26,12 @@ function generateCodePen(example: Example): Cheerio {
     .attr("title", "CodePen");
 }
 
+/**
+ * @param examples
+ * @param title
+ * @param level
+ * @param collator
+ */
 function processGroup(
   examples: Examples,
   title: string,

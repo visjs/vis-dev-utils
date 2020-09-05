@@ -3,6 +3,9 @@ import $ from "cheerio";
 import template from "./jsfiddle.template.html";
 import { Example } from "../../types";
 
+/**
+ * @param example
+ */
 export function generateJSFiddlePage(example: Example): string {
   const data = example.playground;
   const title = example.titles.join(" | ");

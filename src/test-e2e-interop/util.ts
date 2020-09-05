@@ -19,7 +19,7 @@ export class ProjectState {
   /**
    * Provide information about current state of the project.
    */
-  public stage: string = "pending";
+  public stage = "pending";
 
   public constructor() {
     this.promise = new Promise<void>((resolve, reject): void => {
@@ -29,6 +29,10 @@ export class ProjectState {
   }
 }
 
+/**
+ * @param title
+ * @param details
+ */
 export function logError(title: string, details?: string | Error): void {
   const wrappedDetails =
     details != null
@@ -36,11 +40,19 @@ export function logError(title: string, details?: string | Error): void {
       : "";
   process.stderr.write(`\n==> ${title}${wrappedDetails}\n`);
 }
+/**
+ * @param title
+ * @param details
+ */
 export function logInfo(title: string, details?: string): void {
   const wrappedDetails = details ? `:\n${details}` : "";
   process.stdout.write(`\n==> ${title}${wrappedDetails}\n`);
 }
 
+/**
+ * @param cwd
+ * @param failCommand
+ */
 export function execFail(cwd: string, failCommand?: string): void {
   if (failCommand) {
     execSync(failCommand, {
@@ -59,6 +71,10 @@ export interface SpawnOrTrhowArgs {
   cwd: string;
   failCommand?: string;
 }
+/**
+ * @param logDir
+ * @param getState
+ */
 export function createSpawner(logDir: string, getState: () => string[]): Spawn {
   let nextId = 1;
 

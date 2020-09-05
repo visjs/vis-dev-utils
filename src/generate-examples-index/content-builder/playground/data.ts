@@ -4,6 +4,11 @@ import { dirname, join, relative, resolve } from "path";
 import { Example, PlaygroundData } from "../../types";
 import { formatCSS, formatHTML, formatJS } from "../format";
 
+/**
+ * @param baseURL
+ * @param example$
+ * @param examplePath
+ */
 export function generatePlaygroundData(
   baseURL: string,
   example$: Example["$"],
