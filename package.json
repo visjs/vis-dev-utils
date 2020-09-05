@@ -22,8 +22,10 @@
     "build:internal": "tsc --project tsconfig.internal.json",
     "build:production": "rollup --config ./rollup.config.js",
     "clean": "rimraf \"./{.nyc_output,.rpt2_cache}\" \"./{bin,coverage,declarations,dist,e2e,gen,lib}/*\"",
-    "lint": "eslint --ext .js,.ts . && prettier --check \"**/*.{css,html,js,json,ts}\"",
-    "lint-fix": "eslint --fix --ext .js,.ts . && prettier --write \"**/*.{css,html,js,json,ts}\"",
+    "style": "prettier --check .",
+    "style-fix": "prettier --write .",
+    "lint": "eslint --ext .js,.ts .",
+    "lint-fix": "eslint --fix --ext .js,.ts .",
     "postinstall": "opencollective postinstall || exit 0",
     "prepublishOnly": "npm run build",
     "test": "npm run test:unit && npm run test:interop",
@@ -36,6 +38,14 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "**/*": [
+      "prettier --write"
+    ],
+    "**/*.{js,ts}": [
+      "eslint --fix"
+    ]
   },
   "config": {
     "snap-shot-it": {

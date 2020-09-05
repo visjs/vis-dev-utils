@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declaration": false,
+    "esModuleInterop": true,
+    "lib": ["dom", "es2020"],
+    "module": "es2015",
+    "moduleResolution": "node",
+    "outDir": "js/src",
+    "paths": {},
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "esnext"
+  },
+  "exclude": ["node_modules"],
+  "include": [
+    "*.js",
+    "*.ts",
+    ".*.js",
+    ".*.ts",
+    "@types",
+    "babel-preset",
+    "eslint-shareable-config",
+    "public",
+    "src",
+    "test"
+  ]
+}

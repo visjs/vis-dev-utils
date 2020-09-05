@@ -35,6 +35,7 @@ exports['package exported files 1'] = {
     "        dist/vis-dev-utils.cjs.js.map",
     "        dist/vis-dev-utils.esm.js",
     "        dist/vis-dev-utils.esm.js.map",
+    "        eslint-shareable-config/index.js",
     "        lib/header.d.ts",
     "        lib/header.d.ts.map",
     "        lib/header.js",
