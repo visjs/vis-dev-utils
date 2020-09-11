@@ -1,5 +1,7 @@
 import { BABEL_IGNORE_RE } from "../module";
 
+/* eslint-disable @typescript-eslint/no-var-requires -- The following code would be messed up by transpilation from ESM. */
+
 // Skip CSS.
 require.extensions[".css"] = () => {};
 
@@ -10,3 +12,5 @@ require("@babel/register")({
   // Therefore we have to exclude only
   ignore: [BABEL_IGNORE_RE],
 });
+
+/* eslint-enable @typescript-eslint/no-var-requires */

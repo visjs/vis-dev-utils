@@ -36,6 +36,9 @@ const y = yargs
     type: "string",
   });
 
+/**
+ *
+ */
 export function parseArguments(): ReturnType<typeof y["parse"]> {
   return y.parserConfiguration({ "camel-case-expansion": false }).parse();
 }

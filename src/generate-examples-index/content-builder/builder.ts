@@ -18,7 +18,7 @@ import { generateScreenshot } from "./screenshots";
 const collator = new Intl.Collator("US");
 const writeFile = promisify(fs.writeFile);
 
-export interface IndexReport extends Report {}
+export type IndexReport = Report;
 export interface ExampleReport extends Report {
   example: Example;
 }
@@ -61,7 +61,9 @@ export class ContentBuilder {
    * Build the files and write them to the disk.
    *
    * @param emit - Which types of files to emit.
-   *
+   * @param emit.index
+   * @param emit.playgrounds
+   * @param emit.screenshots
    * @returns A report with check results and the number of written files.
    */
   public build(

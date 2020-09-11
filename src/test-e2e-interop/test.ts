@@ -43,6 +43,9 @@ export interface PackageScript {
 
 export type ProjectPaths = Record<string, string>;
 
+/**
+ * @param tmpPath
+ */
 async function prepareTmpDir(tmpPath?: string): Promise<DirResult> {
   if (tmpPath) {
     await mkdirp(tmpPath);
@@ -56,10 +59,18 @@ async function prepareTmpDir(tmpPath?: string): Promise<DirResult> {
   }
 }
 
+/**
+ * @param projectName
+ */
 function getTarballName(projectName: string): string {
   return `${projectName}-0.0.0-no-version.tgz`;
 }
 
+/**
+ * @param root0
+ * @param root0.tmpRootResolve
+ * @param projectName
+ */
 function getTarballPath(
   { tmpRootResolve }: TestData,
   projectName: string
@@ -67,6 +78,10 @@ function getTarballPath(
   return tmpRootResolve(`${projectName}.tgz`);
 }
 
+/**
+ * @param data
+ * @param projectName
+ */
 async function copyTarball(data: TestData, projectName: string): Promise<void> {
   await copyFile(
     data.tmpReposResolve(projectName, getTarballName(projectName)),
@@ -74,6 +89,9 @@ async function copyTarball(data: TestData, projectName: string): Promise<void> {
   );
 }
 
+/**
+ * @param cwd
+ */
 async function getPackageDeps(cwd: string): Promise<string[]> {
   const packageJSONPath = await findUp("package.json", { cwd });
   if (packageJSONPath == null) {
@@ -90,6 +108,10 @@ async function getPackageDeps(cwd: string): Promise<string[]> {
   ];
 }
 
+/**
+ * @param data
+ * @param projectName
+ */
 async function getPackageLocalDeps(
   data: TestData,
   projectName: string
@@ -101,6 +123,11 @@ async function getPackageLocalDeps(
   );
 }
 
+/**
+ * @param spawn
+ * @param data
+ * @param projectName
+ */
 async function clone(
   spawn: Spawn,
   data: TestData,
@@ -130,14 +157,18 @@ async function clone(
     await copy(projectPath, tmpReposResolve(projectName), {
       filter(_src, dest): boolean {
         return (
-          !/[\\\/].git[\\\/]/.test(dest) &&
-          !/[\\\/]node_modules[\\\/]/.test(dest)
+          !/[\\/].git[\\/]/.test(dest) && !/[\\/]node_modules[\\/]/.test(dest)
         );
       },
     });
   }
 }
 
+/**
+ * @param spawn
+ * @param data
+ * @param projectName
+ */
 async function buildTestPack(
   spawn: Spawn,
   data: TestData,
@@ -187,6 +218,9 @@ async function buildTestPack(
   await copyTarball(data, projectName);
 }
 
+/**
+ * @param data
+ */
 async function checkTmpPath(data: TestData): Promise<void> {
   const tmpDir = data.tmpRootResolve();
   if ((await readdir(tmpDir)).length !== 0) {
@@ -200,6 +234,13 @@ export interface TestArgs {
   packageScripts: readonly PackageScript[];
   tmpPath?: string;
 }
+/**
+ * @param root0
+ * @param root0.failCommand
+ * @param root0.packageScripts
+ * @param root0.projectPaths
+ * @param root0.tmpPath
+ */
 export async function test({
   failCommand,
   packageScripts,
@@ -234,6 +275,9 @@ export async function test({
       new ProjectState(),
     ])
   );
+  /**
+   *
+   */
   function getStages(): string[] {
     return [...projectStatuses].map(
       ([key, { stage }]): string => `  ${key}: ${stage}`

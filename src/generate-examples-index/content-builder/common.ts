@@ -19,6 +19,9 @@ export interface Renderer {
   };
 }
 
+/**
+ * @param value
+ */
 export function isExample(
   value: Example | Examples | ExamplesRoot
 ): value is Example {
@@ -33,6 +36,9 @@ export interface StartStopMs {
   start: number;
   stop: number;
 }
+/**
+ *
+ */
 export function measureStartStopMs(): () => StartStopMs {
   const start = Date.now();
   return (): StartStopMs => {
@@ -48,6 +54,10 @@ export interface Report {
   start: number;
   stop: number;
 }
+/**
+ * @param reports
+ * @param fallback
+ */
 export function reduceReports(
   reports: readonly Report[],
   fallback: Report = {
@@ -73,9 +83,17 @@ export function reduceReports(
   );
 }
 
+/**
+ * @param ms
+ */
 export function formatMs(ms: number): string {
   return `${(Math.round(ms / 100) / 10).toFixed(1)}s`;
 }
+/**
+ * @param root0
+ * @param root0.start
+ * @param root0.stop
+ */
 export function formatStartStopMs({ start, stop }: StartStopMs): string {
   return `${(Math.round((stop - start) / 100) / 10).toFixed(1)}s`;
 }

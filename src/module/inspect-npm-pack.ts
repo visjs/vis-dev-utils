@@ -6,6 +6,10 @@ setGracefulCleanup();
 
 const PACK_CMD = ["npm", "pack", "--dry-run"];
 
+/**
+ * @param textOrLines
+ * @param message
+ */
 function logStderr(
   textOrLines: string | readonly string[],
   message: string
@@ -19,6 +23,9 @@ function logStderr(
   throw new Error(message);
 }
 
+/**
+ *
+ */
 function runNpmPack(): string[] {
   const tmpFile = fileSync().name;
 
@@ -35,6 +42,9 @@ function runNpmPack(): string[] {
   return lines;
 }
 
+/**
+ * @param lines
+ */
 function extractFiles(lines: string[]): string[] {
   const fileListingStart = lines.indexOf(
     "npm notice === Tarball Contents === "
@@ -69,6 +79,9 @@ function extractFiles(lines: string[]): string[] {
   return files;
 }
 
+/**
+ * @param lines
+ */
 function extractName(lines: string[]): string {
   const nameLine = lines.find((line): boolean =>
     /^npm notice name:/.test(line)
@@ -84,6 +97,9 @@ function extractName(lines: string[]): string {
   return nameLine.replace(/^npm notice name: */, "");
 }
 
+/**
+ *
+ */
 export function inspectNpmPack(): { name: string; files: string[] } {
   const lines = runNpmPack();
   const files = extractFiles(lines);

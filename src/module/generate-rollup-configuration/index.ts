@@ -141,6 +141,9 @@ function processGlobals(
   );
 }
 
+/**
+ * @param path
+ */
 function isTS(path: string): boolean {
   return path.endsWith(".ts");
 }
@@ -175,6 +178,9 @@ function getPaths(
   buildVariant: "esnext" | "peer",
   moduleFormat: "esm" | "umd"
 ): Record<string, string> {
+  /**
+   * @param lib
+   */
   function getPath(
     lib:
       | "charts"

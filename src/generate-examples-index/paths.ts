@@ -2,6 +2,9 @@ import { Example, ExamplePath, ExamplePaths } from "./types";
 import { createHash } from "crypto";
 import { relative, resolve } from "path";
 
+/**
+ * @param urls
+ */
 export function joinURLs(...urls: string[]): string {
   return urls
     .map((url): string =>
@@ -11,6 +14,10 @@ export function joinURLs(...urls: string[]): string {
     .join("/");
 }
 
+/**
+ * @param baseURL
+ * @param url
+ */
 export function fixAbsoluteInputURL(baseURL: string, url: string): string {
   return url.startsWith("/")
     ? // Relative to the base URL. Base URL starts and URL ends with a slash.
@@ -19,6 +26,10 @@ export function fixAbsoluteInputURL(baseURL: string, url: string): string {
       url;
 }
 
+/**
+ * @param config
+ * @param exampleAbsolutePath
+ */
 export function generatePaths(
   config: ExamplePaths,
   exampleAbsolutePath: Example["path"]
@@ -58,6 +69,13 @@ export function generatePaths(
   };
 }
 
+/**
+ * @param localRoot
+ * @param webRoot
+ * @param hash
+ * @param prefix
+ * @param extension
+ */
 function generateLocalWebPair(
   localRoot: string,
   webRoot: string,
