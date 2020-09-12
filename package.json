@@ -124,7 +124,7 @@
     "@types/tmp": "0.2.0",
     "@types/yargs": "15.0.5",
     "builtin-modules": "3.1.0",
-    "eslint": "7.8.1",
+    "eslint": "7.9.0",
     "fs-extra": "9.0.1",
     "husky": "4.3.0",
     "lint-staged": "10.3.0",
