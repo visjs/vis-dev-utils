@@ -10,7 +10,9 @@ import typescript from "rollup-plugin-typescript2";
 import { generateHeader } from "./lib/header";
 import { string } from "rollup-plugin-string";
 
-const VIS_DEBUG = process.env.VIS_DEBUG === "1";
+const VIS_DEBUG = ["1", "true", "y", "yes"].includes(
+  process.env["VIS_DEBUG"] ?? "false"
+);
 
 const bannerModule = generateHeader();
 // Shebang is necessary to execute this as a command.
