@@ -4,7 +4,7 @@
     "declaration": false,
     "esModuleInterop": true,
     "lib": ["dom", "es2020"],
-    "module": "es2015",
+    "module": "ESNext",
     "moduleResolution": "node",
     "outDir": "js/src",
     "paths": {},

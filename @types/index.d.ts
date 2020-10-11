@@ -13,11 +13,6 @@ declare module "*.txt" {
   export default value;
 }
 
-declare module "@rollup/plugin-strip" {
-  const value: any;
-  export default value;
-}
-
 declare module "chai-fs" {
   const value: any;
   export default value;
@@ -46,4 +41,9 @@ declare module "rollup-plugin-postcss" {
 declare module "rollup-plugin-string" {
   export const string: any;
   export default string;
+}
+
+declare module "rollup-plugin-strip-code" {
+  const value: any;
+  export default value;
 }

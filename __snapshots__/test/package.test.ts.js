@@ -11,6 +11,8 @@ exports['package exported files 1'] = {
     "        bin/ci-utils.js.map",
     "        bin/generate-examples-index.js",
     "        bin/generate-examples-index.js.map",
+    "        bin/inspect-npm-pack.js",
+    "        bin/inspect-npm-pack.js.map",
     "        bin/test-e2e-interop.js",
     "        bin/test-e2e-interop.js.map",
     "        declarations/constants.d.ts",

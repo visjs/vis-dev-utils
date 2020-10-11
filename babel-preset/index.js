@@ -61,6 +61,11 @@ module.exports = function (_context, { css = false, ts = false } = {}) {
         // done through Babel plugin.
         plugins: ["istanbul"],
       },
+      "test-karma-coverage": {
+        // This instruments the code to record coverage. It's more reliable if
+        // done through Babel plugin.
+        plugins: ["istanbul"],
+      },
     },
   };
 
