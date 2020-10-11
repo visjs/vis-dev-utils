@@ -1,25 +1,26 @@
+import packageJSON from "./package.json";
+import analyzer from "rollup-plugin-analyzer";
 import babel from "rollup-plugin-babel";
-import builtins from "builtin-modules";
 import commonjs from "@rollup/plugin-commonjs";
 import copy from "rollup-plugin-copy";
+import externals from "rollup-plugin-node-externals";
 import json from "@rollup/plugin-json";
 import nodeResolve from "@rollup/plugin-node-resolve";
-import packageJSON from "./package.json";
 import typescript from "rollup-plugin-typescript2";
 import { generateHeader } from "./lib/header";
 import { string } from "rollup-plugin-string";
+
+const VIS_DEBUG = ["1", "true", "y", "yes"].includes(
+  process.env["VIS_DEBUG"] || "false"
+);
 
 const bannerModule = generateHeader();
 // Shebang is necessary to execute this as a command.
 const bannerCommand = "#!/usr/bin/env node\n\n" + bannerModule;
 
-// Dependencies will be installed by npm.
-// Builtins are always available in Node.
-const external = [
-  ...new Set([...Object.keys(packageJSON.dependencies), ...builtins]),
-];
-
 const getPlugins = () => [
+  analyzer(VIS_DEBUG ? undefined : { summaryOnly: true }),
+  externals({ deps: true }),
   copy({
     targets: [
       {
@@ -65,7 +66,6 @@ export default [
         sourcemap: true,
       },
     ],
-    external,
     plugins: getPlugins(),
   },
   // File exports.
@@ -78,12 +78,11 @@ export default [
         format: "cjs",
         sourcemap: true,
       },
-      external,
       plugins: getPlugins(),
     };
   }),
   // Node commands.
-  ...["generate-examples-index", "test-e2e-interop", "ci-utils"].map((name) => {
+  ...Object.keys(packageJSON.bin).map((name) => {
     return {
       input: `src/${name}`,
       output: {
@@ -92,7 +91,6 @@ export default [
         format: "cjs",
         sourcemap: true,
       },
-      external,
       plugins: getPlugins(),
     };
   }),

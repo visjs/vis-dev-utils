@@ -1,4 +1,4 @@
-import analyzer from "rollup-plugin-analyzer";
+import analyzerPlugin from "rollup-plugin-analyzer";
 import babelPlugin from "rollup-plugin-babel";
 import chaiFs from "chai-fs";
 import commonjsPlugin from "@rollup/plugin-commonjs";
@@ -7,10 +7,11 @@ import jsonPlugin from "@rollup/plugin-json";
 import nodeResolvePlugin from "@rollup/plugin-node-resolve";
 import postcssAssetsPlugin from "postcss-assets";
 import postcssPlugin from "rollup-plugin-postcss";
-import stripPlugin from "@rollup/plugin-strip";
+import stripCodePlugin from "rollup-plugin-strip-code";
 import typescriptPlugin from "rollup-plugin-typescript2";
 import { generateHeader } from "../header";
 import { join, resolve, sep } from "path";
+import { string as stringPlugin } from "rollup-plugin-string";
 import { sync as rawGlobby } from "globby";
 import { terser as terserPlugin } from "rollup-plugin-terser";
 import {
@@ -27,6 +28,9 @@ chaiUse(chaiFs);
 
 const VIS_DEBUG = ["1", "true", "y", "yes"].includes(
   process.env["VIS_DEBUG"] || "false"
+);
+const VIS_TEST = ["1", "true", "y", "yes"].includes(
+  process.env["VIS_TEST"] || "false"
 );
 
 /**
@@ -214,11 +218,12 @@ const generateRollupPluginArray = (
   libraryFilename: string,
   assets: string,
   tsconfig: string,
+  mode: "production" | "development" | "test",
   bundleType: "esnext" | "standalone" | "peer",
   {
     injectCSS = false,
     minimize = false,
-    strip = !VIS_DEBUG,
+    strip = mode === "production",
     transpile = false,
     typescript = false,
   } = {}
@@ -231,7 +236,25 @@ const generateRollupPluginArray = (
   );
 
   return [
-    analyzer(VIS_DEBUG ? undefined : { limit: 10, summaryOnly: true }),
+    ...(strip
+      ? [
+          // This should be first because it removes code from source files.
+          // It's much easier to follow if the removal happens before any
+          // transformations.
+          stripCodePlugin({
+            start_comment: "develblock:start",
+            end_comment: "develblock:end",
+          }),
+        ]
+      : [
+          // Remove the comments marking devel blocks as they can cause problems
+          // later on because transpilation shuffles things around which may
+          // lead to all kinds of issues including syntax errors.
+          stripCodePlugin({
+            pattern: /[\t ]*\/\* ?develblock:(start|end) ?\*\//g,
+          }),
+        ]),
+    analyzerPlugin(VIS_DEBUG ? undefined : { limit: 10, summaryOnly: true }),
     copyPlugin({
       verbose: VIS_DEBUG,
       targets: [
@@ -275,6 +298,7 @@ const generateRollupPluginArray = (
       browser: true,
       extensions: [".js", ".json", ".ts"],
       mainFields: ["jsnext", "module", "main"],
+      preferBuiltins: false,
     }),
     ...(typescript
       ? [
@@ -297,20 +321,9 @@ const generateRollupPluginArray = (
       ],
     }),
     jsonPlugin(),
-    ...(strip
-      ? [
-          stripPlugin({
-            debugger: true,
-            // Note: At the moment functions have to be disabled for labels to
-            // work. If the need to use functions arises before this is fixed
-            // the plugin can simply be used twice, once with empty functions
-            // and once with empty labels.
-            functions: [],
-            include: ["**/*.js", "**/*.ts"],
-            labels: ["stripInProduction"],
-          }),
-        ]
-      : []),
+    stringPlugin({
+      include: "**/*.txt",
+    }),
     ...(transpile
       ? [
           babelPlugin({
@@ -358,12 +371,19 @@ const generateRollupPluginArray = (
  * - `rollup-plugin-typescript2` (skipped if the entry is .js)
  *
  * @param options - See {@link GRCOptions}.
+ * @param mode - Whether the code should be processed for production,
+ * development or testing.
  *
  * @returns Ready to use configuration object that can be just exported from
  * `rollup.config.js` or mutated in any way if necessary.
  */
 export function generateRollupConfiguration(
-  options: OptionalOptions<GRCOptions>
+  options: OptionalOptions<GRCOptions>,
+  mode: "production" | "development" | "test" = VIS_TEST
+    ? "test"
+    : VIS_DEBUG
+    ? "development"
+    : "production"
 ): any {
   const {
     assets = ".",
@@ -550,30 +570,31 @@ export function generateRollupConfiguration(
     standalone: [],
   };
 
-  const commonOutputESM = {
+  const commonOutput = {
     banner,
     dir: ".",
-    format: "esm",
     globals: processGlobals(globals),
-    sourcemap: true,
-  };
+    sourcemap: VIS_TEST ? "inline" : true,
+  } as const;
+  const commonOutputESM = {
+    ...commonOutput,
+    format: "esm",
+  } as const;
   const commonOutputUMD = {
-    banner,
-    dir: ".",
+    ...commonOutput,
     exports: "named",
     extend: true,
     format: "umd",
-    globals: processGlobals(globals),
     name: "vis",
-    sourcemap: true,
     strict: false, // Regenerator runtime causes issues with CSP in strict mode.
-  };
+  } as const;
 
   const getPlugins = generateRollupPluginArray.bind(
     null,
     libraryFilename,
     assets,
-    tsconfig
+    tsconfig,
+    mode
   );
 
   return [
