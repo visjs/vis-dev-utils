@@ -111,7 +111,7 @@
     "rollup-plugin-typescript2": "0.27.3",
     "tmp": "0.2.1",
     "tmp-promise": "3.0.2",
-    "yargs": "16.0.3"
+    "yargs": "16.1.0"
   },
   "devDependencies": {
     "@types/chai": "4.2.13",
