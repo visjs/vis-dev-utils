@@ -116,7 +116,7 @@
   "devDependencies": {
     "@types/chai": "4.2.14",
     "@types/chai-fs": "2.0.2",
-    "@types/cheerio": "0.22.21",
+    "@types/cheerio": "0.22.22",
     "@types/jimp": "0.2.28",
     "@types/mocha": "8.0.3",
     "@types/npm": "2.0.31",
