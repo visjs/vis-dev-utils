@@ -121,7 +121,7 @@
     "@types/mocha": "8.0.4",
     "@types/npm": "2.0.31",
     "@types/prettier": "2.1.5",
-    "@types/puppeteer": "3.0.5",
+    "@types/puppeteer": "5.4.0",
     "@types/sinon": "9.0.8",
     "@types/tmp": "0.2.0",
     "@types/yargs": "15.0.9",
