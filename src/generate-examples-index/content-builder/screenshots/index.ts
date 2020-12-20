@@ -130,7 +130,7 @@ export async function generateScreenshot(
         "function fn() { return window.readyToTakeAScreenshot; }"
       );
     } else {
-      await page.waitFor(example.delay * 1000);
+      await page.waitForTimeout(example.delay * 1000);
     }
 
     const $element = await page.$(example.selector);
