@@ -125,7 +125,7 @@
     "@types/sinon": "9.0.9",
     "@types/tmp": "0.2.0",
     "@types/yargs": "15.0.12",
-    "builtin-modules": "3.1.0",
+    "builtin-modules": "3.2.0",
     "eslint": "7.16.0",
     "fs-extra": "9.0.1",
     "husky": "4.3.6",
