@@ -2,7 +2,7 @@ import analyzerPlugin from "rollup-plugin-analyzer";
 import babelPlugin from "rollup-plugin-babel";
 import chaiFs from "chai-fs";
 import commonjsPlugin from "@rollup/plugin-commonjs";
-import copyPlugin from "rollup-plugin-copy";
+import copyPlugin, { Target as CopyTarget } from "rollup-plugin-copy";
 import jsonPlugin from "@rollup/plugin-json";
 import nodeResolvePlugin from "@rollup/plugin-node-resolve";
 import postcssAssetsPlugin from "postcss-assets";
@@ -49,6 +49,21 @@ export interface GRCOptions {
    * Where to look for files when inlining assets into CSS.
    */
   assets: string;
+  /**
+   * Additional files to be copied.
+   */
+  copyTargets: {
+    /**
+     * These will be copied relative to the root of each bundle (esnext,
+     * standalone…).
+     */
+    bundle: CopyTarget[];
+    /**
+     * These will be copied relative to the root of each variant of each bundle
+     * (esnext/esm, esnext/umd, standalone/esm…).
+     */
+    variant: CopyTarget[];
+  };
   /**
    * The base dir with entry points for various builds. The extensions
    * determines whether TypeScript processing will be used.
@@ -211,12 +226,40 @@ function getPaths(
   };
 }
 
+/**
+ * Change target's dest so that it's relative to given dir(s).
+ *
+ * @param dirs - The directories there targets should be relative to.
+ *
+ * @returns A function that can be directly supplied to Array.map().
+ */
+function scopeCopyTarget(
+  ...dirs: readonly string[]
+): (target: CopyTarget) => CopyTarget {
+  return function (target): CopyTarget {
+    const dest = (Array.isArray(target.dest)
+      ? target.dest
+      : [target.dest]) as readonly string[];
+
+    const bundleDest = dest.flatMap((path): string[] =>
+      dirs.map((dir): string => join(dir, path))
+    );
+
+    return {
+      ...target,
+      dest: bundleDest,
+    };
+  };
+}
+
 const injectCSS = true;
 const minimize = true;
 const transpile = true;
 const generateRollupPluginArray = (
   libraryFilename: string,
   assets: string,
+  copyTargetsBundle: readonly CopyTarget[],
+  copyTargetsVariant: readonly CopyTarget[],
   tsconfig: string,
   mode: "production" | "development" | "test",
   bundleType: "esnext" | "standalone" | "peer",
@@ -292,6 +335,10 @@ const generateRollupPluginArray = (
           transform: (content: Buffer): string =>
             content.toString().replace("{{bundle-type}}", bundleType),
         },
+
+        // Custom
+        ...copyTargetsBundle.map(scopeCopyTarget(bundleDir)),
+        ...copyTargetsVariant.map(scopeCopyTarget(...bundleVariantDirs)),
       ],
     }),
     nodeResolvePlugin({
@@ -387,6 +434,10 @@ export function generateRollupConfiguration(
 ): any {
   const {
     assets = ".",
+    copyTargets: {
+      bundle: copyTargetsBundle = [],
+      variant: copyTargetsVariant = [],
+    } = {} as GRCOptions["copyTargets"],
     externalForPeerBuild = [],
     globals = {},
     header = { name: "Unknown Library" },
@@ -589,13 +640,14 @@ export function generateRollupConfiguration(
     strict: false, // Regenerator runtime causes issues with CSP in strict mode.
   } as const;
 
-  const getPlugins = generateRollupPluginArray.bind(
-    null,
-    libraryFilename,
-    assets,
-    tsconfig,
-    mode
-  );
+  // Note: Binding more than 4 at a time is not typesafe in TS.
+  const getPlugins = generateRollupPluginArray
+    .bind(null, libraryFilename)
+    .bind(null, assets)
+    .bind(null, copyTargetsBundle)
+    .bind(null, copyTargetsVariant)
+    .bind(null, tsconfig)
+    .bind(null, mode);
 
   return [
     {
