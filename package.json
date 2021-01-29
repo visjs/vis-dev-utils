@@ -124,7 +124,7 @@
     "@types/puppeteer": "5.4.2",
     "@types/sinon": "9.0.10",
     "@types/tmp": "0.2.0",
-    "@types/yargs": "15.0.12",
+    "@types/yargs": "15.0.13",
     "builtin-modules": "3.2.0",
     "eslint": "7.18.0",
     "fs-extra": "9.1.0",
