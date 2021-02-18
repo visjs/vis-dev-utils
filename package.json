@@ -73,13 +73,13 @@
     "lib"
   ],
   "dependencies": {
-    "@babel/core": "7.12.16",
+    "@babel/core": "7.12.17",
     "@babel/plugin-proposal-class-properties": "7.12.13",
-    "@babel/plugin-transform-runtime": "7.12.15",
-    "@babel/preset-env": "7.12.16",
-    "@babel/preset-typescript": "7.12.16",
+    "@babel/plugin-transform-runtime": "7.12.17",
+    "@babel/preset-env": "7.12.17",
+    "@babel/preset-typescript": "7.12.17",
     "@babel/register": "7.12.13",
-    "@babel/runtime-corejs3": "7.12.13",
+    "@babel/runtime-corejs3": "7.12.18",
     "@rollup/plugin-commonjs": "17.1.0",
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "11.2.0",
