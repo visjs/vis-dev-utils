@@ -118,7 +118,7 @@
     "@types/chai-fs": "2.0.2",
     "@types/cheerio": "0.22.21",
     "@types/jimp": "0.2.28",
-    "@types/mocha": "8.2.1",
+    "@types/mocha": "8.2.2",
     "@types/npm": "2.0.31",
     "@types/prettier": "2.2.3",
     "@types/puppeteer": "5.4.3",
