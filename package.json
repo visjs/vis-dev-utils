@@ -114,7 +114,7 @@
     "yargs": "16.2.0"
   },
   "devDependencies": {
-    "@types/chai": "4.2.20",
+    "@types/chai": "4.2.21",
     "@types/chai-fs": "2.0.2",
     "@types/cheerio": "0.22.21",
     "@types/jimp": "0.2.28",
