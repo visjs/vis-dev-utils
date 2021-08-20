@@ -37,7 +37,6 @@ const VIS_TEST = ["1", "true", "y", "yes"].includes(
  * Simple glob with workaround for non-posix paths.
  *
  * @param pattern - Single glob pattern.
- *
  * @returns Globbed paths.
  */
 function glob(pattern: string): ReturnType<typeof rawGlobby> {
@@ -123,7 +122,6 @@ const dependenciesWithVisExportStructure = [
  * This ensures that dependencies on Vis projects point to ESNext builds.
  *
  * @param deps - The original dependencies as listed in package.json.
- *
  * @returns An array of dependencies for Rollup.
  */
 function processDependencies(
@@ -142,7 +140,6 @@ function processDependencies(
  * will log warnings during build process and won't work at all.
  *
  * @param globals - The original globals.
- *
  * @returns Globals forcing the use of ESNext builds for Vis projects.
  */
 function processGlobals(
@@ -171,18 +168,17 @@ function isTS(path: string): boolean {
  * Make sure that Chai doesn't throw and therefore stop execution on failed
  * validations during debugging.
  */
-const validate: (
-  callback: (expect: Chai.ExpectStatic) => void
-) => void = VIS_DEBUG
-  ? (callback: (expect: Chai.ExpectStatic) => void): void => {
-      try {
-        callback(validateExpect);
-      } catch (error) {
-        console.error(error);
+const validate: (callback: (expect: Chai.ExpectStatic) => void) => void =
+  VIS_DEBUG
+    ? (callback: (expect: Chai.ExpectStatic) => void): void => {
+        try {
+          callback(validateExpect);
+        } catch (error) {
+          console.error(error);
+        }
       }
-    }
-  : (callback: (expect: Chai.ExpectStatic) => void): void =>
-      void callback(validateExpect);
+    : (callback: (expect: Chai.ExpectStatic) => void): void =>
+        void callback(validateExpect);
 
 /**
  * Transform ESNext import paths to match the build version being constructed.
@@ -190,7 +186,6 @@ const validate: (
  * @param buildVariant - ESNext or peer build. This is not available for
  * standalone as only peer and ESNext have imports.
  * @param moduleFormat - What kind of module system to use.
- *
  * @returns Path overrides for Rollup.
  */
 function getPaths(
@@ -230,16 +225,15 @@ function getPaths(
  * Change target's dest so that it's relative to given dir(s).
  *
  * @param dirs - The directories there targets should be relative to.
- *
  * @returns A function that can be directly supplied to Array.map().
  */
 function scopeCopyTarget(
   ...dirs: readonly string[]
 ): (target: CopyTarget) => CopyTarget {
   return function (target): CopyTarget {
-    const dest = (Array.isArray(target.dest)
-      ? target.dest
-      : [target.dest]) as readonly string[];
+    const dest = (
+      Array.isArray(target.dest) ? target.dest : [target.dest]
+    ) as readonly string[];
 
     const bundleDest = dest.flatMap((path): string[] =>
       dirs.map((dir): string => join(dir, path))
@@ -416,11 +410,9 @@ const generateRollupPluginArray = (
  * - `rollup-plugin-postcss`
  * - `rollup-plugin-terser` (only in minified)
  * - `rollup-plugin-typescript2` (skipped if the entry is .js)
- *
  * @param options - See {@link GRCOptions}.
  * @param mode - Whether the code should be processed for production,
  * development or testing.
- *
  * @returns Ready to use configuration object that can be just exported from
  * `rollup.config.js` or mutated in any way if necessary.
  */

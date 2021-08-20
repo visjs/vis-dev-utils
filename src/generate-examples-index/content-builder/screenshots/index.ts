@@ -18,7 +18,6 @@ const writeFile = promisify(fs.writeFile);
  * though may yield some false positives.
  *
  * @param screenshot - The binary data of the screenshot.
- *
  * @returns True for valid and false for invalid.
  */
 async function isScreenshotValid(screenshot: Buffer): Promise<boolean> {
@@ -58,7 +57,6 @@ export interface GenerateScreenshotConfig {
  *
  * @param browser - Puppeteer's browser instance.
  * @param config - See the type's docs for detail.
- *
  * @returns Whether or not the screenshot passed validation check.
  */
 export async function generateScreenshot(
@@ -147,6 +145,17 @@ export async function generateScreenshot(
     const screenshot = await $element.screenshot({
       encoding: "binary",
     });
+
+    if (screenshot == null) {
+      throw new Error(`Failed to take screenshot of “${example.paths.page}”`);
+    } else if (typeof screenshot === "string") {
+      // AFAIK this should never happen, it's just a problem with the types
+      // always returning Buffer | string even when encoding is set to binary
+      // (i.e. buffer).
+      throw new Error(
+        `Failed to get the binary data of the screenshot of “${example.paths.page}”`
+      );
+    }
 
     await writeFile(example.paths.screenshot.local, screenshot);
 

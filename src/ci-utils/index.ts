@@ -23,6 +23,7 @@ yargs
 
       if (argv.tools.includes("chromium")) {
         dependecies.add("libasound2");
+        dependecies.add("libgbm1");
         dependecies.add("libgtk-3-0");
         dependecies.add("libnss3");
         dependecies.add("libxss1");

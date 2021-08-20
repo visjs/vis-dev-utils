@@ -91,7 +91,7 @@ describe("generate-examples-index", function (): void {
     });
 
     describe("verify index", function (): void {
-      let $index: CheerioStatic;
+      let $index: cheerio.Root;
 
       it("valid HTML", function (): void {
         $index = $.load(
@@ -137,7 +137,7 @@ describe("generate-examples-index", function (): void {
         .fill(null)
         .map((_value, i): number => i)) {
         describe(`example ${i + 1}`, function (): void {
-          function getNthExample(n: number): Cheerio {
+          function getNthExample(n: number): cheerio.Cheerio {
             return $index(".example-link").eq(n);
           }
 

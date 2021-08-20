@@ -37,19 +37,18 @@ const screenshotScriptPath =
 const mkdir = util.promisify(fs.mkdir);
 const readFile = util.promisify(fs.readFile);
 
-function getMeta<T>(page: CheerioStatic, name: string, fallback: T): T;
+function getMeta<T>(page: cheerio.Root, name: string, fallback: T): T;
 /**
  * Extract and coerce a value from meta tag.
  *
  * @param page - The page to be queried.
  * @param name - The name of the meta tag.
  * @param fallback - The value to be used if the meta tag is not present.
- *
  * @returns The value “smartly” coerced or the fallback if conversion isn't
  * possible or the value is not present in the page.
  */
 function getMeta(
-  page: CheerioStatic,
+  page: cheerio.Root,
   name: string,
   fallback: number | string
 ): number | string {
@@ -75,10 +74,9 @@ function getMeta(
  *
  * @param path - The path to the example (used for identification in logs).
  * @param page - The HTML to be linted.
- *
  * @returns True if everything's okay, false otherwise.
  */
-function lintExample(path: string, page: CheerioStatic): boolean {
+function lintExample(path: string, page: cheerio.Root): boolean {
   let valid = true;
   const msgs = [`${path}:`];
 
@@ -131,11 +129,9 @@ function lintExample(path: string, page: CheerioStatic): boolean {
       argv["examples-local-directory"],
       argv["output-directory"],
       argv["pages-local-directory"],
-    ].map(
-      (path): Promise<void> => {
-        return mkdir(path, { recursive: true });
-      }
-    )
+    ].map(async (path): Promise<void> => {
+      await mkdir(path, { recursive: true });
+    })
   );
 
   const baseURL = argv["base-url"];
@@ -169,98 +165,98 @@ function lintExample(path: string, page: CheerioStatic): boolean {
   const skipped: string[] = [];
 
   await Promise.all(
-    (await globby(join(pathsConfig.page.local, "**/*.html"))).map(
-      async (pagePath): Promise<any> => {
-        const html = await readFile(pagePath, "utf-8");
-        const $page = $.load(html);
-        const pageDelay = getMeta<number | "call">(
-          $page,
-          "example-screenshot-delay",
-          6
-        );
-        const pageTimeout = getMeta<number>(
-          $page,
-          "example-screenshot-timeout",
-          60
-        );
-        const pageSelector = getMeta<string>(
-          $page,
-          "example-screenshot-selector",
-          selector
-        );
+    (
+      await globby(join(pathsConfig.page.local, "**/*.html"))
+    ).map(async (pagePath): Promise<any> => {
+      const html = await readFile(pagePath, "utf-8");
+      const $page = $.load(html);
+      const pageDelay = getMeta<number | "call">(
+        $page,
+        "example-screenshot-delay",
+        6
+      );
+      const pageTimeout = getMeta<number>(
+        $page,
+        "example-screenshot-timeout",
+        60
+      );
+      const pageSelector = getMeta<string>(
+        $page,
+        "example-screenshot-selector",
+        selector
+      );
 
-        // Is this an examples?
-        if ($page(pageSelector).length === 0) {
-          skipped.push(pagePath);
-          return;
-        }
-
-        // Lint if requested.
-        if (argv.lint) {
-          lintExample(pagePath, $page);
-        }
-
-        // Body titles.
-        let titles = $page("#title > *")
-          .get()
-          .map((elem): string => $page(elem).text().trim());
-
-        // Head title fallback.
-        if (titles.length < 2) {
-          titles = $page("head > title")
-            .text()
-            .split("|")
-            .map((title): string => title.trim());
-        }
-
-        // File path fallback.
-        if (titles.length < 2) {
-          titles = pagePath.split("/");
-        }
-
-        // Just ignore it.
-        if (titles.length < 2) {
-          console.error("Title resolution failed. Skipping.");
-          return;
-        }
-
-        // Put this example into the structure while creating any missing groups in the process.
-        titles.reduce((acc, title, i, arr): any => {
-          while (acc[title] != null && acc[title].path != null) {
-            console.error("The following group already exists: ", titles);
-            title += "!";
-          }
-
-          if (i === arr.length - 1) {
-            if (acc[title] != null) {
-              console.error(
-                "The following example has the same name as an already existing group: ",
-                titles
-              );
-              return null;
-            } else {
-              const example: Example = {
-                $: $page,
-                delay: pageDelay,
-                html: html,
-                path: pagePath,
-                paths: generatePaths(pathsConfig, pagePath),
-                playground: generatePlaygroundData(baseURL, $page, pagePath),
-                selector: pageSelector,
-                timeout: pageTimeout,
-                titles: titles,
-              };
-
-              acc[title] = example;
-
-              ++stats.examples;
-            }
-          } else {
-            return (acc[title] = acc[title] || {});
-          }
-        }, examples as any);
+      // Is this an examples?
+      if ($page(pageSelector).length === 0) {
+        skipped.push(pagePath);
+        return;
       }
-    )
+
+      // Lint if requested.
+      if (argv.lint) {
+        lintExample(pagePath, $page);
+      }
+
+      // Body titles.
+      let titles = $page("#title > *")
+        .get()
+        .map((elem): string => $page(elem).text().trim());
+
+      // Head title fallback.
+      if (titles.length < 2) {
+        titles = $page("head > title")
+          .text()
+          .split("|")
+          .map((title): string => title.trim());
+      }
+
+      // File path fallback.
+      if (titles.length < 2) {
+        titles = pagePath.split("/");
+      }
+
+      // Just ignore it.
+      if (titles.length < 2) {
+        console.error("Title resolution failed. Skipping.");
+        return;
+      }
+
+      // Put this example into the structure while creating any missing groups in the process.
+      titles.reduce((acc, title, i, arr): any => {
+        while (acc[title] != null && acc[title].path != null) {
+          console.error("The following group already exists: ", titles);
+          title += "!";
+        }
+
+        if (i === arr.length - 1) {
+          if (acc[title] != null) {
+            console.error(
+              "The following example has the same name as an already existing group: ",
+              titles
+            );
+            return null;
+          } else {
+            const example: Example = {
+              $: $page,
+              delay: pageDelay,
+              html: html,
+              path: pagePath,
+              paths: generatePaths(pathsConfig, pagePath),
+              playground: generatePlaygroundData(baseURL, $page, pagePath),
+              selector: pageSelector,
+              timeout: pageTimeout,
+              titles: titles,
+            };
+
+            acc[title] = example;
+
+            ++stats.examples;
+          }
+        } else {
+          return (acc[title] = acc[title] || {});
+        }
+      }, examples as any);
+    })
   );
 
   if (skipped.length) {
