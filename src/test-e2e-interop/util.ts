@@ -1,6 +1,6 @@
 import { execSync, spawn } from "child_process";
 import { join } from "path";
-import { createWriteStream } from "fs-extra";
+import { createWriteStream, readFile } from "fs-extra";
 
 export class ProjectState {
   /**
@@ -52,15 +52,30 @@ export function logInfo(title: string, details?: string): void {
 /**
  * @param cwd
  * @param failCommand
+ * @param error
  */
-export function execFail(cwd: string, failCommand?: string): void {
+export function execFail(
+  cwd: string,
+  failCommand: string | null | undefined,
+  error: Error | string
+): void {
   if (failCommand) {
-    execSync(failCommand, {
-      cwd,
-      encoding: "utf8",
-      env: { ...process.env, VIS_INTEROP: "1" },
-      stdio: "inherit",
-    });
+    console.error("\n\nReason for debugging:");
+    console.error(error);
+    console.error("\n\nDebuging:");
+    try {
+      execSync(failCommand, {
+        cwd,
+        encoding: "utf8",
+        env: { ...process.env, VIS_INTEROP: "1" },
+        stdio: "inherit",
+      });
+    } catch (error) {
+      console.error(error);
+      console.error(
+        "The error above is the fail command exitting with non-zero status, not an actual failure in the interop test."
+      );
+    }
   }
 }
 
@@ -82,7 +97,7 @@ export function createSpawner(logDir: string, getState: () => string[]): Spawn {
     const id = nextId++;
     const getHeaderLines = (): string[] => [
       "time: " + new Date().toISOString(),
-      "id: " + id + " ",
+      "id: " + id,
       "cwd: " + cwd,
       "cmd: " + cmd.map((word): string => JSON.stringify(word)).join(" "),
       "states:",
@@ -96,14 +111,10 @@ export function createSpawner(logDir: string, getState: () => string[]): Spawn {
     logInfo("Start", getLogMessage());
 
     return new Promise((resolve, reject): void => {
-      let failed = false;
-
-      const logStream = createWriteStream(
-        join(logDir, ("" + id).padStart(3, "0") + ".log"),
-        {
-          flags: "a",
-        }
-      );
+      const commandLogPath = join(logDir, ("" + id).padStart(3, "0") + ".log");
+      const logStream = createWriteStream(commandLogPath, {
+        flags: "a",
+      });
 
       logStream.write(getHeaderLines().join("\n") + "\n\n");
 
@@ -116,28 +127,42 @@ export function createSpawner(logDir: string, getState: () => string[]): Spawn {
       child.stdout.pipe(logStream);
       child.stderr.pipe(logStream);
 
+      let failed = false;
       child.on("close", (code): void => {
-        if (failed || code !== 0) {
+        if (failed) {
+          // noop
+        } else if (code !== 0) {
           logError("Fail", getLogMessage());
 
-          execFail(cwd, failCommand);
-          reject(
-            new Error(
-              `${cmd
-                .map((word): string => `"${word}"`)
-                .join(" ")}: exited with ${code}.`
-            )
-          );
+          const errorMessage = `${cmd
+            .map((word): string => `"${word}"`)
+            .join(" ")}: exited with ${code}.`;
+
+          logStream.end((): void => {
+            (async (): Promise<void> => {
+              let commandOutput = "";
+              try {
+                commandOutput += await readFile(commandLogPath, "utf-8");
+              } catch (error) {
+                commandOutput += "Failed to log command output.";
+              }
+              execFail(cwd, failCommand, commandOutput + "\n\n" + errorMessage);
+            })();
+          });
+
+          reject(new Error(errorMessage));
         } else {
           logInfo("Okay", getLogMessage());
           resolve();
         }
       });
       child.on("error", (error): void => {
-        logError("Fail", getLogMessage());
         failed = true;
 
-        execFail(cwd, failCommand);
+        logError("Fail", getLogMessage());
+
+        execFail(cwd, failCommand, error);
+
         reject(error);
       });
     });

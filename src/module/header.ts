@@ -5,9 +5,7 @@ import { readFileSync } from "fs";
  * Take a string and return a doc block comment.
  *
  * @param string - The raw text to be included in the comment.
- *
  * @throws If the string already contains a comment.
- *
  * @returns A block doc comment string that can be for example prepended to a
  * bundled JavaScript file.
  */
@@ -106,9 +104,7 @@ const defaultVersion = packageJSON.version;
  * text will be appended, the date will be the time when this module was
  * imported (most likely the start of the build process) and the rest will be
  * read from package.json.
- *
  * @throws If the string already contains a comment.
- *
  * @returns Ready to use banner text.
  */
 export function generateHeader(options?: Partial<HeaderOptions>): string {

@@ -10,6 +10,8 @@ import {
   mkdirp,
   readFile,
   readdir,
+  writeFile,
+  unlink,
 } from "fs-extra";
 
 import {
@@ -165,6 +167,39 @@ async function clone(
 }
 
 /**
+ * @param cwd
+ * @param deps
+ */
+async function updatePackageDepVersions(
+  cwd: string,
+  deps: Record<string, string>
+): Promise<void> {
+  const packageJSONPath = await findUp("package.json", { cwd });
+  if (packageJSONPath == null) {
+    throw new Error("Project's package.json file not found.");
+  }
+  const packageJSON = JSON.parse(await readFile(packageJSONPath, "utf8"));
+
+  Object.keys(packageJSON.dependencies ?? {}).forEach((key): void => {
+    if (Object.prototype.hasOwnProperty.call(deps, key)) {
+      packageJSON.dependencies[key] = "file:" + deps[key];
+    }
+  });
+  Object.keys(packageJSON.devDependencies ?? {}).forEach((key): void => {
+    if (Object.prototype.hasOwnProperty.call(deps, key)) {
+      packageJSON.devDependencies[key] = "file:" + deps[key];
+    }
+  });
+  Object.keys(packageJSON.peerDependencies ?? {}).forEach((key): void => {
+    if (Object.prototype.hasOwnProperty.call(deps, key)) {
+      packageJSON.peerDependencies[key] = "file:" + deps[key];
+    }
+  });
+
+  await writeFile(packageJSONPath, JSON.stringify(packageJSON, undefined, 4));
+}
+
+/**
  * @param spawn
  * @param data
  * @param projectName
@@ -177,20 +212,21 @@ async function buildTestPack(
   const { failCommand, packageScripts, tmpReposResolve } = data;
   const cwd = tmpReposResolve(projectName);
 
-  await spawn({
-    cmd: ["npm", "ci"],
+  await updatePackageDepVersions(
     cwd,
-    failCommand,
-  });
-
+    (
+      await getPackageLocalDeps(data, projectName)
+    ).reduce<Record<string, string>>((acc, key): Record<string, string> => {
+      acc[key] = getTarballPath(data, key);
+      return acc;
+    }, Object.create(null))
+  );
+  const packageLockPath = await findUp("package-lock.json", { cwd });
+  if (packageLockPath != null) {
+    await unlink(packageLockPath);
+  }
   await spawn({
-    cmd: [
-      "npm",
-      "install",
-      ...(await getPackageLocalDeps(data, projectName)).map(
-        getTarballPath.bind(null, data)
-      ),
-    ],
+    cmd: ["npm", "install"],
     cwd,
     failCommand,
   });
@@ -246,11 +282,11 @@ export async function test({
   packageScripts,
   projectPaths,
   tmpPath,
-}: TestArgs): Promise<void> {
+}: TestArgs): Promise<boolean> {
   if (process.env.VIS_INTEROP === "1") {
     // This would result in infinite loop otherwise.
     logInfo("Skipping interop test.");
-    return;
+    return true;
   }
 
   const data = Object.freeze<TestData>({
@@ -297,79 +333,83 @@ export async function test({
     );
 
     logInfo("Begin", getStages().join("\n"));
-    await Promise.allSettled(
-      [...projectStatuses].map(
-        async ([projectName, state]): Promise<void> => {
-          try {
-            state.stage = "preparing";
-            const projectPath = data.projectPaths[projectName];
-            const stats = await (async (): Promise<Stats | null> => {
+    await Promise.all(
+      [...projectStatuses].map(async ([projectName, state]): Promise<void> => {
+        try {
+          state.stage = "preparing";
+          const projectPath = data.projectPaths[projectName];
+          const stats = await (async (): Promise<Stats | null> => {
+            try {
+              return await lstat(projectPath);
+            } catch {
+              return null;
+            }
+          })();
+          if (stats?.isFile()) {
+            // The path points to a ready to install tarball.
+            state.stage = "copying tarball";
+            await copyFile(projectPath, getTarballPath(data, projectName));
+            state.stage = "tarball copied";
+          } else {
+            // The path points to a repo (maybe remote) that has to be built,
+            // tested and packed first.
+            state.stage = "cloning";
+            await clone(spawn, data, projectName);
+
+            state.stage = "gathering dependencies";
+            const failedDeps: string[] = [];
+            const localDeps = await getPackageLocalDeps(data, projectName);
+            state.stage = `waiting for dependencies (${localDeps.join(", ")})`;
+            for (const localDep of localDeps) {
+              const depStatus = projectStatuses.get(localDep);
+              if (depStatus == null) {
+                throw new Error(`Dependency ${localDep} not found.`);
+              }
+
               try {
-                return await lstat(projectPath);
+                await depStatus.promise;
               } catch {
-                return null;
+                failedDeps.push(localDep);
               }
-            })();
-            if (stats?.isFile()) {
-              // The path points to a ready to install tarball.
-              state.stage = "copying tarball";
-              await copyFile(projectPath, getTarballPath(data, projectName));
-              state.stage = "tarball copied";
-            } else {
-              // The path points to a repo (maybe remote) that has to be built,
-              // tested and packed first.
-              state.stage = "cloning";
-              await clone(spawn, data, projectName);
-
-              state.stage = "gathering dependencies";
-              const failedDeps: string[] = [];
-              const localDeps = await getPackageLocalDeps(data, projectName);
-              state.stage = `waiting for dependencies (${localDeps.join(
-                ", "
-              )})`;
-              for (const localDep of localDeps) {
-                const depStatus = projectStatuses.get(localDep);
-                if (depStatus == null) {
-                  throw new Error(`Dependency ${localDep} not found.`);
-                }
-
-                try {
-                  await depStatus.promise;
-                } catch {
-                  failedDeps.push(localDep);
-                }
-              }
-              if (failedDeps.length > 0) {
-                state.stage = `dependencies failed: ${failedDeps.join(", ")}`;
-                throw new Error(state.stage);
-              }
-
-              state.stage = "running CI tasks";
-              await buildTestPack(spawn, data, projectName);
-              state.stage = "cloned, built, tested and packed";
+            }
+            if (failedDeps.length > 0) {
+              state.stage = `dependencies failed: ${failedDeps.join(", ")}`;
+              throw new Error(state.stage);
             }
 
-            logInfo(`Okay ${projectName}`, getStages().join("\n"));
-            state.resolve();
-          } catch (error) {
-            logError(
-              `Fail ${projectName} (${state.stage})`,
-              getStages().join("\n")
-            );
-            state.reject(error);
+            state.stage = "running CI tasks";
+            await buildTestPack(spawn, data, projectName);
+            state.stage = "cloned, built, tested and packed";
           }
+
+          logInfo(`Okay ${projectName}`, getStages().join("\n"));
+          state.resolve();
+        } catch (error) {
+          logError(
+            `Fail ${projectName} (${state.stage}):`,
+            getStages().join("\n")
+          );
+          state.reject(error);
         }
-      )
-    );
-  } finally {
-    // Wait for all the projects to finish.
-    await Promise.allSettled(
-      [...projectStatuses.values()].map(
-        (state): Promise<unknown> => state.promise
-      )
+      })
     );
 
-    // Log the state summary and any errors encountered.
+    const allSucceeded = (
+      await Promise.allSettled(
+        [...projectStatuses.values()].map(
+          (status): Promise<void> => status.promise
+        )
+      )
+    ).every(({ status }): boolean => status === "fulfilled");
+
+    if (allSucceeded) {
+      return true;
+    } else {
+      return false;
+    }
+  } finally {
+    // Wait for all the projects to finish and log the state summary and any
+    // errors encountered.
     logInfo("End", getStages().join("\n"));
     for (const [projectName, { promise }] of projectStatuses) {
       try {
@@ -379,22 +419,27 @@ export async function test({
       }
     }
 
-    // Allow the state to be inspected in debug mode before the data is lost.
-    execFail(data.tmpDir.name, failCommand);
-
     // Print the detailed logs for inspection (especially in CI).
     logInfo("Outputs");
     process.stdout.write(
       [
         "",
         ...(await Promise.all(
-          (await readdir(data.tmpLogsResolve())).map(
+          (
+            await readdir(data.tmpLogsResolve())
+          ).map(
             (filename): Promise<string> =>
               readFile(data.tmpLogsResolve(filename), "UTF-8")
           )
         )),
         "",
       ].join("\n\n" + ("-".repeat(80) + "\n").repeat(2) + "\n")
+    );
+
+    execFail(
+      data.tmpDir.name,
+      failCommand,
+      "Allow the state to be inspected in debug mode before the data is lost."
     );
   }
 }

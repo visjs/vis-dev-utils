@@ -127,38 +127,36 @@ export class ContentBuilder {
       ? // Generate playground pages.
         (async (): ContentBuilderRet["playgrounds"] =>
           await Promise.all(
-            allExamples.map(
-              async (example): Promise<ExampleReport> => {
-                const getStartStopMs = measureStartStopMs();
+            allExamples.map(async (example): Promise<ExampleReport> => {
+              const getStartStopMs = measureStartStopMs();
 
-                const results = await Promise.allSettled(
-                  [
-                    {
-                      html: generateJSFiddlePage(example),
-                      path: example.paths.jsfiddle.local,
-                    },
-                    {
-                      html: generateCodePenPage(example),
-                      path: example.paths.codepen.local,
-                    },
-                  ].map(
-                    ({ html, path }): Promise<void> =>
-                      writeFile(path, formatHTML(html))
-                  )
-                );
+              const results = await Promise.allSettled(
+                [
+                  {
+                    html: generateJSFiddlePage(example),
+                    path: example.paths.jsfiddle.local,
+                  },
+                  {
+                    html: generateCodePenPage(example),
+                    path: example.paths.codepen.local,
+                  },
+                ].map(
+                  ({ html, path }): Promise<void> =>
+                    writeFile(path, formatHTML(html))
+                )
+              );
 
-                return {
-                  ...getStartStopMs(),
-                  count: results.length,
-                  example: example,
-                  result: results.every(
-                    ({ status }): boolean => status === "fulfilled"
-                  )
-                    ? "fulfilled"
-                    : "rejected",
-                };
-              }
-            )
+              return {
+                ...getStartStopMs(),
+                count: results.length,
+                example: example,
+                result: results.every(
+                  ({ status }): boolean => status === "fulfilled"
+                )
+                  ? "fulfilled"
+                  : "rejected",
+              };
+            })
           ))()
       : // Skip playground pages.
         Promise.resolve([]);
@@ -187,8 +185,9 @@ export class ContentBuilder {
             const total = todo.length;
             const reports: ExampleReport[] = [];
             await Promise.allSettled(
-              new Array(this._config.parallel).fill(null).map(
-                async (): Promise<void> => {
+              new Array(this._config.parallel)
+                .fill(null)
+                .map(async (): Promise<void> => {
                   let example: Example | undefined;
                   while ((example = todo.pop())) {
                     const getStartStopMs = measureStartStopMs();
@@ -224,8 +223,7 @@ export class ContentBuilder {
                       `${percentage} ${validText} ${msText} - ${example.path}`
                     );
                   }
-                }
-              )
+                })
             );
 
             return reports;

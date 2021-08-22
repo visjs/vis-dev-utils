@@ -9,7 +9,7 @@ import { formatHTML } from "../format";
 /**
  * @param example
  */
-function generateJSFiddle(example: Example): Cheerio {
+function generateJSFiddle(example: Example): cheerio.Cheerio {
   return $("<a>")
     .addClass("icon jsfiddle")
     .attr("href", example.paths.jsfiddle.web)
@@ -19,7 +19,7 @@ function generateJSFiddle(example: Example): Cheerio {
 /**
  * @param example
  */
-function generateCodePen(example: Example): Cheerio {
+function generateCodePen(example: Example): cheerio.Cheerio {
   return $("<a>")
     .addClass("icon codepen")
     .attr("href", example.paths.codepen.web)
@@ -37,7 +37,7 @@ function processGroup(
   title: string,
   level: number,
   collator: Intl.Collator
-): Cheerio {
+): cheerio.Cheerio {
   const heading = $(`<h${Math.max(1, Math.min(6, level))}>`);
   heading.text(title);
 

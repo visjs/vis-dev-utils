@@ -242,12 +242,8 @@ module.exports = {
 
     // Prettier (has to be last)
     {
-      files: ["**/*.js"],
+      files: ["**/*.{js,ts}"],
       extends: ["prettier"],
-    },
-    {
-      files: ["**/*.ts"],
-      extends: ["prettier/@typescript-eslint"],
     },
     {
       files: ["**/*"],

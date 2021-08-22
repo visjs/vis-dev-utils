@@ -31,7 +31,7 @@ export type Examples = {
 };
 export type Example = {
   /** The page HTML parsed by Cheerio. */
-  $: CheerioStatic;
+  $: cheerio.Root;
   /**
    * How long to wait before taking the screenshot after loading the page. The
    * value can be in seconds or `"call"` to wait for `window.takeScreenshot` to

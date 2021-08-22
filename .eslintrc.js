@@ -4,5 +4,7 @@ module.exports = {
     node: true,
   },
 
+  root: true,
+
   extends: ["./eslint-shareable-config"],
 };

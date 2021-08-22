@@ -1,6 +1,6 @@
 {
   "package-script": [
-    "vis-charts clean! build! test! generate-examples-index!",
+    "vis-charts clean! build! test? generate-examples-index!",
     "vis-data clean! lint! build! test!",
     "vis-dev-utils clean! lint! build! test!",
     "vis-graph3d clean! lint! build! test! generate-examples-index!",

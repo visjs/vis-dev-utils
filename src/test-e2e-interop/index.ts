@@ -56,11 +56,13 @@ const tmpPath = argv["tmp-dir"] ? resolve(argv["tmp-dir"]) : undefined;
 
 const failCommand = argv["fail-command"];
 
-test({ failCommand, packageScripts, projectPaths, tmpPath }).catch(
-  (reason): void => {
-    console.error(reason);
-    if (process.exitCode === 0) {
+test({ failCommand, packageScripts, projectPaths, tmpPath })
+  .then((allSucceeded): void => {
+    if (!allSucceeded) {
       process.exitCode = 1;
     }
-  }
-);
+  })
+  .catch((reason): void => {
+    console.error(reason);
+    process.exitCode = 2;
+  });

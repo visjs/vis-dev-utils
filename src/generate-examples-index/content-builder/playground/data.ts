@@ -25,7 +25,7 @@ export function generatePlaygroundData(
     .join("\n");
   const js = formatJS(
     example$("script")
-      .map((_i, elem) => elem.children[0])
+      .map((_i, elem) => (elem as cheerio.TagElement).children[0])
       .get()
       .map((elem): string => elem.data)
       .join("") +
@@ -36,7 +36,7 @@ export function generatePlaygroundData(
   // Cascading Style Sheets
   const css = formatCSS(
     example$("style")
-      .map((_i, elem) => elem.children[0])
+      .map((_i, elem) => (elem as cheerio.TagElement).children[0])
       .get()
       .map((elem): string => elem.data)
       .join("")
