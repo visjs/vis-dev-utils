@@ -117,7 +117,7 @@
     "@types/npm": "7.19.0",
     "@types/prettier": "2.3.2",
     "@types/puppeteer": "5.4.4",
-    "@types/sinon": "10.0.2",
+    "@types/sinon": "10.0.11",
     "@types/tmp": "0.2.1",
     "@types/yargs": "17.0.2",
     "builtin-modules": "3.2.0",
