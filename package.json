@@ -82,7 +82,7 @@
     "@typescript-eslint/parser": "4.29.3",
     "babel-plugin-css-modules-transform": "1.6.2",
     "babel-plugin-istanbul": "6.0.0",
-    "chai": "4.3.4",
+    "chai": "4.3.6",
     "chai-fs": "2.0.0",
     "cheerio": "1.0.0-rc.10",
     "eslint-config-prettier": "8.3.0",
@@ -109,7 +109,7 @@
     "yargs": "17.3.1"
   },
   "devDependencies": {
-    "@types/chai": "4.2.21",
+    "@types/chai": "4.3.0",
     "@types/chai-fs": "2.0.2",
     "@types/cheerio": "0.22.30",
     "@types/jimp": "0.2.28",
