@@ -75,7 +75,7 @@
     "@babel/preset-typescript": "7.16.7",
     "@babel/register": "7.17.0",
     "@babel/runtime-corejs3": "7.17.2",
-    "@rollup/plugin-commonjs": "20.0.0",
+    "@rollup/plugin-commonjs": "21.0.2",
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "13.0.4",
     "@typescript-eslint/eslint-plugin": "4.29.3",
