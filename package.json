@@ -91,7 +91,7 @@
     "eslint-plugin-jsdoc": "36.1.1",
     "eslint-plugin-prettier": "3.4.1",
     "find-up": "5.0.0",
-    "globby": "11.0.4",
+    "globby": "11.1.0",
     "jimp": "0.16.1",
     "postcss-assets": "6.0.0",
     "prettier": "2.5.1",
