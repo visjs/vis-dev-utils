@@ -96,6 +96,7 @@
     "postcss-assets": "6.0.0",
     "prettier": "2.5.1",
     "puppeteer": "10.4.0",
+    "rollup": "^2.61.0",
     "rollup-plugin-analyzer": "4.0.0",
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-copy": "3.4.0",
@@ -106,6 +107,7 @@
     "rollup-plugin-typescript2": "0.31.2",
     "tmp": "0.2.1",
     "tmp-promise": "3.0.2",
+    "typescript": "^4.2.4",
     "yargs": "17.3.1"
   },
   "devDependencies": {
@@ -120,7 +122,6 @@
     "@types/sinon": "10.0.11",
     "@types/tmp": "0.2.3",
     "@types/yargs": "17.0.9",
-    "builtin-modules": "3.2.0",
     "eslint": "7.32.0",
     "fs-extra": "10.0.1",
     "husky": "7.0.4",
@@ -129,11 +130,9 @@
     "npm-run-all": "4.1.5",
     "opencollective": "1.0.3",
     "rimraf": "3.0.2",
-    "rollup": "2.70.0",
     "rollup-plugin-node-externals": "2.2.0",
     "sinon": "11.1.2",
-    "snap-shot-it": "7.9.6",
-    "typescript": "4.3.5"
+    "snap-shot-it": "7.9.6"
   },
   "collective": {
     "type": "opencollective",
