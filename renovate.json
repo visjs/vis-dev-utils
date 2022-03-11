@@ -1,9 +1,16 @@
 {
-  "extends": ["config:base", ":pinVersions"],
-  "packageRules": [
-    {
-      "updateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
-    }
+  "extends": [
+    ":semanticPrefixFix",
+    ":ignoreModulesAndTests",
+    ":pinVersions",
+    ":prHourlyLimit2",
+    ":prConcurrentLimit10",
+    ":automergeDigest",
+    ":automergePatch",
+    ":automergeMinor",
+    ":automergeRequireAllStatusChecks",
+    "group:monorepos",
+    "group:recommended",
+    "workarounds:all"
   ]
 }
