@@ -266,19 +266,22 @@ async function checkTmpPath(data: TestData): Promise<void> {
 
 export interface TestArgs {
   failCommand?: string;
-  projectPaths: ProjectPaths;
+  logsToStdout?: boolean;
   packageScripts: readonly PackageScript[];
+  projectPaths: ProjectPaths;
   tmpPath?: string;
 }
 /**
  * @param root0
  * @param root0.failCommand
+ * @param root0.logsToStdout
  * @param root0.packageScripts
  * @param root0.projectPaths
  * @param root0.tmpPath
  */
 export async function test({
   failCommand,
+  logsToStdout,
   packageScripts,
   projectPaths,
   tmpPath,
@@ -420,21 +423,23 @@ export async function test({
     }
 
     // Print the detailed logs for inspection (especially in CI).
-    logInfo("Outputs");
-    process.stdout.write(
-      [
-        "",
-        ...(await Promise.all(
-          (
-            await readdir(data.tmpLogsResolve())
-          ).map(
-            (filename): Promise<string> =>
-              readFile(data.tmpLogsResolve(filename), "UTF-8")
-          )
-        )),
-        "",
-      ].join("\n\n" + ("-".repeat(80) + "\n").repeat(2) + "\n")
-    );
+    if (logsToStdout) {
+      logInfo("Outputs");
+      process.stdout.write(
+        [
+          "",
+          ...(await Promise.all(
+            (
+              await readdir(data.tmpLogsResolve())
+            ).map(
+              (filename): Promise<string> =>
+                readFile(data.tmpLogsResolve(filename), "UTF-8")
+            )
+          )),
+          "",
+        ].join("\n\n" + ("-".repeat(80) + "\n").repeat(2) + "\n")
+      );
+    }
 
     execFail(
       data.tmpDir.name,

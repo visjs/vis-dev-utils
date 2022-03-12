@@ -34,6 +34,12 @@ const y = yargs
     describe:
       "The working directory for E2E testing. If omitted a new tmp dir will be created and then disposed of.",
     type: "string",
+  })
+  .option("logs-to-stdout", {
+    demandOption: false,
+    default: false,
+    describe: "Output the logs to the stdout after the tests finished.",
+    type: "boolean",
   });
 
 /**
