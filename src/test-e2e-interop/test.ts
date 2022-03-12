@@ -389,7 +389,7 @@ export async function test({
             `Fail ${projectName} (${state.stage}):`,
             getStages().join("\n")
           );
-          state.reject(error);
+          state.reject(error instanceof Error ? error : new Error("" + error));
         }
       })
     );
