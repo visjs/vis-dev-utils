@@ -1,6 +1,6 @@
 import { execSync, spawn } from "child_process";
-import { join } from "path";
-import { createWriteStream, readFile } from "fs-extra";
+import { basename, join } from "path";
+import { createWriteStream, readFile, rename } from "fs-extra";
 
 export class ProjectState {
   /**
@@ -111,7 +111,15 @@ export function createSpawner(logDir: string, getState: () => string[]): Spawn {
     logInfo("Start", getLogMessage());
 
     return new Promise((resolve, reject): void => {
-      const commandLogPath = join(logDir, ("" + id).padStart(3, "0") + ".log");
+      const commandLogPath = join(
+        logDir,
+        [
+          basename(cwd).replace(/[^a-zA-Z0-9]+/g, "-"),
+          cmd.join("-").replace(/[^a-zA-Z0-9]+/g, "-"),
+          "id-" + ("" + id).padStart(3, "0"),
+          "log",
+        ].join(".")
+      );
       const logStream = createWriteStream(commandLogPath, {
         flags: "a",
       });
@@ -126,6 +134,20 @@ export function createSpawner(logDir: string, getState: () => string[]): Spawn {
 
       child.stdout.pipe(logStream);
       child.stderr.pipe(logStream);
+
+      /**
+       * Add status to the file name just before the .log extension on a best
+       * effort basis (no errors reported)..
+       *
+       * @param code - The code or other kind of status to append.
+       */
+      function addStatusCodeToFilename(code: string | number): void {
+        const newPath =
+          commandLogPath.slice(0, -4) + ".status-" + code + ".log";
+        rename(commandLogPath, newPath).catch((error): void => {
+          console.error(`Failed to rename log file to ${newPath}.`, error);
+        });
+      }
 
       let failed = false;
       child.on("close", (code): void => {
@@ -150,9 +172,11 @@ export function createSpawner(logDir: string, getState: () => string[]): Spawn {
             })();
           });
 
+          addStatusCodeToFilename(code ?? "null");
           reject(new Error(errorMessage));
         } else {
           logInfo("Okay", getLogMessage());
+          addStatusCodeToFilename(code);
           resolve();
         }
       });
@@ -163,6 +187,7 @@ export function createSpawner(logDir: string, getState: () => string[]): Spawn {
 
         execFail(cwd, failCommand, error);
 
+        addStatusCodeToFilename("error");
         reject(error);
       });
     });
