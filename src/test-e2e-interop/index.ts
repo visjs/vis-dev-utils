@@ -56,7 +56,9 @@ const tmpPath = argv["tmp-dir"] ? resolve(argv["tmp-dir"]) : undefined;
 
 const failCommand = argv["fail-command"];
 
-test({ failCommand, packageScripts, projectPaths, tmpPath })
+const logsToStdout = argv["logs-to-stdout"];
+
+test({ failCommand, logsToStdout, packageScripts, projectPaths, tmpPath })
   .then((allSucceeded): void => {
     if (!allSucceeded) {
       process.exitCode = 1;
