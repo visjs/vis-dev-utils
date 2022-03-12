@@ -30,10 +30,12 @@ export class ProjectState {
 }
 
 /**
- * @param title
- * @param details
+ * Output formatted error message to stderr.
+ *
+ * @param title - Some explanatory text as to what's going on.
+ * @param details - The error or some other message as to what went wrong.
  */
-export function logError(title: string, details?: string | Error): void {
+export function logError(title: string, details?: unknown): void {
   const wrappedDetails =
     details != null
       ? `\n${details instanceof Error ? details.message : details}`
