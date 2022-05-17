@@ -69,10 +69,10 @@
   ],
   "peerDependencies": {
     "@babel/core": "7.17.12",
-    "@babel/plugin-proposal-class-properties": "7.16.7",
+    "@babel/plugin-proposal-class-properties": "7.17.12",
     "@babel/plugin-transform-runtime": "7.17.12",
     "@babel/preset-env": "7.17.12",
-    "@babel/preset-typescript": "7.16.7",
+    "@babel/preset-typescript": "7.17.12",
     "@babel/register": "7.17.7",
     "@babel/runtime-corejs3": "7.17.9",
     "@rollup/plugin-commonjs": "22.0.0",
