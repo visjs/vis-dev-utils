@@ -5,7 +5,8 @@ import { existsSync, readFileSync } from "fs";
 import { expect } from "chai";
 import { join, resolve } from "path";
 import { spawnSync } from "child_process";
-import { sync as globby } from "globby";
+
+const globby = import("globby");
 
 const executable = resolve(
   spawnSync("npm", ["root"]).stdout.toString().slice(0, -1),
@@ -111,23 +112,23 @@ describe("generate-examples-index", function (): void {
       });
 
       describe("files", function (): void {
-        it("JSFiddles", function (): void {
+        it("JSFiddles", async function (): Promise<void> {
           expect(
-            globby(join(output.pages, "jsfiddle.*.html")),
+            await (await globby).default(join(output.pages, "jsfiddle.*.html")),
             `There should be ${nmExamples} JSFiddle opener files.`
           ).have.lengthOf(nmExamples);
         });
 
-        it("CodePens", function (): void {
+        it("CodePens", async function (): Promise<void> {
           expect(
-            globby(join(output.pages, "codepen.*.html")),
+            await (await globby).default(join(output.pages, "codepen.*.html")),
             `There should be ${nmExamples} CodePen opener files.`
           ).have.lengthOf(nmExamples);
         });
 
-        it("screenshots", function (): void {
+        it("screenshots", async function (): Promise<void> {
           expect(
-            globby(join(output.assets, "*.png")),
+            await (await globby).default(join(output.assets, "*.png")),
             `There should be ${nmExamples} screenshots.`
           ).have.lengthOf(nmExamples);
         });
@@ -209,12 +210,16 @@ describe("generate-examples-index", function (): void {
             generate({ output, format, type });
           });
 
-          it("directory structure", function (): void {
-            snapshot(globby("**/*", { cwd: output.dir }).sort());
+          it("directory structure", async function (): Promise<void> {
+            snapshot(
+              (await (await globby).default("**/*", { cwd: output.dir })).sort()
+            );
           });
 
-          it("file contents", function (): void {
-            for (const relativePath of globby(
+          it("file contents", async function (): Promise<void> {
+            for (const relativePath of await (
+              await globby
+            ).default(
               [
                 "**/*",
                 // Exclude images, test only text files.
