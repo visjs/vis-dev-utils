@@ -1,3 +1,4 @@
+import { type RollupOptions, type Plugin } from "rollup";
 import analyzerPlugin from "rollup-plugin-analyzer";
 import babelPlugin from "rollup-plugin-babel";
 import chaiFs from "chai-fs";
@@ -12,7 +13,6 @@ import typescriptPlugin from "rollup-plugin-typescript2";
 import { generateHeader } from "../header";
 import { join, resolve, sep } from "path";
 import { string as stringPlugin } from "rollup-plugin-string";
-import { sync as rawGlobby } from "globby";
 import { terser as terserPlugin } from "rollup-plugin-terser";
 import {
   config as chaiConfig,
@@ -22,6 +22,8 @@ import {
 
 import { OptionalOptions } from "../util";
 import { HeaderOptions } from "../header";
+
+const rawGlobby = import("globby");
 
 chaiConfig.truncateThreshold = Number.MAX_SAFE_INTEGER;
 chaiUse(chaiFs);
@@ -39,8 +41,10 @@ const VIS_TEST = ["1", "true", "y", "yes"].includes(
  * @param pattern - Single glob pattern.
  * @returns Globbed paths.
  */
-function glob(pattern: string): ReturnType<typeof rawGlobby> {
-  return rawGlobby(sep === "\\" ? pattern.replace(/\\/g, "/") : pattern);
+async function glob(pattern: string): ReturnType<typeof import("globby")> {
+  return (await rawGlobby).default(
+    sep === "\\" ? pattern.replace(/\\/g, "/") : pattern
+  );
 }
 
 export interface GRCOptions {
@@ -264,7 +268,7 @@ const generateRollupPluginArray = (
     transpile = false,
     typescript = false,
   } = {}
-): unknown[] => {
+): Plugin[] => {
   const fullLibraryFilename = `${libraryFilename}${minimize ? ".min" : ""}`;
 
   const bundleDir = bundleType;
@@ -416,14 +420,14 @@ const generateRollupPluginArray = (
  * @returns Ready to use configuration object that can be just exported from
  * `rollup.config.js` or mutated in any way if necessary.
  */
-export function generateRollupConfiguration(
+export async function generateRollupConfiguration(
   options: OptionalOptions<GRCOptions>,
   mode: "production" | "development" | "test" = VIS_TEST
     ? "test"
     : VIS_DEBUG
     ? "development"
     : "production"
-): any {
+): Promise<RollupOptions[]> {
   const {
     assets = ".",
     copyTargets: {
@@ -490,26 +494,24 @@ export function generateRollupConfiguration(
       .to.be.a("string")
       .and.a.directory();
   });
-  const [esnextEntry, peerEntry, standaloneEntry] = [
-    "ESNext",
-    "peer",
-    "standalone",
-  ].map((name): string => {
-    const filenameGlob = `entry-${name.toLowerCase()}.{js,ts}`;
-    const files = glob(resolve(entryPoint, filenameGlob));
+  const [esnextEntry, peerEntry, standaloneEntry] = await Promise.all(
+    ["ESNext", "peer", "standalone"].map(async (name): Promise<string> => {
+      const filenameGlob = `entry-${name.toLowerCase()}.{js,ts}`;
+      const files = await glob(resolve(entryPoint, filenameGlob));
 
-    validate((expect): void => {
-      expect(
-        files,
-        `There has to be a single entry file (${filenameGlob}) for the ${name} build`
-      )
-        .to.have.lengthOf(1)
-        .and.to.have.ownProperty("0")
-        .that.is.a.file();
-    });
+      validate((expect): void => {
+        expect(
+          files,
+          `There has to be a single entry file (${filenameGlob}) for the ${name} build`
+        )
+          .to.have.lengthOf(1)
+          .and.to.have.ownProperty("0")
+          .that.is.a.file();
+      });
 
-    return files[0];
-  });
+      return files[0];
+    })
+  );
   validate((expect): void => {
     expect(
       resolve("./declarations"),

@@ -1,6 +1,5 @@
 import $ from "cheerio";
 import fs from "fs";
-import globby from "globby";
 import util from "util";
 import yargs from "yargs";
 import { join } from "path";
@@ -17,6 +16,8 @@ import {
 import { Example, ExamplesRoot, ExamplePaths } from "./types";
 import { parseArguments } from "./cli";
 import { generatePaths, fixAbsoluteInputURL } from "./paths";
+
+const globby = import("globby");
 
 const argv = parseArguments();
 
@@ -166,7 +167,7 @@ function lintExample(path: string, page: cheerio.Root): boolean {
 
   await Promise.all(
     (
-      await globby(join(pathsConfig.page.local, "**/*.html"))
+      await (await globby).default(join(pathsConfig.page.local, "**/*.html"))
     ).map(async (pagePath): Promise<any> => {
       const html = await readFile(pagePath, "utf-8");
       const $page = $.load(html);
