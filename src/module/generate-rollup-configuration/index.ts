@@ -1,6 +1,6 @@
 import { type RollupOptions, type Plugin } from "rollup";
 import analyzerPlugin from "rollup-plugin-analyzer";
-import babelPlugin from "rollup-plugin-babel";
+import babelPlugin from "@rollup/plugin-babel";
 import chaiFs from "chai-fs";
 import commonjsPlugin from "@rollup/plugin-commonjs";
 import copyPlugin, { Target as CopyTarget } from "rollup-plugin-copy";
@@ -9,19 +9,20 @@ import nodeResolvePlugin from "@rollup/plugin-node-resolve";
 import postcssAssetsPlugin from "postcss-assets";
 import postcssPlugin from "rollup-plugin-postcss";
 import stripCodePlugin from "rollup-plugin-strip-code";
+import terserPlugin from "@rollup/plugin-terser";
 import typescriptPlugin from "rollup-plugin-typescript2";
 import { generateHeader } from "../header";
 import { join, resolve, sep } from "path";
 import { string as stringPlugin } from "rollup-plugin-string";
-import { terser as terserPlugin } from "rollup-plugin-terser";
 import {
   config as chaiConfig,
   expect as validateExpect,
   use as chaiUse,
 } from "chai";
 
-import { OptionalOptions } from "../util";
-import { HeaderOptions } from "../header";
+import { BABEL_IGNORE_RE } from "../constants";
+import { type HeaderOptions } from "../header";
+import { type OptionalOptions } from "../util";
 
 const rawGlobby = import("globby");
 
@@ -372,8 +373,12 @@ const generateRollupPluginArray = (
     ...(transpile
       ? [
           babelPlugin({
+            babelHelpers: "runtime",
+            babelrc: false,
+            configFile: false,
+            exclude: BABEL_IGNORE_RE,
             extensions: [".js", ".ts"],
-            runtimeHelpers: true,
+            presets: [["vis-dev-utils/babel-preset", { ts: true }]],
           }),
         ]
       : []),
@@ -404,15 +409,15 @@ const generateRollupPluginArray = (
  * stripped.
  *
  * Plugins:
+ * - `\@rollup/plugin-babel` (skipped in ESNext)
  * - `\@rollup/plugin-commonjs`
  * - `\@rollup/plugin-json`
  * - `\@rollup/plugin-node-resolve`
  * - `\@rollup/plugin-strip` (skipped with VIS_DEBUG=true env var)
+ * - `\@rollup/plugin-terser` (only in minified)
  * - `postcss-assets`
- * - `rollup-plugin-babel` (skipped in ESNext)
  * - `rollup-plugin-copy`
  * - `rollup-plugin-postcss`
- * - `rollup-plugin-terser` (only in minified)
  * - `rollup-plugin-typescript2` (skipped if the entry is .js)
  * @param options - See {@link GRCOptions}.
  * @param mode - Whether the code should be processed for production,

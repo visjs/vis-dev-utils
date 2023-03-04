@@ -10,7 +10,7 @@ import { formatHTML } from "../format";
  * @param example
  */
 function generateJSFiddle(example: Example): cheerio.Cheerio {
-  return $("<a>")
+  return $.load([])("<a>")
     .addClass("icon jsfiddle")
     .attr("href", example.paths.jsfiddle.web)
     .attr("title", "JSFiddle");
@@ -20,7 +20,7 @@ function generateJSFiddle(example: Example): cheerio.Cheerio {
  * @param example
  */
 function generateCodePen(example: Example): cheerio.Cheerio {
-  return $("<a>")
+  return $.load([])("<a>")
     .addClass("icon codepen")
     .attr("href", example.paths.codepen.web)
     .attr("title", "CodePen");
@@ -38,34 +38,38 @@ function processGroup(
   level: number,
   collator: Intl.Collator
 ): cheerio.Cheerio {
-  const heading = $(`<h${Math.max(1, Math.min(6, level))}>`);
+  const heading = $.load([])(`<h${Math.max(1, Math.min(6, level))}>`);
   heading.text(title);
 
-  const list = $("<div>");
+  const list = $.load([])("<div>");
 
-  const section = $("<div>");
+  const section = $.load([])("<div>");
   section.append(heading, list);
 
   for (const key of Object.keys(examples).sort(collator.compare)) {
     const example = examples[key];
 
     if (isExample(example)) {
-      const header = $("<div>").addClass("example-header").append(
+      const header = $.load([])("<div>").addClass("example-header").append(
         // Playgrounds
         generateJSFiddle(example),
         generateCodePen(example),
         // Title
-        $("<a>").attr("href", example.paths.page.web).text(key)
+        $.load([])("<a>").attr("href", example.paths.page.web).text(key)
       );
 
-      const image = $("<a>")
+      const image = $.load([])("<a>")
         .addClass("example-image")
         .attr("href", example.paths.page.web)
         .append(
-          $("<img>").attr("src", example.paths.screenshot.web).attr("alt", key)
+          $.load([])("<img>")
+            .attr("src", example.paths.screenshot.web)
+            .attr("alt", key)
         );
 
-      const item = $("<span>").addClass("example-link").append(header, image);
+      const item = $.load([])("<span>")
+        .addClass("example-link")
+        .append(header, image);
 
       list.append(item);
     } else {
@@ -85,7 +89,7 @@ export const htmlRenderer: Renderer = {
   ): ContentPart[] {
     const filename = "index.html";
 
-    const root = $("<div>");
+    const root = $.load([])("<div>");
     root.addClass("examples-root");
 
     for (const key of Object.keys(examples).sort(collator.compare)) {
