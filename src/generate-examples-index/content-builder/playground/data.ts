@@ -62,12 +62,14 @@ export function generatePlaygroundData(
 
   const resources = {
     js: example$("script")
-      .map((_i, elem): undefined | string => $(elem).attr("src"))
+      .map((_i, elem): undefined | string => $.load(elem)("script").attr("src"))
       .get()
       .filter((src): src is string => typeof src === "string")
       .map(fixPath),
     css: example$("link[rel='stylesheet']")
-      .map((_i, elem): undefined | string => $(elem).attr("href"))
+      .map((_i, elem): undefined | string =>
+        $.load(elem)("script").attr("href")
+      )
       .get()
       .filter((href): href is string => typeof href === "string")
       .map(fixPath),

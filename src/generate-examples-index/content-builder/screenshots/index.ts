@@ -76,14 +76,16 @@ export async function generateScreenshot(
     );
     const screenshotPage = $.load(example.html);
     screenshotPage("head").prepend(
-      $("<script>")
+      $.load([])("<script>")
         .attr("type", "text/javascript")
         .text(`window.DEBUG = ${true};`),
-      $("<script>")
+      $.load([])("<script>")
         .attr("type", "text/javascript")
         .text(commonScreenshotScript),
-      $("<script>").attr("type", "text/javascript").text(screenshotScript),
-      $("<style>")
+      $.load([])("<script>")
+        .attr("type", "text/javascript")
+        .text(screenshotScript),
+      $.load([])("<style>")
         .attr("type", "text/css")
         .text(
           [

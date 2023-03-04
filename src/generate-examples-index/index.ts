@@ -95,7 +95,7 @@ function lintExample(path: string, page: cheerio.Root): boolean {
 
   const headTitle = page("head > title").text().trim();
   const bodyTitle = page("#title > *")
-    .map((_i, elem): string => $(elem).text())
+    .map((_i, elem): string => $.load([])(elem).text())
     .get()
     .join(" | ")
     .trim();
