@@ -1,6 +1,6 @@
 import packageJSON from "./package.json";
 import analyzer from "rollup-plugin-analyzer";
-import babel from "rollup-plugin-babel";
+import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
 import copy from "rollup-plugin-copy";
 import externals from "rollup-plugin-node-externals";
@@ -42,9 +42,10 @@ const getPlugins = () => [
   }),
   commonjs(),
   babel({
+    babelHelpers: "runtime",
     babelrc: false,
     extensions: [".js", ".ts"],
-    runtimeHelpers: true,
+    include: ["src/**"],
   }),
 ];
 
