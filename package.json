@@ -121,7 +121,7 @@
     "@types/puppeteer": "5.4.7",
     "@types/sinon": "10.0.13",
     "@types/tmp": "0.2.3",
-    "@types/yargs": "17.0.22",
+    "@types/yargs": "17.0.24",
     "eslint": "8.35.0",
     "fs-extra": "11.1.0",
     "husky": "8.0.3",
