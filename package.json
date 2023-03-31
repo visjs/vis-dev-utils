@@ -21,7 +21,7 @@
     "build:declarations": "npx tsc --project tsconfig.declarations.json",
     "build:internal": "tsc --project tsconfig.internal.json",
     "build:production": "rollup --bundleConfigAsCjs --config ./rollup.config.js",
-    "clean": "rimraf \"./{.nyc_output,.rpt2_cache}\" \"./{bin,coverage,declarations,dist,e2e,gen,lib}/*\"",
+    "clean": "rimraf --glob \"./{.nyc_output,.rpt2_cache}\" \"./{bin,coverage,declarations,dist,e2e,gen,lib}/*\"",
     "style": "prettier --check .",
     "style-fix": "prettier --write .",
     "lint": "eslint --ext .js,.ts .",
