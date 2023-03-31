@@ -21,7 +21,7 @@
     "build:declarations": "npx tsc --project tsconfig.declarations.json",
     "build:internal": "tsc --project tsconfig.internal.json",
     "build:production": "rollup --bundleConfigAsCjs --config ./rollup.config.js",
-    "clean": "rimraf \"./{.nyc_output,.rpt2_cache}\" \"./{bin,coverage,declarations,dist,e2e,gen,lib}/*\"",
+    "clean": "rimraf --glob \"./{.nyc_output,.rpt2_cache}\" \"./{bin,coverage,declarations,dist,e2e,gen,lib}/*\"",
     "style": "prettier --check .",
     "style-fix": "prettier --write .",
     "lint": "eslint --ext .js,.ts .",
@@ -129,7 +129,7 @@
     "mocha": "10.2.0",
     "npm-run-all": "4.1.5",
     "opencollective": "1.0.3",
-    "rimraf": "3.0.2",
+    "rimraf": "4.4.1",
     "rollup-plugin-node-externals": "5.1.2",
     "sinon": "15.0.1",
     "snap-shot-it": "7.9.10"
