@@ -131,7 +131,7 @@
     "opencollective": "1.0.3",
     "rimraf": "4.4.1",
     "rollup-plugin-node-externals": "5.1.2",
-    "sinon": "15.0.1",
+    "sinon": "15.0.3",
     "snap-shot-it": "7.9.10"
   },
   "collective": {
