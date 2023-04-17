@@ -98,7 +98,7 @@
     "postcss-assets": "6.0.0",
     "prettier": "2.7.1",
     "puppeteer": "14.4.1",
-    "rollup": "3.18.0",
+    "rollup": "3.20.4",
     "rollup-plugin-analyzer": "4.0.0",
     "rollup-plugin-copy": "3.4.0",
     "rollup-plugin-postcss": "4.0.2",
