@@ -26,7 +26,6 @@
     "style-fix": "prettier --write .",
     "lint": "eslint --ext .js,.ts .",
     "lint-fix": "eslint --fix --ext .js,.ts .",
-    "postinstall": "opencollective postinstall || exit 0",
     "prepublishOnly": "npm run build",
     "test": "run-s test:unit test:interop",
     "test:interop": "node interop.js",
@@ -128,13 +127,12 @@
     "lint-staged": "13.2.0",
     "mocha": "10.2.0",
     "npm-run-all": "4.1.5",
-    "opencollective": "1.0.3",
     "rimraf": "4.4.1",
     "rollup-plugin-node-externals": "5.1.2",
     "sinon": "15.0.3",
     "snap-shot-it": "7.9.10"
   },
-  "collective": {
+  "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/visjs"
   }
