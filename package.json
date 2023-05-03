@@ -111,7 +111,7 @@
   },
   "devDependencies": {
     "@types/babel__core": "7.20.0",
-    "@types/chai": "4.3.4",
+    "@types/chai": "4.3.5",
     "@types/chai-fs": "2.0.2",
     "@types/cheerio": "0.22.31",
     "@types/mocha": "10.0.1",
