@@ -110,7 +110,7 @@
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "@types/babel__core": "7.20.0",
+    "@types/babel__core": "7.20.1",
     "@types/chai": "4.3.5",
     "@types/chai-fs": "2.0.2",
     "@types/cheerio": "0.22.31",
