@@ -106,6 +106,6 @@ const y = yargs
 /**
  *
  */
-export function parseArguments(): ReturnType<typeof y["parseSync"]> {
+export function parseArguments(): ReturnType<(typeof y)["parseSync"]> {
   return y.parserConfiguration({ "camel-case-expansion": false }).parseSync();
 }
