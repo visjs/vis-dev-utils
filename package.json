@@ -78,7 +78,7 @@
     "@rollup/plugin-commonjs": "24.1.0",
     "@rollup/plugin-json": "6.0.0",
     "@rollup/plugin-node-resolve": "15.0.2",
-    "@rollup/plugin-terser": "0.4.3",
+    "@rollup/plugin-terser": "0.4.4",
     "@typescript-eslint/eslint-plugin": "5.30.7",
     "@typescript-eslint/parser": "5.30.7",
     "babel-plugin-css-modules-transform": "1.6.2",
