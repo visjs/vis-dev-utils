@@ -113,7 +113,7 @@
     "@types/babel__core": "7.20.2",
     "@types/chai": "4.3.5",
     "@types/chai-fs": "2.0.2",
-    "@types/cheerio": "0.22.31",
+    "@types/cheerio": "0.22.32",
     "@types/mocha": "10.0.1",
     "@types/npm": "7.19.0",
     "@types/prettier": "2.7.3",
