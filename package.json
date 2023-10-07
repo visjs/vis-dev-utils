@@ -99,7 +99,7 @@
     "puppeteer": "14.4.1",
     "rollup": "3.29.4",
     "rollup-plugin-analyzer": "4.0.0",
-    "rollup-plugin-copy": "3.4.0",
+    "rollup-plugin-copy": "3.5.0",
     "rollup-plugin-postcss": "4.0.2",
     "rollup-plugin-string": "3.0.0",
     "rollup-plugin-strip-code": "0.2.7",
