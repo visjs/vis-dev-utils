@@ -118,7 +118,7 @@
     "@types/npm": "7.19.1",
     "@types/prettier": "2.7.3",
     "@types/puppeteer": "5.4.7",
-    "@types/sinon": "10.0.18",
+    "@types/sinon": "10.0.19",
     "@types/tmp": "0.2.4",
     "@types/yargs": "17.0.26",
     "eslint": "8.50.0",
