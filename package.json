@@ -89,7 +89,7 @@
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-cypress": "2.15.1",
     "eslint-plugin-eslint-comments": "3.2.0",
-    "eslint-plugin-jsdoc": "39.9.1",
+    "eslint-plugin-jsdoc": "46.8.2",
     "eslint-plugin-prettier": "4.2.1",
     "find-up": "5.0.0",
     "globby": "11.1.0",
