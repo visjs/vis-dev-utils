@@ -67,10 +67,10 @@
     "lib"
   ],
   "peerDependencies": {
-    "@babel/core": "7.23.2",
-    "@babel/plugin-transform-runtime": "7.23.2",
-    "@babel/preset-env": "7.23.2",
-    "@babel/preset-typescript": "7.23.2",
+    "@babel/core": "7.23.3",
+    "@babel/plugin-transform-runtime": "7.23.3",
+    "@babel/preset-env": "7.23.3",
+    "@babel/preset-typescript": "7.23.3",
     "@babel/register": "7.22.15",
     "@babel/runtime-corejs3": "7.23.2",
     "@rollup/plugin-babel": "6.0.4",
