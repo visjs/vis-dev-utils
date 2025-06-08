@@ -39,7 +39,7 @@ function processGroup(
   examples: Examples,
   title: string,
   level: number,
-  collator: Intl.Collator
+  collator: Intl.Collator,
 ): cheerio.Cheerio<AnyNode> {
   const heading = cheerio.load([])(`<h${Math.max(1, Math.min(6, level))}>`);
   heading.text(title);
@@ -61,7 +61,10 @@ function processGroup(
           generateJSFiddle(example),
           generateCodePen(example),
           // Title
-          cheerio.load([])("<a>").attr("href", example.paths.page.web).text(key)
+          cheerio
+            .load([])("<a>")
+            .attr("href", example.paths.page.web)
+            .text(key),
         );
 
       const image = cheerio
@@ -72,7 +75,7 @@ function processGroup(
           cheerio
             .load([])("<img>")
             .attr("src", example.paths.screenshot.web)
-            .attr("alt", key)
+            .attr("alt", key),
         );
 
       const item = cheerio
@@ -94,7 +97,7 @@ export const htmlRenderer: Renderer = {
     examples: ExamplesRoot,
     _output: string,
     title: string,
-    collator: Intl.Collator
+    collator: Intl.Collator,
   ): ContentPart[] {
     const filename = "index.html";
 

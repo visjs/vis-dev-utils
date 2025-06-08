@@ -70,7 +70,7 @@ export class ContentBuilder {
       index?: boolean;
       playgrounds?: boolean;
       screenshots?: boolean;
-    } = {}
+    } = {},
   ): ContentBuilderRet {
     const allExamples = this._processGroup(this._config.examples);
 
@@ -84,7 +84,7 @@ export class ContentBuilder {
         emit.screenshots ? ["screenshots"] : [],
       ]
         .flat()
-        .join(", ")} for ${allExamples.length} examples.`
+        .join(", ")} for ${allExamples.length} examples.`,
     );
     process.stdout.write("\n");
 
@@ -99,12 +99,12 @@ export class ContentBuilder {
                 this._config.examples,
                 this._config.output,
                 this._config.title,
-                collator
+                collator,
               )
               .map(
                 async ({ content, filename }): Promise<void> =>
-                  writeFile(join(this._config.output, filename), content)
-              )
+                  writeFile(join(this._config.output, filename), content),
+              ),
           );
 
           return [
@@ -112,7 +112,7 @@ export class ContentBuilder {
               ...getStartStopMs(),
               count: results.length,
               result: results.every(
-                ({ status }): boolean => status === "fulfilled"
+                ({ status }): boolean => status === "fulfilled",
               )
                 ? "fulfilled"
                 : "rejected",
@@ -141,8 +141,8 @@ export class ContentBuilder {
                   },
                 ].map(
                   ({ html, path }): Promise<void> =>
-                    writeFile(path, formatHTML(html))
-                )
+                    writeFile(path, formatHTML(html)),
+                ),
               );
 
               return {
@@ -150,12 +150,12 @@ export class ContentBuilder {
                 count: results.length,
                 example: example,
                 result: results.every(
-                  ({ status }): boolean => status === "fulfilled"
+                  ({ status }): boolean => status === "fulfilled",
                 )
                   ? "fulfilled"
                   : "rejected",
               };
-            })
+            }),
           ))()
       : // Skip playground pages.
         Promise.resolve([]);
@@ -219,10 +219,10 @@ export class ContentBuilder {
                     const validText = valid ? "okay" : "fail";
                     const msText = formatStartStopMs(report);
                     console.info(
-                      `${percentage} ${validText} ${msText} - ${example.path}`
+                      `${percentage} ${validText} ${msText} - ${example.path}`,
                     );
                   }
-                })
+                }),
             );
 
             return reports;

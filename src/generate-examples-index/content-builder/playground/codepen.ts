@@ -23,7 +23,7 @@ export function generateCodePenPage(example: Example): string {
       js: data.code.js,
       js_external: data.resources.js.join(";"),
       title: example.titles.join(" | "),
-    })
+    }),
   );
 
   return page.html();

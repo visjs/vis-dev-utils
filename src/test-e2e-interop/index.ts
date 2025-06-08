@@ -18,7 +18,7 @@ const projectPaths: ProjectPaths = argv["project"]
       }
     } else {
       console.error(
-        `--project-path should be in 'project-name ./path' format, got '${raw}'.`
+        `--project-path should be in 'project-name ./path' format, got '${raw}'.`,
       );
       process.exit(1);
     }
@@ -49,7 +49,7 @@ const packageScripts: PackageScript[] = rawPackageScriptArg.flatMap(
     }
 
     return packageScripts;
-  }
+  },
 );
 
 const tmpPath = argv["tmp-dir"] ? resolve(argv["tmp-dir"]) : undefined;

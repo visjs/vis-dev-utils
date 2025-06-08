@@ -29,10 +29,10 @@ const rawGlobby = import("globby");
 chaiConfig.truncateThreshold = Number.MAX_SAFE_INTEGER;
 
 const VIS_DEBUG = ["1", "true", "y", "yes"].includes(
-  process.env["VIS_DEBUG"] || "false"
+  process.env["VIS_DEBUG"] || "false",
 );
 const VIS_TEST = ["1", "true", "y", "yes"].includes(
-  process.env["VIS_TEST"] || "false"
+  process.env["VIS_TEST"] || "false",
 );
 
 /**
@@ -41,10 +41,10 @@ const VIS_TEST = ["1", "true", "y", "yes"].includes(
  * @returns Globbed paths.
  */
 async function glob(
-  pattern: string
-): ReturnType<typeof import("globby")["globby"]> {
+  pattern: string,
+): ReturnType<(typeof import("globby"))["globby"]> {
   return (await rawGlobby).globby(
-    sep === "\\" ? pattern.replace(/\\/g, "/") : pattern
+    sep === "\\" ? pattern.replace(/\\/g, "/") : pattern,
   );
 }
 
@@ -129,12 +129,14 @@ const dependenciesWithVisExportStructure = [
  * @returns An array of dependencies for Rollup.
  */
 function processDependencies(
-  deps: string[] | Record<string, string>
+  deps: string[] | Record<string, string>,
 ): string[] {
   const depNames = Array.isArray(deps) ? deps : Object.keys(deps);
 
   return depNames.flatMap((key): string[] =>
-    dependenciesWithVisExportStructure.includes(key) ? [key + "/esnext"] : [key]
+    dependenciesWithVisExportStructure.includes(key)
+      ? [key + "/esnext"]
+      : [key],
   );
 }
 
@@ -146,7 +148,7 @@ function processDependencies(
  * @returns Globals forcing the use of ESNext builds for Vis projects.
  */
 function processGlobals(
-  globals: Record<string, string>
+  globals: Record<string, string>,
 ): Record<string, string> {
   return Object.entries(globals).reduce<Record<string, string>>(
     (acc, [key, value]): Record<string, string> => {
@@ -156,7 +158,7 @@ function processGlobals(
 
       return acc;
     },
-    Object.create(null)
+    Object.create(null),
   );
 }
 
@@ -172,10 +174,10 @@ function isTS(path: string): boolean {
  * validations during debugging.
  */
 const validate: (
-  callback: (expect: Chai.ExpectStatic) => Promise<void> | void
+  callback: (expect: Chai.ExpectStatic) => Promise<void> | void,
 ) => Promise<void> = VIS_DEBUG
   ? async (
-      callback: (expect: Chai.ExpectStatic) => Promise<void> | void
+      callback: (expect: Chai.ExpectStatic) => Promise<void> | void,
     ): Promise<void> => {
       try {
         await callback(validateExpect);
@@ -184,7 +186,7 @@ const validate: (
       }
     }
   : async (
-      callback: (expect: Chai.ExpectStatic) => Promise<void> | void
+      callback: (expect: Chai.ExpectStatic) => Promise<void> | void,
     ): Promise<void> => {
       await callback(validateExpect);
     };
@@ -198,7 +200,7 @@ const validate: (
  */
 function getPaths(
   buildVariant: "esnext" | "peer",
-  moduleFormat: "esm" | "umd"
+  moduleFormat: "esm" | "umd",
 ): Record<string, string> {
   /**
    * @param lib
@@ -211,7 +213,7 @@ function getPaths(
       | "network"
       | "timeline"
       | "util"
-      | "uuid"
+      | "uuid",
   ): Record<string, string> {
     return {
       [`vis-${lib}/esnext`]: `vis-${lib}/${buildVariant}/${moduleFormat}/vis-${lib}.js`,
@@ -243,7 +245,7 @@ function scopeCopyTarget(
     ) as readonly string[];
 
     const bundleDest = dest.flatMap((path): string[] =>
-      dirs.map((dir): string => join(dir, path))
+      dirs.map((dir): string => join(dir, path)),
     );
 
     return {
@@ -270,13 +272,13 @@ const generateRollupPluginArray = (
     strip = mode === "production",
     transpile = false,
     typescript = false,
-  } = {}
+  } = {},
 ): Plugin[] => {
   const fullLibraryFilename = `${libraryFilename}${minimize ? ".min" : ""}`;
 
   const bundleDir = bundleType;
   const bundleVariantDirs = ["esm", "umd"].map((variant): string =>
-    join(bundleDir, variant)
+    join(bundleDir, variant),
   );
 
   return [
@@ -431,8 +433,8 @@ export async function generateRollupConfiguration(
   mode: "production" | "development" | "test" = VIS_TEST
     ? "test"
     : VIS_DEBUG
-    ? "development"
-    : "production"
+      ? "development"
+      : "production",
 ): Promise<RollupOptions[]> {
   const {
     assets = ".",
@@ -459,7 +461,7 @@ export async function generateRollupConfiguration(
     if (Object.keys(peerDependencies).length > 0) {
       expect(
         Object.keys(dependencies),
-        "The dependencies and peer dependencies have to be disjoint sets"
+        "The dependencies and peer dependencies have to be disjoint sets",
       )
         .to.be.an("array")
         .that.does.not.include.any.members(Object.keys(peerDependencies));
@@ -468,7 +470,7 @@ export async function generateRollupConfiguration(
   validate((expect): void => {
     expect(
       Object.keys(devDependencies),
-      "For convenience all peer dependencies also have to be dev dependencies"
+      "For convenience all peer dependencies also have to be dev dependencies",
     )
       .to.be.an("array")
       .that.includes.all.members(Object.keys(peerDependencies));
@@ -476,7 +478,7 @@ export async function generateRollupConfiguration(
   validate((expect): void => {
     expect(
       Object.keys(peerDependencies),
-      "Peer build externals have to be a subset of peer dependencies"
+      "Peer build externals have to be a subset of peer dependencies",
     )
       .to.be.an("array")
       .that.includes.all.members(externalForPeerBuild);
@@ -484,7 +486,7 @@ export async function generateRollupConfiguration(
   validate((expect): void => {
     expect(
       [...Object.keys(dependencies), ...Object.keys(peerDependencies)].sort(),
-      "Globals have to be provided for all runtime and peer dependencies but nothing else"
+      "Globals have to be provided for all runtime and peer dependencies but nothing else",
     )
       .to.be.an("array")
       .that.deep.equals(Object.keys(globals).sort());
@@ -509,36 +511,36 @@ export async function generateRollupConfiguration(
       validate(async (expect): Promise<void> => {
         expect(
           files,
-          `There has to be a single entry file (${filenameGlob}) for the ${name} build`
+          `There has to be a single entry file (${filenameGlob}) for the ${name} build`,
         )
           .to.have.lengthOf(1)
           .and.to.have.ownProperty("0");
         const stats = await fs.stat(resolve(files[0]));
         expect(
           stats.isFile(),
-          `The entry file (${filenameGlob}) for the ${name} build has to be a file`
+          `The entry file (${filenameGlob}) for the ${name} build has to be a file`,
         ).to.be.true;
       });
 
       return files[0];
-    })
+    }),
   );
   validate(async (expect): Promise<void> => {
     expect(
       resolve("./declarations"),
-      "There has to be a directory with TypeScript declarations"
+      "There has to be a directory with TypeScript declarations",
     ).to.be.a("string");
     const stats = await fs.stat(resolve("./declarations"));
     expect(
       stats.isDirectory(),
-      "There has to be a directory with TypeScript declarations"
+      "There has to be a directory with TypeScript declarations",
     ).to.be.true;
   });
 
   validate((expect): void => {
     expect(
       packageJSONRest,
-      "The directories with built files have to be included in the package"
+      "The directories with built files have to be included in the package",
     )
       .to.have.ownProperty("files")
       .that.is.an("array")
@@ -553,7 +555,7 @@ export async function generateRollupConfiguration(
   validate((expect): void => {
     expect(
       packageJSONRest,
-      "Package JSON's type property has to point to the declarations"
+      "Package JSON's type property has to point to the declarations",
     )
       .to.have.ownProperty("types")
       .that.is.a("string")
@@ -562,7 +564,7 @@ export async function generateRollupConfiguration(
   validate((expect): void => {
     expect(
       packageJSONRest,
-      "Package JSON's browser property has to point to the minifed UMD build"
+      "Package JSON's browser property has to point to the minifed UMD build",
     )
       .to.have.ownProperty("browser")
       .that.is.a("string")
@@ -571,7 +573,7 @@ export async function generateRollupConfiguration(
   validate((expect): void => {
     expect(
       packageJSONRest,
-      "Package JSON's main property has to point to the UMD build"
+      "Package JSON's main property has to point to the UMD build",
     )
       .to.have.ownProperty("main")
       .that.is.a("string")
@@ -580,7 +582,7 @@ export async function generateRollupConfiguration(
   validate((expect): void => {
     expect(
       packageJSONRest,
-      "Package JSON's modul property has to point to the ESM build"
+      "Package JSON's modul property has to point to the ESM build",
     )
       .to.have.ownProperty("module")
       .that.is.a("string")
@@ -589,7 +591,7 @@ export async function generateRollupConfiguration(
   validate((expect): void => {
     expect(
       packageJSONRest,
-      "Package JSON's jsnext has to point to the ESNext build"
+      "Package JSON's jsnext has to point to the ESNext build",
     )
       .to.have.ownProperty("jsnext")
       .that.is.a("string")
@@ -602,7 +604,7 @@ export async function generateRollupConfiguration(
     ]);
     expect(
       status,
-      "Babelrc is ignored. Use babel.config.js config file instead."
+      "Babelrc is ignored. Use babel.config.js config file instead.",
     ).to.equal("rejected");
   });
   validate(async (expect): Promise<void> => {
@@ -610,7 +612,7 @@ export async function generateRollupConfiguration(
       fs.access(resolve("./babel.config.js")),
     ]);
     expect(status, "There has to be a babel.config.js config file.").to.equal(
-      "fulfilled"
+      "fulfilled",
     );
   });
 

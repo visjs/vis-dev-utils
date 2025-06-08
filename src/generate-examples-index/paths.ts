@@ -9,7 +9,7 @@ export function joinURLs(...urls: string[]): string {
   return urls
     .map((url): string =>
       // Strip the parts of leading and trailing slashes if they have them.
-      url.replace(/^\/?(.*?)\/?$/, "$1")
+      url.replace(/^\/?(.*?)\/?$/, "$1"),
     )
     .join("/");
 }
@@ -32,7 +32,7 @@ export function fixAbsoluteInputURL(baseURL: string, url: string): string {
  */
 export function generatePaths(
   config: ExamplePaths,
-  exampleAbsolutePath: Example["path"]
+  exampleAbsolutePath: Example["path"],
 ): ExamplePaths {
   const exampleRelativePath = relative(config.page.local, exampleAbsolutePath);
 
@@ -46,14 +46,14 @@ export function generatePaths(
       config.codepen.web,
       hash,
       "codepen",
-      "html"
+      "html",
     ),
     jsfiddle: generateLocalWebPair(
       config.jsfiddle.local,
       config.jsfiddle.web,
       hash,
       "jsfiddle",
-      "html"
+      "html",
     ),
     page: {
       local: exampleAbsolutePath,
@@ -64,7 +64,7 @@ export function generatePaths(
       config.screenshot.web,
       hash,
       "screenshot",
-      "png"
+      "png",
     ),
   };
 }
@@ -81,7 +81,7 @@ function generateLocalWebPair(
   webRoot: string,
   hash: string,
   prefix: string,
-  extension: string
+  extension: string,
 ): ExamplePath {
   const filename = `${prefix}.${hash}.${extension}`;
 

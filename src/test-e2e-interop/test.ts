@@ -75,7 +75,7 @@ function getTarballName(projectName: string): string {
  */
 function getTarballPath(
   { tmpRootResolve }: TestData,
-  projectName: string
+  projectName: string,
 ): string {
   return tmpRootResolve(`${projectName}.tgz`);
 }
@@ -87,7 +87,7 @@ function getTarballPath(
 async function copyTarball(data: TestData, projectName: string): Promise<void> {
   await copyFile(
     data.tmpReposResolve(projectName, getTarballName(projectName)),
-    getTarballPath(data, projectName)
+    getTarballPath(data, projectName),
   );
 }
 
@@ -116,12 +116,12 @@ async function getPackageDeps(cwd: string): Promise<string[]> {
  */
 async function getPackageLocalDeps(
   data: TestData,
-  projectName: string
+  projectName: string,
 ): Promise<string[]> {
   const { projectPaths, tmpReposResolve } = data;
   const cwd = tmpReposResolve(projectName);
   return (await getPackageDeps(cwd)).filter(
-    (depName): boolean => projectPaths[depName] != null
+    (depName): boolean => projectPaths[depName] != null,
   );
 }
 
@@ -133,7 +133,7 @@ async function getPackageLocalDeps(
 async function clone(
   spawn: Spawn,
   data: TestData,
-  projectName: string
+  projectName: string,
 ): Promise<void> {
   const { failCommand, projectPaths, tmpReposResolve } = data;
 
@@ -172,7 +172,7 @@ async function clone(
  */
 async function updatePackageDepVersions(
   cwd: string,
-  deps: Record<string, string>
+  deps: Record<string, string>,
 ): Promise<void> {
   const packageJSONPath = await findUp("package.json", { cwd });
   if (packageJSONPath == null) {
@@ -207,19 +207,19 @@ async function updatePackageDepVersions(
 async function buildTestPack(
   spawn: Spawn,
   data: TestData,
-  projectName: string
+  projectName: string,
 ): Promise<void> {
   const { failCommand, packageScripts, tmpReposResolve } = data;
   const cwd = tmpReposResolve(projectName);
 
   await updatePackageDepVersions(
     cwd,
-    (
-      await getPackageLocalDeps(data, projectName)
-    ).reduce<Record<string, string>>((acc, key): Record<string, string> => {
+    (await getPackageLocalDeps(data, projectName)).reduce<
+      Record<string, string>
+    >((acc, key): Record<string, string> => {
       acc[key] = getTarballPath(data, key);
       return acc;
-    }, Object.create(null))
+    }, Object.create(null)),
   );
   const packageLockPath = await findUp("package-lock.json", { cwd });
   if (packageLockPath != null) {
@@ -297,7 +297,7 @@ export async function test({
     packageScripts,
     projectPaths,
     tmpDir: await prepareTmpDir(
-      tmpPath ? resolvePath(tmpPath, "repos") : undefined
+      tmpPath ? resolvePath(tmpPath, "repos") : undefined,
     ),
     tmpLogsResolve: (...paths: string[]): string =>
       resolvePath(data.tmpDir.name, "logs", ...paths),
@@ -312,14 +312,14 @@ export async function test({
     Object.keys(data.projectPaths).map((project): [string, ProjectState] => [
       project,
       new ProjectState(),
-    ])
+    ]),
   );
   /**
    *
    */
   function getStages(): string[] {
     return [...projectStatuses].map(
-      ([key, { stage }]): string => `  ${key}: ${stage}`
+      ([key, { stage }]): string => `  ${key}: ${stage}`,
     );
   }
 
@@ -331,8 +331,8 @@ export async function test({
     // Prepare subdirectories under the root tmp directory.
     await Promise.all(
       ["repos", "logs"].map(
-        (dir): Promise<void> => mkdir(resolvePath(data.tmpDir.name, dir))
-      )
+        (dir): Promise<void> => mkdir(resolvePath(data.tmpDir.name, dir)),
+      ),
     );
 
     logInfo("Begin", getStages().join("\n"));
@@ -390,18 +390,18 @@ export async function test({
         } catch (error) {
           logError(
             `Fail ${projectName} (${state.stage}):`,
-            getStages().join("\n")
+            getStages().join("\n"),
           );
           state.reject(error instanceof Error ? error : new Error("" + error));
         }
-      })
+      }),
     );
 
     const allSucceeded = (
       await Promise.allSettled(
         [...projectStatuses.values()].map(
-          (status): Promise<void> => status.promise
-        )
+          (status): Promise<void> => status.promise,
+        ),
       )
     ).every(({ status }): boolean => status === "fulfilled");
 
@@ -429,22 +429,20 @@ export async function test({
         [
           "",
           ...(await Promise.all(
-            (
-              await readdir(data.tmpLogsResolve())
-            ).map(
+            (await readdir(data.tmpLogsResolve())).map(
               (filename): Promise<string> =>
-                readFile(data.tmpLogsResolve(filename), "UTF-8")
-            )
+                readFile(data.tmpLogsResolve(filename), "UTF-8"),
+            ),
           )),
           "",
-        ].join("\n\n" + ("-".repeat(80) + "\n").repeat(2) + "\n")
+        ].join("\n\n" + ("-".repeat(80) + "\n").repeat(2) + "\n"),
       );
     }
 
     execFail(
       data.tmpDir.name,
       failCommand,
-      "Allow the state to be inspected in debug mode before the data is lost."
+      "Allow the state to be inspected in debug mode before the data is lost.",
     );
   }
 }

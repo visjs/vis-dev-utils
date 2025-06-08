@@ -59,7 +59,7 @@ export interface GenerateScreenshotConfig {
  */
 export async function generateScreenshot(
   browser: Browser,
-  config: GenerateScreenshotConfig
+  config: GenerateScreenshotConfig,
 ): Promise<boolean> {
   const { debug, example, height, screenshotScript, width } = config;
 
@@ -70,7 +70,7 @@ export async function generateScreenshot(
     // relative URLs can be loaded.
     const tmpPath = resolve(
       dirname(example.paths.page.local),
-      ".tmp.example.screenshot." + basename(example.paths.page.local)
+      ".tmp.example.screenshot." + basename(example.paths.page.local),
     );
     const screenshotPage = $.load(example.html);
     screenshotPage("head").prepend(
@@ -97,8 +97,8 @@ export async function generateScreenshot(
             `  max-width: ${width}px !important;`,
             `  max-height: ${height}px !important;`,
             "}",
-          ].join("\n")
-        )
+          ].join("\n"),
+        ),
     );
     await writeFile(tmpPath, formatHTML(screenshotPage.html()));
     if (!debug) {
@@ -125,7 +125,7 @@ export async function generateScreenshot(
 
     if (example.delay === "call") {
       await page.evaluate(
-        "function fn() { return window.readyToTakeAScreenshot; }"
+        "function fn() { return window.readyToTakeAScreenshot; }",
       );
     } else {
       await page.waitForTimeout(example.delay * 1000);
@@ -134,7 +134,7 @@ export async function generateScreenshot(
     const $element = await page.$(example.selector);
     if ($element == null) {
       throw new Error(
-        `Element "${example.selector}" not found in ${example.path}.`
+        `Element "${example.selector}" not found in ${example.path}.`,
       );
     }
 
@@ -153,7 +153,7 @@ export async function generateScreenshot(
       // always returning Buffer | string even when encoding is set to binary
       // (i.e. buffer).
       throw new Error(
-        `Failed to get the binary data of the screenshot of “${example.paths.page}”`
+        `Failed to get the binary data of the screenshot of “${example.paths.page}”`,
       );
     }
 

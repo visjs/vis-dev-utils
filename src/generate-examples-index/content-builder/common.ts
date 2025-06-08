@@ -11,7 +11,7 @@ export interface Renderer {
     examples: ExamplesRoot,
     output: string,
     title: string,
-    collator: Intl.Collator
+    collator: Intl.Collator,
   ): ContentPart[];
   screenshot: {
     width: number;
@@ -23,7 +23,7 @@ export interface Renderer {
  * @param value
  */
 export function isExample(
-  value: Example | Examples | ExamplesRoot
+  value: Example | Examples | ExamplesRoot,
 ): value is Example {
   return (
     typeof value === "object" &&
@@ -65,14 +65,14 @@ export function reduceReports(
     result: "fulfilled",
     start: -1,
     stop: -1,
-  }
+  },
 ): Report {
   return (
     reports.reduce<Report | null>((acc, val): Report | null => {
       return {
         count: (acc?.count ?? 0) + (val?.count ?? 0),
         result: [acc?.result ?? "fulfilled", val.result].every(
-          (result): boolean => result === "fulfilled"
+          (result): boolean => result === "fulfilled",
         )
           ? "fulfilled"
           : "rejected",

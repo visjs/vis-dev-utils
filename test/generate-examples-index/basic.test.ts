@@ -11,7 +11,7 @@ const rawGlobby = import("globby");
 
 const executable = resolve(
   spawnSync("npm", ["root"]).stdout.toString().slice(0, -1),
-  "../bin/generate-examples-index.js"
+  "../bin/generate-examples-index.js",
 );
 
 const baseURL = "https://visjs.github.io/vis-test/";
@@ -44,7 +44,7 @@ function generate(options: {
 
   const examplesDir = resolve(
     __dirname,
-    type === "broken" ? "broken-examples" : "examples"
+    type === "broken" ? "broken-examples" : "examples",
   );
   const verify = "" + threshold;
 
@@ -70,7 +70,7 @@ function generate(options: {
         ["--verify", verify],
       ].flat(),
     ],
-    { stdio: "pipe" }
+    { stdio: "pipe" },
   );
 }
 
@@ -78,7 +78,7 @@ describe("generate-examples-index", function (): void {
   it("is executable built", function (): void {
     expect(
       existsSync(executable),
-      "The built executable has to be present for any of the following tests to pass."
+      "The built executable has to be present for any of the following tests to pass.",
     ).to.be.true;
   });
 
@@ -97,7 +97,7 @@ describe("generate-examples-index", function (): void {
 
       it("valid HTML", function (): void {
         $index = cheerio.load(
-          readFileSync(join(output.index, "index.html"), "utf-8")
+          readFileSync(join(output.index, "index.html"), "utf-8"),
         );
       });
 
@@ -108,7 +108,7 @@ describe("generate-examples-index", function (): void {
       it("links", function (): void {
         expect(
           $index(".example-link").length,
-          `There should be ${nmExamples} links to examples.`
+          `There should be ${nmExamples} links to examples.`,
         ).to.equal(nmExamples);
       });
 
@@ -118,7 +118,7 @@ describe("generate-examples-index", function (): void {
             await (
               await rawGlobby
             ).globby(join(output.pages, "jsfiddle.*.html")),
-            `There should be ${nmExamples} JSFiddle opener files.`
+            `There should be ${nmExamples} JSFiddle opener files.`,
           ).have.lengthOf(nmExamples);
         });
 
@@ -127,14 +127,14 @@ describe("generate-examples-index", function (): void {
             await (
               await rawGlobby
             ).globby(join(output.pages, "codepen.*.html")),
-            `There should be ${nmExamples} CodePen opener files.`
+            `There should be ${nmExamples} CodePen opener files.`,
           ).have.lengthOf(nmExamples);
         });
 
         it("screenshots", async function (): Promise<void> {
           expect(
             await (await rawGlobby).globby(join(output.assets, "*.png")),
-            `There should be ${nmExamples} screenshots.`
+            `There should be ${nmExamples} screenshots.`,
           ).have.lengthOf(nmExamples);
         });
       });
@@ -150,21 +150,21 @@ describe("generate-examples-index", function (): void {
           it("thumbnail", function (): void {
             expect(
               getNthExample(i).find(".example-image img").length,
-              "There should be a screenshot of this example."
+              "There should be a screenshot of this example.",
             ).to.equal(1);
           });
 
           it("JSFiddle", function (): void {
             expect(
               getNthExample(i).find(".icon.jsfiddle").length,
-              "There should be exactly 1 JSFiddle icon."
+              "There should be exactly 1 JSFiddle icon.",
             ).to.equal(1);
           });
 
           it("CodePen", function (): void {
             expect(
               getNthExample(i).find(".icon.codepen").length,
-              "There should be exactly 1 CodePen icon."
+              "There should be exactly 1 CodePen icon.",
             ).to.equal(1);
           });
         });
@@ -194,11 +194,11 @@ describe("generate-examples-index", function (): void {
             ret,
             `Exit code ${code} should be returned when verification ${
               code === 0 ? "succeeds" : "fails"
-            }.`
+            }.`,
           )
             .to.haveOwnProperty("status")
             .that.equals(code);
-        }
+        },
       );
     });
   });
@@ -219,7 +219,7 @@ describe("generate-examples-index", function (): void {
             snapshot(
               (
                 await (await rawGlobby).globby("**/*", { cwd: output.dir })
-              ).sort()
+              ).sort(),
             );
           });
 
@@ -232,11 +232,11 @@ describe("generate-examples-index", function (): void {
                 // Exclude images, test only text files.
                 "!**/*.png",
               ],
-              { cwd: output.dir }
+              { cwd: output.dir },
             )) {
               snapshot(
                 `${this.test!.fullTitle()} ${relativePath}`,
-                readFileSync(join(output.dir, relativePath), "utf-8")
+                readFileSync(join(output.dir, relativePath), "utf-8"),
               );
             }
           });

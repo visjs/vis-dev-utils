@@ -11,7 +11,7 @@ import { generateHeader } from "./lib/header";
 import { string } from "rollup-plugin-string";
 
 const VIS_DEBUG = ["1", "true", "y", "yes"].includes(
-  process.env["VIS_DEBUG"] || "false"
+  process.env["VIS_DEBUG"] || "false",
 );
 
 const bannerModule = generateHeader();

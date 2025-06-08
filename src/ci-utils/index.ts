@@ -46,7 +46,7 @@ yargs
       spawnSync("sudo", ["apt-get", "install", "-yq", ...dependecies], {
         stdio: "inherit",
       });
-    }
+    },
   )
 
   .parserConfiguration({ "camel-case-expansion": false })

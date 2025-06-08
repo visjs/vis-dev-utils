@@ -11,7 +11,7 @@ import { readFileSync } from "fs";
 export function textToComment(string: string): string {
   if (string.includes("*/")) {
     throw new Error(
-      "Don't include comments in the input string. It will be converted automatically."
+      "Don't include comments in the input string. It will be converted automatically.",
     );
   }
 
@@ -35,7 +35,7 @@ export function textToComment(string: string): string {
 }
 
 const packageJSON = JSON.parse(
-  readFileSync(findUpSync("package.json")!, "utf8")
+  readFileSync(findUpSync("package.json")!, "utf8"),
 );
 
 const buildHeader = ({

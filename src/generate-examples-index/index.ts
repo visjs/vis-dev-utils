@@ -50,7 +50,7 @@ function getMeta<T>(page: cheerio.CheerioAPI, name: string, fallback: T): T;
 function getMeta(
   page: cheerio.CheerioAPI,
   name: string,
-  fallback: number | string
+  fallback: number | string,
 ): number | string {
   const content = page(`meta[name="${name}"]`).attr("content");
 
@@ -86,7 +86,7 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
 
   if (page("#title > *").length < 2) {
     msgs.push(
-      "There have to be at least two headings (group and example name)."
+      "There have to be at least two headings (group and example name).",
     );
     valid = false;
   }
@@ -101,7 +101,7 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
     msgs.push(
       "The title in the head doesn't match the title in the body.",
       `  head: ${headTitle}`,
-      `  body: ${bodyTitle}`
+      `  body: ${bodyTitle}`,
     );
     valid = false;
   }
@@ -130,7 +130,7 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
       argv["pages-local-directory"],
     ].map(async (path): Promise<void> => {
       await mkdir(path, { recursive: true });
-    })
+    }),
   );
 
   const baseURL = argv["base-url"];
@@ -172,17 +172,17 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
       const pageDelay = getMeta<number | "call">(
         $page,
         "example-screenshot-delay",
-        6
+        6,
       );
       const pageTimeout = getMeta<number>(
         $page,
         "example-screenshot-timeout",
-        60
+        60,
       );
       const pageSelector = getMeta<string>(
         $page,
         "example-screenshot-selector",
-        selector
+        selector,
       );
 
       // Is this an examples?
@@ -231,7 +231,7 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
           if (acc[title] != null) {
             console.error(
               "The following example has the same name as an already existing group: ",
-              titles
+              titles,
             );
             return null;
           } else {
@@ -255,7 +255,7 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
           return (acc[title] = acc[title] || {});
         }
       }, examples as any);
-    })
+    }),
   );
 
   if (skipped.length) {
@@ -264,7 +264,7 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
       [
         "The following files don't look like examples (there is nothing to take a screenshot of):",
         ...skipped.sort(),
-      ].join("\n  ")
+      ].join("\n  "),
     );
   }
 
@@ -297,7 +297,7 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
       console.info(
         `Index with ${stats.examples} examples written (${
           cummulativeReport.count
-        } files in ${formatStartStopMs(cummulativeReport)}).`
+        } files in ${formatStartStopMs(cummulativeReport)}).`,
       );
     }
 
@@ -307,7 +307,7 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
       console.info(
         `Playground opener files for ${stats.examples} examples written (${
           cummulativeReport.count
-        } files in ${formatStartStopMs(cummulativeReport)}).`
+        } files in ${formatStartStopMs(cummulativeReport)}).`,
       );
     }
 
@@ -317,7 +317,7 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
       console.info(
         `Screenshot files for ${stats.examples} written (${
           cummulativeReport.count
-        } files in ${formatStartStopMs(cummulativeReport)}).`
+        } files in ${formatStartStopMs(cummulativeReport)}).`,
       );
     }
 
@@ -327,23 +327,23 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
     if (checks.fail === 0) {
       console.info(
         `Verification: ${checks.okay} passed (${Math.round(
-          checks.percentage
-        )} %) passed.`
+          checks.percentage,
+        )} %) passed.`,
       );
     } else {
       if (checks.percentage >= argv.verify) {
         console.info(
           `Verification: ${checks.okay} passed (${Math.round(
-            checks.percentage
+            checks.percentage,
           )} %), ${checks.fail} failed.\n` +
-            "This is within the threshold set by --verify."
+            "This is within the threshold set by --verify.",
         );
       } else {
         console.error(
           `Verification: Only ${checks.okay} passed (${Math.round(
-            checks.percentage
+            checks.percentage,
           )} %), ${checks.fail} failed.\n` +
-            "This is not within the threshold set by --verify. Exiting with an error."
+            "This is not within the threshold set by --verify. Exiting with an error.",
         );
         code = 3;
       }

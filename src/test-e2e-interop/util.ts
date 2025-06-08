@@ -58,7 +58,7 @@ export function logInfo(title: string, details?: string): void {
 export function execFail(
   cwd: string,
   failCommand: string | null | undefined,
-  error: Error | string
+  error: Error | string,
 ): void {
   if (failCommand) {
     console.error("\n\nReason for debugging:");
@@ -74,7 +74,7 @@ export function execFail(
     } catch (error) {
       console.error(error);
       console.error(
-        "The error above is the fail command exitting with non-zero status, not an actual failure in the interop test."
+        "The error above is the fail command exitting with non-zero status, not an actual failure in the interop test.",
       );
     }
   }
@@ -119,7 +119,7 @@ export function createSpawner(logDir: string, getState: () => string[]): Spawn {
           cmd.join("-").replace(/[^a-zA-Z0-9]+/g, "-"),
           "id-" + ("" + id).padStart(3, "0"),
           "log",
-        ].join(".")
+        ].join("."),
       );
       const logStream = createWriteStream(commandLogPath, {
         flags: "a",

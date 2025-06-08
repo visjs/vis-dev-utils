@@ -13,7 +13,7 @@ import { formatCSS, formatHTML, formatJS } from "../format";
 export function generatePlaygroundData(
   baseURL: string,
   example$: Example["$"],
-  examplePath: Example["path"]
+  examplePath: Example["path"],
 ): PlaygroundData {
   const firstBodyChild = example$("body").get(0);
   if (firstBodyChild == null) {
@@ -26,7 +26,7 @@ export function generatePlaygroundData(
     .map(([name, value]): [string, string] => [name.slice(2), `${value}`])
     .map(
       ([name, value]): string =>
-        `window.addEventListener("${name}", () => { ${value} });`
+        `window.addEventListener("${name}", () => { ${value} });`,
     )
     .join("\n");
   const js = formatJS(
@@ -36,7 +36,7 @@ export function generatePlaygroundData(
       .map((elem): string => elem.data)
       .join("") +
       "\n\n;" +
-      eventListeners
+      eventListeners,
   );
 
   // Cascading Style Sheets
@@ -45,7 +45,7 @@ export function generatePlaygroundData(
       .map((_i, elem) => elem.children[0] as Text)
       .get()
       .map((elem): string => elem.data)
-      .join("")
+      .join(""),
   );
 
   // Hypertext Markup Language
@@ -60,23 +60,23 @@ export function generatePlaygroundData(
       ? // World wide web absolute.
         rawPath
       : /^\//.test(rawPath)
-      ? // Domain absolute.
-        baseURL + rawPath.slice(1)
-      : //Relative.
-        baseURL +
-        relative(process.cwd(), resolve(dirname(examplePath), rawPath));
+        ? // Domain absolute.
+          baseURL + rawPath.slice(1)
+        : //Relative.
+          baseURL +
+          relative(process.cwd(), resolve(dirname(examplePath), rawPath));
 
   const resources = {
     js: example$("script")
       .map((_i, elem): undefined | string =>
-        cheerio.load(elem)("script").attr("src")
+        cheerio.load(elem)("script").attr("src"),
       )
       .get()
       .filter((src): src is string => typeof src === "string")
       .map(fixPath),
     css: example$("link[rel='stylesheet']")
       .map((_i, elem): undefined | string =>
-        cheerio.load(elem)("script").attr("href")
+        cheerio.load(elem)("script").attr("href"),
       )
       .get()
       .filter((href): href is string => typeof href === "string")

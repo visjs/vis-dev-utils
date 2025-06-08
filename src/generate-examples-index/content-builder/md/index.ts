@@ -47,7 +47,7 @@ function processGroup(
   examples: Examples,
   output: string,
   title: string,
-  collator: Intl.Collator
+  collator: Intl.Collator,
 ): ContentPart[] {
   const items: string[] = [];
   const sections: ContentPart[] = [];
@@ -64,7 +64,7 @@ function processGroup(
         image(
           key,
           "./" + relative(output, example.paths.screenshot.local),
-          example.paths.page.web
+          example.paths.page.web,
         ),
         "",
         [
@@ -72,7 +72,7 @@ function processGroup(
           link(example.paths.jsfiddle.web, "JSFiddle"),
           link(example.paths.codepen.web, "CodePen"),
         ].join(" | "),
-        ""
+        "",
       );
     } else {
       // A subgroup of examples.
@@ -81,8 +81,8 @@ function processGroup(
           (contentPart): ContentPart => ({
             ...contentPart,
             filename: filenamePart + "." + contentPart.filename,
-          })
-        )
+          }),
+        ),
       );
     }
   }
@@ -102,7 +102,7 @@ export const mdRenderer: Renderer = {
     examples: ExamplesRoot,
     output: string,
     _title: string,
-    collator: Intl.Collator
+    collator: Intl.Collator,
   ): ContentPart[] {
     const sections: ContentPart[] = [];
 
@@ -116,7 +116,8 @@ export const mdRenderer: Renderer = {
           header(1, "Examples"),
           "",
           ...sections.map(
-            ({ filename, title }): string => "- " + link("./" + filename, title)
+            ({ filename, title }): string =>
+              "- " + link("./" + filename, title),
           ),
         ]),
         filename: "README.md",
