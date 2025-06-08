@@ -38,7 +38,6 @@ const VIS_TEST = ["1", "true", "y", "yes"].includes(
 
 /**
  * Simple glob with workaround for non-posix paths.
- *
  * @param pattern - Single glob pattern.
  * @returns Globbed paths.
  */
@@ -125,7 +124,6 @@ const dependenciesWithVisExportStructure = [
 
 /**
  * This ensures that dependencies on Vis projects point to ESNext builds.
- *
  * @param deps - The original dependencies as listed in package.json.
  * @returns An array of dependencies for Rollup.
  */
@@ -143,7 +141,6 @@ function processDependencies(
  * This ensures that all Vis projects are imported using ESNext builds.
  * Importing standalone versions will not only cause problems in production but
  * will log warnings during build process and won't work at all.
- *
  * @param globals - The original globals.
  * @returns Globals forcing the use of ESNext builds for Vis projects.
  */
@@ -187,7 +184,6 @@ const validate: (callback: (expect: Chai.ExpectStatic) => void) => void =
 
 /**
  * Transform ESNext import paths to match the build version being constructed.
- *
  * @param buildVariant - ESNext or peer build. This is not available for
  * standalone as only peer and ESNext have imports.
  * @param moduleFormat - What kind of module system to use.
@@ -228,7 +224,6 @@ function getPaths(
 
 /**
  * Change target's dest so that it's relative to given dir(s).
- *
  * @param dirs - The directories there targets should be relative to.
  * @returns A function that can be directly supplied to Array.map().
  */
@@ -396,7 +391,6 @@ const generateRollupPluginArray = (
 
 /**
  * Prepare ready to use Rollup configuration file.
- *
  * @remarks
  * IMPORTANT: Use `babel.config.js` in the root of the project, `.babelrc` files
  * are ignored.

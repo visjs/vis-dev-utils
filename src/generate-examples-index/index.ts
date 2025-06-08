@@ -41,7 +41,6 @@ const readFile = util.promisify(fs.readFile);
 function getMeta<T>(page: cheerio.Root, name: string, fallback: T): T;
 /**
  * Extract and coerce a value from meta tag.
- *
  * @param page - The page to be queried.
  * @param name - The name of the meta tag.
  * @param fallback - The value to be used if the meta tag is not present.
@@ -72,7 +71,6 @@ function getMeta(
 
 /**
  * Test if the example conforms to the conventions.
- *
  * @param path - The path to the example (used for identification in logs).
  * @param page - The HTML to be linted.
  * @returns True if everything's okay, false otherwise.

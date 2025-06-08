@@ -59,7 +59,6 @@ export class ContentBuilder {
 
   /**
    * Build the files and write them to the disk.
-   *
    * @param emit - Which types of files to emit.
    * @param emit.index
    * @param emit.playgrounds

@@ -3,7 +3,6 @@ import { readFileSync } from "fs";
 
 /**
  * Take a string and return a doc block comment.
- *
  * @param string - The raw text to be included in the comment.
  * @throws If the string already contains a comment.
  * @returns A block doc comment string that can be for example prepended to a
@@ -99,7 +98,6 @@ const defaultVersion = packageJSON.version;
 
 /**
  * Generate a dynamic header banner.
- *
  * @param options - Optional information to be included. Otherwise no custom
  * text will be appended, the date will be the time when this module was
  * imported (most likely the start of the build process) and the rest will be

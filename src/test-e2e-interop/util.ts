@@ -31,7 +31,6 @@ export class ProjectState {
 
 /**
  * Output formatted error message to stderr.
- *
  * @param title - Some explanatory text as to what's going on.
  * @param details - The error or some other message as to what went wrong.
  */
@@ -140,7 +139,6 @@ export function createSpawner(logDir: string, getState: () => string[]): Spawn {
       /**
        * Add status to the file name just before the .log extension on a best
        * effort basis (no errors reported)..
-       *
        * @param code - The code or other kind of status to append.
        */
       function addStatusCodeToFilename(code: string | number): void {

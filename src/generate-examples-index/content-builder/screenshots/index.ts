@@ -16,7 +16,6 @@ const writeFile = promisify(fs.writeFile);
  * Check if the screenshot is valid. At the moment this simply considers
  * everything except for solid color images as valid. This works pretty well
  * though may yield some false positives.
- *
  * @param screenshot - The binary data of the screenshot.
  * @returns True for valid and false for invalid.
  */
@@ -54,7 +53,6 @@ export interface GenerateScreenshotConfig {
 /**
  * Capture an element on the example's page and save the screenshot to the
  * disk as a PNG file.
- *
  * @param browser - Puppeteer's browser instance.
  * @param config - See the type's docs for detail.
  * @returns Whether or not the screenshot passed validation check.
