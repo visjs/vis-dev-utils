@@ -1,6 +1,6 @@
 import { DirResult, dirSync, setGracefulCleanup } from "tmp";
 import { resolve as resolvePath } from "path";
-import findUp from "find-up";
+import { findUp } from "find-up";
 import {
   Stats,
   copy,

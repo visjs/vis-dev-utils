@@ -1,4 +1,4 @@
-import { sync as findUp } from "find-up";
+import { findUpSync } from "find-up";
 import { readFileSync } from "fs";
 
 /**
@@ -34,7 +34,9 @@ export function textToComment(string: string): string {
   );
 }
 
-const packageJSON = JSON.parse(readFileSync(findUp("package.json")!, "utf8"));
+const packageJSON = JSON.parse(
+  readFileSync(findUpSync("package.json")!, "utf8")
+);
 
 const buildHeader = ({
   customText,
