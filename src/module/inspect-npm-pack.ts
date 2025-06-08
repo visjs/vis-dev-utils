@@ -4,20 +4,35 @@ import { fileSync, setGracefulCleanup } from "tmp-promise";
 
 setGracefulCleanup();
 
-const PACK_CMD = ["npm", "pack", "--dry-run"];
+interface PackageInfo {
+  id: string;
+  name: string;
+  version: string;
+  size: number;
+  unpackedSize: number;
+  shasum: string;
+  integrity: string;
+  filename: string;
+  files: FileInfo[];
+  entryCount: number;
+  bundled: string[];
+}
+
+interface FileInfo {
+  path: string;
+  size: number;
+  mode: number;
+}
+
+const PACK_CMD = ["npm", "pack", "--dry-run", "--json"];
 
 /**
  * @param textOrLines
  * @param message
  */
-function logStderr(
-  textOrLines: string | readonly string[],
-  message: string
-): never {
+function logStderr(textOrLines: unknown, message: string): never {
   console.group('"npm pack" output');
-  console.error(
-    Array.isArray(textOrLines) ? textOrLines.join("\n") : textOrLines
-  );
+  console.error(textOrLines);
   console.groupEnd();
 
   throw new Error(message);
@@ -26,84 +41,89 @@ function logStderr(
 /**
  *
  */
-function runNpmPack(): string[] {
+function runNpmPack(): PackageInfo[] {
   const tmpFile = fileSync().name;
 
   // There are issues with incomplete output when the stderr is read directly
   // into Node. Saving it into tmp file using shell redirection and reading it
   // from there doesn't exhibit those issues.
-  execSync(`${PACK_CMD.join(" ")} 2> ${tmpFile}`, {
+  execSync(`${PACK_CMD.join(" ")} > ${tmpFile}`, {
     encoding: "utf-8",
     env: { ...process.env, LC_ALL: "C" },
   });
 
-  const lines = readFileSync(tmpFile, "utf-8").split(/[\r\n]+/);
+  const stdout = readFileSync(tmpFile, "utf-8");
 
-  return lines;
+  try {
+    return JSON.parse(stdout);
+  } catch (error) {
+    logStderr({ error, stdout }, 'Failed to parse "npm pack" JSON output.');
+  }
 }
 
 /**
  * @param lines
+ * @param packageInfo
  */
-function extractFiles(lines: string[]): string[] {
-  const fileListingStart = lines.indexOf(
-    "npm notice === Tarball Contents === "
+function extractFiles(
+  packageInfo: PackageInfo
+): Record<string, Record<string, unknown>> {
+  const files = packageInfo.files.map(
+    ({ path, size }): [string, Record<string, unknown>] => [
+      path,
+      { empty: size === 0 },
+    ]
   );
-  const fileListingEnd = lines.indexOf("npm notice === Tarball Details === ");
-
-  if (fileListingStart === -1 || fileListingEnd === -1) {
-    logStderr(
-      lines.join("\n"),
-      'Couldn\'t find tarball contents in "npm pack" output.'
-    );
-  }
-
-  const files = lines
-    .slice(fileListingStart + 1, fileListingEnd)
-    .map((line): string => line.replace(/^npm notice /, ""))
-    .map((line): string => line.trim())
-    .map((line): string =>
-      line.replace(
-        /^([^ ]+) +(.*)/,
-        (_, size, path): string =>
-          `${path}${size === "0" ? "(empty)" : "       "}`
-      )
-    )
-    .sort()
-    .map((line) => line.replace(/^(.*)(.{7})$/, "$2 $1"));
 
   if (files.length === 0) {
-    logStderr(lines, 'No files found in "npm pack" output.');
+    logStderr(packageInfo, 'No files found in "npm pack" output.');
   }
 
-  return files;
+  return Object.fromEntries(files);
 }
 
 /**
  * @param lines
+ * @param packageInfo
  */
-function extractName(lines: string[]): string {
-  const nameLine = lines.find((line): boolean =>
-    /^npm notice name:/.test(line)
-  );
+function extractName(packageInfo: PackageInfo): string {
+  const name = packageInfo.name;
 
-  if (nameLine == null) {
+  if (name == null) {
     logStderr(
-      lines,
+      packageInfo,
       'Can\'t find the name of the package in "npm pack" output.'
     );
   }
 
-  return nameLine.replace(/^npm notice name: */, "");
+  return name.replace(/^npm notice name: */, "");
 }
 
 /**
  *
  */
-export function inspectNpmPack(): { name: string; files: string[] } {
-  const lines = runNpmPack();
-  const files = extractFiles(lines);
-  const name = extractName(lines);
+export function inspectNpmPack(): {
+  name: string;
+  files: Record<string, Record<string, unknown>>;
+} {
+  const [packageInfo, ...unexpectedExtras] = runNpmPack();
+
+  if (packageInfo == null) {
+    logStderr(
+      [packageInfo, ...unexpectedExtras],
+      'There was no output from "npm pack".'
+    );
+  }
+
+  if (unexpectedExtras.length !== 0) {
+    logStderr(
+      [packageInfo, ...unexpectedExtras],
+      'Can\'t process the output of "npm pack" if there are multiple packages.'
+    );
+  }
+
+  const files = extractFiles(packageInfo);
+  const name = extractName(packageInfo);
 
   return {
     name,
