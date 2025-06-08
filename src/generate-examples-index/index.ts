@@ -17,8 +17,6 @@ import { Example, ExamplesRoot, ExamplePaths } from "./types";
 import { parseArguments } from "./cli";
 import { generatePaths, fixAbsoluteInputURL } from "./paths";
 
-const globby = import("globby");
-
 const argv = parseArguments();
 
 // Log the parsed configuration for debugging purposes.
@@ -165,7 +163,9 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
 
   await Promise.all(
     (
-      await (await globby).globby(join(pathsConfig.page.local, "**/*.html"))
+      await (
+        await import("globby")
+      ).globby(join(pathsConfig.page.local, "**/*.html"))
     ).map(async (pagePath): Promise<any> => {
       const html = await readFile(pagePath, "utf-8");
       const $page = cheerio.load(html);
@@ -220,6 +220,18 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
         return;
       }
 
+      const example: Example = {
+        $: $page,
+        delay: pageDelay,
+        html,
+        path: pagePath,
+        paths: generatePaths(pathsConfig, pagePath),
+        playground: await generatePlaygroundData(baseURL, $page, pagePath),
+        selector: pageSelector,
+        timeout: pageTimeout,
+        titles,
+      };
+
       // Put this example into the structure while creating any missing groups in the process.
       titles.reduce((acc, title, i, arr): any => {
         while (acc[title] != null && acc[title].path != null) {
@@ -235,18 +247,6 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
             );
             return null;
           } else {
-            const example: Example = {
-              $: $page,
-              delay: pageDelay,
-              html: html,
-              path: pagePath,
-              paths: generatePaths(pathsConfig, pagePath),
-              playground: generatePlaygroundData(baseURL, $page, pagePath),
-              selector: pageSelector,
-              timeout: pageTimeout,
-              titles: titles,
-            };
-
             acc[title] = example;
 
             ++stats.examples;

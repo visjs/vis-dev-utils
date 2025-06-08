@@ -1,5 +1,5 @@
 import $ from "cheerio";
-import Jimp from "jimp";
+import { Jimp } from "jimp";
 import { Browser } from "puppeteer";
 import commonScreenshotScript from "./screenshot-script.js.txt";
 import fs from "fs";
@@ -23,8 +23,8 @@ async function isScreenshotValid(screenshot: Buffer): Promise<boolean> {
   const image = await Jimp.read(screenshot);
   const firstPixel = image.getPixelColor(0, 0);
 
-  for (let x = 0; x < image.getWidth(); ++x) {
-    for (let y = 0; y < image.getHeight(); ++y) {
+  for (let x = 0; x < image.width; ++x) {
+    for (let y = 0; y < image.height; ++y) {
       if (firstPixel !== image.getPixelColor(x, y)) {
         return true;
       }
@@ -100,12 +100,12 @@ export async function generateScreenshot(
           ].join("\n"),
         ),
     );
-    await writeFile(tmpPath, formatHTML(screenshotPage.html()));
+    await writeFile(tmpPath, await formatHTML(screenshotPage.html()));
     if (!debug) {
       cleanup.push((): Promise<void> => unlink(tmpPath));
     }
 
-    const context = await browser.createIncognitoBrowserContext();
+    const context = await browser.createBrowserContext();
     if (!debug) {
       cleanup.push((): Promise<void> => context.close());
     }
@@ -123,12 +123,15 @@ export async function generateScreenshot(
       timeout: example.timeout * 1000,
     });
 
-    if (example.delay === "call") {
+    const { delay } = example;
+    if (delay === "call") {
       await page.evaluate(
         "function fn() { return window.readyToTakeAScreenshot; }",
       );
     } else {
-      await page.waitForTimeout(example.delay * 1000);
+      await new Promise(
+        (resolve): void => void setTimeout(resolve, delay * 1000),
+      );
     }
 
     const $element = await page.$(example.selector);
@@ -160,7 +163,7 @@ export async function generateScreenshot(
     await writeFile(example.paths.screenshot.local, screenshot);
 
     // Return the validity of the generated screenshot.
-    return isScreenshotValid(screenshot);
+    return isScreenshotValid(Buffer.from(screenshot));
   } catch (error) {
     console.error(error);
     return false;

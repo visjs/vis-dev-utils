@@ -6,7 +6,7 @@ import { relative } from "path";
 /**
  * @param lines
  */
-function linesToContent(lines: string[]): string {
+function linesToContent(lines: string[]): Promise<string> {
   return formatMD(lines.join("\n"));
 }
 
@@ -43,12 +43,12 @@ function header(level: number, text: string): string {
  * @param title
  * @param collator
  */
-function processGroup(
+async function processGroup(
   examples: Examples,
   output: string,
   title: string,
   collator: Intl.Collator,
-): ContentPart[] {
+): Promise<ContentPart[]> {
   const items: string[] = [];
   const sections: ContentPart[] = [];
   const filenamePart = title.replace(/[^a-zA-Z0-9]/g, "-").toLowerCase();
@@ -77,7 +77,7 @@ function processGroup(
     } else {
       // A subgroup of examples.
       sections.push(
-        ...processGroup(example, output, key, collator).map(
+        ...(await processGroup(example, output, key, collator)).map(
           (contentPart): ContentPart => ({
             ...contentPart,
             filename: filenamePart + "." + contentPart.filename,
@@ -89,7 +89,7 @@ function processGroup(
 
   return [
     {
-      content: linesToContent([header(1, title), "", ...items]),
+      content: await linesToContent([header(1, title), "", ...items]),
       filename: filenamePart + ".md",
       title,
     },
@@ -98,21 +98,23 @@ function processGroup(
 }
 
 export const mdRenderer: Renderer = {
-  render(
+  async render(
     examples: ExamplesRoot,
     output: string,
     _title: string,
     collator: Intl.Collator,
-  ): ContentPart[] {
+  ): Promise<ContentPart[]> {
     const sections: ContentPart[] = [];
 
     for (const key of Object.keys(examples).sort(collator.compare)) {
-      sections.push(...processGroup(examples[key], output, key, collator));
+      sections.push(
+        ...(await processGroup(examples[key], output, key, collator)),
+      );
     }
 
     return [
       {
-        content: linesToContent([
+        content: await linesToContent([
           header(1, "Examples"),
           "",
           ...sections.map(

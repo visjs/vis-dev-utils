@@ -93,18 +93,18 @@ export class ContentBuilder {
         (async (): ContentBuilderRet["index"] => {
           const getStartStopMs = measureStartStopMs();
 
+          const contentParts = await this._config.renderer.render(
+            this._config.examples,
+            this._config.output,
+            this._config.title,
+            collator,
+          );
+
           const results = await Promise.allSettled(
-            this._config.renderer
-              .render(
-                this._config.examples,
-                this._config.output,
-                this._config.title,
-                collator,
-              )
-              .map(
-                async ({ content, filename }): Promise<void> =>
-                  writeFile(join(this._config.output, filename), content),
-              ),
+            contentParts.map(
+              async ({ content, filename }): Promise<void> =>
+                writeFile(join(this._config.output, filename), content),
+            ),
           );
 
           return [
@@ -140,8 +140,8 @@ export class ContentBuilder {
                     path: example.paths.codepen.local,
                   },
                 ].map(
-                  ({ html, path }): Promise<void> =>
-                    writeFile(path, formatHTML(html)),
+                  async ({ html, path }): Promise<void> =>
+                    writeFile(path, await formatHTML(html)),
                 ),
               );
 

@@ -12,7 +12,7 @@ export interface Renderer {
     output: string,
     title: string,
     collator: Intl.Collator,
-  ): ContentPart[];
+  ): Promise<ContentPart[]>;
   screenshot: {
     width: number;
     height: number;

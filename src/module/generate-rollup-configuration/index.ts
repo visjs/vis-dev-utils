@@ -616,7 +616,7 @@ export async function generateRollupConfiguration(
     );
   });
 
-  const banner = generateHeader(header);
+  const banner = await generateHeader(header);
   const external = {
     // No dependencies are bundled.
     esnext: processDependencies([
@@ -756,9 +756,9 @@ export async function generateRollupConfiguration(
           paths: getPaths("esnext", "esm"),
         },
         {
-          ...commonOutputUMD,
-          entryFileNames: `esnext/umd/${libraryFilename}.js`,
-          paths: getPaths("esnext", "umd"),
+          ...commonOutputESM,
+          entryFileNames: `esnext/esm/${libraryFilename}.js`,
+          paths: getPaths("esnext", "esm"),
         },
       ],
       plugins: getPlugins("esnext", {

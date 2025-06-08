@@ -93,12 +93,12 @@ function processGroup(
 }
 
 export const htmlRenderer: Renderer = {
-  render(
+  async render(
     examples: ExamplesRoot,
     _output: string,
     title: string,
     collator: Intl.Collator,
-  ): ContentPart[] {
+  ): Promise<ContentPart[]> {
     const filename = "index.html";
 
     const root = cheerio.load([])("<div>");
@@ -111,7 +111,7 @@ export const htmlRenderer: Renderer = {
     const page = cheerio.load(indexTemplate);
     page("title").text(title);
     page("body").append(root);
-    const content = formatHTML(page.html());
+    const content = await formatHTML(page.html());
 
     return [
       { content, filename, title },

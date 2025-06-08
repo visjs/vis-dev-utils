@@ -7,8 +7,6 @@ import { expect } from "chai";
 import { join, resolve } from "path";
 import { spawnSync } from "child_process";
 
-const rawGlobby = import("globby");
-
 const executable = resolve(
   spawnSync("npm", ["root"]).stdout.toString().slice(0, -1),
   "../bin/generate-examples-index.js",
@@ -116,7 +114,7 @@ describe("generate-examples-index", function (): void {
         it("JSFiddles", async function (): Promise<void> {
           expect(
             await (
-              await rawGlobby
+              await import("globby")
             ).globby(join(output.pages, "jsfiddle.*.html")),
             `There should be ${nmExamples} JSFiddle opener files.`,
           ).have.lengthOf(nmExamples);
@@ -125,7 +123,7 @@ describe("generate-examples-index", function (): void {
         it("CodePens", async function (): Promise<void> {
           expect(
             await (
-              await rawGlobby
+              await import("globby")
             ).globby(join(output.pages, "codepen.*.html")),
             `There should be ${nmExamples} CodePen opener files.`,
           ).have.lengthOf(nmExamples);
@@ -133,7 +131,7 @@ describe("generate-examples-index", function (): void {
 
         it("screenshots", async function (): Promise<void> {
           expect(
-            await (await rawGlobby).globby(join(output.assets, "*.png")),
+            await (await import("globby")).globby(join(output.assets, "*.png")),
             `There should be ${nmExamples} screenshots.`,
           ).have.lengthOf(nmExamples);
         });
@@ -218,14 +216,16 @@ describe("generate-examples-index", function (): void {
           it("directory structure", async function (): Promise<void> {
             snapshot(
               (
-                await (await rawGlobby).globby("**/*", { cwd: output.dir })
+                await (
+                  await import("globby")
+                ).globby("**/*", { cwd: output.dir })
               ).sort(),
             );
           });
 
           it("file contents", async function (): Promise<void> {
             for (const relativePath of await (
-              await rawGlobby
+              await import("globby")
             ).globby(
               [
                 "**/*",

@@ -10,11 +10,11 @@ import { formatCSS, formatHTML, formatJS } from "../format";
  * @param example$
  * @param examplePath
  */
-export function generatePlaygroundData(
+export async function generatePlaygroundData(
   baseURL: string,
   example$: Example["$"],
   examplePath: Example["path"],
-): PlaygroundData {
+): Promise<PlaygroundData> {
   const firstBodyChild = example$("body").get(0);
   if (firstBodyChild == null) {
     throw new Error("Example body has no children.");
@@ -85,9 +85,9 @@ export function generatePlaygroundData(
 
   return {
     code: {
-      css,
-      html,
-      js,
+      css: await css,
+      html: await html,
+      js: await js,
     },
     resources,
   };

@@ -1,6 +1,7 @@
 import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
 
-const y = yargs
+const y = yargs(hideBin(process.argv))
   .strict(true)
   .usage("generate-example-index [options]")
   .hide("version")

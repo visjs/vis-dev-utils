@@ -1,5 +1,4 @@
-import { findUpSync } from "find-up";
-import { readFileSync } from "fs";
+import { readFile } from "fs/promises";
 
 /**
  * Take a string and return a doc block comment.
@@ -33,10 +32,6 @@ export function textToComment(string: string): string {
     "\n */\n"
   );
 }
-
-const packageJSON = JSON.parse(
-  readFileSync(findUpSync("package.json")!, "utf8"),
-);
 
 const buildHeader = ({
   customText,
@@ -93,10 +88,6 @@ export interface HeaderOptions {
 }
 
 const defaultDate = new Date().toISOString();
-const defaultDescription = packageJSON.description;
-const defaultHomepage = packageJSON.homepage;
-const defaultName = packageJSON.name;
-const defaultVersion = packageJSON.version;
 
 /**
  * Generate a dynamic header banner.
@@ -107,7 +98,21 @@ const defaultVersion = packageJSON.version;
  * @throws If the string already contains a comment.
  * @returns Ready to use banner text.
  */
-export function generateHeader(options?: Partial<HeaderOptions>): string {
+export async function generateHeader(
+  options?: Partial<HeaderOptions>,
+): Promise<string> {
+  const packageJSON = JSON.parse(
+    await readFile(
+      (await import("find-up")).findUpSync("package.json")!,
+      "utf8",
+    ),
+  );
+
+  const defaultDescription = packageJSON.description;
+  const defaultHomepage = packageJSON.homepage;
+  const defaultName = packageJSON.name;
+  const defaultVersion = packageJSON.version;
+
   const {
     customText = "",
     date = defaultDate,

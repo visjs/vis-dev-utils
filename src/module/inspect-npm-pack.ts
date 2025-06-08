@@ -66,13 +66,13 @@ function runNpmPack(): PackageInfo[] {
  * @param packageInfo
  */
 function extractFiles(
-  packageInfo: PackageInfo
+  packageInfo: PackageInfo,
 ): Record<string, Record<string, unknown>> {
   const files = packageInfo.files.map(
     ({ path, size }): [string, Record<string, unknown>] => [
       path,
       { empty: size === 0 },
-    ]
+    ],
   );
 
   if (files.length === 0) {
@@ -92,7 +92,7 @@ function extractName(packageInfo: PackageInfo): string {
   if (name == null) {
     logStderr(
       packageInfo,
-      'Can\'t find the name of the package in "npm pack" output.'
+      'Can\'t find the name of the package in "npm pack" output.',
     );
   }
 
@@ -111,14 +111,14 @@ export function inspectNpmPack(): {
   if (packageInfo == null) {
     logStderr(
       [packageInfo, ...unexpectedExtras],
-      'There was no output from "npm pack".'
+      'There was no output from "npm pack".',
     );
   }
 
   if (unexpectedExtras.length !== 0) {
     logStderr(
       [packageInfo, ...unexpectedExtras],
-      'Can\'t process the output of "npm pack" if there are multiple packages.'
+      'Can\'t process the output of "npm pack" if there are multiple packages.',
     );
   }
 
