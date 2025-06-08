@@ -6,7 +6,7 @@ import { expect } from "chai";
 import { join, resolve } from "path";
 import { spawnSync } from "child_process";
 
-const globby = import("globby");
+const rawGlobby = import("globby");
 
 const executable = resolve(
   spawnSync("npm", ["root"]).stdout.toString().slice(0, -1),
@@ -114,21 +114,25 @@ describe("generate-examples-index", function (): void {
       describe("files", function (): void {
         it("JSFiddles", async function (): Promise<void> {
           expect(
-            await (await globby).default(join(output.pages, "jsfiddle.*.html")),
+            await (
+              await rawGlobby
+            ).globby(join(output.pages, "jsfiddle.*.html")),
             `There should be ${nmExamples} JSFiddle opener files.`
           ).have.lengthOf(nmExamples);
         });
 
         it("CodePens", async function (): Promise<void> {
           expect(
-            await (await globby).default(join(output.pages, "codepen.*.html")),
+            await (
+              await rawGlobby
+            ).globby(join(output.pages, "codepen.*.html")),
             `There should be ${nmExamples} CodePen opener files.`
           ).have.lengthOf(nmExamples);
         });
 
         it("screenshots", async function (): Promise<void> {
           expect(
-            await (await globby).default(join(output.assets, "*.png")),
+            await (await rawGlobby).globby(join(output.assets, "*.png")),
             `There should be ${nmExamples} screenshots.`
           ).have.lengthOf(nmExamples);
         });
@@ -212,14 +216,16 @@ describe("generate-examples-index", function (): void {
 
           it("directory structure", async function (): Promise<void> {
             snapshot(
-              (await (await globby).default("**/*", { cwd: output.dir })).sort()
+              (
+                await (await rawGlobby).globby("**/*", { cwd: output.dir })
+              ).sort()
             );
           });
 
           it("file contents", async function (): Promise<void> {
             for (const relativePath of await (
-              await globby
-            ).default(
+              await rawGlobby
+            ).globby(
               [
                 "**/*",
                 // Exclude images, test only text files.

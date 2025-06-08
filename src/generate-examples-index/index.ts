@@ -165,7 +165,7 @@ function lintExample(path: string, page: cheerio.Root): boolean {
 
   await Promise.all(
     (
-      await (await globby).default(join(pathsConfig.page.local, "**/*.html"))
+      await (await globby).globby(join(pathsConfig.page.local, "**/*.html"))
     ).map(async (pagePath): Promise<any> => {
       const html = await readFile(pagePath, "utf-8");
       const $page = $.load(html);

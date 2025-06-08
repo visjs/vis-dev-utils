@@ -40,8 +40,10 @@ const VIS_TEST = ["1", "true", "y", "yes"].includes(
  * @param pattern - Single glob pattern.
  * @returns Globbed paths.
  */
-async function glob(pattern: string): ReturnType<typeof import("globby")> {
-  return (await rawGlobby).default(
+async function glob(
+  pattern: string
+): ReturnType<typeof import("globby")["globby"]> {
+  return (await rawGlobby).globby(
     sep === "\\" ? pattern.replace(/\\/g, "/") : pattern
   );
 }
