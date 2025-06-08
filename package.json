@@ -110,7 +110,7 @@
   "devDependencies": {
     "@types/babel__core": "7.20.4",
     "@types/chai": "4.3.7",
-    "@types/cheerio": "0.22.32",
+    "@types/cheerio": "0.22.35",
     "@types/mocha": "10.0.2",
     "@types/npm": "7.19.1",
     "@types/prettier": "2.7.3",
