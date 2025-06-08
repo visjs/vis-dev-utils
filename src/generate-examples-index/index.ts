@@ -1,4 +1,4 @@
-import $ from "cheerio";
+import * as cheerio from "cheerio";
 import fs from "fs";
 import util from "util";
 import yargs from "yargs";
@@ -38,7 +38,7 @@ const screenshotScriptPath =
 const mkdir = util.promisify(fs.mkdir);
 const readFile = util.promisify(fs.readFile);
 
-function getMeta<T>(page: cheerio.Root, name: string, fallback: T): T;
+function getMeta<T>(page: cheerio.CheerioAPI, name: string, fallback: T): T;
 /**
  * Extract and coerce a value from meta tag.
  * @param page - The page to be queried.
@@ -48,7 +48,7 @@ function getMeta<T>(page: cheerio.Root, name: string, fallback: T): T;
  * possible or the value is not present in the page.
  */
 function getMeta(
-  page: cheerio.Root,
+  page: cheerio.CheerioAPI,
   name: string,
   fallback: number | string
 ): number | string {
@@ -75,7 +75,7 @@ function getMeta(
  * @param page - The HTML to be linted.
  * @returns True if everything's okay, false otherwise.
  */
-function lintExample(path: string, page: cheerio.Root): boolean {
+function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
   let valid = true;
   const msgs = [`${path}:`];
 
@@ -93,7 +93,7 @@ function lintExample(path: string, page: cheerio.Root): boolean {
 
   const headTitle = page("head > title").text().trim();
   const bodyTitle = page("#title > *")
-    .map((_i, elem): string => $.load([])(elem).text())
+    .map((_i, elem): string => cheerio.load([])(elem).text())
     .get()
     .join(" | ")
     .trim();
@@ -168,7 +168,7 @@ function lintExample(path: string, page: cheerio.Root): boolean {
       await (await globby).globby(join(pathsConfig.page.local, "**/*.html"))
     ).map(async (pagePath): Promise<any> => {
       const html = await readFile(pagePath, "utf-8");
-      const $page = $.load(html);
+      const $page = cheerio.load(html);
       const pageDelay = getMeta<number | "call">(
         $page,
         "example-screenshot-delay",

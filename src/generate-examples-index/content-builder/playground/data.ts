@@ -1,4 +1,5 @@
-import $ from "cheerio";
+import * as cheerio from "cheerio";
+import { Text } from "domhandler";
 import { dirname, relative, resolve } from "path";
 
 import { Example, PlaygroundData } from "../../types";
@@ -14,8 +15,13 @@ export function generatePlaygroundData(
   example$: Example["$"],
   examplePath: Example["path"]
 ): PlaygroundData {
+  const firstBodyChild = example$("body").get(0);
+  if (firstBodyChild == null) {
+    throw new Error("Example body has no children.");
+  }
+
   // JavaScript
-  const eventListeners = Object.entries(example$("body").get(0).attribs)
+  const eventListeners = Object.entries(firstBodyChild.attribs)
     .filter(([name]): boolean => /^on/.test(name))
     .map(([name, value]): [string, string] => [name.slice(2), `${value}`])
     .map(
@@ -25,7 +31,7 @@ export function generatePlaygroundData(
     .join("\n");
   const js = formatJS(
     example$("script")
-      .map((_i, elem) => (elem as cheerio.TagElement).children[0])
+      .map((_i, elem) => elem.children[0] as Text)
       .get()
       .map((elem): string => elem.data)
       .join("") +
@@ -36,14 +42,14 @@ export function generatePlaygroundData(
   // Cascading Style Sheets
   const css = formatCSS(
     example$("style")
-      .map((_i, elem) => (elem as cheerio.TagElement).children[0])
+      .map((_i, elem) => elem.children[0] as Text)
       .get()
       .map((elem): string => elem.data)
       .join("")
   );
 
   // Hypertext Markup Language
-  const $html = $.load(example$("body").html() || "");
+  const $html = cheerio.load(example$("body").html() || "");
   $html("script").remove();
 
   const html = formatHTML($html("body").html());
@@ -62,13 +68,15 @@ export function generatePlaygroundData(
 
   const resources = {
     js: example$("script")
-      .map((_i, elem): undefined | string => $.load(elem)("script").attr("src"))
+      .map((_i, elem): undefined | string =>
+        cheerio.load(elem)("script").attr("src")
+      )
       .get()
       .filter((src): src is string => typeof src === "string")
       .map(fixPath),
     css: example$("link[rel='stylesheet']")
       .map((_i, elem): undefined | string =>
-        $.load(elem)("script").attr("href")
+        cheerio.load(elem)("script").attr("href")
       )
       .get()
       .filter((href): href is string => typeof href === "string")

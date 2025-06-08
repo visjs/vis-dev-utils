@@ -1,4 +1,4 @@
-import $ from "cheerio";
+import * as cheerio from "cheerio";
 
 import template from "./jsfiddle.template.html";
 import { Example } from "../../types";
@@ -11,7 +11,7 @@ export function generateJSFiddlePage(example: Example): string {
   const title = example.titles.join(" | ");
   const resources = [...data.resources.css, ...data.resources.js].join(",");
 
-  const page = $.load(template);
+  const page = cheerio.load(template);
   page("title").text(title);
   const form = page("#form");
 

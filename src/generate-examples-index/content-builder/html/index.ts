@@ -1,4 +1,5 @@
-import $ from "cheerio";
+import * as cheerio from "cheerio";
+import type { AnyNode } from "domhandler";
 
 import indexTemplate from "./index.template.html";
 import styleTemplate from "./index.template.css";
@@ -9,8 +10,9 @@ import { formatHTML } from "../format";
 /**
  * @param example
  */
-function generateJSFiddle(example: Example): cheerio.Cheerio {
-  return $.load([])("<a>")
+function generateJSFiddle(example: Example): cheerio.Cheerio<AnyNode> {
+  return cheerio
+    .load([])("<a>")
     .addClass("icon jsfiddle")
     .attr("href", example.paths.jsfiddle.web)
     .attr("title", "JSFiddle");
@@ -19,8 +21,9 @@ function generateJSFiddle(example: Example): cheerio.Cheerio {
 /**
  * @param example
  */
-function generateCodePen(example: Example): cheerio.Cheerio {
-  return $.load([])("<a>")
+function generateCodePen(example: Example): cheerio.Cheerio<AnyNode> {
+  return cheerio
+    .load([])("<a>")
     .addClass("icon codepen")
     .attr("href", example.paths.codepen.web)
     .attr("title", "CodePen");
@@ -37,37 +40,43 @@ function processGroup(
   title: string,
   level: number,
   collator: Intl.Collator
-): cheerio.Cheerio {
-  const heading = $.load([])(`<h${Math.max(1, Math.min(6, level))}>`);
+): cheerio.Cheerio<AnyNode> {
+  const heading = cheerio.load([])(`<h${Math.max(1, Math.min(6, level))}>`);
   heading.text(title);
 
-  const list = $.load([])("<div>");
+  const list = cheerio.load([])("<div>");
 
-  const section = $.load([])("<div>");
+  const section = cheerio.load([])("<div>");
   section.append(heading, list);
 
   for (const key of Object.keys(examples).sort(collator.compare)) {
     const example = examples[key];
 
     if (isExample(example)) {
-      const header = $.load([])("<div>").addClass("example-header").append(
-        // Playgrounds
-        generateJSFiddle(example),
-        generateCodePen(example),
-        // Title
-        $.load([])("<a>").attr("href", example.paths.page.web).text(key)
-      );
+      const header = cheerio
+        .load([])("<div>")
+        .addClass("example-header")
+        .append(
+          // Playgrounds
+          generateJSFiddle(example),
+          generateCodePen(example),
+          // Title
+          cheerio.load([])("<a>").attr("href", example.paths.page.web).text(key)
+        );
 
-      const image = $.load([])("<a>")
+      const image = cheerio
+        .load([])("<a>")
         .addClass("example-image")
         .attr("href", example.paths.page.web)
         .append(
-          $.load([])("<img>")
+          cheerio
+            .load([])("<img>")
             .attr("src", example.paths.screenshot.web)
             .attr("alt", key)
         );
 
-      const item = $.load([])("<span>")
+      const item = cheerio
+        .load([])("<span>")
         .addClass("example-link")
         .append(header, image);
 
@@ -89,14 +98,14 @@ export const htmlRenderer: Renderer = {
   ): ContentPart[] {
     const filename = "index.html";
 
-    const root = $.load([])("<div>");
+    const root = cheerio.load([])("<div>");
     root.addClass("examples-root");
 
     for (const key of Object.keys(examples).sort(collator.compare)) {
       root.append(processGroup(examples[key], key, 1, collator));
     }
 
-    const page = $.load(indexTemplate);
+    const page = cheerio.load(indexTemplate);
     page("title").text(title);
     page("body").append(root);
     const content = formatHTML(page.html());

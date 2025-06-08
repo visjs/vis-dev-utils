@@ -1,4 +1,4 @@
-import $ from "cheerio";
+import * as cheerioheerio from "cheerio";
 
 import template from "./codepen.template.html";
 import { Example } from "../../types";
@@ -10,7 +10,7 @@ export function generateCodePenPage(example: Example): string {
   const data = example.playground;
   const title = example.titles.join(" | ");
 
-  const page = $.load(template);
+  const page = cheerioheerio.load(template);
   page("title").text(title);
   const form = page("#form");
 

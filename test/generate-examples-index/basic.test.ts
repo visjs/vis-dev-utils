@@ -1,4 +1,5 @@
-import $ from "cheerio";
+import * as cheerio from "cheerio";
+import type { Element } from "domhandler";
 import snapshot from "snap-shot-it";
 import tmp from "tmp-promise";
 import { existsSync, readFileSync } from "fs";
@@ -92,10 +93,10 @@ describe("generate-examples-index", function (): void {
     });
 
     describe("verify index", function (): void {
-      let $index: cheerio.Root;
+      let $index: cheerio.CheerioAPI;
 
       it("valid HTML", function (): void {
-        $index = $.load(
+        $index = cheerio.load(
           readFileSync(join(output.index, "index.html"), "utf-8")
         );
       });
@@ -142,7 +143,7 @@ describe("generate-examples-index", function (): void {
         .fill(null)
         .map((_value, i): number => i)) {
         describe(`example ${i + 1}`, function (): void {
-          function getNthExample(n: number): cheerio.Cheerio {
+          function getNthExample(n: number): cheerio.Cheerio<Element> {
             return $index(".example-link").eq(n);
           }
 
