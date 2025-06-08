@@ -610,7 +610,7 @@ export async function generateRollupConfiguration(
       fs.access(resolve("./babel.config.js")),
     ]);
     expect(status, "There has to be a babel.config.js config file.").to.equal(
-      "resolved"
+      "fulfilled"
     );
   });
 
