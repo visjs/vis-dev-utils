@@ -117,7 +117,7 @@
     "@types/sinon": "17.0.4",
     "@types/tmp": "0.2.6",
     "@types/yargs": "17.0.33",
-    "eslint": "8.51.0",
+    "eslint": "9.29.0",
     "fs-extra": "11.3.0",
     "husky": "9.1.7",
     "lint-staged": "16.1.0",
