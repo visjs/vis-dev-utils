@@ -1,4 +1,4 @@
-import $ from "cheerio";
+import * as cheerio from "cheerio";
 import { Jimp } from "jimp";
 import { Browser } from "puppeteer";
 import commonScreenshotScript from "./screenshot-script.js.txt";
@@ -72,18 +72,22 @@ export async function generateScreenshot(
       dirname(example.paths.page.local),
       ".tmp.example.screenshot." + basename(example.paths.page.local),
     );
-    const screenshotPage = $.load(example.html);
+    const screenshotPage = cheerio.load(example.html);
     screenshotPage("head").prepend(
-      $.load([])("<script>")
+      cheerio
+        .load([])("<script>")
         .attr("type", "text/javascript")
         .text(`window.DEBUG = ${true};`),
-      $.load([])("<script>")
+      cheerio
+        .load([])("<script>")
         .attr("type", "text/javascript")
         .text(commonScreenshotScript),
-      $.load([])("<script>")
+      cheerio
+        .load([])("<script>")
         .attr("type", "text/javascript")
         .text(screenshotScript),
-      $.load([])("<style>")
+      cheerio
+        .load([])("<style>")
         .attr("type", "text/css")
         .text(
           [

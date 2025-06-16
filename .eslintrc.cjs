@@ -6,5 +6,5 @@ module.exports = {
 
   root: true,
 
-  extends: ["./eslint-shareable-config"],
+  extends: ["./eslint-shareable-config/index.cjs"],
 };

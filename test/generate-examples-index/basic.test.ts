@@ -2,14 +2,15 @@ import * as cheerio from "cheerio";
 import type { Element } from "domhandler";
 import snapshot from "snap-shot-it";
 import tmp from "tmp-promise";
-import { existsSync, readFileSync } from "fs";
+import { existsSync, readFileSync } from "node:fs";
 import { expect } from "chai";
-import { join, resolve } from "path";
-import { spawnSync } from "child_process";
+import { dirname, join, resolve } from "node:path";
+import { spawnSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
 
 const executable = resolve(
   spawnSync("npm", ["root"]).stdout.toString().slice(0, -1),
-  "../bin/generate-examples-index.js",
+  "../bin/generate-examples-index.mjs",
 );
 
 const baseURL = "https://visjs.github.io/vis-test/";
@@ -41,7 +42,7 @@ function generate(options: {
   const { output, type, threshold = 100, format = "html" } = options;
 
   const examplesDir = resolve(
-    __dirname,
+    dirname(fileURLToPath(new URL(import.meta.url))),
     type === "broken" ? "broken-examples" : "examples",
   );
   const verify = "" + threshold;

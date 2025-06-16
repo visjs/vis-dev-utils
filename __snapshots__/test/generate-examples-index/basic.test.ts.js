@@ -64,7 +64,9 @@ exports['generate-examples-index snapshots broken html file contents generated/i
   border: 1px solid #2b7ce9;
   color: #ffffff;
 
-  transition: transform 0.5s ease 0s, z-index 0.5s linear 0s;
+  transition:
+    transform 0.5s ease 0s,
+    z-index 0.5s linear 0s;
   z-index: 1;
 }
 .examples-root .example-link:hover .example-image > img {
@@ -1442,7 +1444,9 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
   border: 1px solid #2b7ce9;
   color: #ffffff;
 
-  transition: transform 0.5s ease 0s, z-index 0.5s linear 0s;
+  transition:
+    transform 0.5s ease 0s,
+    z-index 0.5s linear 0s;
   z-index: 1;
 }
 .examples-root .example-link:hover .example-image > img {

@@ -16,11 +16,12 @@
     "utils",
     "vis"
   ],
+  "type": "module",
   "scripts": {
     "build": "run-s build:internal build:production build:declarations",
     "build:declarations": "npx tsc --project tsconfig.declarations.json",
     "build:internal": "tsc --project tsconfig.internal.json",
-    "build:production": "rollup --bundleConfigAsCjs --config ./rollup.config.js",
+    "build:production": "rollup --config ./rollup.config.js",
     "clean": "shx rm -rf \"./{.nyc_output,.rpt2_cache}\" \"./{bin,coverage,declarations,dist,e2e,gen,lib}/*\"",
     "style": "prettier --check .",
     "style-fix": "prettier --write .",
@@ -30,8 +31,8 @@
     "test": "run-s test:unit test:interop",
     "test:interop": "node interop.js",
     "test:interop:debug": "npm run test:interop -- --fail-command \"$SHELL\"",
-    "test:unit": "mocha --exit",
-    "watch": "rollup --bundleConfigAsCjs --watch --config rollup.config.js"
+    "test:unit": "NODE_OPTIONS=\"--experimental-strip-types\" mocha --exit",
+    "watch": "rollup --watch --config rollup.config.js"
   },
   "lint-staged": {
     "**/*.{css,html,js,json,json,md,ts,yml}": [
@@ -47,9 +48,31 @@
       "useRelativePath": true
     }
   },
-  "main": "dist/vis-dev-utils.cjs.js",
-  "module": "dist/vis-dev-utils.esm.js",
+  "main": "dist/vis-dev-utils.cjs",
+  "module": "dist/vis-dev-utils.mjs",
   "types": "declarations",
+  "exports": {
+    ".": {
+      "import": "./dist/vis-dev-utils.mjs",
+      "require": "./dist/vis-dev-utils.cjs",
+      "types": "./declarations/index.d.ts"
+    },
+    "./babel-preset": {
+      "import": "./babel-preset/index.mjs",
+      "require": "./babel-preset/index.cjs"
+    },
+    "./babel-register": {
+      "import": "./babel-register/index.mjs",
+      "require": "./babel-register/index.cjs"
+    },
+    "./dist/interop/base-config.json": {
+      "import": "./dist/interop/base-config.json",
+      "require": "./dist/interop/base-config.json"
+    },
+    "./eslint-shareable-config": {
+      "require": "./eslint-shareable-config/index.cjs"
+    }
+  },
   "bin": {
     "ci-utils": "./bin/ci-utils.js",
     "generate-examples-index": "./bin/generate-examples-index.js",
@@ -74,7 +97,7 @@
     "@babel/register": "7.27.1",
     "@babel/runtime-corejs3": "7.27.6",
     "@rollup/plugin-babel": "6.0.4",
-    "@rollup/plugin-commonjs": "28.0.3",
+    "@rollup/plugin-commonjs": "28.0.5",
     "@rollup/plugin-json": "6.1.0",
     "@rollup/plugin-node-resolve": "16.0.1",
     "@rollup/plugin-terser": "0.4.4",
@@ -95,7 +118,7 @@
     "postcss-assets": "6.0.0",
     "prettier": "3.5.3",
     "puppeteer": "24.10.0",
-    "rollup": "4.42.0",
+    "rollup": "4.43.0",
     "rollup-plugin-analyzer": "4.0.0",
     "rollup-plugin-copy": "3.5.0",
     "rollup-plugin-postcss": "4.0.2",
@@ -123,6 +146,7 @@
     "lint-staged": "16.1.0",
     "mocha": "11.5.0",
     "npm-run-all": "4.1.5",
+    "rollup-plugin-esbuild": "^6.2.1",
     "rollup-plugin-node-externals": "8.0.0",
     "shx": "0.4.0",
     "sinon": "20.0.0",

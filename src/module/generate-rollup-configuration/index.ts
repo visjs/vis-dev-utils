@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import { fileURLToPath } from "node:url";
 import { type RollupOptions, type Plugin } from "rollup";
 import analyzerPlugin from "rollup-plugin-analyzer";
 import babelPlugin from "@rollup/plugin-babel";
@@ -23,6 +24,7 @@ import {
 import { BABEL_IGNORE_RE } from "../constants";
 import { type HeaderOptions } from "../header";
 import { type OptionalOptions } from "../util";
+import { dirname } from "node:path";
 
 const rawGlobby = import("globby");
 
@@ -306,12 +308,18 @@ const generateRollupPluginArray = (
       targets: [
         // JavaScript
         {
-          src: resolve(__dirname, "assets/bundle-root.js"),
+          src: resolve(
+            dirname(fileURLToPath(new URL(import.meta.url))),
+            "assets/bundle-root.js",
+          ),
           dest: bundleDir,
           rename: "index.js",
         },
         {
-          src: resolve(__dirname, "assets/bundle-index.js"),
+          src: resolve(
+            dirname(fileURLToPath(new URL(import.meta.url))),
+            "assets/bundle-index.js",
+          ),
           dest: bundleVariantDirs,
           rename: "index.js",
           transform: (content: Buffer): string =>
@@ -320,19 +328,28 @@ const generateRollupPluginArray = (
 
         // TypeScript
         {
-          src: resolve(__dirname, "assets/bundle-root.d.ts"),
+          src: resolve(
+            dirname(fileURLToPath(new URL(import.meta.url))),
+            "assets/bundle-root.d.ts",
+          ),
           dest: bundleDir,
           rename: "index.d.ts",
         },
         {
-          src: resolve(__dirname, "assets/bundle-index.d.ts"),
+          src: resolve(
+            dirname(fileURLToPath(new URL(import.meta.url))),
+            "assets/bundle-index.d.ts",
+          ),
           dest: bundleVariantDirs,
           rename: "index.d.ts",
           transform: (content: Buffer): string =>
             content.toString().replace("{{filename}}", libraryFilename),
         },
         {
-          src: resolve(__dirname, "assets/bundle-file.d.ts"),
+          src: resolve(
+            dirname(fileURLToPath(new URL(import.meta.url))),
+            "assets/bundle-file.d.ts",
+          ),
           dest: bundleVariantDirs,
           rename: `${fullLibraryFilename}.d.ts`,
           transform: (content: Buffer): string =>

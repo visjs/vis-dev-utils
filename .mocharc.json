@@ -1,6 +1,5 @@
 {
   "extension": ["js", "ts"],
-  "require": ["./babel-register"],
   "spec": ["./test/**/*.test.*"],
   "watch-files": ["./src/**/*", "./test/**/*"]
 }

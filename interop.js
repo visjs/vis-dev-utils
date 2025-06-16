@@ -4,12 +4,12 @@
 // to force Windows users to install Shell and configure it to be used to run
 // npm scripts (and break their Windows only projects?).
 
-const { spawnSync } = require("child_process");
+import { spawnSync } from "child_process";
 
 const { status } = spawnSync(
   "node",
   [
-    "./bin/test-e2e-interop.js",
+    "./bin/test-e2e-interop.cjs",
     // This is the shared stuff used in all of our projects.
     "--config",
     "./public/interop/base-config.json",
