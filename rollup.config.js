@@ -6,7 +6,6 @@ import copy from "rollup-plugin-copy";
 import { nodeExternals } from "rollup-plugin-node-externals";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import { generateHeader } from "./lib/header.js";
-import { string } from "rollup-plugin-string";
 
 const VIS_DEBUG = ["1", "true", "y", "yes"].includes(
   process.env["VIS_DEBUG"] || "false",
@@ -35,14 +34,14 @@ export default async function () {
       extensions: [".css", ".html", ".js", ".json", ".ts", ".txt"],
       preferBuiltins: true,
     }),
-    string({
-      include: ["**/*.{css,html,txt}"],
-    }),
     esbuild({
       minify: false,
       target: "esnext",
       loaders: {
+        ".css": "text",
+        ".html": "text",
         ".json": "json",
+        ".txt": "text",
       },
     }),
     commonjs(),
