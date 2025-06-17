@@ -66,7 +66,7 @@ export default async function () {
       plugins: getPlugins(),
     },
     // File exports.
-    ...["babel-register"].map((name) => {
+    ...["babel-preset", "babel-register"].map((name) => {
       return {
         input: `src/${name}/index.ts`,
         output: [

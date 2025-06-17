@@ -1,8 +1,19 @@
-module.exports = function (_context, { ts = false } = {}) {
-  const base = {
+import babelPresetEnv from "@babel/preset-env";
+import babelTransformRuntime from "@babel/plugin-transform-runtime";
+import babelPresetTypescript from "@babel/preset-typescript";
+
+/**
+ * Provides shared configuration for Vis family of packages for Babel.
+ * @param _context - The context provided by Babel, unused here.
+ * @param [options] - The options object.
+ * @param [options.ts] - Indicates if TypeScript is being used.
+ * @returns Babel config.
+ */
+export default function (_context: unknown, { ts = false } = {}) {
+  return {
     presets: [
       [
-        require("@babel/preset-env"),
+        babelPresetEnv,
         {
           targets: {
             // A browser is polyfilled if it is supported by it's maintainers
@@ -21,10 +32,11 @@ module.exports = function (_context, { ts = false } = {}) {
           useBuiltIns: false,
         },
       ],
+      ...(ts ? [babelPresetTypescript] : []),
     ],
     plugins: [
       [
-        require("@babel/plugin-transform-runtime"),
+        babelTransformRuntime,
         {
           // Force corejs 3. The default corejs 2 is deprecated and doesn't
           // contain some polyfills.
@@ -36,7 +48,7 @@ module.exports = function (_context, { ts = false } = {}) {
       test: {
         presets: [
           [
-            require("@babel/preset-env"),
+            babelPresetEnv,
             {
               // Tests run in Node so there's no need to include any other
               // polyfills (we're testing our code, not the polyfills).
@@ -48,7 +60,7 @@ module.exports = function (_context, { ts = false } = {}) {
       "test-cov": {
         presets: [
           [
-            require("@babel/preset-env"),
+            babelPresetEnv,
             {
               // dtto
               targets: "maintained node versions",
@@ -61,10 +73,4 @@ module.exports = function (_context, { ts = false } = {}) {
       },
     },
   };
-
-  if (ts) {
-    base.presets.push(require("@babel/preset-typescript"));
-  }
-
-  return base;
-};
+}

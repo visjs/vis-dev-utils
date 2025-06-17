@@ -10,5 +10,5 @@
     "target": "es2020"
   },
   "exclude": ["node_modules", "**/__tests__/*"],
-  "include": ["@types", "src/module"]
+  "include": ["@types", "src"]
 }

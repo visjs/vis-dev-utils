@@ -20,9 +20,10 @@
 /test/generate-examples-index/**/.tmp.*
 
 # built files
+/babel-preset/
 /babel-register/
-/bin
-/declarations
-/dist
-/lib
+/bin/
+/declarations/
+/dist/
+/lib/
 /vis-dev-utils-0.0.0-no-version.tgz

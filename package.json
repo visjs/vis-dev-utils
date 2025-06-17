@@ -55,15 +55,17 @@
     ".": {
       "import": "./dist/vis-dev-utils.mjs",
       "require": "./dist/vis-dev-utils.cjs",
-      "types": "./declarations/index.d.ts"
+      "types": "./declarations/module/index.d.ts"
     },
     "./babel-preset": {
       "import": "./babel-preset/index.mjs",
-      "require": "./babel-preset/index.cjs"
+      "require": "./babel-preset/index.cjs",
+      "types": "./declarations/babel-preset/index.d.ts"
     },
     "./babel-register": {
       "import": "./babel-register/index.mjs",
-      "require": "./babel-register/index.cjs"
+      "require": "./babel-register/index.cjs",
+      "types": "./declarations/babel-register/index.d.ts"
     },
     "./dist/interop/base-config.json": {
       "import": "./dist/interop/base-config.json",

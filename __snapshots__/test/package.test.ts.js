@@ -10,19 +10,22 @@ exports['package exported files 1'] = {
     "README.md": {
       "empty": false
     },
-    "babel-preset/index.js": {
+    "babel-preset/index.cjs": {
+      "empty": false
+    },
+    "babel-preset/index.cjs.map": {
+      "empty": false
+    },
+    "babel-preset/index.mjs": {
+      "empty": false
+    },
+    "babel-preset/index.mjs.map": {
       "empty": false
     },
     "babel-register/index.cjs": {
       "empty": false
     },
     "babel-register/index.cjs.map": {
-      "empty": false
-    },
-    "babel-register/index.js": {
-      "empty": false
-    },
-    "babel-register/index.js.map": {
       "empty": false
     },
     "babel-register/index.mjs": {
@@ -67,40 +70,172 @@ exports['package exported files 1'] = {
     "bin/test-e2e-interop.mjs.map": {
       "empty": false
     },
-    "declarations/constants.d.ts": {
+    "declarations/babel-preset/index.d.ts": {
       "empty": false
     },
-    "declarations/constants.d.ts.map": {
+    "declarations/babel-preset/index.d.ts.map": {
       "empty": false
     },
-    "declarations/generate-rollup-configuration/index.d.ts": {
+    "declarations/babel-register/index.d.ts": {
       "empty": false
     },
-    "declarations/generate-rollup-configuration/index.d.ts.map": {
+    "declarations/babel-register/index.d.ts.map": {
       "empty": false
     },
-    "declarations/header.d.ts": {
+    "declarations/ci-utils/index.d.ts": {
       "empty": false
     },
-    "declarations/header.d.ts.map": {
+    "declarations/ci-utils/index.d.ts.map": {
       "empty": false
     },
-    "declarations/index.d.ts": {
+    "declarations/generate-examples-index/cli.d.ts": {
       "empty": false
     },
-    "declarations/index.d.ts.map": {
+    "declarations/generate-examples-index/cli.d.ts.map": {
       "empty": false
     },
-    "declarations/inspect-npm-pack.d.ts": {
+    "declarations/generate-examples-index/content-builder/builder.d.ts": {
       "empty": false
     },
-    "declarations/inspect-npm-pack.d.ts.map": {
+    "declarations/generate-examples-index/content-builder/builder.d.ts.map": {
       "empty": false
     },
-    "declarations/util.d.ts": {
+    "declarations/generate-examples-index/content-builder/common.d.ts": {
       "empty": false
     },
-    "declarations/util.d.ts.map": {
+    "declarations/generate-examples-index/content-builder/common.d.ts.map": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/format.d.ts": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/format.d.ts.map": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/html/index.d.ts": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/html/index.d.ts.map": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/index.d.ts": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/index.d.ts.map": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/md/index.d.ts": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/md/index.d.ts.map": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/playground/codepen.d.ts": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/playground/codepen.d.ts.map": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/playground/data.d.ts": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/playground/data.d.ts.map": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/playground/index.d.ts": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/playground/index.d.ts.map": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/playground/jsfiddle.d.ts": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/playground/jsfiddle.d.ts.map": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/screenshots/index.d.ts": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/content-builder/screenshots/index.d.ts.map": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/index.d.ts": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/index.d.ts.map": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/paths.d.ts": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/paths.d.ts.map": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/types.d.ts": {
+      "empty": false
+    },
+    "declarations/generate-examples-index/types.d.ts.map": {
+      "empty": false
+    },
+    "declarations/module/constants.d.ts": {
+      "empty": false
+    },
+    "declarations/module/constants.d.ts.map": {
+      "empty": false
+    },
+    "declarations/module/generate-rollup-configuration/index.d.ts": {
+      "empty": false
+    },
+    "declarations/module/generate-rollup-configuration/index.d.ts.map": {
+      "empty": false
+    },
+    "declarations/module/header.d.ts": {
+      "empty": false
+    },
+    "declarations/module/header.d.ts.map": {
+      "empty": false
+    },
+    "declarations/module/index.d.ts": {
+      "empty": false
+    },
+    "declarations/module/index.d.ts.map": {
+      "empty": false
+    },
+    "declarations/module/inspect-npm-pack.d.ts": {
+      "empty": false
+    },
+    "declarations/module/inspect-npm-pack.d.ts.map": {
+      "empty": false
+    },
+    "declarations/module/util.d.ts": {
+      "empty": false
+    },
+    "declarations/module/util.d.ts.map": {
+      "empty": false
+    },
+    "declarations/test-e2e-interop/cli.d.ts": {
+      "empty": false
+    },
+    "declarations/test-e2e-interop/cli.d.ts.map": {
+      "empty": false
+    },
+    "declarations/test-e2e-interop/index.d.ts": {
+      "empty": false
+    },
+    "declarations/test-e2e-interop/index.d.ts.map": {
+      "empty": false
+    },
+    "declarations/test-e2e-interop/test.d.ts": {
+      "empty": false
+    },
+    "declarations/test-e2e-interop/test.d.ts.map": {
+      "empty": false
+    },
+    "declarations/test-e2e-interop/util.d.ts": {
+      "empty": false
+    },
+    "declarations/test-e2e-interop/util.d.ts.map": {
       "empty": false
     },
     "dist/assets/bundle-file.d.ts": {

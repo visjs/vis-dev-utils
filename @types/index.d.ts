@@ -27,3 +27,18 @@ declare module "rollup-plugin-strip-code" {
   const value: any;
   export default value;
 }
+
+declare module "@babel/preset-env" {
+  const value: any;
+  export default value;
+}
+
+declare module "@babel/plugin-transform-runtime" {
+  const value: any;
+  export default value;
+}
+
+declare module "@babel/preset-typescript" {
+  const value: any;
+  export default value;
+}
