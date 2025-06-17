@@ -1,4 +1,4 @@
-module.exports = function (_context, { css = false, ts = false } = {}) {
+module.exports = function (_context, { ts = false } = {}) {
   const base = {
     presets: [
       [
@@ -62,9 +62,6 @@ module.exports = function (_context, { css = false, ts = false } = {}) {
     },
   };
 
-  if (css) {
-    base.plugins.push(require("babel-plugin-css-modules-transform"));
-  }
   if (ts) {
     base.presets.push(require("@babel/preset-typescript"));
   }
