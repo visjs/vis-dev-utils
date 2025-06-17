@@ -1,3 +1,1 @@
-export const BABEL_IGNORE_RE = Object.freeze(
-  /[\\/]node_modules[\\/](?!.*[\\/]esnext[\\/])/,
-);
+export const BABEL_IGNORE_RE = /[\\/]node_modules[\\/](?!.*[\\/]esnext[\\/])/;
