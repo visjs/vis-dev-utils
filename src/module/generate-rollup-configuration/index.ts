@@ -11,7 +11,7 @@ import postcssAssetsPlugin from "postcss-assets";
 import postcssPlugin from "rollup-plugin-postcss";
 import stripCodePlugin from "rollup-plugin-strip-code";
 import terserPlugin from "@rollup/plugin-terser";
-import typescriptPlugin from "rollup-plugin-typescript2";
+import typescriptPlugin from "@rollup/plugin-typescript";
 import { generateHeader } from "../header";
 import { join, resolve, sep } from "path";
 import { string as stringPlugin } from "rollup-plugin-string";
