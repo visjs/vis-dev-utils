@@ -1,5 +1,5 @@
 import fs from "node:fs/promises";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, URL } from "node:url";
 import { type RollupOptions, type Plugin } from "rollup";
 import analyzerPlugin from "rollup-plugin-analyzer";
 import babelPlugin from "@rollup/plugin-babel";
