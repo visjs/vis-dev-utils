@@ -1,7 +1,6 @@
 import packageJSON from "./package.json" with { type: "json" };
 import analyzer from "rollup-plugin-analyzer";
 import esbuild from "rollup-plugin-esbuild";
-import commonjs from "@rollup/plugin-commonjs";
 import copy from "rollup-plugin-copy";
 import { nodeExternals } from "rollup-plugin-node-externals";
 import nodeResolve from "@rollup/plugin-node-resolve";
@@ -44,7 +43,6 @@ export default async function () {
         ".txt": "text",
       },
     }),
-    commonjs(),
   ];
 
   return [
