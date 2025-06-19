@@ -773,9 +773,9 @@ export async function generateRollupConfiguration(
           paths: getPaths("esnext", "esm"),
         },
         {
-          ...commonOutputESM,
-          entryFileNames: `esnext/esm/${libraryFilename}.js`,
-          paths: getPaths("esnext", "esm"),
+          ...commonOutputUMD,
+          entryFileNames: `esnext/umd/${libraryFilename}.js`,
+          paths: getPaths("esnext", "umd"),
         },
       ],
       plugins: getPlugins("esnext", {
