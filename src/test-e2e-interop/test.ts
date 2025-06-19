@@ -1,18 +1,18 @@
-import { DirResult, dirSync, setGracefulCleanup } from "tmp";
-import { resolve as resolvePath } from "path";
-import { findUp } from "find-up";
+import { resolve as resolvePath } from "node:path";
 import {
-  Stats,
-  copy,
   copyFile,
   lstat,
   mkdir,
-  mkdirp,
   readFile,
   readdir,
   writeFile,
   unlink,
-} from "fs-extra";
+} from "node:fs/promises";
+import { Stats } from "node:fs";
+
+import { DirResult, dirSync, setGracefulCleanup } from "tmp";
+import { findUp } from "find-up";
+import fsExtra from "fs-extra";
 
 import {
   ProjectState,
@@ -22,6 +22,10 @@ import {
   logError,
   logInfo,
 } from "./util";
+
+// This is needed because the ESM export fs-extra/esm has no types and the typed
+// fs-extra export is CJS.
+const { copy, mkdirp } = fsExtra;
 
 // Remove all temporary files on process exit.
 setGracefulCleanup();
@@ -431,7 +435,7 @@ export async function test({
           ...(await Promise.all(
             (await readdir(data.tmpLogsResolve())).map(
               (filename): Promise<string> =>
-                readFile(data.tmpLogsResolve(filename), "UTF-8"),
+                readFile(data.tmpLogsResolve(filename), "utf-8"),
             ),
           )),
           "",

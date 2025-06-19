@@ -87,19 +87,13 @@ export default async function () {
       };
     }),
     // Node commands.
-    ...Object.keys(packageJSON.bin).map((name) => {
+    ...Object.entries(packageJSON.bin).map(([name, file]) => {
       return {
         input: `src/${name}/index.ts`,
         output: [
           {
             banner: bannerCommand,
-            file: `bin/${name}.cjs`,
-            format: "cjs",
-            sourcemap: true,
-          },
-          {
-            banner: bannerCommand,
-            file: `bin/${name}.mjs`,
+            file,
             format: "esm",
             sourcemap: true,
           },

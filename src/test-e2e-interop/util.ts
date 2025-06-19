@@ -1,6 +1,7 @@
-import { execSync, spawn } from "child_process";
-import { basename, join } from "path";
-import { createWriteStream, readFile, rename } from "fs-extra";
+import { execSync, spawn } from "node:child_process";
+import { basename, join } from "node:path";
+import { readFile, rename } from "node:fs/promises";
+import { createWriteStream } from "node:fs";
 
 export class ProjectState {
   /**
