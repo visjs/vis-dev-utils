@@ -50,7 +50,7 @@
   },
   "main": "dist/vis-dev-utils.cjs",
   "module": "dist/vis-dev-utils.mjs",
-  "types": "declarations",
+  "types": "declarations/module/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/vis-dev-utils.mjs",
