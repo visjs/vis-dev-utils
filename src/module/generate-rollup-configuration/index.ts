@@ -585,7 +585,7 @@ export async function generateRollupConfiguration(
     )
       .to.have.ownProperty("browser")
       .that.is.a("string")
-      .and.equals(`peer/umd/${libraryFilename}.min.js`);
+      .and.equals(`peer/umd/${libraryFilename}.min.cjs`);
   });
   validate((expect): void => {
     expect(
@@ -594,7 +594,7 @@ export async function generateRollupConfiguration(
     )
       .to.have.ownProperty("main")
       .that.is.a("string")
-      .and.equals(`peer/umd/${libraryFilename}.js`);
+      .and.equals(`peer/umd/${libraryFilename}.cjs`);
   });
   validate((expect): void => {
     expect(
@@ -603,7 +603,7 @@ export async function generateRollupConfiguration(
     )
       .to.have.ownProperty("module")
       .that.is.a("string")
-      .and.equals(`peer/esm/${libraryFilename}.js`);
+      .and.equals(`peer/esm/${libraryFilename}.mjs`);
   });
   validate((expect): void => {
     expect(
@@ -612,7 +612,46 @@ export async function generateRollupConfiguration(
     )
       .to.have.ownProperty("jsnext")
       .that.is.a("string")
-      .and.equals(`esnext/esm/${libraryFilename}.js`);
+      .and.equals(`esnext/esm/${libraryFilename}.mjs`);
+  });
+
+  validate((expect): void => {
+    expect(packageJSONRest, "Package JSON's exports have to contain ./")
+      .to.have.ownProperty("exports")
+      .that.is.an("object")
+      .and.has.ownProperty(".")
+      .that.is.an("object")
+      .and.has.keys(["import", "require", "types"]);
+  });
+
+  validate((expect): void => {
+    expect(
+      packageJSONRest,
+      "Package JSON's exports have to contain ./standalone",
+    )
+      .to.have.ownProperty("exports")
+      .that.is.an("object")
+      .and.has.ownProperty("./standalone")
+      .that.is.an("object")
+      .and.has.keys(["import", "require", "types"]);
+  });
+
+  validate((expect): void => {
+    expect(packageJSONRest, "Package JSON's exports have to contain ./peer")
+      .to.have.ownProperty("exports")
+      .that.is.an("object")
+      .and.has.ownProperty("./peer")
+      .that.is.an("object")
+      .and.has.keys(["import", "require", "types"]);
+  });
+
+  validate((expect): void => {
+    expect(packageJSONRest, "Package JSON's exports have to contain ./esnext")
+      .to.have.ownProperty("exports")
+      .that.is.an("object")
+      .and.has.ownProperty("./esnext")
+      .that.is.an("object")
+      .and.has.keys(["import", "require", "types"]);
   });
 
   validate(async (expect): Promise<void> => {
@@ -690,8 +729,16 @@ export async function generateRollupConfiguration(
           entryFileNames: `standalone/esm/${libraryFilename}.js`,
         },
         {
+          ...commonOutputESM,
+          entryFileNames: `standalone/esm/${libraryFilename}.mjs`,
+        },
+        {
           ...commonOutputUMD,
           entryFileNames: `standalone/umd/${libraryFilename}.js`,
+        },
+        {
+          ...commonOutputUMD,
+          entryFileNames: `standalone/umd/${libraryFilename}.cjs`,
         },
       ],
       plugins: getPlugins("standalone", {
@@ -709,8 +756,16 @@ export async function generateRollupConfiguration(
           entryFileNames: `standalone/esm/${libraryFilename}.min.js`,
         },
         {
+          ...commonOutputESM,
+          entryFileNames: `standalone/esm/${libraryFilename}.min.mjs`,
+        },
+        {
           ...commonOutputUMD,
           entryFileNames: `standalone/umd/${libraryFilename}.min.js`,
+        },
+        {
+          ...commonOutputUMD,
+          entryFileNames: `standalone/umd/${libraryFilename}.min.cjs`,
         },
       ],
       plugins: getPlugins("standalone", {
@@ -731,8 +786,18 @@ export async function generateRollupConfiguration(
           paths: getPaths("peer", "esm"),
         },
         {
+          ...commonOutputESM,
+          entryFileNames: `peer/esm/${libraryFilename}.mjs`,
+          paths: getPaths("peer", "esm"),
+        },
+        {
           ...commonOutputUMD,
           entryFileNames: `peer/umd/${libraryFilename}.js`,
+          paths: getPaths("peer", "umd"),
+        },
+        {
+          ...commonOutputUMD,
+          entryFileNames: `peer/umd/${libraryFilename}.cjs`,
           paths: getPaths("peer", "umd"),
         },
       ],
@@ -751,8 +816,18 @@ export async function generateRollupConfiguration(
           paths: getPaths("peer", "esm"),
         },
         {
+          ...commonOutputESM,
+          entryFileNames: `peer/esm/${libraryFilename}.min.mjs`,
+          paths: getPaths("peer", "esm"),
+        },
+        {
           ...commonOutputUMD,
           entryFileNames: `peer/umd/${libraryFilename}.min.js`,
+          paths: getPaths("peer", "umd"),
+        },
+        {
+          ...commonOutputUMD,
+          entryFileNames: `peer/umd/${libraryFilename}.min.cjs`,
           paths: getPaths("peer", "umd"),
         },
       ],
@@ -773,8 +848,18 @@ export async function generateRollupConfiguration(
           paths: getPaths("esnext", "esm"),
         },
         {
-          ...commonOutputUMD,
+          ...commonOutputESM,
+          entryFileNames: `esnext/esm/${libraryFilename}.mjs`,
+          paths: getPaths("esnext", "esm"),
+        },
+        {
+          ...commonOutputESM,
           entryFileNames: `esnext/umd/${libraryFilename}.js`,
+          paths: getPaths("esnext", "umd"),
+        },
+        {
+          ...commonOutputESM,
+          entryFileNames: `esnext/umd/${libraryFilename}.cjs`,
           paths: getPaths("esnext", "umd"),
         },
       ],
@@ -792,8 +877,18 @@ export async function generateRollupConfiguration(
           paths: getPaths("esnext", "esm"),
         },
         {
+          ...commonOutputESM,
+          entryFileNames: `esnext/esm/${libraryFilename}.min.mjs`,
+          paths: getPaths("esnext", "esm"),
+        },
+        {
           ...commonOutputUMD,
           entryFileNames: `esnext/umd/${libraryFilename}.min.js`,
+          paths: getPaths("esnext", "umd"),
+        },
+        {
+          ...commonOutputUMD,
+          entryFileNames: `esnext/umd/${libraryFilename}.min.cjs`,
           paths: getPaths("esnext", "umd"),
         },
       ],
