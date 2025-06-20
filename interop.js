@@ -9,7 +9,7 @@ import { spawnSync } from "child_process";
 const { status } = spawnSync(
   "node",
   [
-    "./bin/test-e2e-interop.cjs",
+    "./bin/test-e2e-interop.js",
     // This is the shared stuff used in all of our projects.
     "--config",
     "./public/interop/base-config.json",
