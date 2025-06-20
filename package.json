@@ -112,7 +112,7 @@
     "babel-plugin-istanbul": "7.0.0",
     "chai": "5.2.0",
     "cheerio": "1.1.0",
-    "eslint-config-prettier": "9.1.0",
+    "eslint-config-prettier": "10.1.5",
     "eslint-plugin-cypress": "2.15.2",
     "eslint-plugin-eslint-comments": "3.2.0",
     "eslint-plugin-jsdoc": "46.10.1",
