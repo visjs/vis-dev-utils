@@ -58,13 +58,19 @@ const failCommand = argv["fail-command"];
 
 const logsToStdout = argv["logs-to-stdout"];
 
-test({ failCommand, logsToStdout, packageScripts, projectPaths, tmpPath })
-  .then((allSucceeded): void => {
-    if (!allSucceeded) {
-      process.exitCode = 1;
-    }
-  })
-  .catch((reason): void => {
-    console.error(reason);
-    process.exitCode = 2;
+try {
+  const allSucceeded = await test({
+    failCommand,
+    logsToStdout,
+    packageScripts,
+    projectPaths,
+    tmpPath,
   });
+
+  if (!allSucceeded) {
+    process.exitCode = 1;
+  }
+} catch (reason) {
+  console.error(reason);
+  process.exitCode = 2;
+}
