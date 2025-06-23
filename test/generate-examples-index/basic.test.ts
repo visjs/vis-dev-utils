@@ -10,7 +10,7 @@ import { fileURLToPath } from "node:url";
 
 const executable = resolve(
   spawnSync("npm", ["root"]).stdout.toString().slice(0, -1),
-  "../bin/generate-examples-index.mjs",
+  "../bin/generate-examples-index.js",
 );
 
 const baseURL = "https://visjs.github.io/vis-test/";
