@@ -34,40 +34,22 @@ exports['package exported files 1'] = {
     "babel-register/index.mjs.map": {
       "empty": false
     },
-    "bin/ci-utils.cjs": {
+    "bin/ci-utils.js": {
       "empty": false
     },
-    "bin/ci-utils.cjs.map": {
+    "bin/ci-utils.js.map": {
       "empty": false
     },
-    "bin/ci-utils.mjs": {
+    "bin/generate-examples-index.js": {
       "empty": false
     },
-    "bin/ci-utils.mjs.map": {
+    "bin/generate-examples-index.js.map": {
       "empty": false
     },
-    "bin/generate-examples-index.cjs": {
+    "bin/test-e2e-interop.js": {
       "empty": false
     },
-    "bin/generate-examples-index.cjs.map": {
-      "empty": false
-    },
-    "bin/generate-examples-index.mjs": {
-      "empty": false
-    },
-    "bin/generate-examples-index.mjs.map": {
-      "empty": false
-    },
-    "bin/test-e2e-interop.cjs": {
-      "empty": false
-    },
-    "bin/test-e2e-interop.cjs.map": {
-      "empty": false
-    },
-    "bin/test-e2e-interop.mjs": {
-      "empty": false
-    },
-    "bin/test-e2e-interop.mjs.map": {
+    "bin/test-e2e-interop.js.map": {
       "empty": false
     },
     "declarations/babel-preset/index.d.ts": {
