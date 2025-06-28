@@ -91,6 +91,10 @@
     "eslint-shareable-config",
     "lib"
   ],
+  "volta": {
+    "node": "21.7.3",
+    "npm": "11.4.2"
+  },
   "dependencies": {
     "fs-extra": "11.3.0"
   },
