@@ -2,9 +2,6 @@ import { BABEL_IGNORE_RE } from "../module";
 
 /* eslint-disable @typescript-eslint/no-var-requires -- The following code would be messed up by transpilation from ESM. */
 
-// Skip CSS.
-require.extensions[".css"] = () => {};
-
 require("@babel/register")({
   extensions: [".ts", ".js"],
   // This will override `node_modules` ignoring. We use untranspiled versions of
