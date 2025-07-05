@@ -31,7 +31,7 @@
     "test": "run-s test:unit test:interop",
     "test:interop": "node interop.js",
     "test:interop:debug": "npm run test:interop -- --fail-command \"$SHELL\"",
-    "test:unit": "NODE_OPTIONS=\"--experimental-strip-types\" mocha --exit",
+    "test:unit": "mocha --exit",
     "watch": "rollup --watch --config rollup.config.js"
   },
   "lint-staged": {
