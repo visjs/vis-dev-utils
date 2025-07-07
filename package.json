@@ -18,9 +18,8 @@
   ],
   "type": "module",
   "scripts": {
-    "build": "run-s build:internal build:production build:declarations",
+    "build": "run-s build:production build:declarations",
     "build:declarations": "npx tsc --project tsconfig.declarations.json",
-    "build:internal": "tsc --project tsconfig.internal.json",
     "build:production": "rollup --config ./rollup.config.js",
     "clean": "shx rm -rf \"./{.nyc_output,.rpt2_cache}\" \"./{bin,coverage,declarations,dist,e2e,gen}/*\"",
     "style": "prettier --check .",
