@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "baseUrl": ".",
     "declaration": false,
     "esModuleInterop": true,
     "lib": ["dom", "es2020"],
     "module": "esnext",
     "moduleResolution": "node",
+    "noEmit": true,
     "outDir": "js/src",
     "paths": {},
     "resolveJsonModule": true,

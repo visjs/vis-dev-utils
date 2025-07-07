@@ -4,7 +4,7 @@ import esbuild from "rollup-plugin-esbuild";
 import copy from "rollup-plugin-copy";
 import { nodeExternals } from "rollup-plugin-node-externals";
 import nodeResolve from "@rollup/plugin-node-resolve";
-import { generateHeader } from "./lib/header.js";
+import { generateHeader } from "./src/module/header.ts";
 
 const VIS_DEBUG = ["1", "true", "y", "yes"].includes(
   process.env["VIS_DEBUG"] || "false",

@@ -6,6 +6,7 @@
     "declarationDir": "declarations",
     "declarationMap": true,
     "emitDeclarationOnly": true,
+    "noEmit": false,
     "outDir": "js/src",
     "target": "es2020"
   },

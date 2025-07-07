@@ -1,6 +1,6 @@
 import snapshot from "snap-shot-it";
 
-import { inspectNpmPack } from "../lib/inspect-npm-pack.js";
+import { inspectNpmPack } from "../src/module/inspect-npm-pack.ts";
 
 describe("package", function (): void {
   it("exported files", function (): void {
