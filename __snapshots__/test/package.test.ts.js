@@ -253,30 +253,6 @@ exports['package exported files 1'] = {
     "eslint-shareable-config/index.cjs": {
       "empty": false
     },
-    "lib/header.d.ts": {
-      "empty": false
-    },
-    "lib/header.d.ts.map": {
-      "empty": false
-    },
-    "lib/header.js": {
-      "empty": false
-    },
-    "lib/header.js.map": {
-      "empty": false
-    },
-    "lib/inspect-npm-pack.d.ts": {
-      "empty": false
-    },
-    "lib/inspect-npm-pack.d.ts.map": {
-      "empty": false
-    },
-    "lib/inspect-npm-pack.js": {
-      "empty": false
-    },
-    "lib/inspect-npm-pack.js.map": {
-      "empty": false
-    },
     "package.json": {
       "empty": false
     }
