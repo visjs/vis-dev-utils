@@ -20,6 +20,7 @@ executors:
       GIT_AUTHOR_NAME: vis-bot
       GIT_COMMITTER_EMAIL: visjsbot@gmail.com
       GIT_COMMITTER_NAME: vis-bot
+      PUPPETEER_CACHE_DIR: ~/repo/cache/puppeteer
 
   node-interop:
     docker:
@@ -31,6 +32,7 @@ executors:
       GIT_AUTHOR_NAME: vis-bot
       GIT_COMMITTER_EMAIL: visjsbot@gmail.com
       GIT_COMMITTER_NAME: vis-bot
+      PUPPETEER_CACHE_DIR: ~/repo/cache/puppeteer
 
 jobs:
   prepare:
