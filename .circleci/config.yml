@@ -20,7 +20,6 @@ executors:
       GIT_AUTHOR_NAME: vis-bot
       GIT_COMMITTER_EMAIL: visjsbot@gmail.com
       GIT_COMMITTER_NAME: vis-bot
-      PUPPETEER_CACHE_DIR: ~/repo/cache/puppeteer
 
   node-interop:
     docker:
@@ -32,7 +31,6 @@ executors:
       GIT_AUTHOR_NAME: vis-bot
       GIT_COMMITTER_EMAIL: visjsbot@gmail.com
       GIT_COMMITTER_NAME: vis-bot
-      PUPPETEER_CACHE_DIR: ~/repo/cache/puppeteer
 
 jobs:
   prepare:
@@ -44,35 +42,36 @@ jobs:
       - run: npm ci
 
       - persist_to_workspace:
-          root: .
+          root: ~
           paths:
-            - "*"
+            - ".cache"
+            - "repo"
 
   build:
     executor: node
 
     steps:
       - attach_workspace:
-          at: .
+          at: ~
 
       - run: npm run build
 
       - persist_to_workspace:
-          root: .
+          root: ~
           paths:
-            - "babel-preset"
-            - "babel-register"
-            - "bin"
-            - "declarations"
-            - "dist"
-            - "lib"
+            - "repo/babel-preset"
+            - "repo/babel-register"
+            - "repo/bin"
+            - "repo/declarations"
+            - "repo/dist"
+            - "repo/lib"
 
   lint:
     executor: node
 
     steps:
       - attach_workspace:
-          at: .
+          at: ~
 
       - run: npm run style
       - run: npm run lint
@@ -82,7 +81,7 @@ jobs:
 
     steps:
       - attach_workspace:
-          at: .
+          at: ~
 
       - run: npm run test:unit
 
@@ -94,7 +93,7 @@ jobs:
           condition: << pipeline.parameters.is-testing-interoperability >>
           steps:
             - attach_workspace:
-                at: .
+                at: ~
 
             - run: npm pack
 
@@ -120,7 +119,7 @@ jobs:
 
     steps:
       - attach_workspace:
-          at: .
+          at: ~
 
       - run:
           name: Prepare NPM
