@@ -69,7 +69,7 @@ function generate(options: {
         ["--verify", verify],
       ].flat(),
     ],
-    { stdio: "pipe" },
+    { stdio: "inherit" },
   );
 }
 
@@ -88,7 +88,12 @@ describe("generate-examples-index", function (): void {
       this.timeout(30 * 60 * 1000);
 
       const ret = generate({ output, type: "okay" });
-      expect(ret).to.haveOwnProperty("status").that.equals(0);
+      expect(
+        ret,
+        "The generate examples index executable should exit with zero status.",
+      )
+        .to.haveOwnProperty("status")
+        .that.equals(0);
     });
 
     describe("verify index", function (): void {
