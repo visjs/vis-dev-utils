@@ -24,7 +24,17 @@ interface FileInfo {
   mode: number;
 }
 
-const PACK_CMD = ["npm", "pack", "--dry-run", "--json"];
+const PACK_CMD = [
+  "npm",
+  "pack",
+  // Don't create any package, we just need to see what would be packed.
+  "--dry-run",
+  // Prevents things like Husky from outputting to stdout, we don't need them
+  // here anyway.
+  "--ignore-scripts",
+  // JSON is easier to parse and more stable between npm versions.
+  "--json",
+];
 
 /**
  * @param textOrLines
@@ -49,10 +59,16 @@ function runNpmPack(): PackageInfo[] {
   // from there doesn't exhibit those issues.
   execSync(`${PACK_CMD.join(" ")} > ${tmpFile}`, {
     encoding: "utf-8",
-    env: { ...process.env, LC_ALL: "C" },
+    env: {
+      ...process.env,
+      LC_ALL: "C",
+      NODE_ENV: "production",
+    },
   });
 
-  const stdout = readFileSync(tmpFile, "utf-8");
+  const stdout = readFileSync(tmpFile, "utf-8")
+    // TODO: Why doesn't --ignore-scripts turn Husky off? It works in CLI.
+    .replace(/^([^[]*)\[\n/, "[");
 
   try {
     return JSON.parse(stdout);
