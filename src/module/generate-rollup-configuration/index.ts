@@ -96,16 +96,18 @@ export interface GRCOptions {
   /**
    * Simply required package.json.
    */
-  packageJSON: {
+  packageJSON: Partial<{
     browser: string;
     dependencies: Record<string, string>;
     devDependencies: Record<string, string>;
+    exports: Record<string, Record<string, string | undefined> | undefined>;
     files: string[];
     jsnext: string;
     main: string;
     module: string;
     peerDependencies: Record<string, string>;
-  };
+    types: string;
+  }>;
   /**
    * The path to tsconfig.json to be used in this build.
    */
@@ -569,6 +571,92 @@ export async function generateRollupConfiguration(
       ]);
   });
 
+  const expectedExports = Object.fromEntries([
+    [
+      ".",
+      {
+        import: `./peer/esm/${libraryFilename}.mjs`,
+        require: `./peer/umd/${libraryFilename}.cjs`,
+        types: "./declarations/index.d.ts",
+      },
+    ],
+    ["./package.json", "./package.json"],
+    [
+      "./declarations/index.d.ts",
+      {
+        types: "./declarations/index.d.ts",
+      },
+    ],
+    ...["standalone", "peer", "esnext"].flatMap(
+      (variant): [string, Record<string, string>][] => [
+        [
+          `./${variant}`,
+          {
+            import: `./${variant}/esm/${libraryFilename}.mjs`,
+            require: `./${variant}/umd/${libraryFilename}.cjs`,
+            types: "./declarations/index.d.ts",
+          },
+        ],
+        [
+          `./${variant}/esm/${libraryFilename}.js`,
+          {
+            import: `./${variant}/esm/${libraryFilename}.mjs`,
+            types: "./declarations/index.d.ts",
+          },
+        ],
+        [
+          `./${variant}/esm/${libraryFilename}.mjs`,
+          {
+            import: `./${variant}/esm/${libraryFilename}.mjs`,
+            types: "./declarations/index.d.ts",
+          },
+        ],
+        [
+          `./${variant}/esm/${libraryFilename}.min.js`,
+          {
+            import: `./${variant}/esm/${libraryFilename}.min.mjs`,
+            types: "./declarations/index.d.ts",
+          },
+        ],
+        [
+          `./${variant}/esm/${libraryFilename}.min.mjs`,
+          {
+            import: `./${variant}/esm/${libraryFilename}.min.mjs`,
+            types: "./declarations/index.d.ts",
+          },
+        ],
+        [
+          `./${variant}/umd/${libraryFilename}.js`,
+          {
+            require: `./${variant}/umd/${libraryFilename}.cjs`,
+            types: "./declarations/index.d.ts",
+          },
+        ],
+        [
+          `./${variant}/umd/${libraryFilename}.cjs`,
+          {
+            require: `./${variant}/umd/${libraryFilename}.cjs`,
+            types: "./declarations/index.d.ts",
+          },
+        ],
+        [
+          `./${variant}/umd/${libraryFilename}.min.js`,
+          {
+            require: `./${variant}/umd/${libraryFilename}.min.cjs`,
+            types: "./declarations/index.d.ts",
+          },
+        ],
+        [
+          `./${variant}/umd/${libraryFilename}.min.cjs`,
+          {
+            require: `./${variant}/umd/${libraryFilename}.min.cjs`,
+            types: "./declarations/index.d.ts",
+          },
+        ],
+      ],
+    ),
+  ]);
+
   validate((expect): void => {
     expect(
       packageJSONRest,
@@ -576,7 +664,8 @@ export async function generateRollupConfiguration(
     )
       .to.have.ownProperty("types")
       .that.is.a("string")
-      .and.equals(`declarations/index.d.ts`);
+      .and.equals("./declarations/index.d.ts")
+      .and.is.oneOf(Object.keys(expectedExports));
   });
   validate((expect): void => {
     expect(
@@ -585,7 +674,8 @@ export async function generateRollupConfiguration(
     )
       .to.have.ownProperty("browser")
       .that.is.a("string")
-      .and.equals(`peer/umd/${libraryFilename}.min.cjs`);
+      .and.equals(`./peer/umd/${libraryFilename}.min.cjs`)
+      .and.is.oneOf(Object.keys(expectedExports));
   });
   validate((expect): void => {
     expect(
@@ -594,7 +684,8 @@ export async function generateRollupConfiguration(
     )
       .to.have.ownProperty("main")
       .that.is.a("string")
-      .and.equals(`peer/umd/${libraryFilename}.cjs`);
+      .and.equals(`./peer/umd/${libraryFilename}.cjs`)
+      .and.is.oneOf(Object.keys(expectedExports));
   });
   validate((expect): void => {
     expect(
@@ -603,7 +694,8 @@ export async function generateRollupConfiguration(
     )
       .to.have.ownProperty("module")
       .that.is.a("string")
-      .and.equals(`peer/esm/${libraryFilename}.mjs`);
+      .and.equals(`./peer/esm/${libraryFilename}.mjs`)
+      .and.is.oneOf(Object.keys(expectedExports));
   });
   validate((expect): void => {
     expect(
@@ -612,46 +704,19 @@ export async function generateRollupConfiguration(
     )
       .to.have.ownProperty("jsnext")
       .that.is.a("string")
-      .and.equals(`esnext/esm/${libraryFilename}.mjs`);
-  });
-
-  validate((expect): void => {
-    expect(packageJSONRest, "Package JSON's exports have to contain ./")
-      .to.have.ownProperty("exports")
-      .that.is.an("object")
-      .and.has.ownProperty(".")
-      .that.is.an("object")
-      .and.has.keys(["import", "require", "types"]);
+      .and.equals(`./esnext/esm/${libraryFilename}.mjs`)
+      .and.is.oneOf(Object.keys(expectedExports));
   });
 
   validate((expect): void => {
     expect(
-      packageJSONRest,
-      "Package JSON's exports have to contain ./standalone",
-    )
-      .to.have.ownProperty("exports")
-      .that.is.an("object")
-      .and.has.ownProperty("./standalone")
-      .that.is.an("object")
-      .and.has.keys(["import", "require", "types"]);
-  });
-
-  validate((expect): void => {
-    expect(packageJSONRest, "Package JSON's exports have to contain ./peer")
-      .to.have.ownProperty("exports")
-      .that.is.an("object")
-      .and.has.ownProperty("./peer")
-      .that.is.an("object")
-      .and.has.keys(["import", "require", "types"]);
-  });
-
-  validate((expect): void => {
-    expect(packageJSONRest, "Package JSON's exports have to contain ./esnext")
-      .to.have.ownProperty("exports")
-      .that.is.an("object")
-      .and.has.ownProperty("./esnext")
-      .that.is.an("object")
-      .and.has.keys(["import", "require", "types"]);
+      Object.fromEntries(
+        Object.entries(packageJSONRest.exports ?? {}).filter(([key]): boolean =>
+          Object.keys(expectedExports).includes(key),
+        ),
+      ),
+      "Package JSON's exports have to contain common entries",
+    ).to.deep.equal(expectedExports);
   });
 
   validate(async (expect): Promise<void> => {
