@@ -31,7 +31,8 @@
     "test:interop": "node interop.js",
     "test:interop:debug": "npm run test:interop -- --fail-command \"$SHELL\"",
     "test:unit": "mocha --exit",
-    "watch": "rollup --watch --config rollup.config.js"
+    "watch": "rollup --watch --config rollup.config.js",
+    "prepare": "husky"
   },
   "lint-staged": {
     "**/*.{css,html,js,json,json,md,ts,yml}": [
