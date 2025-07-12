@@ -6,7 +6,7 @@
   "license": "(Apache-2.0 OR MIT)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/visjs/vis-dev-utils.git"
+    "url": "git+https://github.com/visjs/vis-dev-utils.git"
   },
   "bugs": {
     "url": "https://github.com/visjs/vis-dev-utils/issues"
@@ -71,9 +71,9 @@
     }
   },
   "bin": {
-    "ci-utils": "./bin/ci-utils.js",
-    "generate-examples-index": "./bin/generate-examples-index.js",
-    "test-e2e-interop": "./bin/test-e2e-interop.js"
+    "ci-utils": "bin/ci-utils.js",
+    "generate-examples-index": "bin/generate-examples-index.js",
+    "test-e2e-interop": "bin/test-e2e-interop.js"
   },
   "files": [
     "LICENSE*",
