@@ -65,8 +65,8 @@ export default async function () {
       ],
       plugins: getPlugins(),
     },
-    // File exports.
-    ...["babel-preset", "babel-register"].map((name) => {
+    // File exports (CJS+ESM).
+    ...["babel-preset"].map((name) => {
       return {
         input: `src/${name}/index.ts`,
         output: [

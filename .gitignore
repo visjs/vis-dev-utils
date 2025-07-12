@@ -21,7 +21,6 @@
 
 # built files
 /babel-preset/
-/babel-register/
 /bin/
 /declarations/
 /dist/

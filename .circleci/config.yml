@@ -60,7 +60,6 @@ jobs:
           root: ..
           paths:
             - "repo/babel-preset"
-            - "repo/babel-register"
             - "repo/bin"
             - "repo/declarations"
             - "repo/dist"

@@ -22,18 +22,6 @@ exports['package exported files 1'] = {
     "babel-preset/index.mjs.map": {
       "empty": false
     },
-    "babel-register/index.cjs": {
-      "empty": false
-    },
-    "babel-register/index.cjs.map": {
-      "empty": false
-    },
-    "babel-register/index.mjs": {
-      "empty": false
-    },
-    "babel-register/index.mjs.map": {
-      "empty": false
-    },
     "bin/ci-utils.js": {
       "empty": false
     },
@@ -56,12 +44,6 @@ exports['package exported files 1'] = {
       "empty": false
     },
     "declarations/babel-preset/index.d.ts.map": {
-      "empty": false
-    },
-    "declarations/babel-register/index.d.ts": {
-      "empty": false
-    },
-    "declarations/babel-register/index.d.ts.map": {
       "empty": false
     },
     "declarations/ci-utils/index.d.ts": {

@@ -62,11 +62,6 @@
       "require": "./babel-preset/index.cjs",
       "types": "./declarations/babel-preset/index.d.ts"
     },
-    "./babel-register": {
-      "import": "./babel-register/index.mjs",
-      "require": "./babel-register/index.cjs",
-      "types": "./declarations/babel-register/index.d.ts"
-    },
     "./dist/interop/base-config.json": {
       "import": "./dist/interop/base-config.json",
       "require": "./dist/interop/base-config.json"
@@ -84,7 +79,6 @@
     "LICENSE*",
     "README.md",
     "babel-preset",
-    "babel-register",
     "bin",
     "declarations",
     "dist",
@@ -103,7 +97,6 @@
     "@babel/plugin-transform-runtime": "7.28.0",
     "@babel/preset-env": "7.28.0",
     "@babel/preset-typescript": "7.27.1",
-    "@babel/register": "7.27.1",
     "@babel/runtime-corejs3": "7.28.0",
     "@rollup/plugin-babel": "6.0.4",
     "@rollup/plugin-commonjs": "28.0.6",
