@@ -3,6 +3,14 @@ import { basename, join } from "node:path";
 import { readFile, rename } from "node:fs/promises";
 import { createWriteStream } from "node:fs";
 
+const INTEROP_ENV = Object.freeze<NodeJS.ProcessEnv>({
+  ...process.env,
+  // Prevent Husky from erroring out on shallow cloned repositories.
+  HUSKY: "0",
+  // Prevent interop tests from going into infinite recursions.
+  VIS_INTEROP: "1",
+});
+
 export class ProjectState {
   /**
    * This will be resolved or rejected once all the tasks associated with this
@@ -69,7 +77,7 @@ export function execFail(
       execSync(failCommand, {
         cwd,
         encoding: "utf8",
-        env: { ...process.env, VIS_INTEROP: "1" },
+        env: INTEROP_ENV,
         stdio: "inherit",
       });
     } catch (error) {
@@ -130,7 +138,7 @@ export function createSpawner(logDir: string, getState: () => string[]): Spawn {
 
       const child = spawn(cmd[0], cmd.slice(1), {
         cwd,
-        env: { ...process.env, VIS_INTEROP: "1" },
+        env: INTEROP_ENV,
         stdio: "pipe",
       });
 
