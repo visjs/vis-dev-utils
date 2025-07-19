@@ -120,7 +120,7 @@
     "jimp": "1.6.0",
     "postcss-assets": "6.0.0",
     "prettier": "3.6.2",
-    "puppeteer": "24.11.2",
+    "puppeteer": "24.14.0",
     "rollup": "4.44.2",
     "rollup-plugin-analyzer": "4.0.0",
     "rollup-plugin-copy": "3.5.0",
