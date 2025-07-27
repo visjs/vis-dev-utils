@@ -400,7 +400,7 @@ const generateRollupPluginArray = (
             babelrc: false,
             configFile: false,
             exclude: BABEL_IGNORE_RE,
-            extensions: [".js", ".ts"],
+            extensions: [".js", ".ts", ".mjs", ".cjs"],
             presets: [["vis-dev-utils/babel-preset", { ts: true }]],
           }),
         ]
