@@ -2,7 +2,7 @@ import * as cheerio from "cheerio";
 import fs from "fs";
 import util from "util";
 import yargs from "yargs";
-import { join } from "path";
+import { posix } from "path";
 import { resolve } from "path";
 
 import {
@@ -165,7 +165,7 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
     (
       await (
         await import("globby")
-      ).globby(join(pathsConfig.page.local, "**/*.html"))
+      ).globby(posix.join(pathsConfig.page.local, "**/*.html"))
     ).map(async (pagePath): Promise<any> => {
       const html = await readFile(pagePath, "utf-8");
       const $page = cheerio.load(html);
