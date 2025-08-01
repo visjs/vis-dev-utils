@@ -157,7 +157,6 @@ module.exports = {
       files: ["**/*.js", "**/*.ts"],
       extends: ["plugin:jsdoc/recommended"],
       rules: {
-        "jsdoc/check-examples": "warn",
         "jsdoc/check-indentation": "warn",
         "jsdoc/check-syntax": "warn",
         "jsdoc/check-tag-names": ["error", { definedTags: ["remarks"] }],
