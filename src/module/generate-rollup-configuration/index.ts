@@ -15,11 +15,7 @@ import typescriptPlugin from "@rollup/plugin-typescript";
 import { generateHeader } from "../header";
 import { join, resolve, sep } from "path";
 import { string as stringPlugin } from "rollup-plugin-string";
-import {
-  config as chaiConfig,
-  expect as validateExpect,
-  use as chaiUse,
-} from "chai";
+import { config as chaiConfig, expect as validateExpect } from "chai";
 
 import { BABEL_IGNORE_RE } from "../constants";
 import { type HeaderOptions } from "../header";
