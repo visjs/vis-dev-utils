@@ -9,7 +9,6 @@ import jsonPlugin from "@rollup/plugin-json";
 import nodeResolvePlugin from "@rollup/plugin-node-resolve";
 import postcssAssetsPlugin from "postcss-assets";
 import postcssPlugin from "rollup-plugin-postcss";
-import stripCodePlugin from "rollup-plugin-strip-code";
 import terserPlugin from "@rollup/plugin-terser";
 import typescriptPlugin from "@rollup/plugin-typescript";
 import { generateHeader } from "../header";
@@ -269,7 +268,6 @@ const generateRollupPluginArray = (
   {
     injectCSS = false,
     minimize = false,
-    strip = mode === "production",
     transpile = false,
     typescript = false,
   } = {},
@@ -282,24 +280,6 @@ const generateRollupPluginArray = (
   );
 
   return [
-    ...(strip
-      ? [
-          // This should be first because it removes code from source files.
-          // It's much easier to follow if the removal happens before any
-          // transformations.
-          stripCodePlugin({
-            start_comment: "develblock:start",
-            end_comment: "develblock:end",
-          }),
-        ]
-      : [
-          // Remove the comments marking devel blocks as they can cause problems
-          // later on because transpilation shuffles things around which may
-          // lead to all kinds of issues including syntax errors.
-          stripCodePlugin({
-            pattern: /[\t ]*\/\* ?develblock:(start|end) ?\*\//g,
-          }),
-        ]),
     analyzerPlugin(VIS_DEBUG ? undefined : { limit: 10, summaryOnly: true }),
     copyPlugin({
       verbose: VIS_DEBUG,
@@ -419,19 +399,11 @@ const generateRollupPluginArray = (
  * IMPORTANT: Use `babel.config.js` in the root of the project, `.babelrc` files
  * are ignored.
  *
- * You can surround any piece of code with `stripInProduction: { debug code }`
- * to strip it from the generated bundles unless VIS_DEBUG=true environmental
- * variable is set. This is useful for example to render bounding boxes during
- * debugging but automatically switch it off without any performance or bundle
- * size penalty in production. Debugger statements are also automatically
- * stripped.
- *
  * Plugins:
  * - `\@rollup/plugin-babel` (skipped in ESNext)
  * - `\@rollup/plugin-commonjs`
  * - `\@rollup/plugin-json`
  * - `\@rollup/plugin-node-resolve`
- * - `\@rollup/plugin-strip` (skipped with VIS_DEBUG=true env var)
  * - `\@rollup/plugin-terser` (only in minified)
  * - `postcss-assets`
  * - `rollup-plugin-copy`

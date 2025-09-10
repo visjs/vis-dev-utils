@@ -23,11 +23,6 @@ declare module "rollup-plugin-string" {
   export default string;
 }
 
-declare module "rollup-plugin-strip-code" {
-  const value: any;
-  export default value;
-}
-
 declare module "@babel/preset-env" {
   const value: any;
   export default value;
