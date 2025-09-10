@@ -126,7 +126,7 @@
     "rollup-plugin-copy": "3.5.0",
     "rollup-plugin-postcss": "4.0.2",
     "rollup-plugin-string": "3.0.0",
-    "tmp": "0.2.3",
+    "tmp": "0.2.4",
     "tmp-promise": "3.0.3",
     "typescript": "5.8.3",
     "yargs": "18.0.0"
