@@ -111,7 +111,7 @@
     "cheerio": "1.1.0",
     "css-select": "5.1.0",
     "eslint-config-prettier": "9.1.0",
-    "eslint-plugin-cypress": "2.15.2",
+    "eslint-plugin-cypress": "5.2.0",
     "eslint-plugin-eslint-comments": "3.2.0",
     "eslint-plugin-jsdoc": "51.3.4",
     "eslint-plugin-prettier": "4.2.1",
