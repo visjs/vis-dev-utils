@@ -168,6 +168,11 @@ export class ContentBuilder {
           try {
             const debug = /^1|y|yes|true$/i.test(process.env.DEBUG ?? "");
             const browser = await puppeteer.launch({
+              args: [
+                // This allows us to use ESM imports from file paths.
+                // Since we only load local files and this script already runs on the local machine and can access arbitrary files, there is no meaningful security risk in disabling CORS.
+                "--disable-web-security",
+              ],
               headless: !debug,
               slowMo: debug ? 100 : undefined,
             });
