@@ -84,11 +84,6 @@
     "dist",
     "eslint-shareable-config"
   ],
-  "volta": {
-    "node": "24.3.0",
-    "npm": "11.4.2",
-    "pnpm": "10.12.4"
-  },
   "dependencies": {
     "fs-extra": "11.3.0"
   },
