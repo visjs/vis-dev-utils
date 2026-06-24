@@ -102,7 +102,7 @@
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "babel-plugin-istanbul": "7.0.1",
-    "chai": "5.2.0",
+    "chai": "5.2.2",
     "cheerio": "1.1.2",
     "css-select": "5.1.0",
     "eslint-config-prettier": "9.1.0",
@@ -128,7 +128,7 @@
   },
   "devDependencies": {
     "@types/babel__core": "7.20.5",
-    "@types/chai": "5.2.2",
+    "@types/chai": "5.2.3",
     "@types/cheerio": "1.0.0",
     "@types/mocha": "10.0.10",
     "@types/prettier": "3.0.0",
