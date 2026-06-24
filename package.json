@@ -85,7 +85,7 @@
     "eslint-shareable-config"
   ],
   "dependencies": {
-    "fs-extra": "11.3.0"
+    "fs-extra": "11.3.5"
   },
   "peerDependencies": {
     "@babel/core": "7.29.7",
