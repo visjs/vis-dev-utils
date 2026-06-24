@@ -112,7 +112,7 @@
     "eslint-plugin-prettier": "4.2.1",
     "find-up": "7.0.0",
     "globby": "14.1.0",
-    "jimp": "1.6.0",
+    "jimp": "1.6.1",
     "postcss-assets": "6.0.0",
     "prettier": "3.6.2",
     "puppeteer": "24.14.0",
