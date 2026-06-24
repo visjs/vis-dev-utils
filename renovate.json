@@ -1,16 +1,15 @@
 {
-  "extends": [
-    ":semanticPrefixFix",
-    ":ignoreModulesAndTests",
-    ":pinVersions",
-    ":prHourlyLimit2",
-    ":prConcurrentLimit10",
-    ":automergeDigest",
-    ":automergePatch",
-    ":automergeMinor",
-    ":automergeRequireAllStatusChecks",
-    "group:monorepos",
-    "group:recommended",
-    "workarounds:all"
+  "extends": ["config:best-practices", ":pinAllExceptPeerDependencies"],
+  "dependencyDashboard": false,
+  "packageRules": [
+    {
+      "updateTypes": ["major", "minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "matchDepTypes": ["dependencies", "peerDependencies"],
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    }
   ]
 }
