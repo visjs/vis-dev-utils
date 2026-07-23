@@ -1,25 +1,26 @@
 import fs from "node:fs/promises";
-import { fileURLToPath, URL } from "node:url";
-import { type RollupOptions, type Plugin } from "rollup";
-import analyzerPlugin from "rollup-plugin-analyzer";
+import { join, resolve, sep } from "node:path";
+import { dirname } from "node:path";
+import { URL, fileURLToPath } from "node:url";
+
 import babelPlugin from "@rollup/plugin-babel";
 import commonjsPlugin from "@rollup/plugin-commonjs";
-import copyPlugin, { Target as CopyTarget } from "rollup-plugin-copy";
 import jsonPlugin from "@rollup/plugin-json";
 import nodeResolvePlugin from "@rollup/plugin-node-resolve";
-import postcssAssetsPlugin from "postcss-assets";
-import postcssPlugin from "rollup-plugin-postcss";
 import terserPlugin from "@rollup/plugin-terser";
 import typescriptPlugin from "@rollup/plugin-typescript";
-import { generateHeader } from "../header";
-import { join, resolve, sep } from "path";
-import { string as stringPlugin } from "rollup-plugin-string";
 import { config as chaiConfig, expect as validateExpect } from "chai";
+import postcssAssetsPlugin from "postcss-assets";
+import type { RollupOptions, Plugin } from "rollup";
+import analyzerPlugin from "rollup-plugin-analyzer";
+import copyPlugin, { Target as CopyTarget } from "rollup-plugin-copy";
+import postcssPlugin from "rollup-plugin-postcss";
+import { string as stringPlugin } from "rollup-plugin-string";
 
 import { BABEL_IGNORE_RE } from "../constants";
-import { type HeaderOptions } from "../header";
-import { type OptionalOptions } from "../util";
-import { dirname } from "node:path";
+import { generateHeader } from "../header";
+import type { HeaderOptions } from "../header";
+import type { OptionalOptions } from "../util";
 
 const rawGlobby = import("globby");
 
@@ -472,11 +473,14 @@ export async function generateRollupConfiguration(
   });
   validate((expect): void => {
     expect(
-      [...Object.keys(dependencies), ...Object.keys(peerDependencies)].sort(),
+      [
+        ...Object.keys(dependencies),
+        ...Object.keys(peerDependencies),
+      ].toSorted(),
       "Globals have to be provided for all runtime and peer dependencies but nothing else",
     )
       .to.be.an("array")
-      .that.deep.equals(Object.keys(globals).sort());
+      .that.deep.equals(Object.keys(globals).toSorted());
   });
 
   validate(async (expect): Promise<void> => {

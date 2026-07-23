@@ -1,18 +1,18 @@
-import { resolve as resolvePath } from "node:path";
+import { Stats } from "node:fs";
 import {
   copyFile,
   lstat,
   mkdir,
   readFile,
   readdir,
-  writeFile,
   unlink,
+  writeFile,
 } from "node:fs/promises";
-import { Stats } from "node:fs";
+import { resolve as resolvePath } from "node:path";
 
-import { DirResult, dirSync, setGracefulCleanup } from "tmp";
 import { findUp } from "find-up";
 import fsExtra from "fs-extra";
+import { DirResult, dirSync, setGracefulCleanup } from "tmp";
 
 import {
   ProjectState,
@@ -144,7 +144,7 @@ async function clone(
   const cwd = tmpReposResolve();
   const projectPath = projectPaths[projectName];
 
-  if (/\.git$/.test(projectPath)) {
+  if (projectPath.endsWith(".git")) {
     await spawn({
       cmd: [
         "git",
@@ -433,7 +433,9 @@ export async function test({
         [
           "",
           ...(await Promise.all(
-            (await readdir(data.tmpLogsResolve())).map(
+            (
+              await readdir(data.tmpLogsResolve())
+            ).map(
               (filename): Promise<string> =>
                 readFile(data.tmpLogsResolve(filename), "utf-8"),
             ),

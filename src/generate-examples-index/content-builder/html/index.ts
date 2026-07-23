@@ -1,11 +1,11 @@
 import * as cheerio from "cheerio";
 import type { AnyNode } from "domhandler";
 
-import indexTemplate from "./index.template.html";
-import styleTemplate from "./index.template.css";
-import { ContentPart, Renderer, isExample } from "../common";
 import { Example, Examples, ExamplesRoot } from "../../types";
+import { ContentPart, Renderer, isExample } from "../common";
 import { formatHTML } from "../format";
+import styleTemplate from "./index.template.css";
+import indexTemplate from "./index.template.html";
 
 /**
  * @param example
@@ -49,7 +49,7 @@ function processGroup(
   const section = cheerio.load([])("<div>");
   section.append(heading, list);
 
-  for (const key of Object.keys(examples).sort(collator.compare)) {
+  for (const key of Object.keys(examples).toSorted(collator.compare)) {
     const example = examples[key];
 
     if (isExample(example)) {
@@ -104,7 +104,7 @@ export const htmlRenderer: Renderer = {
     const root = cheerio.load([])("<div>");
     root.addClass("examples-root");
 
-    for (const key of Object.keys(examples).sort(collator.compare)) {
+    for (const key of Object.keys(examples).toSorted(collator.compare)) {
       root.append(processGroup(examples[key], key, 1, collator));
     }
 

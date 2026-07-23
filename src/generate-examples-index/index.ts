@@ -1,21 +1,21 @@
-import * as cheerio from "cheerio";
-import fs from "fs";
-import util from "util";
-import yargs from "yargs";
-import { posix } from "path";
-import { resolve } from "path";
+import fs from "node:fs";
+import util from "node:util";
+import { posix, resolve } from "path";
 
+import * as cheerio from "cheerio";
+import yargs from "yargs";
+
+import { parseArguments } from "./cli";
 import {
   ContentBuilder,
+  formatStartStopMs,
   generatePlaygroundData,
   htmlRenderer,
   mdRenderer,
   reduceReports,
-  formatStartStopMs,
 } from "./content-builder";
-import { Example, ExamplesRoot, ExamplePaths } from "./types";
-import { parseArguments } from "./cli";
-import { generatePaths, fixAbsoluteInputURL } from "./paths";
+import { fixAbsoluteInputURL, generatePaths } from "./paths";
+import { Example, ExamplePaths, ExamplesRoot } from "./types";
 
 const argv = parseArguments();
 
@@ -163,9 +163,9 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
 
   await Promise.all(
     (
-      await (
-        await import("globby")
-      ).globby(posix.join(pathsConfig.page.local, "**/*.html"))
+      await (await import("globby")).globby(
+        posix.join(pathsConfig.page.local, "**/*.html"),
+      )
     ).map(async (pagePath): Promise<any> => {
       const html = await readFile(pagePath, "utf-8");
       const $page = cheerio.load(html);
@@ -263,7 +263,7 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
     console.info(
       [
         "The following files don't look like examples (there is nothing to take a screenshot of):",
-        ...skipped.sort(),
+        ...skipped.toSorted(),
       ].join("\n  "),
     );
   }

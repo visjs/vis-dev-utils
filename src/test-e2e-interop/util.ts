@@ -1,7 +1,7 @@
 import { execSync, spawn } from "node:child_process";
-import { basename, join } from "node:path";
-import { readFile, rename } from "node:fs/promises";
 import { createWriteStream } from "node:fs";
+import { readFile, rename } from "node:fs/promises";
+import { basename, join } from "node:path";
 
 const INTEROP_ENV = Object.freeze<NodeJS.ProcessEnv>({
   ...process.env,

@@ -1,7 +1,7 @@
 import * as cheerio from "cheerio";
 
-import template from "./jsfiddle.template.html";
 import { Example } from "../../types";
+import template from "./jsfiddle.template.html";
 
 /**
  * @param example

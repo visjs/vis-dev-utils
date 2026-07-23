@@ -1,6 +1,7 @@
-import fs from "fs";
-import { join } from "path";
-import { promisify } from "util";
+import fs from "node:fs";
+import { join } from "node:path";
+import { promisify } from "node:util";
+
 import { launch as launchPuppeteer } from "puppeteer";
 
 import { Example, Examples, ExamplesRoot } from "../types";
@@ -12,7 +13,7 @@ import {
   measureStartStopMs,
 } from "./common";
 import { formatHTML } from "./format";
-import { generateJSFiddlePage, generateCodePenPage } from "./playground";
+import { generateCodePenPage, generateJSFiddlePage } from "./playground";
 import { generateScreenshot } from "./screenshots";
 
 const collator = new Intl.Collator("US");
@@ -236,7 +237,7 @@ export class ContentBuilder {
 
             return reports;
           } finally {
-            for (const callback of cleanup.splice(0).reverse()) {
+            for (const callback of cleanup.splice(0).toReversed()) {
               try {
                 await callback();
               } catch (error) {
@@ -269,7 +270,7 @@ export class ContentBuilder {
 
   #processGroup(examples: Examples): Example[] {
     return Object.keys(examples)
-      .sort(collator.compare)
+      .toSorted(collator.compare)
       .flatMap((key): Example[] => {
         const example = examples[key];
 
