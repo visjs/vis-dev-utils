@@ -21,7 +21,6 @@
     ".*.ts",
     "@types",
     "babel-preset",
-    "eslint-shareable-config",
     "public",
     "src",
     "test"

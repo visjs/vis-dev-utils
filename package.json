@@ -63,9 +63,6 @@
     "./dist/interop/base-config.json": {
       "import": "./dist/interop/base-config.json",
       "require": "./dist/interop/base-config.json"
-    },
-    "./eslint-shareable-config": {
-      "require": "./eslint-shareable-config/index.cjs"
     }
   },
   "bin": {
@@ -79,8 +76,7 @@
     "babel-preset",
     "bin",
     "declarations",
-    "dist",
-    "eslint-shareable-config"
+    "dist"
   ],
   "dependencies": {
     "fs-extra": "11.3.6"
@@ -97,17 +93,10 @@
     "@rollup/plugin-node-resolve": "16.0.3",
     "@rollup/plugin-terser": "0.4.4",
     "@rollup/plugin-typescript": "12.3.0",
-    "@typescript-eslint/eslint-plugin": "5.62.0",
-    "@typescript-eslint/parser": "5.62.0",
     "babel-plugin-istanbul": "8.0.0",
     "chai": "6.2.2",
     "cheerio": "1.2.0",
     "css-select": "7.0.0",
-    "eslint-config-prettier": "9.1.2",
-    "eslint-plugin-cypress": "2.15.2",
-    "eslint-plugin-eslint-comments": "3.2.0",
-    "eslint-plugin-jsdoc": "51.4.1",
-    "eslint-plugin-prettier": "4.2.5",
     "find-up": "7.0.0",
     "globby": "14.1.0",
     "jimp": "1.6.1",
