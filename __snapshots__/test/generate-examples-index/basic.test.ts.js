@@ -126,8 +126,7 @@ exports['generate-examples-index snapshots broken html file contents generated/i
                 href="https://visjs.github.io/vis-test/public/examples/pages/codepen.977e40cbcc05f3e2579d0da80075e04aa5eff2b9e162a455085985fb4878cd45.html"
                 title="CodePen"
               ></a
-              ><a
-                href="https://visjs.github.io/vis-test/examples/examples/example-alert.html"
+              ><a href="https://visjs.github.io/vis-test/examples/examples/example-alert.html"
                 >Alert</a
               >
             </div>
@@ -149,10 +148,7 @@ exports['generate-examples-index snapshots broken html file contents generated/i
                 href="https://visjs.github.io/vis-test/public/examples/pages/codepen.cdf47a2c74f286989abeac84a461c6833a94ed4d482a177fad88417166ab320e.html"
                 title="CodePen"
               ></a
-              ><a
-                href="https://visjs.github.io/vis-test/examples/example-broken.html"
-                >Broken</a
-              >
+              ><a href="https://visjs.github.io/vis-test/examples/example-broken.html">Broken</a>
             </div>
             <a
               class="example-image"
@@ -172,8 +168,7 @@ exports['generate-examples-index snapshots broken html file contents generated/i
                 href="https://visjs.github.io/vis-test/public/examples/pages/codepen.6c6f4def462afd75f12d6ca16c68e0f3ff9d870e3f0651003164e6818d8c80ea.html"
                 title="CodePen"
               ></a
-              ><a
-                href="https://visjs.github.io/vis-test/examples/examples/example-confirm.html"
+              ><a href="https://visjs.github.io/vis-test/examples/examples/example-confirm.html"
                 >Confirm</a
               >
             </div>
@@ -195,8 +190,7 @@ exports['generate-examples-index snapshots broken html file contents generated/i
                 href="https://visjs.github.io/vis-test/public/examples/pages/codepen.4a2be818c434192dcd979c48d005b9ce1f5c344172879ce74f089ded9ba73ee8.html"
                 title="CodePen"
               ></a
-              ><a
-                href="https://visjs.github.io/vis-test/examples/examples/example-1.html"
+              ><a href="https://visjs.github.io/vis-test/examples/examples/example-1.html"
                 >Number 1</a
               >
             </div>
@@ -218,8 +212,7 @@ exports['generate-examples-index snapshots broken html file contents generated/i
                 href="https://visjs.github.io/vis-test/public/examples/pages/codepen.248d7f41de7fdfb2cf98a5166091880206303d7de95206a633febccfb160312a.html"
                 title="CodePen"
               ></a
-              ><a
-                href="https://visjs.github.io/vis-test/examples/examples/example-2.html"
+              ><a href="https://visjs.github.io/vis-test/examples/examples/example-2.html"
                 >Number 2</a
               >
             </div>
@@ -246,8 +239,7 @@ exports['generate-examples-index snapshots broken html file contents generated/i
                   href="https://visjs.github.io/vis-test/public/examples/pages/codepen.946f6b5fd67bf38756b1114c39ae297bcd2e4f2d718bb5bf1f320cf8519fc7dd.html"
                   title="CodePen"
                 ></a
-                ><a
-                  href="https://visjs.github.io/vis-test/examples/examples/subdir/example-3.html"
+                ><a href="https://visjs.github.io/vis-test/examples/examples/subdir/example-3.html"
                   >Number 3</a
                 >
               </div>
@@ -269,8 +261,7 @@ exports['generate-examples-index snapshots broken html file contents generated/i
                   href="https://visjs.github.io/vis-test/public/examples/pages/codepen.631be0eb8f62d73631de6dc9665e0983967801edf6a40ad1a606e7af7db51408.html"
                   title="CodePen"
                 ></a
-                ><a
-                  href="https://visjs.github.io/vis-test/examples/examples/subdir/example-4.html"
+                ><a href="https://visjs.github.io/vis-test/examples/examples/subdir/example-4.html"
                   >Number 4</a
                 >
               </div>
@@ -297,12 +288,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
     <title>Test | Number 2</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -326,12 +312,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
     <title>Test | Number 1</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -355,12 +336,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
     <title>Test | Subdir | Number 4</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -384,12 +360,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
     <title>Test | Confirm</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -413,12 +384,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
     <title>Test | Subdir | Number 3</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -442,12 +408,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
     <title>Test | Alert</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -471,12 +432,7 @@ exports['generate-examples-index snapshots broken html file contents generated/p
     <title>Test | Broken</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -886,12 +842,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
     <title>Test | Number 2</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -915,12 +866,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
     <title>Test | Number 1</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -944,12 +890,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
     <title>Test | Subdir | Number 4</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -973,12 +914,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
     <title>Test | Confirm</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -1002,12 +938,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
     <title>Test | Subdir | Number 3</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -1031,12 +962,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
     <title>Test | Alert</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -1060,12 +986,7 @@ exports['generate-examples-index snapshots broken md file contents generated/pag
     <title>Test | Broken</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -1506,10 +1427,7 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
                 href="https://visjs.github.io/vis-test/public/examples/pages/codepen.1481a4d604def5bfc7db037889136e19237b47eba21e16222089a2819d482e28.html"
                 title="CodePen"
               ></a
-              ><a
-                href="https://visjs.github.io/vis-test/examples/example-alert.html"
-                >Alert</a
-              >
+              ><a href="https://visjs.github.io/vis-test/examples/example-alert.html">Alert</a>
             </div>
             <a
               class="example-image"
@@ -1529,10 +1447,7 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
                 href="https://visjs.github.io/vis-test/public/examples/pages/codepen.38d8429ea43b423f1962b63496146c9de2ace96bc48d5d6e9563370e3df91864.html"
                 title="CodePen"
               ></a
-              ><a
-                href="https://visjs.github.io/vis-test/examples/example-confirm.html"
-                >Confirm</a
-              >
+              ><a href="https://visjs.github.io/vis-test/examples/example-confirm.html">Confirm</a>
             </div>
             <a
               class="example-image"
@@ -1552,14 +1467,9 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
                 href="https://visjs.github.io/vis-test/public/examples/pages/codepen.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.html"
                 title="CodePen"
               ></a
-              ><a
-                href="https://visjs.github.io/vis-test/examples/example-1.html"
-                >Number 1</a
-              >
+              ><a href="https://visjs.github.io/vis-test/examples/example-1.html">Number 1</a>
             </div>
-            <a
-              class="example-image"
-              href="https://visjs.github.io/vis-test/examples/example-1.html"
+            <a class="example-image" href="https://visjs.github.io/vis-test/examples/example-1.html"
               ><img
                 src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.7ed970de35c20e44b8e4c467d83ddab0eb8348306c88aa343c4df3e9264540a2.png"
                 alt="Number 1" /></a></span
@@ -1575,14 +1485,9 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
                 href="https://visjs.github.io/vis-test/public/examples/pages/codepen.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.html"
                 title="CodePen"
               ></a
-              ><a
-                href="https://visjs.github.io/vis-test/examples/example-2.html"
-                >Number 2</a
-              >
+              ><a href="https://visjs.github.io/vis-test/examples/example-2.html">Number 2</a>
             </div>
-            <a
-              class="example-image"
-              href="https://visjs.github.io/vis-test/examples/example-2.html"
+            <a class="example-image" href="https://visjs.github.io/vis-test/examples/example-2.html"
               ><img
                 src="https://visjs.github.io/vis-test/public/examples/assets/screenshot.07dde432d65aac1c6ed28baee30fbf677b6fc178ded3709cbfed0e66e749a2fb.png"
                 alt="Number 2" /></a
@@ -1603,8 +1508,7 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
                   href="https://visjs.github.io/vis-test/public/examples/pages/codepen.57b93d087ed9a4e8c088c143e80af3520be2f7c215fd2c3f50bbebd3fb27265d.html"
                   title="CodePen"
                 ></a
-                ><a
-                  href="https://visjs.github.io/vis-test/examples/subdir/example-3.html"
+                ><a href="https://visjs.github.io/vis-test/examples/subdir/example-3.html"
                   >Number 3</a
                 >
               </div>
@@ -1626,8 +1530,7 @@ exports['generate-examples-index snapshots okay html file contents generated/ind
                   href="https://visjs.github.io/vis-test/public/examples/pages/codepen.22a213cba1e68d8bdaa120f11b921b4870946dd8d3dea29523f3808f0a6f9512.html"
                   title="CodePen"
                 ></a
-                ><a
-                  href="https://visjs.github.io/vis-test/examples/subdir/example-4.html"
+                ><a href="https://visjs.github.io/vis-test/examples/subdir/example-4.html"
                   >Number 4</a
                 >
               </div>
@@ -1654,12 +1557,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
     <title>Test | Number 2</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -1683,12 +1581,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
     <title>Test | Alert</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -1712,12 +1605,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
     <title>Test | Subdir | Number 4</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -1741,12 +1629,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
     <title>Test | Confirm</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -1770,12 +1653,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
     <title>Test | Subdir | Number 3</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -1799,12 +1677,7 @@ exports['generate-examples-index snapshots okay html file contents generated/pag
     <title>Test | Number 1</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -2170,12 +2043,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
     <title>Test | Number 2</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -2199,12 +2067,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
     <title>Test | Alert</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -2228,12 +2091,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
     <title>Test | Subdir | Number 4</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -2257,12 +2115,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
     <title>Test | Confirm</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -2286,12 +2139,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
     <title>Test | Subdir | Number 3</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
@@ -2315,12 +2163,7 @@ exports['generate-examples-index snapshots okay md file contents generated/pages
     <title>Test | Number 1</title>
   </head>
   <body>
-    <form
-      id="form"
-      action="https://codepen.io/pen/define"
-      method="post"
-      target="_self"
-    >
+    <form id="form" action="https://codepen.io/pen/define" method="post" target="_self">
       <input
         type="hidden"
         name="data"
