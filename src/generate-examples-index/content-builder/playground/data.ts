@@ -1,6 +1,7 @@
+import { dirname, relative, resolve } from "node:path";
+
 import * as cheerio from "cheerio";
 import { Text } from "domhandler";
-import { dirname, relative, resolve } from "path";
 
 import { Example, PlaygroundData } from "../../types";
 import { formatCSS, formatHTML, formatJS } from "../format";
@@ -22,7 +23,7 @@ export async function generatePlaygroundData(
 
   // JavaScript
   const eventListeners = Object.entries(firstBodyChild.attribs)
-    .filter(([name]): boolean => /^on/.test(name))
+    .filter(([name]): boolean => name.startsWith("on"))
     .map(([name, value]): [string, string] => [name.slice(2), `${value}`])
     .map(
       ([name, value]): string =>
@@ -59,7 +60,7 @@ export async function generatePlaygroundData(
     /^https?:\/\//.test(rawPath)
       ? // World wide web absolute.
         rawPath
-      : /^\//.test(rawPath)
+      : rawPath.startsWith("/")
         ? // Domain absolute.
           baseURL + rawPath.slice(1)
         : //Relative.

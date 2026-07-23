@@ -1,6 +1,7 @@
+import { resolve } from "node:path";
+
 import { parseArguments } from "./cli";
-import { resolve } from "path";
-import { ProjectPaths, PackageScript, test } from "./test";
+import { PackageScript, ProjectPaths, test } from "./test";
 
 const argv = parseArguments();
 

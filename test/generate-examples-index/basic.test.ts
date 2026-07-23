@@ -1,12 +1,13 @@
+import { spawnSync } from "node:child_process";
+import { existsSync, readFileSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+import { expect } from "chai";
 import * as cheerio from "cheerio";
 import type { Element } from "domhandler";
 import snapshot from "snap-shot-it";
 import tmp from "tmp-promise";
-import { existsSync, readFileSync } from "node:fs";
-import { expect } from "chai";
-import { dirname, join, resolve } from "node:path";
-import { spawnSync } from "node:child_process";
-import { fileURLToPath } from "node:url";
 
 const executable = resolve(
   spawnSync("npm", ["root"]).stdout.toString().slice(0, -1),
@@ -143,7 +144,7 @@ describe("generate-examples-index", function (): void {
         });
       });
 
-      for (const i of new Array(nmExamples)
+      for (const i of Array.from({ length: nmExamples })
         .fill(null)
         .map((_value, i): number => i)) {
         describe(`example ${i + 1}`, function (): void {
@@ -225,7 +226,7 @@ describe("generate-examples-index", function (): void {
                 await (
                   await import("globby")
                 ).globby("**/*", { cwd: output.dir })
-              ).sort(),
+              ).toSorted(),
             );
           });
 

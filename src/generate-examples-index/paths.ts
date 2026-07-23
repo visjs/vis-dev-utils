@@ -1,6 +1,7 @@
+import { createHash } from "node:crypto";
+import { relative, resolve } from "node:path";
+
 import { Example, ExamplePath, ExamplePaths } from "./types";
-import { createHash } from "crypto";
-import { relative, resolve } from "path";
 
 /**
  * @param urls

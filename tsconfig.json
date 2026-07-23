@@ -4,7 +4,7 @@
     "baseUrl": ".",
     "declaration": false,
     "esModuleInterop": true,
-    "lib": ["dom", "es2020"],
+    "lib": ["dom", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,

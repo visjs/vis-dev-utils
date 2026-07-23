@@ -1,5 +1,5 @@
-import babelPresetEnv from "@babel/preset-env";
 import babelTransformRuntime from "@babel/plugin-transform-runtime";
+import babelPresetEnv from "@babel/preset-env";
 import babelPresetTypescript from "@babel/preset-typescript";
 
 /**

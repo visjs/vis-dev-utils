@@ -22,10 +22,10 @@
     "build:declarations": "npx tsc --project tsconfig.declarations.json",
     "build:production": "rollup --config ./rollup.config.js",
     "clean": "shx rm -rf \"./{.nyc_output,.rpt2_cache}\" \"./{bin,coverage,declarations,dist,e2e,gen}/*\"",
-    "style": "prettier --check .",
-    "style-fix": "prettier --write .",
-    "lint": "eslint --ext .js,.ts .",
-    "lint-fix": "eslint --fix --ext .js,.ts .",
+    "style": "oxfmt --check .",
+    "style-fix": "oxfmt .",
+    "lint": "oxlint --report-unused-disable-directives-severity error .",
+    "lint-fix": "oxlint --report-unused-disable-directives-severity error --fix .",
     "prepublishOnly": "npm run build",
     "test": "npm run test:unit && npm run test:interop",
     "test:interop": "node interop.js",
@@ -35,12 +35,10 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "**/*.{css,html,js,json,json,md,ts,yml}": [
-      "prettier --write"
-    ],
-    "**/*.{js,ts}": [
-      "eslint --fix"
-    ]
+    "*.{js,ts,css,html,json,md,yml,yaml}": "oxfmt --no-error-on-unmatched-pattern",
+    "*.{js,ts}": "oxlint --no-error-on-unmatched-pattern --report-unused-disable-directives-severity error --fix",
+    ".*.{js,ts,css,html,json,md,yml,yaml}": "oxfmt --no-error-on-unmatched-pattern",
+    ".*.{js,ts}": "oxlint --no-error-on-unmatched-pattern --report-unused-disable-directives-severity error --fix"
   },
   "config": {
     "snap-shot-it": {
@@ -136,10 +134,12 @@
     "@types/sinon": "22.0.0",
     "@types/tmp": "0.2.6",
     "@types/yargs": "17.0.35",
-    "eslint": "8.57.1",
     "husky": "9.1.7",
     "lint-staged": "17.0.8",
     "mocha": "11.7.6",
+    "oxfmt": "0.60.0",
+    "oxlint": "1.75.0",
+    "oxlint-tsgolint": "7.0.2001",
     "rollup-plugin-esbuild": "6.2.1",
     "rollup-plugin-node-externals": "9.0.1",
     "shx": "0.4.0",

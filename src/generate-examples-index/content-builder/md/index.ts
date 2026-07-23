@@ -1,7 +1,8 @@
-import { ContentPart, Renderer, isExample } from "../common";
+import { relative } from "node:path";
+
 import { Examples, ExamplesRoot } from "../../types";
+import { ContentPart, Renderer, isExample } from "../common";
 import { formatMD } from "../format";
-import { relative } from "path";
 
 /**
  * @param lines
@@ -53,7 +54,7 @@ async function processGroup(
   const sections: ContentPart[] = [];
   const filenamePart = title.replace(/[^a-zA-Z0-9]/g, "-").toLowerCase();
 
-  for (const key of Object.keys(examples).sort(collator.compare)) {
+  for (const key of Object.keys(examples).toSorted(collator.compare)) {
     const example = examples[key];
 
     if (isExample(example)) {
@@ -106,7 +107,7 @@ export const mdRenderer: Renderer = {
   ): Promise<ContentPart[]> {
     const sections: ContentPart[] = [];
 
-    for (const key of Object.keys(examples).sort(collator.compare)) {
+    for (const key of Object.keys(examples).toSorted(collator.compare)) {
       sections.push(
         ...(await processGroup(examples[key], output, key, collator)),
       );

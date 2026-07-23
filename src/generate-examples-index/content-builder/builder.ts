@@ -1,7 +1,8 @@
-import fs from "fs";
-import { join } from "path";
-import { promisify } from "util";
-import puppeteer from "puppeteer";
+import fs from "node:fs";
+import { join } from "node:path";
+import { promisify } from "node:util";
+
+import { launch as launchPuppeteer } from "puppeteer";
 
 import { Example, Examples, ExamplesRoot } from "../types";
 import {
@@ -12,7 +13,7 @@ import {
   measureStartStopMs,
 } from "./common";
 import { formatHTML } from "./format";
-import { generateJSFiddlePage, generateCodePenPage } from "./playground";
+import { generateCodePenPage, generateJSFiddlePage } from "./playground";
 import { generateScreenshot } from "./screenshots";
 
 const collator = new Intl.Collator("US");
@@ -55,7 +56,11 @@ export interface ContentBuilderRet {
 }
 
 export class ContentBuilder {
-  public constructor(private readonly _config: ContentBuilderConfig) {}
+  readonly #config: ContentBuilderConfig;
+
+  public constructor(config: ContentBuilderConfig) {
+    this.#config = config;
+  }
 
   /**
    * Build the files and write them to the disk.
@@ -72,7 +77,7 @@ export class ContentBuilder {
       screenshots?: boolean;
     } = {},
   ): ContentBuilderRet {
-    const allExamples = this._processGroup(this._config.examples);
+    const allExamples = this.#processGroup(this.#config.examples);
 
     const okay: string[] = [];
     const fail: string[] = [];
@@ -93,17 +98,17 @@ export class ContentBuilder {
         (async (): ContentBuilderRet["index"] => {
           const getStartStopMs = measureStartStopMs();
 
-          const contentParts = await this._config.renderer.render(
-            this._config.examples,
-            this._config.output,
-            this._config.title,
+          const contentParts = await this.#config.renderer.render(
+            this.#config.examples,
+            this.#config.output,
+            this.#config.title,
             collator,
           );
 
           const results = await Promise.allSettled(
             contentParts.map(
               async ({ content, filename }): Promise<void> =>
-                writeFile(join(this._config.output, filename), content),
+                writeFile(join(this.#config.output, filename), content),
             ),
           );
 
@@ -167,7 +172,7 @@ export class ContentBuilder {
 
           try {
             const debug = /^1|y|yes|true$/i.test(process.env.DEBUG ?? "");
-            const browser = await puppeteer.launch({
+            const browser = await launchPuppeteer({
               args: [
                 // This allows us to use ESM imports from file paths.
                 // Since we only load local files and this script already runs on the local machine and can access arbitrary files, there is no meaningful security risk in disabling CORS.
@@ -189,7 +194,7 @@ export class ContentBuilder {
             const total = todo.length;
             const reports: ExampleReport[] = [];
             await Promise.allSettled(
-              new Array(this._config.parallel)
+              Array.from({ length: this.#config.parallel })
                 .fill(null)
                 .map(async (): Promise<void> => {
                   let example: Example | undefined;
@@ -199,9 +204,9 @@ export class ContentBuilder {
                     const valid = await generateScreenshot(browser, {
                       debug,
                       example,
-                      height: this._config.renderer.screenshot.height,
-                      screenshotScript: this._config.screenshotScript,
-                      width: this._config.renderer.screenshot.width,
+                      height: this.#config.renderer.screenshot.height,
+                      screenshotScript: this.#config.screenshotScript,
+                      width: this.#config.renderer.screenshot.width,
                     });
 
                     const report: ExampleReport = {
@@ -232,7 +237,7 @@ export class ContentBuilder {
 
             return reports;
           } finally {
-            for (const callback of cleanup.splice(0).reverse()) {
+            for (const callback of cleanup.splice(0).toReversed()) {
               try {
                 await callback();
               } catch (error) {
@@ -263,16 +268,16 @@ export class ContentBuilder {
     return { checks, index, playgrounds, screenshots };
   }
 
-  private _processGroup(examples: Examples): Example[] {
+  #processGroup(examples: Examples): Example[] {
     return Object.keys(examples)
-      .sort(collator.compare)
+      .toSorted(collator.compare)
       .flatMap((key): Example[] => {
         const example = examples[key];
 
         if (isExample(example)) {
           return [example];
         } else {
-          return this._processGroup(example);
+          return this.#processGroup(example);
         }
       });
   }

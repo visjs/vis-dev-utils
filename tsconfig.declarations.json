@@ -8,7 +8,7 @@
     "emitDeclarationOnly": true,
     "noEmit": false,
     "outDir": "js/src",
-    "target": "es2020"
+    "target": "esnext"
   },
   "exclude": ["node_modules", "**/__tests__/*"],
   "include": ["@types", "src"]

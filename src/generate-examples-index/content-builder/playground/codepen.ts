@@ -1,7 +1,7 @@
 import * as cheerioheerio from "cheerio";
 
-import template from "./codepen.template.html";
 import { Example } from "../../types";
+import template from "./codepen.template.html";
 
 /**
  * @param example

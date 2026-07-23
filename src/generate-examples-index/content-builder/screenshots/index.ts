@@ -1,13 +1,14 @@
+import fs from "node:fs";
+import { basename, dirname, posix, resolve, sep } from "node:path";
+import { promisify } from "node:util";
+
 import * as cheerio from "cheerio";
 import { Jimp } from "jimp";
 import { Browser } from "puppeteer";
-import commonScreenshotScript from "./screenshot-script.js.txt";
-import fs from "fs";
-import { basename, dirname, posix, resolve, sep } from "path";
-import { promisify } from "util";
 
 import { Example } from "../../types";
 import { formatHTML } from "../format";
+import commonScreenshotScript from "./screenshot-script.js.txt";
 
 const unlink = promisify(fs.unlink);
 const writeFile = promisify(fs.writeFile);
@@ -172,7 +173,7 @@ export async function generateScreenshot(
     console.error(error);
     return false;
   } finally {
-    for (const callback of cleanup.splice(0).reverse()) {
+    for (const callback of cleanup.splice(0).toReversed()) {
       try {
         await callback();
       } catch (error) {

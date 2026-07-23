@@ -1,5 +1,6 @@
+import { spawnSync } from "node:child_process";
+
 import yargs from "yargs";
-import { spawnSync } from "child_process";
 
 yargs
   .strict(true)
