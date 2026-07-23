@@ -143,7 +143,7 @@ describe("generate-examples-index", function (): void {
         });
       });
 
-      for (const i of new Array(nmExamples)
+      for (const i of Array.from({ length: nmExamples })
         .fill(null)
         .map((_value, i): number => i)) {
         describe(`example ${i + 1}`, function (): void {

@@ -174,7 +174,7 @@ export function createSpawner(logDir: string, getState: () => string[]): Spawn {
               let commandOutput = "";
               try {
                 commandOutput += await readFile(commandLogPath, "utf-8");
-              } catch (error) {
+              } catch {
                 commandOutput += "Failed to log command output.";
               }
               execFail(cwd, failCommand, commandOutput + "\n\n" + errorMessage);
