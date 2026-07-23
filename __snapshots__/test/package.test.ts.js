@@ -232,9 +232,6 @@ exports['package exported files 1'] = {
     "dist/vis-dev-utils.mjs.map": {
       "empty": false
     },
-    "eslint-shareable-config/index.cjs": {
-      "empty": false
-    },
     "package.json": {
       "empty": false
     }

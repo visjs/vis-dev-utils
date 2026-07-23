@@ -9,6 +9,5 @@ export const ignorePatterns: string[] = [
 
   "!/@types",
   "!/babel-preset",
-  "!/eslint-shareable-config",
   "!/public",
 ];
