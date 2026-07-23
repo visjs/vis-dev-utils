@@ -1,6 +1,6 @@
 import fs from "node:fs";
+import { posix, resolve } from "node:path";
 import util from "node:util";
-import { posix, resolve } from "path";
 
 import * as cheerio from "cheerio";
 import yargs from "yargs";

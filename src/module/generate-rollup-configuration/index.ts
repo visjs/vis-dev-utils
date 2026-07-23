@@ -1,6 +1,5 @@
 import fs from "node:fs/promises";
-import { join, resolve, sep } from "node:path";
-import { dirname } from "node:path";
+import { join, resolve, sep, dirname } from "node:path";
 import { URL, fileURLToPath } from "node:url";
 
 import babelPlugin from "@rollup/plugin-babel";
@@ -11,7 +10,7 @@ import terserPlugin from "@rollup/plugin-terser";
 import typescriptPlugin from "@rollup/plugin-typescript";
 import { config as chaiConfig, expect as validateExpect } from "chai";
 import postcssAssetsPlugin from "postcss-assets";
-import type { RollupOptions, Plugin } from "rollup";
+import type { Plugin, RollupOptions } from "rollup";
 import analyzerPlugin from "rollup-plugin-analyzer";
 import copyPlugin, { Target as CopyTarget } from "rollup-plugin-copy";
 import postcssPlugin from "rollup-plugin-postcss";
