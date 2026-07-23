@@ -1,5 +1,5 @@
 import fs from "node:fs/promises";
-import { join, resolve, sep, dirname } from "node:path";
+import { dirname, join, resolve, sep } from "node:path";
 import { URL, fileURLToPath } from "node:url";
 
 import babelPlugin from "@rollup/plugin-babel";
