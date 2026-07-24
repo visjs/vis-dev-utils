@@ -110,7 +110,7 @@
     "rollup-plugin-string": "3.0.0",
     "tmp": "0.2.3",
     "tmp-promise": "3.0.3",
-    "typescript": "5.9.3",
+    "typescript": "7.0.2",
     "yargs": "18.0.0"
   },
   "devDependencies": {
