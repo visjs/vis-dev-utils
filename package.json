@@ -103,7 +103,7 @@
     "oxfmt": "^0.59.0 || ^0.60.0",
     "postcss-assets": "6.0.0",
     "puppeteer": "24.43.1",
-    "rollup": "4.44.2",
+    "rollup": "4.59.0",
     "rollup-plugin-analyzer": "4.0.0",
     "rollup-plugin-copy": "3.5.0",
     "rollup-plugin-postcss": "4.0.2",
