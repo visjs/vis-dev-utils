@@ -130,7 +130,7 @@
     "rollup-plugin-esbuild": "6.2.1",
     "rollup-plugin-node-externals": "9.0.1",
     "shx": "0.4.0",
-    "sinon": "22.0.0",
+    "sinon": "22.1.0",
     "snap-shot-it": "7.9.10"
   },
   "funding": {
