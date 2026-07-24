@@ -82,11 +82,11 @@
     "fs-extra": "11.3.6"
   },
   "peerDependencies": {
-    "@babel/core": "7.29.7",
-    "@babel/plugin-transform-runtime": "7.29.7",
-    "@babel/preset-env": "7.29.7",
-    "@babel/preset-typescript": "7.29.7",
-    "@babel/runtime-corejs3": "7.29.7",
+    "@babel/core": "8.0.1",
+    "@babel/plugin-transform-runtime": "8.0.1",
+    "@babel/preset-env": "8.0.2",
+    "@babel/preset-typescript": "8.0.1",
+    "@babel/runtime-corejs3": "8.0.0",
     "@rollup/plugin-babel": "7.1.0",
     "@rollup/plugin-commonjs": "29.0.3",
     "@rollup/plugin-json": "6.1.0",
