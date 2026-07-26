@@ -79,7 +79,7 @@
     "dist"
   ],
   "dependencies": {
-    "fs-extra": "11.3.6"
+    "fs-extra": "11.4.0"
   },
   "peerDependencies": {
     "@babel/core": "7.29.7",
