@@ -64,6 +64,8 @@ jobs:
             - "repo/declarations"
             - "repo/dist"
             - "repo/lib"
+            - "repo/oxfmt-shared-config"
+            - "repo/oxlint-shared-config"
 
   lint:
     executor: node

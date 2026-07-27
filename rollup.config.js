@@ -1,9 +1,10 @@
-import packageJSON from "./package.json" with { type: "json" };
-import analyzer from "rollup-plugin-analyzer";
-import esbuild from "rollup-plugin-esbuild";
-import copy from "rollup-plugin-copy";
-import { nodeExternals } from "rollup-plugin-node-externals";
 import nodeResolve from "@rollup/plugin-node-resolve";
+import analyzer from "rollup-plugin-analyzer";
+import copy from "rollup-plugin-copy";
+import esbuild from "rollup-plugin-esbuild";
+import { nodeExternals } from "rollup-plugin-node-externals";
+
+import packageJSON from "./package.json" with { type: "json" };
 import { generateHeader } from "./src/module/header.ts";
 
 const VIS_DEBUG = ["1", "true", "y", "yes"].includes(
@@ -66,26 +67,28 @@ export default async function () {
       plugins: getPlugins(),
     },
     // File exports (CJS+ESM).
-    ...["babel-preset"].map((name) => {
-      return {
-        input: `src/${name}/index.ts`,
-        output: [
-          {
-            banner: bannerCommand,
-            file: `${name}/index.cjs`,
-            format: "cjs",
-            sourcemap: true,
-          },
-          {
-            banner: bannerCommand,
-            file: `${name}/index.mjs`,
-            format: "esm",
-            sourcemap: true,
-          },
-        ],
-        plugins: getPlugins(),
-      };
-    }),
+    ...["babel-preset", "oxlint-shared-config", "oxfmt-shared-config"].map(
+      (name) => {
+        return {
+          input: `src/${name}/index.ts`,
+          output: [
+            {
+              banner: bannerCommand,
+              file: `${name}/index.cjs`,
+              format: "cjs",
+              sourcemap: true,
+            },
+            {
+              banner: bannerCommand,
+              file: `${name}/index.mjs`,
+              format: "esm",
+              sourcemap: true,
+            },
+          ],
+          plugins: getPlugins(),
+        };
+      },
+    ),
     // Node commands.
     ...Object.entries(packageJSON.bin).map(([name, file]) => {
       return {
