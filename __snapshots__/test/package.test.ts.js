@@ -178,6 +178,18 @@ exports['package exported files 1'] = {
     "declarations/module/util.d.ts.map": {
       "empty": false
     },
+    "declarations/oxfmt-shared-config/index.d.ts": {
+      "empty": false
+    },
+    "declarations/oxfmt-shared-config/index.d.ts.map": {
+      "empty": false
+    },
+    "declarations/oxlint-shared-config/index.d.ts": {
+      "empty": false
+    },
+    "declarations/oxlint-shared-config/index.d.ts.map": {
+      "empty": false
+    },
     "declarations/test-e2e-interop/cli.d.ts": {
       "empty": false
     },
@@ -230,6 +242,30 @@ exports['package exported files 1'] = {
       "empty": false
     },
     "dist/vis-dev-utils.mjs.map": {
+      "empty": false
+    },
+    "oxfmt-shared-config/index.cjs": {
+      "empty": false
+    },
+    "oxfmt-shared-config/index.cjs.map": {
+      "empty": false
+    },
+    "oxfmt-shared-config/index.mjs": {
+      "empty": false
+    },
+    "oxfmt-shared-config/index.mjs.map": {
+      "empty": false
+    },
+    "oxlint-shared-config/index.cjs": {
+      "empty": false
+    },
+    "oxlint-shared-config/index.cjs.map": {
+      "empty": false
+    },
+    "oxlint-shared-config/index.mjs": {
+      "empty": false
+    },
+    "oxlint-shared-config/index.mjs.map": {
       "empty": false
     },
     "package.json": {

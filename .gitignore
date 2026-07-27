@@ -24,4 +24,6 @@
 /bin/
 /declarations/
 /dist/
+/oxfmt-shared-config/
+/oxlint-shared-config/
 /vis-dev-utils-0.0.0-no-version.tgz
