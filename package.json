@@ -121,7 +121,6 @@
     "babel-plugin-istanbul": "8.0.0",
     "chai": "6.2.2",
     "cheerio": "1.2.0",
-    "css-select": "7.0.0",
     "find-up": "8.0.0",
     "globby": "16.2.2",
     "jimp": "1.6.1",
