@@ -135,7 +135,7 @@
     "tmp": "0.2.3",
     "tmp-promise": "3.0.3",
     "typescript": "5.9.3",
-    "yargs": "18.0.0"
+    "yargs": "18.1.0"
   },
   "lint-staged": {
     "*.{js,ts,css,html,json,md,yml,yaml}": "oxfmt --no-error-on-unmatched-pattern",
