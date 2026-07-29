@@ -1,7 +1,7 @@
 import { execSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 
-import { fileSync, setGracefulCleanup } from "tmp-promise";
+import { fileSync, setGracefulCleanup } from "tmp";
 
 setGracefulCleanup();
 

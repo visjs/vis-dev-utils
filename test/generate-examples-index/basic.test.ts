@@ -7,7 +7,7 @@ import { expect } from "chai";
 import * as cheerio from "cheerio";
 import type { Element } from "domhandler";
 import snapshot from "snap-shot-it";
-import tmp from "tmp-promise";
+import { dirSync } from "tmp";
 
 const executable = resolve(
   spawnSync("npm", ["root"]).stdout.toString().slice(0, -1),
@@ -26,7 +26,7 @@ interface OutputDirs {
 }
 
 function prepareWorkplace(): OutputDirs {
-  const dir = resolve(tmp.dirSync({ mode: 0o700 }).name);
+  const dir = resolve(dirSync({ mode: 0o700 }).name);
   const assets = resolve(dir, "generated", "assets");
   const index = resolve(dir, "generated", "index");
   const pages = resolve(dir, "generated", "pages");
