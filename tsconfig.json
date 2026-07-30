@@ -6,7 +6,7 @@
     "esModuleInterop": true,
     "lib": ["dom", "esnext"],
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "noEmit": true,
     "outDir": "js/src",
     "paths": {},
