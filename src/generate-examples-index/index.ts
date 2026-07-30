@@ -4,6 +4,7 @@ import util from "node:util";
 
 import * as cheerio from "cheerio";
 import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
 
 import { parseArguments } from "./cli";
 import {
@@ -115,7 +116,7 @@ function lintExample(path: string, page: cheerio.CheerioAPI): boolean {
   let code = 0;
 
   if (!argv.index && !argv.screenshots && !argv.lint) {
-    yargs.parse("--help");
+    yargs(hideBin(process.argv)).parse("--help");
     return;
   }
 

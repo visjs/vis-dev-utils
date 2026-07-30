@@ -1,8 +1,9 @@
 import { spawnSync } from "node:child_process";
 
 import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
 
-yargs
+yargs(hideBin(process.argv))
   .strict(true)
   .usage("test-e2e-interop <command> [options]")
   .hide("version")
