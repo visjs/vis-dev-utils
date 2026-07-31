@@ -1,14 +1,12 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "src/module",
     "declaration": true,
     "declarationDir": "declarations",
     "declarationMap": true,
     "emitDeclarationOnly": true,
     "noEmit": false,
-    "outDir": "js/src",
-    "target": "esnext"
+    "rootDir": "src"
   },
   "exclude": ["node_modules", "**/__tests__/*"],
   "include": ["@types", "src"]

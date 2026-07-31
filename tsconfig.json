@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "allowImportingTsExtensions": true,
-    "baseUrl": ".",
     "declaration": false,
     "esModuleInterop": true,
     "lib": ["dom", "esnext"],
