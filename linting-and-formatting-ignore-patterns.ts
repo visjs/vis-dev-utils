@@ -1,13 +1,4 @@
 export const ignorePatterns: string[] = [
-  "/*",
-
-  "!/*?.?*",
-  "!/.?*.?*",
-
-  "!/src",
-  "!/test",
-
-  "!/@types",
-  "!/babel-preset",
-  "!/public",
+  "/__snapshots__/",
+  // Everything from gitignore is implicitly ignored.
 ];
