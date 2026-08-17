@@ -334,8 +334,8 @@ export async function test({
 
     // Prepare subdirectories under the root tmp directory.
     await Promise.all(
-      ["repos", "logs"].map(
-        (dir): Promise<void> => mkdir(resolvePath(data.tmpDir.name, dir)),
+      ["repos", "logs"].map((dir): Promise<void> =>
+        mkdir(resolvePath(data.tmpDir.name, dir)),
       ),
     );
 
@@ -435,9 +435,8 @@ export async function test({
           ...(await Promise.all(
             (
               await readdir(data.tmpLogsResolve())
-            ).map(
-              (filename): Promise<string> =>
-                readFile(data.tmpLogsResolve(filename), "utf-8"),
+            ).map((filename): Promise<string> =>
+              readFile(data.tmpLogsResolve(filename), "utf-8"),
             ),
           )),
           "",

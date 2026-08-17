@@ -106,9 +106,8 @@ export class ContentBuilder {
           );
 
           const results = await Promise.allSettled(
-            contentParts.map(
-              async ({ content, filename }): Promise<void> =>
-                writeFile(join(this.#config.output, filename), content),
+            contentParts.map(async ({ content, filename }): Promise<void> =>
+              writeFile(join(this.#config.output, filename), content),
             ),
           );
 
@@ -144,9 +143,8 @@ export class ContentBuilder {
                     html: generateCodePenPage(example),
                     path: example.paths.codepen.local,
                   },
-                ].map(
-                  async ({ html, path }): Promise<void> =>
-                    writeFile(path, await formatHTML(html)),
+                ].map(async ({ html, path }): Promise<void> =>
+                  writeFile(path, await formatHTML(html)),
                 ),
               );
 
