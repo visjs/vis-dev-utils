@@ -127,7 +127,7 @@
     "babel-plugin-istanbul": "8.0.0",
     "chai": "6.2.2",
     "postcss-assets": "6.0.0",
-    "puppeteer": "24.43.1",
+    "puppeteer": "25.8.0",
     "rollup": "4.44.2",
     "rollup-plugin-analyzer": "4.0.0",
     "rollup-plugin-copy": "3.5.0",
