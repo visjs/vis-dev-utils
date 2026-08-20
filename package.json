@@ -89,7 +89,7 @@
     "globby": "16.2.3",
     "jimp": "1.6.1",
     "oxfmt": "0.63.0",
-    "tmp": "0.2.3",
+    "tmp": "0.2.6",
     "yargs": "18.1.0"
   },
   "devDependencies": {
