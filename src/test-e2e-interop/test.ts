@@ -433,10 +433,9 @@ export async function test({
         [
           "",
           ...(await Promise.all(
-            (
-              await readdir(data.tmpLogsResolve())
-            ).map((filename): Promise<string> =>
-              readFile(data.tmpLogsResolve(filename), "utf-8"),
+            (await readdir(data.tmpLogsResolve())).map(
+              (filename): Promise<string> =>
+                readFile(data.tmpLogsResolve(filename), "utf-8"),
             ),
           )),
           "",
