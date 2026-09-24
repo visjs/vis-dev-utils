@@ -90,7 +90,7 @@
     "jimp": "1.6.1",
     "oxfmt": "0.63.0",
     "tmp": "0.2.3",
-    "yargs": "18.1.0"
+    "yargs": "18.2.0"
   },
   "devDependencies": {
     "@types/babel__core": "7.20.5",
