@@ -125,7 +125,7 @@
     "@rollup/plugin-terser": "1.0.0",
     "@rollup/plugin-typescript": "12.3.0",
     "babel-plugin-istanbul": "8.0.0",
-    "chai": "6.2.2",
+    "chai": "6.3.0",
     "postcss-assets": "6.0.0",
     "puppeteer": "24.43.1",
     "rollup": "4.44.2",
