@@ -133,7 +133,7 @@
     "rollup-plugin-copy": "3.5.0",
     "rollup-plugin-postcss": "4.0.2",
     "rollup-plugin-string": "3.0.0",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   },
   "lint-staged": {
     "*.{js,ts,css,html,json,md,yml,yaml}": "oxfmt --no-error-on-unmatched-pattern",
