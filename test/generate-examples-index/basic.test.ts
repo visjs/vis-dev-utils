@@ -100,6 +100,10 @@ describe("generate-examples-index", function (): void {
     describe("verify index", function (): void {
       let $index: cheerio.CheerioAPI;
 
+      function getNthExample(n: number): cheerio.Cheerio<Element> {
+        return $index(".example-link").eq(n);
+      }
+
       it("valid HTML", function (): void {
         $index = cheerio.load(
           readFileSync(join(output.index, "index.html"), "utf-8"),
@@ -148,10 +152,6 @@ describe("generate-examples-index", function (): void {
         .fill(null)
         .map((_value, i): number => i)) {
         describe(`example ${i + 1}`, function (): void {
-          function getNthExample(n: number): cheerio.Cheerio<Element> {
-            return $index(".example-link").eq(n);
-          }
-
           it("thumbnail", function (): void {
             expect(
               getNthExample(i).find(".example-image img").length,
