@@ -145,5 +145,8 @@
       "sortSnapshots": true,
       "useRelativePath": true
     }
+  },
+  "allowScripts": {
+    "puppeteer": true
   }
 }
