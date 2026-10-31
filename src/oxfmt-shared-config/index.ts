@@ -1,7 +1,9 @@
 import { defineConfig } from "oxfmt";
 import type { OxfmtConfig } from "oxfmt";
 
-export default defineConfig<OxfmtConfig>({
+export const sharedOxfmtConfig = defineConfig<
+  Pick<Required<OxfmtConfig>, "printWidth" | "sortImports">
+>({
   printWidth: 80,
   sortImports: {
     newlinesBetween: false,
@@ -57,3 +59,14 @@ export default defineConfig<OxfmtConfig>({
     ],
   },
 });
+export default sharedOxfmtConfig;
+
+export function defineSharedConfig({
+  ignorePatterns,
+}: Pick<Required<OxfmtConfig>, "ignorePatterns">): OxfmtConfig {
+  return defineConfig<OxfmtConfig>({
+    ignorePatterns,
+
+    ...sharedOxfmtConfig,
+  });
+}
